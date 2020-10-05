@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^1.0.2",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@glimmer/component": "^1.0.1",
     "@glimmer/tracking": "^1.0.1",
@@ -55,6 +56,7 @@
     "ember-simple-auth": "^3.0.0",
     "ember-source": "~3.21.1",
     "ember-template-lint": "^2.11.0",
+    "ember-truth-helpers": "^2.1.0",
     "ember-welcome-page": "^4.0.0",
     "eslint": "^7.8.0",
     "eslint-plugin-ember": "^8.13.0",
