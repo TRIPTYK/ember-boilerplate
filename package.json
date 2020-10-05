@@ -23,9 +23,16 @@
     "@ember/optional-features": "^1.3.0",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
+    "@types/ember": "^3.16.1",
+    "@types/ember-data": "^3.16.5",
+    "@types/ember-qunit": "^3.4.12",
+    "@types/ember-resolver": "^5.0.10",
+    "@types/ember__test-helpers": "^1.7.3",
+    "@types/qunit": "^2.9.5",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.5.3",
+    "ember-changeset-validations": "^3.9.1",
     "ember-cli": "~3.19.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.20.5",
@@ -33,6 +40,8 @@
     "ember-cli-htmlbars": "^5.1.2",
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-cli-sri": "^2.1.1",
+    "ember-cli-typescript": "^4.0.0",
+    "ember-cli-typescript-blueprints": "^3.0.0",
     "ember-cli-uglify": "^3.0.0",
     "ember-data": "~3.19.0",
     "ember-export-application-global": "^2.0.1",
@@ -41,6 +50,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
+    "ember-simple-auth": "^3.0.0",
     "ember-source": "~3.19.0",
     "ember-template-lint": "^2.8.0",
     "ember-welcome-page": "^4.0.0",
@@ -49,7 +59,8 @@
     "eslint-plugin-node": "^11.1.0",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
-    "qunit-dom": "^1.2.0"
+    "qunit-dom": "^1.2.0",
+    "typescript": "^4.0.3"
   },
   "engines": {
     "node": "10.* || >= 12"
