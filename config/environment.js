@@ -5,6 +5,8 @@ module.exports = function(environment) {
     modulePrefix: 'ember-boilerplate',
     podModulePrefix: 'ember-boilerplate/pods',
     environment,
+    host:'http://localhost:8080',
+    namespace:'api/v1',
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
