@@ -9,11 +9,11 @@ const purgeCSS = {
     content: [
       // add extra paths here for components/controllers which include tailwind classes
       './app/index.html',
-      './app/templates/**/*.hbs'
+      './app/templates/**/*.hbs',
     ],
-    defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-  }
-}
+    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+  },
+};
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -23,14 +23,14 @@ module.exports = function (defaults) {
           {
             module: require('postcss-import'),
             options: {
-              path: ['node_modules']
-            }
+              path: ['node_modules'],
+            },
           },
           require('tailwindcss')('./app/tailwind/config.js'),
-          ...isProduction ? [purgeCSS] : []
-        ]
-      }
-    }
+          // ...(isProduction ? purgeCSS : []),
+        ],
+      },
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
