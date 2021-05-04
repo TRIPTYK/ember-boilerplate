@@ -1,4 +1,4 @@
-import { JSONAPISerializer, Snapshot } from '@ember-data/serializer';
+import { JSONAPISerializer, Snapshot } from '@ember-data';
 
 export default class Application extends JSONAPISerializer {
   serializeAttribute(

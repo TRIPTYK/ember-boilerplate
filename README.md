@@ -1,29 +1,35 @@
 # ember-boilerplate
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Preconfigured ember project with
+
+- Typescript integration (ember-cli-typescript)
+- Prettier-eslint
+- Validations (ember-changeset-validations) (with types)
+- Tailwindcss
+- Sessions,Login,Logout,... (ember-simple-auth)
+- Base ember adapter, serializer and controller
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [Yarn](https://yarnpkg.com/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+- [Ember CLI](https://ember-cli.com/)
+- [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-boilerplate`
-* `yarn install`
+- `git clone <repository-url>` this repository
+- `cd ember-boilerplate`
+- `yarn install`
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+- `ember serve`
+- Visit your app at [http://localhost:4200](http://localhost:4200).
+- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
 ### Code Generators
 
@@ -31,18 +37,18 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Running Tests
 
-* `ember test`
-* `ember test --server`
+- `ember test`
+- `ember test --server`
 
 ### Linting
 
-* `yarn lint`
-* `yarn lint:fix`
+- `yarn lint`
+- `yarn lint:fix`
 
 ### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+- `ember build` (development)
+- `ember build --environment production` (production)
 
 ### Deploying
 
@@ -50,8 +56,8 @@ Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+- [ember.js](https://emberjs.com/)
+- [ember-cli](https://ember-cli.com/)
+- Development Browser Extensions
+  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
