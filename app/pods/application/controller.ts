@@ -1,10 +1,8 @@
 import Controller from '@ember/controller';
-import {action} from "@ember/object";
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class Application extends Controller.extend({
-  // anything which *must* be merged to prototype here
-}) {
+export default class Application extends Controller {
   @service session!: any;
 
   @action
@@ -15,7 +13,8 @@ export default class Application extends Controller.extend({
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your controllers.
 declare module '@ember/controller' {
+  // eslint-disable-next-line no-unused-vars
   interface Registry {
-    'application': Application;
+    application: Application;
   }
 }

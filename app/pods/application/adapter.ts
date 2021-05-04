@@ -38,7 +38,7 @@ export default class Application extends DS.JSONAPIAdapter.extend({
   }
 
   // @ts-ignore
-  urlForQueryRecord(query: ObjectLiteral,modelName: string) {
+  urlForQueryRecord(query: Record<string,any>,modelName: string) {
     const id = query.id;
     delete query.id;
     return this.buildURL(modelName, id, null, "findRecord", query);

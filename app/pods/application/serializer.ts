@@ -1,9 +1,12 @@
-import { ObjectLiteral } from 'ember-boilerplate/types/global.types';
-import DS from 'ember-data';
+import { JSONAPISerializer, Snapshot } from '@ember-data/serializer';
 
-export default class Application extends DS.JSONAPISerializer.extend({
-}) {
-  serializeAttribute(snapshot: DS.Snapshot, json: ObjectLiteral, key: string, attributes: ObjectLiteral) {    
+export default class Application extends JSONAPISerializer {
+  serializeAttribute(
+    snapshot: Snapshot,
+    json: Record<string, any>,
+    key: string,
+    attributes: Record<string, any>
+  ) {
     if (snapshot.record.get('isNew') || snapshot.changedAttributes()[key]) {
       super.serializeAttribute(snapshot, json, key, attributes);
     }
@@ -13,6 +16,6 @@ export default class Application extends DS.JSONAPISerializer.extend({
 // DO NOT DELETE: this is how TypeScript knows how to look up your serializers.
 declare module 'ember-data/types/registries/serializer' {
   export default interface SerializerRegistry {
-    'application': Application;
+    application: Application;
   }
 }
