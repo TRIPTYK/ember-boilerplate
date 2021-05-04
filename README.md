@@ -21,8 +21,10 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-- `git clone <repository-url>` this repository
+- `git clone git@github.com:TRIPTYK/ember-boilerplate.git` this repository
 - `cd ember-boilerplate`
+- `rm -rf .git`
+- `git init`
 - `yarn install`
 
 ## Running / Development
