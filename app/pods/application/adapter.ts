@@ -34,7 +34,6 @@ export default class Application extends DS.JSONAPIAdapter {
     return super.handleResponse(status, headers, payload, requestData);
   }
 
-  // @ts-ignore
   urlForQueryRecord(query: Record<string, any>, modelName: string) {
     const id = query.id;
     delete query.id;
