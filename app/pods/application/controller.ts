@@ -1,9 +1,11 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
+import { inject } from '@ember/service';
+import FlashMessageService from 'ember-cli-flash/services/flash-messages';
 
 export default class Application extends Controller {
-  @service session!: any;
+  @inject session!: any;
+  @inject flashMessages!: FlashMessageService;
 
   @action
   logout() {

@@ -1,8 +1,8 @@
-import DS from 'ember-data';
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
 
-export default class Application extends DS.JSONAPIAdapter {
+export default class Application extends JSONAPIAdapter {
   @service session!: any;
   @service flashMessages!: any;
 
