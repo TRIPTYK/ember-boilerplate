@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import User from '../models/user';
 import Store from '@ember-data/store';
 import Fetch from './fetch';
+// custom module type in types/
 
 export default class CurrentUser extends Service {
   @service session!: any;

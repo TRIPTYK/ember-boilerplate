@@ -3,9 +3,7 @@ import BaseSessionService from 'ember-simple-auth/services/session';
 import { inject } from '@ember/service';
 import CurrentUser from './current-user';
 
-export default class Session extends BaseSessionService.extend({
-  // anything which *must* be merged to prototype here
-}) {
+export default class Session extends BaseSessionService {
   @inject currentUser!: CurrentUser;
 
   async handleAuthentication(routeAfterAuthentication: any) {

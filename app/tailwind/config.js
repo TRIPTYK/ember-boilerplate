@@ -5,7 +5,7 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   mode: 'jit',
-  purge: ['./app/**/*.{hbs,html}'],
+  purge: ['./app/**/*.{hbs,js,ts}', './tests/**/*.{hbs,js,ts}'],
   prefix: '',
   important: false,
   separator: ':',
