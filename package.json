@@ -28,7 +28,6 @@
     "@ember/test-helpers": "^2.2.5",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "@types/ember": "^3.16.3",
     "@types/ember-data": "^3.16.13",
     "@types/ember-data__adapter": "^3.16.1",
     "@types/ember-data__model": "^3.16.2",

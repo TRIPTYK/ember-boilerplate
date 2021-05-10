@@ -34,7 +34,10 @@ export default class Application extends JSONAPIAdapter {
     return super.handleResponse(status, headers, payload, requestData);
   }
 
-  urlForQueryRecord(query: Record<string, any>, modelName: string) {
+  urlForQueryRecord(
+    query: Record<string, any>,
+    modelName: string | number
+  ): string {
     const id = query.id;
     delete query.id;
     return this.buildURL(modelName, id, null, 'findRecord', query);
