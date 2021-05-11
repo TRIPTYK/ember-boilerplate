@@ -15,6 +15,7 @@ module.exports = function (defaults) {
           },
           require('tailwindcss')('./app/tailwind/config.js'),
         ],
+        cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\.config\.js$/],
       },
     },
   });

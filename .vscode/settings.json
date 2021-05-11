@@ -17,5 +17,14 @@
     "source.fixAll": true
   },
   "eslint.format.enable": true,
-  "eslint.workingDirectories": ["."]
+  "eslint.workingDirectories": ["."],
+  "tailwindCSS.emmetCompletions": true,
+  "emmet.includeLanguages": {
+    "Handlebars": "html"
+  },
+  "editor.minimap.enabled": false,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "Handlebars": "html"
+  }
 }
