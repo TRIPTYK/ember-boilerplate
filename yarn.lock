@@ -6102,7 +6102,7 @@ ember-cookies@^0.5.0:
     ember-cli-babel "^7.1.0"
     ember-getowner-polyfill "^1.1.0 || ^2.0.0"
 
-"ember-data@~3.26,0":
+ember-data@~3.26.0:
   version "3.26.0"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.26.0.tgz#cc6f86e6fd38b2984472faed2146d2d5f2b32252"
   integrity sha512-rywnYB2vsEMrsvugT+nMlWc/H7QM9LplQxVIKHPKak1wxGKm8EHS7eA/qSWC6CykALItOG2gix05ymPYxqdI1Q==
