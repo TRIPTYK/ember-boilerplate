@@ -19,6 +19,7 @@ export default class CurrentUser extends Service {
       let user = await this.store.queryRecord('user', { profile: true });
       this.user = user;
     }
+    return this.user;
   }
 }
 
