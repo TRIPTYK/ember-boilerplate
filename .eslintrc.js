@@ -50,5 +50,10 @@ module.exports = {
         'use-ember-data-rfc-395-imports': 'off',
       },
     },
+    {
+      // Test files:
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
+    },
   ],
 };
