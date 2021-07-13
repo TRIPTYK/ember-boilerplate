@@ -21,11 +21,23 @@
     "module": "es6",
     "experimentalDecorators": true,
     "paths": {
-      "ember-boilerplate/tests/*": ["tests/*"],
-      "ember-boilerplate/*": ["app/*"],
-      "ember-cli-flash/*": ["node_modules/ember-cli-flash"],
-      "*": ["types/*"]
+      "ember-boilerplate/tests/*": [
+        "tests/*"
+      ],
+      "ember-boilerplate/*": [
+        "app/*"
+      ],
+      "ember-cli-flash/*": [
+        "node_modules/ember-cli-flash"
+      ],
+      "*": [
+        "types/*"
+      ]
     }
   },
-  "include": ["app/**/*", "tests/**/*", "types/**/*"]
+  "include": [
+    "app/**/*",
+    "tests/**/*",
+    "types/**/*"
+  ]
 }

@@ -20,12 +20,16 @@
     "lint:js:fix": "eslint . --fix",
     "start": "TAILWIND_MODE=watch ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "postinstall": "rm -rf node_modules/@types/loader-utils"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
     "@ember/test-helpers": "^2.2.5",
+    "@embroider/compat": "^0.42.3",
+    "@embroider/core": "^0.42.3",
+    "@embroider/webpack": "^0.42.3",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@types/ember-data": "^3.16.15",
@@ -73,7 +77,7 @@
     "ember-cli-terser": "^4.0.2",
     "ember-cli-typescript": "^4.2.1",
     "ember-cli-typescript-blueprints": "^3.0.0",
-    "ember-data": "~3.27.1",
+    "ember-data": "~3.26,0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.1.0",
     "ember-load-initializers": "^2.1.2",
@@ -85,7 +89,7 @@
     "ember-source": "~3.27.2",
     "ember-template-lint": "^3.4.2",
     "ember-template-lint-plugin-prettier": "^2.0.0",
-    "ember-truth-helpers": "^2.1.0",
+    "ember-truth-helpers": "^3.0.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "^10.4.2",
@@ -99,7 +103,8 @@
     "prettier": "^2.3.0",
     "qunit": "^2.16.0",
     "qunit-dom": "^1.6.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack": "^5.44.0"
   },
   "engines": {
     "node": "10.* || >= 12"
