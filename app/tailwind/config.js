@@ -7,7 +7,7 @@ module.exports = {
   mode: 'jit',
   purge: {
     enabled: true,
-    content : ['./app/**/*.{hbs,js,ts}', './tests/**/*.{hbs,js,ts}']
+    content : ['./app/**/*.{hbs,js,ts,html}', './tests/**/*.{hbs,js,ts,html}']
   },
   corePlugins: {},
   plugins: [],
