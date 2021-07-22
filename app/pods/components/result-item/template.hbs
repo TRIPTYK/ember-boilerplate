@@ -1,0 +1,57 @@
+<div class="flex items-center">
+  <div class="relative h-24 w-24 mr-3">
+    <img
+      src={{@song.artwork_url}}
+      alt={{@song.title}}
+      class="absolute inset-0 h-24 w-24 object-cover"
+    />
+    <button
+      type="button"
+      class="absolute h-full w-full inset-0 flex items-center justify-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-16 w-16 flex text-yellow-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  <div class="flex flex-col">
+    <div class="text-xl">{{@song.title}}</div>
+    <div class="text-sm text-gray-400">{{@song.user.username}}</div>
+  </div>
+</div>
+{{!-- <Mp3Player @track={{@song.permalink_url}} /> --}}
+{{!-- <audio src={{@song.permalink_url}} preload="auto" autoplay="true"></audio> --}}
+<iframe
+  width="100%"
+  height="166"
+  scrolling="no"
+  frameborder="no"
+  allow="autoplay"
+  id="track{{@song.id}}"
+  src="https://w.soundcloud.com/player/?url={{@song.permalink_url}}&show_artwork=false&show_playcount=false&show_user=false&download=false&sharing=false&buying=false"
+>
+</iframe>
+<button
+  type="button"
+  class="bg-blue-500 text-white p-4 rounded"
+  {{on "click" (fn this.test @song.id)}}
+>
+  testons ça
+</button>

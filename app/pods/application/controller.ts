@@ -1,15 +1,27 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject } from '@ember/service';
-import FlashMessageService from 'ember-cli-flash/services/flash-messages';
+import { tracked } from '@glimmer/tracking';
 
 export default class Application extends Controller {
-  @inject session!: any;
-  @inject flashMessages!: FlashMessageService;
+  @inject router!: any;
+  @tracked isOpen: boolean = false;
+  get activeRoute() {
+    switch (this.router.currentRouteName) {
+      case 'index':
+        return 'Accueil';
+      case 'search':
+        return 'Recherche';
+      case 'favorites':
+        return 'Favoris';
+      default:
+        return '';
+    }
+  }
 
   @action
-  logout() {
-    this.session.invalidate();
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
   }
 }
 
