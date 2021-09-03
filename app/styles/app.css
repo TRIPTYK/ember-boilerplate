@@ -5,10 +5,3 @@
 
 @import 'tailwindcss/utilities';
 @import 'utilities.css';
-
-.menuItem:not(.activeMenu) {
-  @apply text-gray-300 hover:bg-gray-700;
-}
-.activeMenu {
-  @apply bg-gray-900 text-white;
-}
