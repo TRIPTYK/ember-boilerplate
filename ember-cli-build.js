@@ -1,3 +1,4 @@
+/* eslint-disable node/no-missing-require */
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -31,6 +32,8 @@ module.exports = function (defaults) {
   // If the library that you are including contains AMD or ES6
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
-  // alon g with the exports of each module as its value.
-  return app.toTree();
+  // along with the exports of each module as its value.
+  const { Webpack } = require('@embroider/webpack');
+
+  return require('@embroider/compat').compatBuild(app, Webpack);
 };
