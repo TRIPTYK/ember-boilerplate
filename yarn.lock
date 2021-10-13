@@ -7338,7 +7338,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.0.2
     ember-changeset-validations: ^3.16.0
-    ember-cli: ~3.28.0
+    ember-cli: ~3.28.1
     ember-cli-app-version: ^5.0.0
     ember-cli-babel: ^7.26.6
     ember-cli-dependency-checker: ^3.2.0
@@ -7372,6 +7372,7 @@ __metadata:
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^3.4.1
     eslint-plugin-qunit: ^6.2.0
+    husky: ^7.0.0
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     postcss: ^8.3.6
@@ -7848,9 +7849,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~3.28.0":
-  version: 3.28.0
-  resolution: "ember-cli@npm:3.28.0"
+"ember-cli@npm:~3.28.1":
+  version: 3.28.1
+  resolution: "ember-cli@npm:3.28.1"
   dependencies:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-modules-amd": ^7.12.1
@@ -7945,7 +7946,7 @@ __metadata:
     yam: ^1.0.0
   bin:
     ember: bin/ember
-  checksum: 7f1d9fda65ffd1ba260bbef4fc705e1c79fede17b9a6849e08e24f84480ccd239cc8c6a5b68dbc812d5d22584d180741ea9b890eec6feb7fb5e913b38f53cc3c
+  checksum: c35ee0066d3f90ca944e43096f346fa834a34fd05eee8822c770366691bee1b0c272814328dc2d1e94f17bba9b1b1f8d86ad9405da0df63164c7437f2e423c25
   languageName: node
   linkType: hard
 
@@ -10541,6 +10542,15 @@ fsevents@~2.3.2:
   dependencies:
     ms: ^2.0.0
   checksum: 9c7a74a2827f9294c009266c82031030eae811ca87b0da3dceb8d6071b9bde22c9f3daef0469c3c533cc67a97d8a167cd9fc0389350e5f415f61a79b171ded16
+  languageName: node
+  linkType: hard
+
+"husky@npm:^7.0.0":
+  version: 7.0.2
+  resolution: "husky@npm:7.0.2"
+  bin:
+    husky: lib/bin.js
+  checksum: 2ccfe6ddc51dc05ae8ea1e2fbb893344e93a813e00c595d6b5f5e704b7b998d6b0e2adda7c57f99b5e46a60dc07c7d860269a2ea91661c6bacef0eca8e0b8e96
   languageName: node
   linkType: hard
 
