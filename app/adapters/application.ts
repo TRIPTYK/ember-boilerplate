@@ -1,10 +1,12 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { inject as service } from '@ember/service';
+import Session from 'ember-boilerplate/services/session';
+import FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import config from '../config/environment';
 
 export default class Application extends JSONAPIAdapter {
-  @service session!: any;
-  @service flashMessages!: any;
+  @service session!: Session;
+  @service flashMessages!: FlashMessageService;
 
   host = config.host;
   namespace = config.namespace;
@@ -23,7 +25,12 @@ export default class Application extends JSONAPIAdapter {
     return headers;
   }
 
-  handleResponse(status: number, headers: any, payload: any, requestData: any) {
+  handleResponse(
+    status: number,
+    headers: Record<string, unknown>,
+    payload: Record<string, unknown>,
+    requestData: Record<string, unknown>
+  ) {
     if (status === 401 && this.session.isAuthenticated) {
       this.session.invalidate();
     } else {
@@ -35,10 +42,10 @@ export default class Application extends JSONAPIAdapter {
   }
 
   urlForQueryRecord(
-    query: Record<string, any>,
+    query: Record<string, unknown>,
     modelName: string | number
   ): string {
-    const id = query.id;
+    const id = query.id as string | number;
     delete query.id;
     return this.buildURL(modelName, id, null, 'findRecord', query);
   }

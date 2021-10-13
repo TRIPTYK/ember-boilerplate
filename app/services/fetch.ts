@@ -9,7 +9,7 @@ export default class Fetch extends Service {
     url: string,
     method: RequestTypes = 'GET',
     responseType: ResponseType = 'JSON',
-    data: any = undefined
+    data: unknown = undefined
   ) {
     const adapter = getOwner(this).lookup('adapter:application');
 

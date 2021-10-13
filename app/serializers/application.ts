@@ -1,11 +1,13 @@
 import JSONAPISerializer from '@ember-data/serializer/json-api';
+// eslint-disable-next-line ember/use-ember-data-rfc-395-imports
+import DS from 'ember-data';
 
 export default class Application extends JSONAPISerializer {
   serializeAttribute(
-    snapshot: any,
-    json: Record<string, any>,
+    snapshot: DS.Snapshot,
+    json: Record<string, unknown>,
     key: string,
-    attributes: Record<string, any>
+    attributes: Record<string, unknown>
   ) {
     if (snapshot.record.get('isNew') || snapshot.changedAttributes()[key]) {
       super.serializeAttribute(snapshot, json, key, attributes);

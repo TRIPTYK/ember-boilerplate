@@ -4,9 +4,10 @@ import { tracked } from '@glimmer/tracking';
 import Store from '@ember-data/store';
 import Fetch from './fetch';
 import UserModel from 'ember-boilerplate/models/user';
+import Session from './session';
 
 export default class CurrentUser extends Service {
-  @service declare session: any;
+  @service declare session: Session;
   @service declare store: Store;
   @service declare fetch: Fetch;
 
