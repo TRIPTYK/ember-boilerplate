@@ -1,6 +1,6 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { inject as service } from '@ember/service';
-import config from '../../config/environment';
+import config from '../config/environment';
 
 export default class Application extends JSONAPIAdapter {
   @service session!: any;

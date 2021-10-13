@@ -11,6 +11,14 @@ export default class Application extends JSONAPISerializer {
       super.serializeAttribute(snapshot, json, key, attributes);
     }
   }
+
+  keyForAttribute(key: string) {
+    return key;
+  }
+
+  keyForRelationship(key: string) {
+    return key;
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your serializers.

@@ -26,9 +26,9 @@
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
     "@ember/test-helpers": "^2.4.2",
-    "@embroider/compat": "^0.44.0",
-    "@embroider/core": "^0.44.0",
-    "@embroider/webpack": "^0.44.0",
+    "@embroider/compat": "^0.46.2",
+    "@embroider/core": "^0.46.2",
+    "@embroider/webpack": "^0.46.2",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@types/ember-data": "latest",
@@ -87,7 +87,8 @@
     "ember-page-title": "^6.2.2",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
-    "ember-simple-auth": "^3.1.0",
+    "ember-simple-auth": "~4.0.0",
+    "ember-simple-auth-token": "~5.2.2",
     "ember-source": "~3.28.0",
     "ember-template-lint": "^3.6.0",
     "ember-template-lint-plugin-prettier": "^2.0.0",
@@ -105,7 +106,7 @@
     "prettier": "^2.3.2",
     "qunit": "^2.16.0",
     "qunit-dom": "^1.6.0",
-    "tailwindcss": "^2.2.9",
+    "tailwindcss": "^2.2.16",
     "typescript": "latest",
     "webpack": "^5.52.0"
   },
@@ -115,5 +116,8 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.0.2"
+  "packageManager": "yarn@3.0.2",
+  "volta": {
+    "node": "14.18.0"
+  }
 }

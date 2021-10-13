@@ -19,7 +19,9 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'error',
+  },
   overrides: [
     // node files
     {

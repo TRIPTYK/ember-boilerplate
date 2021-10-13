@@ -1,5 +1,11 @@
 import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
+import CurrentUser from 'ember-boilerplate/services/current-user';
 
 export default class Application extends Route {
-  // normal class body definition here
+  @inject declare currentUser: CurrentUser;
+
+  async beforeModel() {
+    await this.currentUser.load();
+  }
 }
