@@ -6,7 +6,7 @@ import Transition from '@ember/routing/-private/transition';
 declare module 'ember-simple-auth/services/session' {
   export default class SessionService extends Service {
     isAuthenticated: boolean;
-    data: any;
+    data: unknown;
     store: Store;
     authenticate(): Promise<void>;
     invalidate(): Promise<void>;

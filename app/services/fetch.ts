@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
+import fetch from 'fetch';
 
 export type RequestTypes = 'GET' | 'POST' | 'DELETE' | 'PATCH';
 export type ResponseType = 'JSON' | 'TEXT' | 'BLOB' | 'RAW';
