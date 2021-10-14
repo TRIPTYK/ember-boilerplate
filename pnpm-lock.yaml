@@ -6,6 +6,7 @@ specifiers:
   '@ember/test-helpers': ^2.4.2
   '@embroider/compat': ^0.47.0
   '@embroider/core': ^0.47.0
+  '@embroider/router': ^0.47.0
   '@embroider/webpack': ^0.47.0
   '@glimmer/component': ^1.0.4
   '@glimmer/tracking': ^1.0.4
@@ -89,6 +90,7 @@ specifiers:
   tailwindcss: ^2.2.17
   typescript: latest
   webpack: ^5.52.0
+  webpack-bundle-analyzer: ^4.5.0
 
 devDependencies:
   '@ember/optional-features': 2.0.0
@@ -96,6 +98,7 @@ devDependencies:
   '@ember/test-helpers': 2.5.0
   '@embroider/compat': 0.47.0_@embroider+core@0.47.0
   '@embroider/core': 0.47.0
+  '@embroider/router': 0.47.0_54c6e84a766f8ca230af072a226168cc
   '@embroider/webpack': 0.47.0_d73edf2891cd600020b72955e4ef6979
   '@glimmer/component': 1.0.4
   '@glimmer/tracking': 1.0.4
@@ -179,6 +182,7 @@ devDependencies:
   tailwindcss: 2.2.17_96f83969316717847b3edf58a3f353f3
   typescript: 4.4.4
   webpack: 5.58.2
+  webpack-bundle-analyzer: 4.5.0
 
 packages:
 
@@ -277,7 +281,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/compat-data': 7.15.0
-      '@babel/core': 7.15.8
+      '@babel/core': 7.15.8_supports-color@8.1.1
       '@babel/helper-validator-option': 7.14.5
       browserslist: 4.17.4
       semver: 6.3.0
@@ -2447,6 +2451,27 @@ packages:
       - supports-color
     dev: true
 
+  /@embroider/router/0.47.0_54c6e84a766f8ca230af072a226168cc:
+    resolution: {integrity: sha512-m0gjGdkxW42I1/JMkwYs85eGk/ISpz0dYb9POYzo/9kwgHwt6Kjob2wsKef5vtQxi1RfM3825aG5Ewmwkz1RlQ==}
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      '@embroider/core': 0.47.0
+      '@types/ember__routing': '*'
+    peerDependenciesMeta:
+      '@embroider/core':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+    dependencies:
+      '@ember/test-waiters': 3.0.0
+      '@embroider/core': 0.47.0
+      '@embroider/macros': 0.47.0
+      '@types/ember__routing': 3.16.15
+      ember-cli-babel: 7.26.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@embroider/shared-internals/0.40.0:
     resolution: {integrity: sha512-Ovr/i0Qgn6W6jdGXMvYJKlRoRpyBY9uhYozDSFKlBjeEmRJ0Plp7OST41+O5Td6Pqp+Rv2jVSnGzhA/MpC++NQ==}
     engines: {node: 10.* || 12.* || >= 14}
@@ -2760,6 +2785,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@polka/url/1.0.0-next.21:
+    resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
   /@simple-dom/interface/1.4.0:
@@ -3564,6 +3593,11 @@ packages:
 
   /acorn-walk/7.2.0:
     resolution: {integrity: sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==}
+    engines: {node: '>=0.4.0'}
+    dev: true
+
+  /acorn-walk/8.2.0:
+    resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
     engines: {node: '>=0.4.0'}
     dev: true
 
@@ -6561,6 +6595,10 @@ packages:
       is-obj: 2.0.0
     dev: true
 
+  /duplexer/0.1.2:
+    resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
+    dev: true
+
   /duplexify/3.7.1:
     resolution: {integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==}
     dependencies:
@@ -9002,6 +9040,13 @@ packages:
     resolution: {integrity: sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=}
     dev: true
 
+  /gzip-size/6.0.0:
+    resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
+    engines: {node: '>=10'}
+    dependencies:
+      duplexer: 0.1.2
+    dev: true
+
   /handlebars/4.7.7:
     resolution: {integrity: sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==}
     engines: {node: '>=0.4.7'}
@@ -10652,6 +10697,12 @@ packages:
     hasBin: true
     dev: true
 
+  /mime/2.5.2:
+    resolution: {integrity: sha512-tqkh47FzKeCPD2PUiPB6pkbMzsCasjxAfC62/Wap5qrUWcb+sFasXUC5I3gYM5iBM8v/Qpn4UK0x+j0iHyFPDg==}
+    engines: {node: '>=4.0.0'}
+    hasBin: true
+    dev: true
+
   /mimic-fn/1.2.0:
     resolution: {integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==}
     engines: {node: '>=4'}
@@ -11116,6 +11167,11 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       mimic-fn: 2.1.0
+    dev: true
+
+  /opener/1.5.2:
+    resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
+    hasBin: true
     dev: true
 
   /optionator/0.8.3:
@@ -12545,6 +12601,15 @@ packages:
       is-arrayish: 0.3.2
     dev: true
 
+  /sirv/1.0.17:
+    resolution: {integrity: sha512-qx9go5yraB7ekT7bCMqUHJ5jEaOC/GXBxUWv+jeWnb7WzHUFdcQPGWk7YmAwFBaQBrogpuSqd/azbC2lZRqqmw==}
+    engines: {node: '>= 10'}
+    dependencies:
+      '@polka/url': 1.0.0-next.21
+      mime: 2.5.2
+      totalist: 1.1.0
+    dev: true
+
   /slash/1.0.0:
     resolution: {integrity: sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=}
     engines: {node: '>=0.10.0'}
@@ -13405,6 +13470,11 @@ packages:
     engines: {node: '>=0.6'}
     dev: true
 
+  /totalist/1.1.0:
+    resolution: {integrity: sha512-gduQwd1rOdDMGxFG1gEvhV88Oirdo2p+KjoYFU7k2g+i7n6AFFbDQ5kMPUsW0pNbfQsB/cwXvT1i4Bue0s9g5g==}
+    engines: {node: '>=6'}
+    dev: true
+
   /tough-cookie/4.0.0:
     resolution: {integrity: sha512-tHdtEpQCMrc1YLrMaqXXcj6AxhYi/xgit6mZu1+EDWUn+qhUf8wMQoFIy9NXuq23zAwtcB0t/MjACGR18pcRbg==}
     engines: {node: '>=6'}
@@ -13857,6 +13927,25 @@ packages:
   /webidl-conversions/6.1.0:
     resolution: {integrity: sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==}
     engines: {node: '>=10.4'}
+    dev: true
+
+  /webpack-bundle-analyzer/4.5.0:
+    resolution: {integrity: sha512-GUMZlM3SKwS8Z+CKeIFx7CVoHn3dXFcUAjT/dcZQQmfSZGvitPfMob2ipjai7ovFFqPvTqkEZ/leL4O0YOdAYQ==}
+    engines: {node: '>= 10.13.0'}
+    hasBin: true
+    dependencies:
+      acorn: 8.5.0
+      acorn-walk: 8.2.0
+      chalk: 4.1.2
+      commander: 7.2.0
+      gzip-size: 6.0.0
+      lodash: 4.17.21
+      opener: 1.5.2
+      sirv: 1.0.17
+      ws: 7.5.5
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
     dev: true
 
   /webpack-sources/1.4.3:

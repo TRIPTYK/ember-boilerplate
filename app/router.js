@@ -1,5 +1,5 @@
-import EmberRouter from '@ember/routing/router';
 import config from 'ember-boilerplate/config/environment';
+import EmberRouter from '@embroider/router';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -8,4 +8,6 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('404', { path: '/*path' });
+
+  this.route('articles', function () {});
 });

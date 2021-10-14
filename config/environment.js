@@ -3,7 +3,6 @@
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'ember-boilerplate',
-    podModulePrefix: 'ember-boilerplate/pods',
     environment,
     host: 'http://localhost:8080',
     namespace: 'api/v1',
