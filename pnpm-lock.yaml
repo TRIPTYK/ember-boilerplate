@@ -41,6 +41,7 @@ specifiers:
   autoprefixer: ^10.3.7
   babel-eslint: ^10.1.0
   broccoli-asset-rev: ^3.0.0
+  date-fns: ^2.25.0
   ember-auto-import: ^2.0.2
   ember-changeset-validations: ^3.16.0
   ember-cli: ~3.28.1
@@ -130,6 +131,7 @@ devDependencies:
   autoprefixer: 10.3.7_postcss@8.3.9
   babel-eslint: 10.1.0_eslint@7.32.0
   broccoli-asset-rev: 3.0.0
+  date-fns: 2.25.0
   ember-auto-import: 2.2.2_webpack@5.58.2
   ember-changeset-validations: 3.16.0
   ember-cli: 3.28.2
