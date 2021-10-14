@@ -2,7 +2,15 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const { V1Addon } = require('@embroider/compat');
+const { forceIncludeModule } = require('@embroider/compat/src/compat-utils');
+
+class EmberDataCompatAdapter extends V1Addon {
+  get packageMeta() {
+    return forceIncludeModule(super.packageMeta, './-private');
+  }
+}
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -44,11 +52,10 @@ module.exports = function (defaults) {
     staticAddonTrees: true,
     staticHelpers: true,
     staticComponents: true,
-    splitAtRoutes: ['index'], // can also be a RegExp
-    packagerOptions: {
-      webpackConfig: {
-        plugins: [new BundleAnalyzerPlugin()],
-      },
-    },
+    compatAdapters: new Map([
+      ['@ember-data/model', EmberDataCompatAdapter],
+      ['@ember-data/record-data', EmberDataCompatAdapter],
+    ]),
+    splitAtRoutes: ['comments.details', 'comments.create'], // can also be a RegExp
   });
 };
