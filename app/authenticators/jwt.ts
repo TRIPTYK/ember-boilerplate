@@ -24,7 +24,7 @@ function unixTime() {
   return Date.now() / 1000;
 }
 
-export default class CustomAuthenticator extends Base {
+export default class JwtAuthenticator extends Base {
   private accessTokenLoop?: EmberRunTimer; // id of the ember run loop
   private leway = 50; // time to refresh before expiration of the accessToken
 
