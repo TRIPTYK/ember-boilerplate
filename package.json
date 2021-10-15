@@ -115,6 +115,9 @@
     "webpack": "^5.52.0",
     "webpack-bundle-analyzer": "^4.5.0"
   },
+  "overrides": {
+    "socket.io": "4.2.0"
+  },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
