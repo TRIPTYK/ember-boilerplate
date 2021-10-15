@@ -28,7 +28,11 @@ jobs:
       - name: Setup Chrome
         # You may pin to the exact commit or the version.
         # uses: browser-actions/setup-chrome@4fa655aad48f56911cad16db9252399a9e592848
-        uses: browser-actions/setup-chrome@v0.0.0
+        uses: nanasess/setup-chromedriver@master
+      - run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       # Runs a single command using the runners shell
       - name: Install
