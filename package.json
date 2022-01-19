@@ -21,9 +21,11 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
+    "test:ember:coverage": "COVERAGE=true ember test",
     "postinstall": "husky install"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^2.0.3",
     "@ember/test-helpers": "^2.6.0",
@@ -71,6 +73,7 @@
     "ember-cli": "~4.1.0",
     "ember-cli-app-version": "^5.0.0",
     "ember-cli-babel": "^7.26.11",
+    "ember-cli-code-coverage": "2.0.0-beta.4",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-flash": "^3.0.0",
     "ember-cli-htmlbars": "^6.0.1",
@@ -89,7 +92,7 @@
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
-    "ember-simple-auth": "^4.0.2",
+    "ember-simple-auth": "^4.1.1",
     "ember-source": "^4.1.0",
     "ember-template-lint": "^4.0.0",
     "ember-template-lint-plugin-prettier": "^4.0.0",
