@@ -1,13 +1,12 @@
-// app/authenticators/custom.js
 import Base from 'ember-simple-auth/authenticators/base';
 import fetch from 'fetch';
 import { getOwner } from '@ember/application';
 import { isEmpty } from '@ember/utils';
 import { cancel, later } from '@ember/runloop';
 import config from '../config/environment';
-import UserModel from 'ember-boilerplate/models/user';
 import { EmberRunTimer } from '@ember/runloop/types';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
+import UserModel from 'ember-boilerplate/models/user';
 
 export interface BackendAuthResponse {
   accessToken: string;

@@ -34,6 +34,12 @@
       "fetch": [
         "node_modules/ember-fetch"
       ],
+      "ember-changeset-validations": [
+        "node_modules/ember-form-changeset-validations/types/ember-changeset-validations"
+      ],
+      "ember-changeset-validations/*": [
+        "node_modules/ember-form-changeset-validations/types/ember-changeset-validations/*"
+      ],
       "*": [
         "types/*"
       ]

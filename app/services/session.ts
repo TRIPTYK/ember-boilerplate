@@ -3,7 +3,7 @@ import { inject } from '@ember/service';
 import CurrentUser from './current-user';
 
 export default class Session extends BaseSessionService {
-  @inject currentUser!: CurrentUser;
+  @inject declare currentUser: CurrentUser;
 
   async handleAuthentication() {
     try {
