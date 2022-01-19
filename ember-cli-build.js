@@ -11,9 +11,9 @@ const { forceIncludeModule } = require('@embroider/compat/src/compat-utils');
  * Ember data incompatibility with Embroider
  */
 class EmberDataCompatAdapter extends V1Addon {
-   get packageMeta() {
+  get packageMeta() {
     return forceIncludeModule(super.packageMeta, './-private');
-   }
+  }
 }
 
 module.exports = function (defaults) {
@@ -29,9 +29,9 @@ module.exports = function (defaults) {
               path: ['node_modules'],
             },
           },
-          require('tailwindcss')('./app/tailwind/config.js'),
+          require('tailwindcss')('./app/tailwind/tailwind.config.js'),
         ],
-        cacheInclude: [/.*\.(css|hbs|html)$/, /config\.js/],
+        cacheInclude: [/.*\.(css|hbs|html)$/, /tailwind\.config\.js/],
       },
     },
   });
@@ -57,8 +57,8 @@ module.exports = function (defaults) {
     staticHelpers: true,
     staticComponents: true,
     compatAdapters: new Map([
-       ['@ember-data/model', EmberDataCompatAdapter],
-       ['@ember-data/record-data', EmberDataCompatAdapter],
+      ['@ember-data/model', EmberDataCompatAdapter],
+      ['@ember-data/record-data', EmberDataCompatAdapter],
     ]),
     splitAtRoutes: ['comments.details', 'comments.create'], // can also be a RegExp
   });
