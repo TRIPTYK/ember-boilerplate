@@ -22,7 +22,9 @@
           id="email"
           name="email"
           type="email"
+          data-test-input="email"
           autocomplete="email"
+          value={{changeset-get @changeset "email"}}
           {{on "change" (fn this.changeInput "email")}}
           class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         />
@@ -39,8 +41,9 @@
           name="password"
           type="password"
           autocomplete="current-password"
+          data-test-input="password"
+          value={{changeset-get @changeset "password"}}
           {{on "change" (fn this.changeInput "password")}}
-          required
           class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         />
       </div>
