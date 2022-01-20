@@ -9,25 +9,29 @@ export default class Fetch extends Service {
   async request(
     url: string,
     method: RequestTypes = 'GET',
-    responseType: ResponseType = 'JSON',
-    data: unknown = undefined
+    responseType: ResponseType,
+    moreOptions: Record<string, unknown>
   ) {
     const adapter = getOwner(this).lookup('adapter:application');
 
     return fetch(`${adapter.host}/${adapter.namespace}/${url}`, {
       method,
-      body: data ? JSON.stringify(data) : undefined,
       headers: adapter.headers,
+      ...moreOptions,
     }).then((res) => {
+      if (res.status >= 400) {
+        throw res;
+      }
+
       switch (responseType) {
-        case 'RAW':
-          return res;
         case 'BLOB':
           return res.blob();
         case 'JSON':
           return res.json();
         case 'TEXT':
           return res.text();
+        default:
+          return res;
       }
     });
   }
