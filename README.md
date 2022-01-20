@@ -1,23 +1,17 @@
 # ember-boilerplate
 
-Preconfigured ember project with
+Preconfigured 4.x Ember project with
 
+- Embroider
 - Typescript integration (ember-cli-typescript)
 - Prettier-eslint
-- Validations (ember-changeset-validations) (with types)
-- Tailwindcss
+- Validations (ember-changeset-validations) (with typescript types)
+- Tailwindcss 3.x
+- Flash messages (ember-cli-flash)
+- Login Form (ember-form-changeset-validations)
+- Tests (ember-test-selectors, ember-test-coverage)
 - Sessions,Login,Logout,... (ember-simple-auth)
 - Base ember adapter, serializer and controller
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/)
-- [Yarn](https://yarnpkg.com/)
-- [Ember CLI](https://ember-cli.com/)
-- [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
@@ -25,7 +19,11 @@ You will need the following things properly installed on your computer.
 - `cd ember-boilerplate`
 - `rm -rf .git`
 - `git init`
-- `yarn install`
+- `pnpm install`
+
+Or
+
+- "Use this template" button on Github
 
 ## Running / Development
 
@@ -35,7 +33,8 @@ You will need the following things properly installed on your computer.
 
 ### Code Generators
 
-Make use of the many generators for code, try `ember help generate` for more details
+Make use of the many generators for code, try `ember help generate` for more details.
+Generate forms using `ember g form <form>`, see [Ember Form Changeset Validations](https://github.com/TRIPTYK/ember-form-changeset-validations)
 
 ### Running Tests
 
@@ -51,15 +50,3 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 - `ember build` (development)
 - `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://ember-cli.com/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
