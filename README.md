@@ -1,5 +1,6 @@
 # ember-boilerplate
 
+[![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
 Preconfigured 4.x Ember project with
 
