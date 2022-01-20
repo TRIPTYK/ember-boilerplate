@@ -64,7 +64,7 @@ specifiers:
   ember-data: ~4.1.0
   ember-export-application-global: ^2.0.1
   ember-fetch: ^8.1.1
-  ember-form-changeset-validations: 1.2.0-beta1
+  ember-form-changeset-validations: 1.2.0
   ember-load-initializers: ^2.1.2
   ember-modifier: ^3.0.0
   ember-page-title: ^7.0.0
@@ -160,7 +160,7 @@ devDependencies:
   ember-data: 4.1.0_dfc450ce54b9de99856805a7be396663
   ember-export-application-global: 2.0.1
   ember-fetch: 8.1.1
-  ember-form-changeset-validations: 1.2.0-beta1_d2a210120204170dd2080cae4ae99ee8
+  ember-form-changeset-validations: 1.2.0_d2a210120204170dd2080cae4ae99ee8
   ember-load-initializers: 2.1.2_@babel+core@7.16.10
   ember-modifier: 3.0.0_@babel+core@7.16.10
   ember-page-title: 7.0.0
@@ -7491,8 +7491,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-form-changeset-validations/1.2.0-beta1_d2a210120204170dd2080cae4ae99ee8:
-    resolution: {integrity: sha512-xOa3yh5oeqZVSIbfwZEripzRHnCLz2F9LTVN010ZtojvL0x2DAG7DfC+AMcvtw79P/oxJBASpR+DsUX9kndJgg==}
+  /ember-form-changeset-validations/1.2.0_d2a210120204170dd2080cae4ae99ee8:
+    resolution: {integrity: sha512-si4YpGwtUo8mE0X63i/grvHx0R2NcSe7ld+mZNFzyWv50TGP5jscpMnnl+UL3VVCpfjMr1sQp7z3PxeGEWdlow==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       ember-changeset: ^4.0.0-beta.1

@@ -88,7 +88,7 @@
     "ember-data": "~4.1.0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.1.1",
-    "ember-form-changeset-validations": "1.2.0-beta1",
+    "ember-form-changeset-validations": "1.2.0",
     "ember-load-initializers": "^2.1.2",
     "ember-modifier": "^3.0.0",
     "ember-page-title": "^7.0.0",
