@@ -1,5 +1,6 @@
 # ember-boilerplate
 
+
 Preconfigured 4.x Ember project with
 
 - Embroider
@@ -34,6 +35,7 @@ Or
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details.
+
 Generate forms using `ember g form <form>`, see [Ember Form Changeset Validations](https://github.com/TRIPTYK/ember-form-changeset-validations)
 
 ### Running Tests
