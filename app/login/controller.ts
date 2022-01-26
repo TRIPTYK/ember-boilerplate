@@ -7,6 +7,7 @@ import CurrentUser from 'ember-boilerplate/services/current-user';
 import FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { TypedBufferedChangeset } from 'ember-form-changeset-validations';
 import SessionService from 'ember-simple-auth/services/session';
+import { loading } from 'ember-loading';
 
 export default class Login extends Controller {
   @inject declare flashMessages: FlashMessageService;
@@ -15,6 +16,7 @@ export default class Login extends Controller {
   @inject declare session: SessionService;
 
   @action
+  @loading
   async saveFunction(changeset: TypedBufferedChangeset<FormsLoginDTO>) {
     try {
       await this.session.authenticate('authenticator:jwt', {
