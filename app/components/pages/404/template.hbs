@@ -1,11 +1,15 @@
 <div class="mt-36 flex flex-col items-center mb-20">
   <img class="w-1/2" src="/assets/images/page-404.svg" alt="page" />
-  <h1 class="text-5xl font-semibold">Oops!</h1>
-  <p class="text-xl mt-5">Sorry, we couldn't find your page</p>
+  <h1 class="text-5xl font-semibold">
+    Oops!
+  </h1>
+  <p class="text-xl mt-5">
+    Sorry, we couldn't find your page
+  </p>
   <button
     type="button"
-    {{on "click" this.comeback}}
     class="mt-12 bg-primary py-2 px-4 rounded-lg font-xl font-extralight text-black"
+    {{on "click" this.comeback}}
   >
     Come back
   </button>

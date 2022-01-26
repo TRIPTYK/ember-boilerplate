@@ -5,14 +5,19 @@
   "css.validate": false,
   // turn it off for JS and JSX, we will do this via eslint
   "[javascript]": {
+    "editor.bracketPairColorization.enabled": true,
     "editor.formatOnSave": false
   },
   "[typescript]": {
+    "editor.bracketPairColorization.enabled": true,
     "editor.formatOnSave": false
   },
-  "prettier.documentSelectors": ["**/*.hbs"],
+  "[handlebars]": {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.defaultFormatter": "embertooling.prettier-for-handlebars-vscode"
+  },
   // show eslint icon at bottom toolbar
-  "eslint.alwaysShowStatus": true,
+  "eslint.alwaysShowStatus": false,
   // tell the ESLint plugin to run on save
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -23,9 +28,6 @@
   "eslint.format.enable": true,
   "eslint.workingDirectories": ["."],
   "tailwindCSS.emmetCompletions": true,
-  "emmet.includeLanguages": {
-    "Handlebars": "html"
-  },
   "editor.minimap.enabled": false,
   "tailwindCSS.includeLanguages": {
     "plaintext": "html",

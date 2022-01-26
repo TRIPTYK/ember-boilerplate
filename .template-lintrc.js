@@ -1,5 +1,8 @@
 'use strict';
 
 module.exports = {
-  extends: 'recommended',
+  extends: ['recommended', 'stylistic'],
+  rules: {
+    'self-closing-void-elements': 'off',
+  },
 };
