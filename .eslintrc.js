@@ -20,6 +20,10 @@ module.exports = {
     browser: true,
   },
   rules: {
+    'ember/no-controllers': 'error',
+    'ember/require-fetch-import': 'error',
+    'ember/route-path-style': 'error',
+    'ember/no-current-route-name': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
   },
   overrides: [

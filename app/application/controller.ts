@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { inject } from '@ember/service';
 import FlashMessageService from 'ember-cli-flash/services/flash-messages';
 
+// eslint-disable-next-line ember/no-controllers
 export default class Application extends Controller {
   @inject declare flashMessages: FlashMessageService;
 }
