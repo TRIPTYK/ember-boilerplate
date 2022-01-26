@@ -20,6 +20,7 @@ module.exports = {
     browser: true,
   },
   rules: {
+    'no-console': 'warn',
     'ember/no-controllers': 'error',
     'ember/require-fetch-import': 'error',
     'ember/route-path-style': 'error',
