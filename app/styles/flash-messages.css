@@ -1,11 +1,11 @@
 .alert {
-  @apply flex items-center justify-center w-full mb-2 text-black rounded-full bg-red-400;
+  @apply flex items-center justify-center w-full mb-2 text-primary rounded-full bg-error;
   opacity: 0;
   right: -100px;
   height: 50px;
   padding: 0 20px;
 
-  transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .alert::before {
   content: '\00D7';
@@ -21,10 +21,10 @@
   right: 0px;
 }
 .alert-success {
-  /* @apply bg-primary; */
+  @apply bg-primary;
 }
 .alert-warning {
-  /* @apply bg-cancel; */
+  @apply bg-warn;
 }
 
 .active.exiting {

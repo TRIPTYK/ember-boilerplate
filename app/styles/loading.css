@@ -4,7 +4,7 @@
 }
 
 .sk-cube-grid .sk-cube {
-  background-color: indigo;
+  @apply bg-primary;
   width: 33%;
   height: 33%;
   float: left;
