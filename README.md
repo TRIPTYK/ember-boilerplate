@@ -1,5 +1,6 @@
 # ember-boilerplate
 
+
 [![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
 Preconfigured 4.x Ember project with
@@ -8,12 +9,20 @@ Preconfigured 4.x Ember project with
 - Typescript integration (ember-cli-typescript)
 - Prettier-eslint
 - Validations (ember-changeset-validations) (with typescript types)
-- Tailwindcss 3.x
+- Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
 - Login Form (ember-form-changeset-validations)
 - Tests (ember-test-selectors, ember-test-coverage)
 - Sessions,Login,Logout,... (ember-simple-auth)
 - Base ember adapter, serializer and controller
+- Loading (ember-loading)
+- Ember concurrency
+
+- VSCODE Ready, all rules are setup for a great developing experience.
+
+## Approach
+
+- We have the rule 'ember/no-controllers' activated, so usage of controllers other than for query params is prohibited. Instead, you must create a component in 'pages'. Each component should accept a @model.
 
 ## Installation
 
