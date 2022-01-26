@@ -7,6 +7,8 @@ import config from '../config/environment';
 import { EmberRunTimer } from '@ember/runloop/types';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import UserModel from 'ember-boilerplate/models/user';
+import ApplicationInstance from '@ember/application/instance';
+import ApplicationAdapter from 'ember-boilerplate/adapters/application';
 
 export interface BackendAuthResponse {
   accessToken: string;
@@ -29,10 +31,12 @@ export default class JwtAuthenticator extends Base {
 
   public async authenticate(
     credentials: AuthCredentials,
-    headers: Record<string, unknown>
+    headers: Record<string, string>
   ) {
     if (this.accessTokenLoop) cancel(this.accessTokenLoop);
-    const adapter = getOwner(this).lookup('adapter:application');
+    const adapter = (getOwner(this) as ApplicationInstance).lookup(
+      'adapter:application'
+    ) as ApplicationAdapter;
     const result: BackendAuthResponse = await this.makeRequest(
       `${adapter.host}/${adapter.namespace}/auth/login`,
       credentials,
@@ -54,7 +58,9 @@ export default class JwtAuthenticator extends Base {
   }
 
   private async handleAccessTokenExpiration(data: BackendAuthResponse) {
-    const adapter = getOwner(this).lookup('adapter:application');
+    const adapter = (getOwner(this) as ApplicationInstance).lookup(
+      'adapter:application'
+    ) as ApplicationAdapter;
 
     if (isEmpty(data.accessToken) || isEmpty(data.refreshToken)) {
       throw new Error('Token is empty. Please check your backend response.');
@@ -109,7 +115,11 @@ export default class JwtAuthenticator extends Base {
     return result;
   }
 
-  private makeRequest(url: string, data: unknown, headers?: Headers) {
+  private makeRequest(
+    url: string,
+    data: unknown,
+    headers?: Headers | Record<string, string>
+  ) {
     return fetch(url, {
       method: 'POST',
       headers: headers,

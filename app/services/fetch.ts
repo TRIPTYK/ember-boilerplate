@@ -1,6 +1,8 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import fetch from 'fetch';
+import ApplicationInstance from '@ember/application/instance';
+import ApplicationAdapter from 'ember-boilerplate/adapters/application';
 
 export type RequestTypes = 'GET' | 'POST' | 'DELETE' | 'PATCH';
 export type ResponseType = 'JSON' | 'TEXT' | 'BLOB' | 'RAW';
@@ -12,7 +14,9 @@ export default class Fetch extends Service {
     responseType: ResponseType,
     moreOptions: Record<string, unknown>
   ) {
-    const adapter = getOwner(this).lookup('adapter:application');
+    const adapter = (getOwner(this) as ApplicationInstance).lookup(
+      'adapter:application'
+    ) as ApplicationAdapter;
 
     return fetch(`${adapter.host}/${adapter.namespace}/${url}`, {
       method,

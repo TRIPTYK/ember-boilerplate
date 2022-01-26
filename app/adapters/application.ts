@@ -11,7 +11,7 @@ export default class Application extends JSONAPIAdapter {
   host = config.host;
   namespace = config.namespace;
 
-  get headers() {
+  get headers(): Record<string, string> {
     const headers = {
       Accept: 'application/vnd.api+json',
       'Content-Type': 'application/vnd.api+json',
