@@ -1,13 +1,11 @@
 # ember-boilerplate
 
-
 [![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
 Preconfigured 4.x Ember project with
 
 - Embroider
 - Typescript integration (ember-cli-typescript)
-- Prettier-eslint
 - Validations (ember-changeset-validations) (with typescript types)
 - Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
