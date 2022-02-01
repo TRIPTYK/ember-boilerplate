@@ -9,5 +9,6 @@ jobs:
         with:
           node-version: 16
       - run: npm i -g pnpm && pnpm install -g ember-cli @lhci/cli@0.8.x
+      - run: pnpm i
       - run: pnpm run build
       - run: lhci autorun
