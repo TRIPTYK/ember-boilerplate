@@ -10,7 +10,7 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember', '@typescript-eslint'],
+  plugins: ['ember', '@typescript-eslint', 'unused-imports'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -20,18 +20,22 @@ module.exports = {
     browser: true,
   },
   rules: {
+    'no-else-return': 'error',
     'no-console': 'warn',
+    'unused-imports/no-unused-imports': 'error',
     'ember/no-controllers': 'error',
     'ember/require-fetch-import': 'error',
     'ember/route-path-style': 'error',
     'ember/no-current-route-name': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/consistent-type-imports': 'error',
   },
   overrides: [
     // node files
     {
       files: [
         './.eslintrc.js',
+        './read-cov.js',
         './.prettierrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',

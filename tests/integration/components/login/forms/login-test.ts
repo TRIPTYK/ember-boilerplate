@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 import { Changeset } from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import Validation from 'ember-boilerplate/validator/forms/login';
-import { TypedBufferedChangeset } from 'ember-form-changeset-validations';
+import type { TypedBufferedChangeset } from 'ember-form-changeset-validations';
 import click from '@ember/test-helpers/dom/click';
 import fillIn from '@ember/test-helpers/dom/fill-in';
 
