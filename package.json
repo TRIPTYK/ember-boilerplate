@@ -20,6 +20,7 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
+    "test:duplication": "jscpd --exitCode 1 --pattern app/**/*.{ts,js}",
     "test:ember": "COVERAGE=true ember test",
     "test:cov": "node read-cov.js . 0",
     "postinstall": "husky install"
@@ -113,6 +114,7 @@
     "eslint-plugin-qunit": "^7.2.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
+    "jscpd": "^3.4.5",
     "jwt-decode": "^3.1.2",
     "lighthouse": "^9.3.1",
     "loader.js": "^4.7.0",
