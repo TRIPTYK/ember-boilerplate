@@ -34,8 +34,11 @@ export default class Application extends JSONAPIAdapter {
     if (status === 401 && this.session.isAuthenticated) {
       this.session.invalidate();
     } else {
-      if (status > 400) {
-        // 400 is validation error
+      if (status > 500) {
+        // Internal
+        this.flashMessages.danger(`Fatal error : ${payload}`);
+      } else if (status > 400) {
+        // Bad request
       }
     }
     return super.handleResponse(status, headers, payload, requestData);
