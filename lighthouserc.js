@@ -5,5 +5,8 @@ module.exports = {
     collect: {
       staticDistDir: './dist',
     },
+    assert: {
+      preset: 'lighthouse:recommended',
+    },
   },
 };

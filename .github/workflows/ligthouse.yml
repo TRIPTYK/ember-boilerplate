@@ -8,6 +8,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+          runs: 3
       - run: npm i -g pnpm && pnpm install -g ember-cli @lhci/cli@0.8.x
       - run: pnpm i
       - run: pnpm run build
