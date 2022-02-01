@@ -7,6 +7,9 @@ module.exports = {
     },
     assert: {
       preset: 'lighthouse:recommended',
+      assertions: {
+        'categories:pwa': 'off',
+      },
     },
   },
 };
