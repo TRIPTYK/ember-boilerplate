@@ -20,10 +20,14 @@ export default function () {
     
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
     */
-  this.post('/users');
+  this.get('/users');
 
   this.get('/users/profile', (schema) => {
     return schema.users.find(1);
+  });
+
+  this.get('/not-found', () => {
+    return new Response(404, {}, {});
   });
 
   this.post('/auth/login', (_, request) => {
