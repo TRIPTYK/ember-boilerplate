@@ -52,6 +52,7 @@ specifiers:
   ember-cli-app-version: ^5.0.0
   ember-cli-babel: ^7.26.11
   ember-cli-code-coverage: 2.0.0-beta.4
+  ember-cli-content-security-policy: ^2.0.3
   ember-cli-dependency-checker: ^3.2.0
   ember-cli-flash: ^3.0.0
   ember-cli-htmlbars: ^6.0.1
@@ -156,6 +157,7 @@ devDependencies:
   ember-cli-app-version: 5.0.0
   ember-cli-babel: 7.26.11
   ember-cli-code-coverage: 2.0.0-beta.4
+  ember-cli-content-security-policy: 2.0.3
   ember-cli-dependency-checker: 3.2.0
   ember-cli-flash: 3.0.0_627c7c45295b2e1f366dd1f3eda620be
   ember-cli-htmlbars: 6.0.1
@@ -7378,6 +7380,19 @@ packages:
       - canvas
       - supports-color
       - utf-8-validate
+    dev: true
+
+  /ember-cli-content-security-policy/2.0.3:
+    resolution: {integrity: sha512-tSGRbR2XiOjHk7oEH7LVF1y5S643rUEjl3mujI6EYPkrQbHaV0WdLyIWJkLvuP1KGnjBfvnLCyiKDFu6z2PjVg==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      body-parser: 1.19.1
+      chalk: 4.1.2
+      debug: 4.3.3
+      ember-cli-babel: 7.26.11
+      ember-cli-version-checker: 5.1.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /ember-cli-dependency-checker/3.2.0:
