@@ -1,0 +1,14 @@
+{{! template-lint-disable no-forbidden-elements }}
+{{#if this.model.title}}
+  <title>
+    {{this.model.title}}
+    – Ember Boilerplate
+  </title>
+{{else}}
+  <title>
+    Ember Boilerplate
+  </title>
+{{/if}}
+<meta property="description" content={{this.model.description}} />
+<meta property="og:title" content={{this.model.title}} />
+<meta property="og:description" content={{this.model.description}} />
