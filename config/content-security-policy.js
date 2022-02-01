@@ -15,7 +15,14 @@ module.exports = function (env) {
     reportOnly: true,
   };
 
+  csp.policy['img-src'].push('https://tailwindui.com');
+
   if (env === 'development') {
+    csp.policy['connect-src'].push("'http://localhost:8080'");
+    csp.policy['script-src'].push("'unsafe-eval'");
+  }
+
+  if (env === 'test') {
     csp.policy['connect-src'].push("'http://localhost:8080'");
     csp.policy['script-src'].push("'unsafe-eval'");
   }
