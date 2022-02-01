@@ -20,6 +20,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": ".",
+    "lib": ["DOM"],
     "module": "es6",
     "experimentalDecorators": true,
     "paths": {

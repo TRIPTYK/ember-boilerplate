@@ -56,7 +56,7 @@ specifiers:
   ember-cli-flash: ^3.0.0
   ember-cli-htmlbars: ^6.0.1
   ember-cli-inject-live-reload: ^2.1.0
-  ember-cli-mirage: ^2.4.0
+  ember-cli-mirage: v3.0.0-alpha.1
   ember-cli-postcss: ^8.0.0
   ember-cli-sri: ^2.1.1
   ember-cli-terser: ^4.0.2
@@ -75,6 +75,7 @@ specifiers:
   ember-qunit: ^5.1.5
   ember-resolver: ^8.0.3
   ember-simple-auth: ^4.1.1
+  ember-simple-auth-token: ^5.3.0
   ember-source: ^4.1.0
   ember-template-lint: ^4.0.0
   ember-template-lint-plugin-prettier: ^4.0.0
@@ -158,7 +159,7 @@ devDependencies:
   ember-cli-flash: 3.0.0_627c7c45295b2e1f366dd1f3eda620be
   ember-cli-htmlbars: 6.0.1
   ember-cli-inject-live-reload: 2.1.0
-  ember-cli-mirage: 2.4.0_cb606768e1e25763432790121234c9a4
+  ember-cli-mirage: 3.0.0-alpha.1_ce173f6813dcdcf718b9ffeadda76004
   ember-cli-postcss: 8.0.0
   ember-cli-sri: 2.1.1
   ember-cli-terser: 4.0.2
@@ -177,6 +178,7 @@ devDependencies:
   ember-qunit: 5.1.5_71cf3139f132abb8fb8e124dd974b045
   ember-resolver: 8.0.3_@babel+core@7.16.12
   ember-simple-auth: 4.1.1_ember-fetch@8.1.1
+  ember-simple-auth-token: 5.3.0
   ember-source: 4.1.0_e748cba1f5e972defd8ae51292b4033f
   ember-template-lint: 4.0.0
   ember-template-lint-plugin-prettier: 4.0.0_966960c16220a6c2bec3d793a3371aaf
@@ -7403,9 +7405,9 @@ packages:
     engines: {node: ^4.5 || 6.* || >= 7.*}
     dev: true
 
-  /ember-cli-mirage/2.4.0_cb606768e1e25763432790121234c9a4:
-    resolution: {integrity: sha512-cy8B+IZV07V6xgnFzktKUsntTQvIqPSS3u4+XaLdNW91yOowLsN2BsuQldN3eCnwswgE3a9eGNGS4I0BD4llNA==}
-    engines: {node: '>= 10.*'}
+  /ember-cli-mirage/3.0.0-alpha.1_ce173f6813dcdcf718b9ffeadda76004:
+    resolution: {integrity: sha512-ozzobz3v7bf6kZ2/+k3Ctbans6j6Lmnu2dC2ihZYFhi4X+I+7CMeT4j/5mWDt+t7RIIFA/RJdBuBlV35bNrNmA==}
+    engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       '@ember/test-helpers': '*'
       ember-data: '*'
@@ -7419,11 +7421,11 @@ packages:
         optional: true
     dependencies:
       '@ember/test-helpers': 2.6.0_@babel+core@7.16.12
-      '@embroider/macros': 0.41.0
+      '@embroider/macros': 1.0.0
       broccoli-file-creator: 2.1.1
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
-      ember-auto-import: 1.12.1
+      ember-auto-import: 2.4.0_webpack@5.67.0
       ember-cli-babel: 7.26.11
       ember-data: 4.1.0_e748cba1f5e972defd8ae51292b4033f
       ember-destroyable-polyfill: 2.0.3_@babel+core@7.16.12
@@ -7435,8 +7437,7 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
-      - webpack-cli
-      - webpack-command
+      - webpack
     dev: true
 
   /ember-cli-normalize-entity-name/1.0.0:
@@ -8044,6 +8045,18 @@ packages:
       '@babel/traverse': 7.16.10
       recast: 0.18.10
     transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /ember-simple-auth-token/5.3.0:
+    resolution: {integrity: sha512-x5tNoOOQ6jJupoYfmxIeVho5G9NFGAOVBeOaKn5EVoqX2JNc991/6O9ByYMYe+T4ArL227yWbYVwb2KsAzeEpA==}
+    engines: {node: '>=10.*'}
+    dependencies:
+      ember-cli-babel: 7.26.11
+      ember-fetch: 8.1.1
+      ember-simple-auth: 4.1.1_ember-fetch@8.1.1
+    transitivePeerDependencies:
+      - encoding
       - supports-color
     dev: true
 
