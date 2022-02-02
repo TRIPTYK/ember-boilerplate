@@ -3,6 +3,14 @@ module.exports = {
   extends: 'lighthouse:default',
   ci: {
     collect: {
+      settings: {
+        onlyCategories: [
+          'accessibility',
+          'performance',
+          'best-practices',
+          'seo',
+        ],
+      },
       staticDistDir: './dist',
     },
     assert: {
