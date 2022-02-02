@@ -5,10 +5,15 @@ module.exports = {
     onlyCategories: ['accessibility', 'performance', 'best-practices', 'seo'],
   },
   ci: {
+    assert: {
+      assertions: {
+        'categories:pwa': 'off',
+      },
+    },
     collect: {
       settings: {
         // Don't run certain audits
-        skipAudits: ['pwa'],
+        skipAudits: ['apple-touch-icon'],
         staticDistDir: './dist',
       },
     },
