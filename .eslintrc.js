@@ -36,6 +36,7 @@ module.exports = {
       files: [
         './.eslintrc.js',
         './read-cov.js',
+        './app/tailwind/tailwind.config.js',
         './.prettierrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',

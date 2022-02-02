@@ -1,9 +1,11 @@
-/* eslint-disable no-undef */
 const colors = require('tailwindcss/colors');
 
-/* eslint-disable */
 module.exports = {
-  content: ['./app/**/*.{hbs,js,ts,html}', './tests/**/*.{hbs,js,ts,html}', './node_modules/@triptyk/tpk-ember-input/addon/**/*.{hbs,ts}'],
+  content: [
+    './app/**/*.{hbs,js,ts,html}',
+    './tests/**/*.{hbs,js,ts,html}',
+    './node_modules/@triptyk/tpk-ember-input/addon/**/*.{hbs,ts}',
+  ],
   corePlugins: {},
   plugins: [],
   theme: {
@@ -21,8 +23,8 @@ module.exports = {
       'text-secondary': '#384043',
       error: '#D72F33',
       warn: '#ffcc00',
-      white : colors.white,
-      black: colors.black
+      white: colors.white,
+      black: colors.black,
     },
   },
 };
