@@ -7,17 +7,10 @@ module.exports = {
   ci: {
     collect: {
       settings: {
-        onlyCategories: [
-          'accessibility',
-          'performance',
-          'best-practices',
-          'seo',
-        ],
+        // Don't run certain audits
+        skipAudits: ['pwa'],
+        staticDistDir: './dist',
       },
-      staticDistDir: './dist',
-    },
-    assert: {
-      preset: 'lighthouse:recommended',
     },
   },
 };
