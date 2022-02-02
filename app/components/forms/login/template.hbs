@@ -16,40 +16,33 @@
     class="space-y-6 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 mt-8 sm:mx-auto sm:w-full sm:max-w-md"
     {{on "submit" this.submit}}
   >
-    <div>
-      <label for="email" class="block text-sm font-medium text-primary">
-        Email address
-      </label>
-      <div class="mt-1">
-        <input
-          id="email"
-          name="email"
-          type="email"
-          data-test-input="email"
-          autocomplete="email"
-          value={{changeset-get @changeset "email"}}
-          class="appearance-none block w-full px-3 py-2 border border-secondary rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
-          {{on "change" (fn this.changeInput "email")}}
-        />
-      </div>
-    </div>
-    <div>
-      <label for="password" class="block text-sm font-medium text-primary">
-        Password
-      </label>
-      <div class="mt-1">
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autocomplete="current-password"
-          data-test-input="password"
-          value={{changeset-get @changeset "password"}}
-          class="appearance-none block w-full px-3 py-2 border border-secondary rounded-md shadow-sm placeholder-secondary focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
-          {{on "change" (fn this.changeInput "password")}}
-        />
-      </div>
-    </div>
+    <Ui::Input
+      @label="Email"
+      @name="email"
+      @value={{changeset-get @changeset "email"}}
+      @containerStyle=""
+      @labelStyle="text-black font-semibold mb-2 block"
+      @inputStyle="w-full outline-none transition-all duration-200 border-2 border-primary pt-1.5 pb-1.5 px-3 font-semibold text-text focus:outline-none focus:border-primary focus:ring-0"
+      @updateValue={{fn this.changeInput "email"}}
+      @placeholder="Email"
+      type="text"
+      data-test-input="email"
+    />
+    <Ui::Input
+      @label="Password"
+      @name="password"
+      @value={{changeset-get @changeset "password"}}
+      @containerStyle=""
+      @labelStyle="text-black font-semibold mb-2 block"
+      @inputStyle="w-full outline-none transition-all duration-200 border-2 border-primary pt-1.5 pb-1.5 px-3 font-semibold text-text focus:outline-none focus:border-primary focus:ring-0"
+      @password={{true}}
+      @mandatory={{true}}
+      @passwordStyle="w-5 absolute h-full flex top-0 items-center right-4"
+      @updateValue={{fn this.changeInput "password"}}
+      @placeholder="Password"
+      type="password"
+      data-test-input="password"
+    />
     <div class="flex items-center justify-between">
       <div class="flex items-center">
         <input

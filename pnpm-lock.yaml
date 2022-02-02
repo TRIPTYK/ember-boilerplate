@@ -11,6 +11,7 @@ specifiers:
   '@embroider/webpack': ^1.0.0
   '@glimmer/component': ^1.0.4
   '@glimmer/tracking': ^1.0.4
+  '@triptyk/tpk-ember-input': ^0.0.8
   '@types/ember-data': ^4.0.0
   '@types/ember-data__adapter': ^4.0.0
   '@types/ember-data__model': ^4.0.0
@@ -117,6 +118,7 @@ devDependencies:
   '@embroider/webpack': 1.0.0_29809ba756feefecd7d18a668ee67a39
   '@glimmer/component': 1.0.4_@babel+core@7.16.12
   '@glimmer/tracking': 1.0.4
+  '@triptyk/tpk-ember-input': 0.0.8_webpack@5.67.0
   '@types/ember-data': 4.0.0
   '@types/ember-data__adapter': 4.0.0
   '@types/ember-data__model': 4.0.0
@@ -3120,6 +3122,19 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /@triptyk/tpk-ember-input/0.0.8_webpack@5.67.0:
+    resolution: {integrity: sha512-bmst/JBQ1MtBbYmyYYz37Fu+HWXVMQhtuuxpBT4yfWNlw6GHdkzoWVzK2cMLOyJ36RsBjAXenXOESxbl+1CEuQ==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      ember-auto-import: 2.4.0_webpack@5.67.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.0.1
+      ember-cli-typescript: 4.2.1
+    transitivePeerDependencies:
+      - supports-color
+      - webpack
+    dev: true
+
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -4552,7 +4567,7 @@ packages:
       '@babel/core': ^7.0.0
       webpack: '>=2'
     dependencies:
-      '@babel/core': 7.16.12_supports-color@8.1.1
+      '@babel/core': 7.16.12
       find-cache-dir: 3.3.2
       loader-utils: 1.4.0
       make-dir: 3.1.0

@@ -17,7 +17,10 @@ module('Integration | Component | FormsLogin', function (hooks) {
     this.set(
       'changeset',
       Changeset(
-        {} as Record<keyof typeof Validation, unknown>,
+        {
+          email: '',
+          password: '',
+        } as Record<keyof typeof Validation, unknown>,
         lookupValidator(Validation),
         Validation
       )

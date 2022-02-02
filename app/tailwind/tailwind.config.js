@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors');
 
 /* eslint-disable */
 module.exports = {
-  content: ['./app/**/*.{hbs,js,ts,html}', './tests/**/*.{hbs,js,ts,html}'],
+  content: ['./app/**/*.{hbs,js,ts,html}', './tests/**/*.{hbs,js,ts,html}', './node_modules/@triptyk/tpk-ember-input/addon/**/*.{hbs,ts}'],
   corePlugins: {},
   plugins: [],
   theme: {

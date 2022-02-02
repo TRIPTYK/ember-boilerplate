@@ -13,7 +13,7 @@ module('Acceptance | login', function (hooks) {
     // @ts-expect-error
     this.server.createList('user', 1);
     await visit('/login');
-
+    await this.pauseTest();
     await fillIn(
       "[data-test-form-login] [data-test-input='email']",
       'dev@triptyk.eu'
