@@ -1,8 +1,18 @@
 # ember-boilerplate
 
 [![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
+[![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ligthouse.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
-Preconfigured 4.x Ember project with
+## You can use this IF
+
+- ✅ You use tailwindcss
+- ✅ You want an Embroider boilerplate
+- ✅ You use JWT based authentification
+- ✅ You want a lot of code checks
+
+## Preconfigured 4.x Ember project with
+
+### Ember Side
 
 - Embroider
 - Typescript integration (ember-cli-typescript)
@@ -11,16 +21,29 @@ Preconfigured 4.x Ember project with
 - Flash messages (ember-cli-flash)
 - Login Form (ember-form-changeset-validations)
 - Tests (ember-test-selectors, ember-test-coverage)
-- Sessions,Login,Logout,... (ember-simple-auth)
+- Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
 - Base ember adapter, serializer and controller
 - Loading (ember-loading)
 - Ember concurrency
 
+### Vscode side
+
 - VSCODE Ready, all rules are setup for a great developing experience.
+
+### CI
+
+- Ligthouse CI
+- Tests
+  - Linting
+  - Ember tests
+  - Code coverage check
+  - JSCPD code duplication checking
 
 ## Approach
 
 - We have the rule 'ember/no-controllers' activated, so usage of controllers other than for query params is prohibited. Instead, you must create a component in 'pages'. Each component should accept a @model.
+
+Note: Exception for the ApplicationController, needed for an addon.
 
 ## Installation
 
