@@ -4,7 +4,7 @@ import type Session from 'ember-boilerplate/services/session';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import config from '../config/environment';
 
-export default class Application extends JSONAPIAdapter {
+export default class ApplicationAdapter extends JSONAPIAdapter {
   @inject declare session: Session;
   @inject declare flashMessages: FlashMessageService;
 
@@ -57,6 +57,6 @@ export default class Application extends JSONAPIAdapter {
 // DO NOT DELETE: this is how TypeScript knows how to look up your adapters.
 declare module 'ember-data/types/registries/adapter' {
   export default interface AdapterRegistry {
-    application: Application;
+    application: ApplicationAdapter;
   }
 }
