@@ -11,7 +11,7 @@ module.exports = function (environment) {
     host,
     namespace,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     'ember-simple-auth-token': {
       tokenDataPropertyName: 'tokenData', // Key in session to store token data
       refreshAccessTokens: true, // Enables access token refreshing
