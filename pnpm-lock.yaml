@@ -103,6 +103,7 @@ specifiers:
   qunit: ^2.18.0
   qunit-dom: ^2.0.0
   tailwindcss: ^3.0.23
+  tracked-built-ins: ^2.0.1
   typescript: ^4.6.3
   webpack: ^5.70.0
   webpack-bundle-analyzer: ^4.5.0
@@ -210,6 +211,7 @@ devDependencies:
   qunit: 2.18.0
   qunit-dom: 2.0.0
   tailwindcss: 3.0.23_autoprefixer@10.4.4
+  tracked-built-ins: 2.0.1
   typescript: 4.6.3
   webpack: 5.70.0
   webpack-bundle-analyzer: 4.5.0
@@ -330,7 +332,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/compat-data': 7.17.7
-      '@babel/core': 7.17.8_supports-color@8.1.1
+      '@babel/core': 7.17.8
       '@babel/helper-validator-option': 7.16.7
       browserslist: 4.20.2
       semver: 6.3.0
@@ -1145,7 +1147,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.17.8_supports-color@8.1.1
+      '@babel/core': 7.17.8
       '@babel/helper-plugin-utils': 7.16.7
     dev: true
 
@@ -1181,7 +1183,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.17.8_supports-color@8.1.1
+      '@babel/core': 7.17.8
       '@babel/helper-plugin-utils': 7.16.7
     dev: true
 
@@ -4665,7 +4667,7 @@ packages:
       '@babel/core': ^7.0.0
       webpack: '>=2'
     dependencies:
-      '@babel/core': 7.17.8
+      '@babel/core': 7.17.8_supports-color@8.1.1
       find-cache-dir: 3.3.2
       loader-utils: 2.0.2
       make-dir: 3.1.0
@@ -8534,6 +8536,16 @@ packages:
       calculate-cache-key-for-tree: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-version-checker: 5.1.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /ember-tracked-storage-polyfill/1.0.0:
+    resolution: {integrity: sha512-eL7lZat68E6P/D7b9UoTB5bB5Oh/0aju0Z7PCMi3aTwhaydRaxloE7TGrTRYU+NdJuyNVZXeGyxFxn2frvd3TA==}
+    engines: {node: 12.* || >= 14}
+    dependencies:
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 5.7.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -15221,6 +15233,30 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       punycode: 2.1.1
+    dev: true
+
+  /tracked-built-ins/2.0.1:
+    resolution: {integrity: sha512-v0DwPVNm3zA4cmJLpcBJxJfKefN6ldhkc8l5YA+cWHq7kI8WMUcXjIXgl/AIxmt1SoO1bwPdpikPRHHrIBDtFQ==}
+    engines: {node: 12.* || >= 14.*}
+    dependencies:
+      ember-cli-babel: 7.26.11
+      ember-cli-typescript: 4.2.1
+      ember-tracked-storage-polyfill: 1.0.0
+      tracked-maps-and-sets: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /tracked-maps-and-sets/3.0.2:
+    resolution: {integrity: sha512-UIRcWsX1kDOcC/Q2R58weYWlw01EnmWWBwUv3okWS+zMBvsgIfYoO6veHhuNE3hgzWCEImNp46QS5CyKnw5QUA==}
+    engines: {node: 12.* || >= 14}
+    dependencies:
+      '@glimmer/tracking': 1.0.4
+      ember-cli-babel: 7.26.11
+      ember-cli-typescript: 4.2.1
+      ember-tracked-storage-polyfill: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /tree-sync/1.4.0:

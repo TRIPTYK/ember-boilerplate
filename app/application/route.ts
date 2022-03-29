@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject } from '@ember/service';
-import CurrentUser from 'ember-boilerplate/services/current-user';
+import type CurrentUser from 'ember-boilerplate/services/current-user';
 
 export default class Application extends Route {
   @inject declare currentUser: CurrentUser;
