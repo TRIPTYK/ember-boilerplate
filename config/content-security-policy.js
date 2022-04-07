@@ -12,7 +12,7 @@ module.exports = function (env) {
       'style-src': ["'self'"],
       'media-src': ["'self'"],
     },
-    reportOnly: true,
+    reportOnly: env === 'development',
   };
 
   csp.policy['img-src'].push('https://tailwindui.com');

@@ -1,6 +1,8 @@
 import { validatePresence } from 'ember-changeset-validations/validators';
 
-export default {
+const loginValidation = {
   email: [validatePresence(true)],
   password: [validatePresence(true)],
 };
+
+export default loginValidation;
