@@ -48,6 +48,11 @@ module.exports = function (defaults) {
   const { Webpack } = require('@embroider/webpack');
 
   return require('@embroider/compat').compatBuild(app, Webpack, {
+    packagerOptions: {
+      webpackConfig: {
+        devtool: 'source-map',
+      },
+    },
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticHelpers: true,
@@ -56,6 +61,6 @@ module.exports = function (defaults) {
       ['@ember-data/model', EmberDataCompatAdapter],
       ['@ember-data/record-data', EmberDataCompatAdapter],
     ]),
-    splitAtRoutes: ['login'], // can also be a RegExp
+    splitAtRoutes: [/^(?!(application)$).*$/], // can also be a RegExp
   });
 };
