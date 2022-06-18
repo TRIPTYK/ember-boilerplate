@@ -7,11 +7,11 @@ import type CurrentUser from 'ember-boilerplate/services/current-user';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import type { TypedBufferedChangeset } from 'ember-form-changeset-validations';
 import type SessionService from 'ember-simple-auth/services/session';
-import { loading } from 'ember-loading';
 import { tracked } from '@glimmer/tracking';
 import { Changeset } from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import LoginValidation from '../../../validator/forms/login';
+import { waitFor } from "@ember/test-waiters";
 
 interface PagesLoginArgs {
   model?: unknown;
@@ -38,7 +38,7 @@ export default class PagesLogin extends Component<PagesLoginArgs> {
   }
 
   @action
-  @loading
+  @waitFor
   async login(changeset: TypedBufferedChangeset<FormsLoginDTO>) {
     try {
       await this.session.authenticate('authenticator:jwt', {
