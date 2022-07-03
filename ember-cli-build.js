@@ -17,6 +17,11 @@ class EmberDataCompatAdapter extends V1Addon {
 }
 
 module.exports = function (defaults) {
+  process.on('uncaughtException', (err) => {
+    // eslint-disable-next-line no-console
+    console.error(err.stack);
+  });
+
   let app = new EmberApp(defaults, {
     babel: {
       plugins: [

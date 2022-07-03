@@ -8,7 +8,7 @@ import lookupValidator from 'ember-changeset-validations';
 import Validation from 'ember-boilerplate/validator/forms/login';
 import type { TypedBufferedChangeset } from 'ember-form-changeset-validations';
 import click from '@ember/test-helpers/dom/click';
-import fillIn from '@ember/test-helpers/dom/fill-in';
+import { loginPage } from 'ember-boilerplate/tests/pages/login';
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
@@ -39,8 +39,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     assert.dom('[data-test-input="email"] input').hasValue('');
     assert.dom('[data-test-input="password"] input').hasValue('');
 
-    await fillIn('[data-test-input="email"] input', 'edited@gmail.com');
-    await fillIn('[data-test-input="password"] input', 'edited');
+    await loginPage.email('edited@gmail.com').password('edited');
 
     await click("button[type='submit']");
     assert.verifySteps(['saveFunction']);
@@ -71,8 +70,8 @@ module('Integration | Component | FormsLogin', function (hooks) {
 
     assert.dom('[data-test-input="email"] input').hasValue('hello');
     assert.dom('[data-test-input="password"] input').hasValue('hello');
-    await fillIn('[data-test-input="email"] input', 'edited@gmail.com');
-    await fillIn('[data-test-input="password"] input', 'helloEdited');
+
+    await loginPage.email('edited@gmail.com').password('helloEdited');
 
     await click("button[type='submit']");
     assert.verifySteps(['saveFunction']);
