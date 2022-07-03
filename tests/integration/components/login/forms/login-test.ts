@@ -36,11 +36,11 @@ module('Integration | Component | FormsLogin', function (hooks) {
       hbs`<Forms::Login @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`
     );
 
-    assert.dom('[data-test-input="email"]').hasValue('');
-    assert.dom('[data-test-input="password"]').hasValue('');
+    assert.dom('[data-test-input="email"] input').hasValue('');
+    assert.dom('[data-test-input="password"] input').hasValue('');
 
-    await fillIn('[data-test-input="email"]', 'edited@gmail.com');
-    await fillIn('[data-test-input="password"]', 'edited');
+    await fillIn('[data-test-input="email"] input', 'edited@gmail.com');
+    await fillIn('[data-test-input="password"] input', 'edited');
 
     await click("button[type='submit']");
     assert.verifySteps(['saveFunction']);
@@ -69,10 +69,10 @@ module('Integration | Component | FormsLogin', function (hooks) {
       hbs`<Forms::Login @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`
     );
 
-    assert.dom('[data-test-input="email"]').hasValue('hello');
-    assert.dom('[data-test-input="password"]').hasValue('hello');
-    await fillIn('[data-test-input="email"]', 'edited@gmail.com');
-    await fillIn('[data-test-input="password"]', 'helloEdited');
+    assert.dom('[data-test-input="email"] input').hasValue('hello');
+    assert.dom('[data-test-input="password"] input').hasValue('hello');
+    await fillIn('[data-test-input="email"] input', 'edited@gmail.com');
+    await fillIn('[data-test-input="password"] input', 'helloEdited');
 
     await click("button[type='submit']");
     assert.verifySteps(['saveFunction']);

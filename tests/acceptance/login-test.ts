@@ -14,10 +14,13 @@ module('Acceptance | login', function (hooks) {
     this.server.createList('user', 1);
     await visit('/login');
     await fillIn(
-      "[data-test-form-login] [data-test-input='email']",
+      "[data-test-form-login] [data-test-input='email'] input",
       'dev@triptyk.eu'
     );
-    await fillIn("[data-test-form-login] [data-test-input='password']", '123');
+    await fillIn(
+      "[data-test-form-login] [data-test-input='password'] input",
+      '123'
+    );
     await click('[data-test-form-login] [data-test-submit]');
 
     assert.strictEqual(currentURL(), '/');

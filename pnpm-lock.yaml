@@ -12,7 +12,8 @@ specifiers:
   '@embroider/webpack': ^1.8.1
   '@glimmer/component': ^1.1.2
   '@glimmer/tracking': ^1.1.2
-  '@triptyk/tpk-ember-input': ^0.0.9
+  '@triptyk/ember-input': ^0.0.15
+  '@triptyk/ember-input-validation': ^0.0.15
   '@types/ember-data': ^4.0.2
   '@types/ember-data__adapter': ^4.0.0
   '@types/ember-data__model': ^4.0.0
@@ -119,7 +120,8 @@ devDependencies:
   '@embroider/webpack': 1.8.1_ouxvzddn5qc7v3n7ydlnid247q
   '@glimmer/component': 1.1.2_@babel+core@7.18.6
   '@glimmer/tracking': 1.1.2
-  '@triptyk/tpk-ember-input': 0.0.9_webpack@5.73.0
+  '@triptyk/ember-input': 0.0.15_webpack@5.73.0
+  '@triptyk/ember-input-validation': 0.0.15_kctufurgz2aciq5eevcdqqbsea
   '@types/ember-data': 4.0.2
   '@types/ember-data__adapter': 4.0.0
   '@types/ember-data__model': 4.0.0
@@ -4617,14 +4619,37 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /@triptyk/tpk-ember-input/0.0.9_webpack@5.73.0:
-    resolution: {integrity: sha512-3xgX0Qk5Hf+lkQbMAmeZcjEYRqEOesM6SgG0ftNxjsaVkiV8hqg26vFHOyB9TijTizfN8zt2semmtFpjddtgwQ==}
+  /@triptyk/ember-input-validation/0.0.15_kctufurgz2aciq5eevcdqqbsea:
+    resolution: {integrity: sha512-wuQthzErNsF4LvEh3tD3S1NCznzkW++S/rVD86IttBVMaD6RRZm/2OsSe/SVE6/zsqtD/qKhbXHhH6y93+i0SA==}
     engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      '@triptyk/ember-input': 0.0.15
+      '@triptyk/ember-select': 0.0.15
+      ember-changeset-validations: ^4.1.0
     dependencies:
+      '@triptyk/ember-input': 0.0.15_webpack@5.73.0
+      ember-auto-import: 2.4.2_webpack@5.73.0
+      ember-changeset-validations: 4.1.0_webpack@5.73.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.0.1
+      ember-cli-typescript: 5.1.0
+      ember-test-selectors: 6.0.0
+    transitivePeerDependencies:
+      - supports-color
+      - webpack
+    dev: true
+
+  /@triptyk/ember-input/0.0.15_webpack@5.73.0:
+    resolution: {integrity: sha512-+MdsFTbW5AywR2911HjkvtdhzxQT3BHCaNgelheL35ZkrCWFxCyoDhO5rYG0M5SeyIzqn+x/7xs3f5upuKJBGQ==}
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      ember-flatpickr: ^3.2.3
+    dependencies:
+      '@glimmer/tracking': 1.1.2
       ember-auto-import: 2.4.2_webpack@5.73.0
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.0.1
-      ember-cli-typescript: 4.2.1
+      ember-cli-typescript: 5.1.0
       ember-test-selectors: 6.0.0
     transitivePeerDependencies:
       - supports-color
@@ -6215,7 +6240,7 @@ packages:
       '@babel/core': ^7.0.0
       webpack: '>=2'
     dependencies:
-      '@babel/core': 7.18.6_supports-color@8.1.1
+      '@babel/core': 7.18.6
       find-cache-dir: 3.3.2
       loader-utils: 2.0.2
       make-dir: 3.1.0
