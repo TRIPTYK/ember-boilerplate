@@ -10,7 +10,7 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember', '@typescript-eslint', 'unused-imports'],
+  plugins: ['ember', 'unicorn', '@typescript-eslint', 'unused-imports'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -29,12 +29,19 @@ module.exports = {
     'ember/no-current-route-name': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
+    'unicorn/filename-case': [
+      'error',
+      {
+        case: 'kebabCase',
+      },
+    ],
   },
   overrides: [
     // node files
     {
       files: [
         './.eslintrc.js',
+        './with-backend.js',
         './read-cov.js',
         './app/tailwind/tailwind.config.js',
         './.prettierrc.js',
