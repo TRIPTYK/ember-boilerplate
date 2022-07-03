@@ -18,9 +18,9 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
       Authorization: '',
     };
     if (this.session.isAuthenticated) {
-      headers['Authorization'] = `Bearer ${
-        this.session.data as Record<string, unknown>
-      }.authenticated.accessToken}`;
+      headers[
+        'Authorization'
+      ] = `Bearer ${this.session.data.authenticated.accessToken}}`;
     }
     return headers;
   }

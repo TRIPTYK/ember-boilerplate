@@ -11,7 +11,7 @@ import { tracked } from '@glimmer/tracking';
 import { Changeset } from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import LoginValidation from '../../../validator/forms/login';
-import { waitFor } from "@ember/test-waiters";
+import { waitFor } from '@ember/test-waiters';
 
 interface PagesLoginArgs {
   model?: unknown;

@@ -1,12 +1,16 @@
-/* eslint-disable no-unused-vars */
 import Service from '@ember/service';
-import Store from '@ember-data/store';
-import Transition from '@ember/routing/-private/transition';
+import type Store from '@ember-data/store';
+import type Transition from '@ember/routing/-private/transition';
 
 declare module 'ember-simple-auth/services/session' {
   export default class SessionService extends Service {
     isAuthenticated: boolean;
-    data: unknown;
+    data: {
+      authenticated: {
+        accessToken: string;
+        refreshToken: string;
+      };
+    };
     store: Store;
     authenticate(...args: unknown[]): Promise<void>;
     invalidate(): Promise<void>;
