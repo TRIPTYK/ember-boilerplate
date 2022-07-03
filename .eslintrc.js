@@ -40,6 +40,8 @@ module.exports = {
     // node files
     {
       files: [
+        './.formconfig.js',
+        './lighthouserc.js',
         './.eslintrc.js',
         './with-backend.js',
         './read-cov.js',
