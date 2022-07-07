@@ -22,7 +22,7 @@
     "test": "npm-run-all lint test:*",
     "test:duplication": "jscpd --exitCode 1 --pattern \"app/**/*.{ts,js}\"",
     "test:ember": "COVERAGE=true ember test",
-    "test:cov": "node read-cov.js . 40",
+    "test:cov": "node read-cov.js . 0",
     "postinstall": "husky install"
   },
   "devDependencies": {

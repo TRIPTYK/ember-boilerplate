@@ -1,12 +1,12 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import { inject } from '@ember/service';
+import { service } from '@ember/service';
 import type Session from 'ember-boilerplate/services/session';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import config from '../config/environment';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
-  @inject declare session: Session;
-  @inject declare flashMessages: FlashMessageService;
+  @service declare session: Session;
+  @service declare flashMessages: FlashMessageService;
 
   host = config.host;
   namespace = config.namespace;

@@ -1,6 +1,5 @@
 import { action } from '@ember/object';
 import type RouterService from '@ember/routing/router-service';
-import { inject } from '@ember/service';
 import Component from '@glimmer/component';
 import type { FormsLoginDTO } from 'ember-boilerplate/components/forms/login/component';
 import type CurrentUser from 'ember-boilerplate/services/current-user';
@@ -12,16 +11,17 @@ import { Changeset } from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import LoginValidation from '../../../validator/forms/login';
 import { waitFor } from '@ember/test-waiters';
+import { service } from '@ember/service';
 
 interface PagesLoginArgs {
   model?: unknown;
 }
 
 export default class PagesLogin extends Component<PagesLoginArgs> {
-  @inject declare flashMessages: FlashMessageService;
-  @inject declare currentUser: CurrentUser;
-  @inject declare router: RouterService;
-  @inject declare session: SessionService;
+  @service declare flashMessages: FlashMessageService;
+  @service declare currentUser: CurrentUser;
+  @service declare router: RouterService;
+  @service declare session: SessionService;
 
   @tracked changeset: TypedBufferedChangeset<FormsLoginDTO>;
 

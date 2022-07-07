@@ -1,9 +1,9 @@
 import BaseSessionService from 'ember-simple-auth/services/session';
-import { inject } from '@ember/service';
+import { service } from '@ember/service';
 import type CurrentUser from './current-user';
 
 export default class Session extends BaseSessionService {
-  @inject declare currentUser: CurrentUser;
+  @service declare currentUser: CurrentUser;
 
   async handleAuthentication() {
     try {
