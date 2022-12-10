@@ -2,20 +2,6 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-const { V1Addon } = require('@embroider/compat');
-const { forceIncludeModule } = require('@embroider/compat/src/compat-utils');
-
-/**
- * See https://github.com/embroider-build/embroider/issues/396#issuecomment-611885598
- * Ember data incompatibility with Embroider
- * Ember-cli mirage ?
- */
-class EmberDataCompatAdapter extends V1Addon {
-  get packageMeta() {
-    return forceIncludeModule(super.packageMeta, './-private');
-  }
-}
-
 module.exports = function (defaults) {
   process.on('uncaughtException', (err) => {
     // eslint-disable-next-line no-console
@@ -29,6 +15,17 @@ module.exports = function (defaults) {
           embroider: true,
         }),
       ],
+    },
+    '@embroider/macros': {
+      setConfig: {
+        '@ember-data/store': {
+          polyfillUUID: true,
+        },
+      },
+    },
+    sourcemaps: {
+      enabled: true,
+      extensions: ['js'],
     },
     postcssOptions: {
       compile: {
@@ -61,10 +58,6 @@ module.exports = function (defaults) {
     staticAddonTrees: true,
     staticHelpers: true,
     staticComponents: true,
-    compatAdapters: new Map([
-      ['@ember-data/model', EmberDataCompatAdapter],
-      ['@ember-data/record-data', EmberDataCompatAdapter],
-    ]),
     splitAtRoutes: [/^(?!(application)$).*$/], // can also be a RegExp
   });
 };

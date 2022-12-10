@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
-import { currentURL, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
+import { notFoundPage } from '../pages/404';
 
 module('Acceptance | 404 page', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /404-page', async function (assert) {
-    await visit('/404');
-    // should do ... nothing ?
-    assert.strictEqual(currentURL(), '/404');
+    assert.expect(1);
+    await notFoundPage.visit();
+    assert.true(notFoundPage.isPresent);
   });
 });

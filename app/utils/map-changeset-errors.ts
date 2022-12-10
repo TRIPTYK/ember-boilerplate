@@ -16,7 +16,7 @@ export function mapChangesetErrors(
   for (const error of jsonApiErrors) {
     if (error.status === '400') {
       const meta = error.meta as Record<string, unknown>;
-      const p = key ? `${key}.${meta.field}` : `${meta.field}`;
+      const p = key ? `${key}.${meta['field']}` : `${meta['field']}`;
       const value = changeset.get(p);
       if (value !== undefined) {
         changeset.addError(p, error.detail);

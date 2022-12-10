@@ -13,7 +13,7 @@ export default class Session extends BaseSessionService {
        * Does not invalidate with abord error, loading the current user is optional and may be canceled
        * `err instanceof AbortError` is false BTW, we check with the message
        */
-      if (err.message === 'Aborted') {
+      if ((err as Error).message === 'Aborted') {
         return;
       }
       await this.invalidate();

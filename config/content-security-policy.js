@@ -1,7 +1,7 @@
 module.exports = function (env) {
   const csp = {
     delivery: ['header'],
-    enabled: true,
+    enabled: false,
     failTests: true,
     policy: {
       'default-src': ["'none'"],

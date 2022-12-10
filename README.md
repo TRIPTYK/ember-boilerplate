@@ -6,6 +6,7 @@
 ## You can use this IF
 
 - ✅ You use tailwindcss
+- ✅ You use Typescript
 - ✅ You want an Embroider boilerplate
 - ✅ You use JWT based authentification
 - ✅ You want a lot of code checks
@@ -23,7 +24,6 @@
 - Tests (ember-test-selectors, ember-test-coverage)
 - Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
 - Base ember adapter, serializer and controller
-- Loading (ember-loading)
 - Ember concurrency
 
 ### Vscode side

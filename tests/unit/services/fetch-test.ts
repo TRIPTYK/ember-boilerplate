@@ -2,11 +2,18 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import type FetchService from 'ember-boilerplate/services/fetch';
-import { setupMirage } from 'ember-cli-mirage/test-support';
+import type { ServiceWorkerTestContext } from 'ember-boilerplate/tests/worker';
+import { setupMock } from 'ember-boilerplate/tests/worker';
+import { setupWorker } from './workers/fetch';
+import { Response } from 'fetch';
 
 module('Unit | Service | fetch', function (hooks) {
   setupTest(hooks);
-  setupMirage(hooks);
+  setupMock(hooks);
+
+  hooks.beforeEach<ServiceWorkerTestContext>(function () {
+    setupWorker(this.worker);
+  });
 
   // Replace this with your real tests.
   test('It requests internally', async function (assert) {
@@ -21,8 +28,11 @@ module('Unit | Service | fetch', function (hooks) {
     try {
       await service.request('not-found');
     } catch (e) {
-      assert.strictEqual(e.status, 404);
-      assert.step('throw');
+      if (e instanceof Response) {
+        // eslint-disable-next-line qunit/no-conditional-assertions
+        assert.strictEqual(e.status, 404);
+        assert.step('throw');
+      }
     }
     assert.verifySteps(['throw']);
   });

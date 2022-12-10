@@ -20,7 +20,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     if (this.session.isAuthenticated) {
       headers[
         'Authorization'
-      ] = `Bearer ${this.session.data.authenticated.accessToken}}`;
+      ] = `Bearer ${this.session.data.authenticated.accessToken}`;
     }
     return headers;
   }
@@ -32,6 +32,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     requestData: Record<string, unknown>
   ) {
     if (status === 401 && this.session.isAuthenticated) {
+      this.flashMessages.danger(`Unauthorized action`);
       this.session.invalidate();
     } else {
       if (status > 500) {
@@ -48,8 +49,8 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     query: Record<string, unknown>,
     modelName: string | number
   ): string {
-    const id = query.id as string | number;
-    delete query.id;
+    const id = query['id'] as string | number;
+    delete query['id'];
     return this.buildURL(modelName, id, null, 'findRecord', query);
   }
 }

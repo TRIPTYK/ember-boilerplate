@@ -1,55 +1,26 @@
 {
+  "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,  
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
+    // The combination of `baseUrl` with `paths` allows Ember's classic package
+    // layout, which is not resolvable with the Node resolution algorithm, to
+    // work with TypeScript.
     "skipLibCheck": true,
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noEmitOnError": true,
-    "noEmit": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": ".",
-    "lib": ["DOM"],
-    "module": "es6",
-    "experimentalDecorators": true,
     "paths": {
-      "ember-boilerplate/tests/*": [
-        "tests/*"
-      ],
-      "ember-boilerplate/*": [
-        "app/*"
-      ],
-      "ember-cli-flash/*": [
-        "node_modules/ember-cli-flash"
-      ],
-      "fetch": [
-        "node_modules/ember-fetch"
-      ],
+      "ember-boilerplate/tests/*": ["tests/*"],
+      "ember-boilerplate/*": ["app/*"],
+      "ember-cli-flash/*": ["node_modules/ember-cli-flash"],
+      "fetch": ["node_modules/ember-fetch"],
       "ember-changeset-validations": [
         "node_modules/ember-form-changeset-validations/types/ember-changeset-validations"
       ],
       "ember-changeset-validations/*": [
         "node_modules/ember-form-changeset-validations/types/ember-changeset-validations/*"
       ],
-      "*": [
-        "types/*"
-      ]
+      "*": ["types/*"]
     }
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*"]
 }
