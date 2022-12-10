@@ -10,6 +10,7 @@ module.exports = function (defaults) {
 
   let app = new EmberApp(defaults, {
     babel: {
+      sourceMaps: 'inline',
       plugins: [
         ...require('ember-cli-code-coverage').buildBabelPlugin({
           embroider: true,
