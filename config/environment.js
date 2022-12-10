@@ -28,6 +28,7 @@ module.exports = function (environment) {
       tokenRefreshFailInvalidateSession: true, // Enables session invalidation if all token refresh retry requests fail
     },
     EmberENV: {
+      EXTEND_PROTOTYPES: false,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
