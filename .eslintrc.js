@@ -54,6 +54,7 @@ module.exports = {
         './config/**/*.js',
         './lib/*/index.js',
         './server/**/*.js',
+        'node-tests/**/*.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -61,6 +62,7 @@ module.exports = {
       env: {
         browser: false,
         node: true,
+        jest: true,
       },
       plugins: ['node'],
       extends: ['plugin:node/recommended'],
