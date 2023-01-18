@@ -1,10 +1,9 @@
 import JSONAPISerializer from '@ember-data/serializer/json-api';
-// eslint-disable-next-line ember/use-ember-data-rfc-395-imports
-import type DS from 'ember-data';
+import type { Snapshot } from '@ember-data/store';
 
 export default class Application extends JSONAPISerializer {
   serializeAttribute(
-    snapshot: DS.Snapshot,
+    snapshot: Snapshot,
     json: Record<string, unknown>,
     key: string,
     attributes: Record<string, unknown>

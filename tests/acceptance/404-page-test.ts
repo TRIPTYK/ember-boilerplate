@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupApplicationTest } from 'ember-qunit';
+import { setupApplicationTest } from 'ember-boilerplate/tests/helpers';
 import { notFoundPage } from '../pages/404';
 
 module('Acceptance | 404 page', function (hooks) {

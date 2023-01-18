@@ -18,7 +18,7 @@ export function setupWorker(worker: SetupWorkerApi) {
         ctx.status(200),
         ctx.json({
           data: {
-            type: 'users',
+            type: 'user',
             id: '1',
             attributes: {
               email: '',

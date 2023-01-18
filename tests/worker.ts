@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
-import type { TestContext } from '@ember/test-helpers';
 import QUnit from 'qunit';
 import type { SetupWorkerApi } from 'msw';
 import { setupWorker } from 'msw';
+import type { TestContext } from '@ember/test-helpers';
 
 let worker: SetupWorkerApi;
 

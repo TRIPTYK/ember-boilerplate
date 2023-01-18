@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'no-else-return': 'error',
     'no-console': 'warn',
+    'no-undef': 'off',
     'unused-imports/no-unused-imports': 'error',
     'ember/no-controllers': 'error',
     'ember/require-fetch-import': 'error',
