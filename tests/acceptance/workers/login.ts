@@ -18,7 +18,7 @@ export function setupWorker(worker: SetupWorkerApi) {
         ctx.status(200),
         ctx.json({
           data: {
-            type: 'user',
+            type: 'users',
             id: '1',
             attributes: {
               email: '',
@@ -28,6 +28,14 @@ export function setupWorker(worker: SetupWorkerApi) {
               role: '',
             },
           },
+        })
+      );
+    }),
+    rest.get('http://localhost:8080/api/v1/users', (_req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          data: [],
         })
       );
     })

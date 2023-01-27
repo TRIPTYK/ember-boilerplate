@@ -1,9 +1,9 @@
 /* eslint-disable no-process-exit */
 /* eslint-disable no-console */
-const [, , command] = process.argv;
+const [, , backendCommand, frontendCommand] = process.argv;
 const child_process = require('child_process');
 
-const launchBackend = child_process.spawn('pnpm -C ../backend start:test:ci', {
+const launchBackend = child_process.spawn(backendCommand, {
   stdio: ['inherit', 'pipe', 'inherit'],
   env: process.env,
   shell: true,
@@ -19,8 +19,8 @@ launchBackend.on('close', () => {
 
 launchBackend.stdout.on('data', (data) => {
   if (data.toString().includes('Listening on port')) {
-    console.log(`backend launched, doing ${command}`);
-    const exec = child_process.spawn(command, {
+    console.log(`backend launched, doing ${frontendCommand}`);
+    const exec = child_process.spawn(frontendCommand, {
       stdio: ['inherit', 'inherit', 'inherit'],
       env: process.env,
       shell: true,
