@@ -1,9 +1,7 @@
 {
   "eslint.validate": ["typescript", "javascript"],
-  // These are all my auto-save configs
   "editor.formatOnSave": true,
   "css.validate": false,
-  // turn it off for JS and JSX, we will do this via eslint
   "[javascript]": {
     "editor.bracketPairColorization.enabled": true,
     "editor.formatOnSave": false
@@ -14,11 +12,8 @@
   },
   "[handlebars]": {
     "editor.bracketPairColorization.enabled": true,
-    "editor.defaultFormatter": "embertooling.prettier-for-handlebars-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // show eslint icon at bottom toolbar
-  "eslint.alwaysShowStatus": false,
-  // tell the ESLint plugin to run on save
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
@@ -26,11 +21,10 @@
     "strings": true
   },
   "eslint.format.enable": true,
-  "eslint.workingDirectories": ["."],
   "tailwindCSS.emmetCompletions": true,
   "editor.minimap.enabled": false,
   "tailwindCSS.includeLanguages": {
     "plaintext": "html",
-    "Handlebars": "html"
+    "handlebars": "html"
   }
 }
