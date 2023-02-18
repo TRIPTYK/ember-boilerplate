@@ -14,7 +14,7 @@ export interface ServiceWorkerTestContext extends TestContext {
 QUnit.begin(async () => {
   worker = setupWorker();
   worker.use(
-    rest.all('/write-coverage', (req) => {
+    rest.post('/write-coverage', (req) => {
       return req.passthrough();
     })
   );
