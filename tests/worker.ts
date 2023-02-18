@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import QUnit from 'qunit';
 import type { SetupWorkerApi } from 'msw';
+import { rest } from 'msw';
 import { setupWorker } from 'msw';
 import type { TestContext } from '@ember/test-helpers';
 
@@ -12,6 +13,11 @@ export interface ServiceWorkerTestContext extends TestContext {
 
 QUnit.begin(async () => {
   worker = setupWorker();
+  worker.use(
+    rest.all('/write-coverage', (req) => {
+      return req.passthrough();
+    })
+  );
   await worker.start();
   worker.printHandlers();
 });
