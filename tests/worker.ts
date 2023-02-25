@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
 import QUnit from 'qunit';
-import type { SetupWorkerApi } from 'msw';
+import type { SetupWorker } from 'msw';
 import { rest } from 'msw';
 import { setupWorker } from 'msw';
 import type { TestContext } from '@ember/test-helpers';
 
-let worker: SetupWorkerApi;
+let worker: SetupWorker;
 
 export interface ServiceWorkerTestContext extends TestContext {
-  worker: SetupWorkerApi;
+  worker: SetupWorker;
 }
 
 QUnit.begin(async () => {

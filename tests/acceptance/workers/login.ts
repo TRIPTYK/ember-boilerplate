@@ -1,7 +1,7 @@
-import type { SetupWorkerApi } from 'msw';
+import type { SetupWorker } from 'msw';
 import { rest } from 'msw';
 
-export function setupWorker(worker: SetupWorkerApi) {
+export function setupWorker(worker: SetupWorker) {
   worker.use(
     rest.post('http://localhost:8080/api/v1/auth/login', (_req, res, ctx) => {
       return res(

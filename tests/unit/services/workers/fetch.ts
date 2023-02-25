@@ -1,7 +1,7 @@
-import type { SetupWorkerApi } from 'msw';
+import type { SetupWorker } from 'msw';
 import { rest } from 'msw';
 
-export function setupWorker(worker: SetupWorkerApi) {
+export function setupWorker(worker: SetupWorker) {
   worker.use(
     rest.get('http://localhost:8080/api/v1/not-found', (_req, res, ctx) => {
       return res(ctx.status(404), ctx.json({}));
