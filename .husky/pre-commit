@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm test:lint --filter '!Acceptance'
-pnpm test:duplication --filter '!Acceptance'
-pnpm test:ember --filter '!Acceptance'
+pnpm run lint
+pnpm run test:duplication
+pnpm run test:ember --filter '!Acceptance'
+pnpm run verify-coverage 'dry-run'

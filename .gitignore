@@ -32,3 +32,5 @@
 
 # broccoli-debug
 /DEBUG/
+
+.DS_Store

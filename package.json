@@ -22,6 +22,7 @@
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
     "test:duplication": "jscpd --exitCode 1 --pattern \"app/**/*.{ts,js}\"",
     "test:ember": "COVERAGE=true ember exam --split=2 --partition=1 --parallel=3 --load-balance",
+    "verify-coverage": "node read-cov.js . 50",
     "postinstall": "husky install"
   },
   "devDependencies": {
