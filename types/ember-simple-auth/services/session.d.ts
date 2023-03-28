@@ -12,6 +12,7 @@ declare module 'ember-simple-auth/services/session' {
       };
     };
     store: Store;
+    setup(): void;
     authenticate(...args: unknown[]): Promise<void>;
     invalidate(): Promise<void>;
     requireAuthentication(

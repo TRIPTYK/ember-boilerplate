@@ -9,6 +9,9 @@ module.exports = function (defaults) {
   });
 
   let app = new EmberApp(defaults, {
+    'ember-simple-auth': {
+      useSessionSetupMethod: true,
+    },
     babel: {
       sourceMaps: 'inline',
       plugins: [
