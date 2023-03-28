@@ -41,6 +41,7 @@ specifiers:
   '@types/ember__test': ~4.0.1
   '@types/ember__utils': ~4.0.2
   '@types/htmlbars-inline-precompile': ~3.0.0
+  '@types/node': ^18.15.10
   '@types/qunit': ~2.19.4
   '@types/rsvp': ~4.0.4
   '@typescript-eslint/eslint-plugin': ~5.57.0
@@ -150,6 +151,7 @@ devDependencies:
   '@types/ember__test': 4.0.1_@babel+core@7.21.3
   '@types/ember__utils': 4.0.2_@babel+core@7.21.3
   '@types/htmlbars-inline-precompile': 3.0.0
+  '@types/node': 18.15.10
   '@types/qunit': 2.19.4
   '@types/rsvp': 4.0.4
   '@typescript-eslint/eslint-plugin': 5.57.0_p7xo4zbf6rlx7pmjonhlydeowm
@@ -336,7 +338,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/compat-data': 7.21.0
-      '@babel/core': 7.21.3_supports-color@8.1.1
+      '@babel/core': 7.21.3
       '@babel/helper-validator-option': 7.21.0
       browserslist: 4.21.5
       lru-cache: 5.1.1

@@ -1,35 +1,34 @@
 /* eslint-disable no-undef */
-import QUnit from 'qunit';
+import { rest, setupWorker as MSWSetupWorker } from 'msw';
 import type { SetupWorker } from 'msw';
-import { rest } from 'msw';
-import { setupWorker } from 'msw';
 import type { TestContext } from '@ember/test-helpers';
 
-let worker: SetupWorker;
+export let worker: SetupWorker;
 
 export interface ServiceWorkerTestContext extends TestContext {
   worker: SetupWorker;
 }
 
-QUnit.begin(async () => {
-  worker = setupWorker();
-  worker.use(
-    rest.post('/write-coverage', (req) => {
-      return req.passthrough();
-    })
-  );
-  await worker.start();
-  worker.printHandlers();
-});
+export function setupWorker() {
+  worker = MSWSetupWorker();
+}
 
-QUnit.done(async () => {
+export function stopWorker() {
   worker.printHandlers();
-  worker?.stop();
-});
+  worker.stop();
+}
 
+/**
+ * The passthrough is for ember code coverage.
+ */
 export function setupMock(hooks: NestedHooks) {
   hooks.beforeEach(async function () {
     worker.resetHandlers();
+    worker.use(
+      rest.post('/write-coverage', (req) => {
+        return req.passthrough();
+      })
+    );
     this.set('worker', worker);
   });
 

@@ -11,10 +11,16 @@ import {
   sendCoverage,
   // @ts-expect-error
 } from 'ember-cli-code-coverage/test-support';
+import { setupWorker, stopWorker } from './worker';
+
+QUnit.begin(async () => {
+  setupWorker();
+});
 
 QUnit.done(async function () {
   forceModulesToBeLoaded();
   await sendCoverage();
+  stopWorker();
 });
 
 setApplication(Application.create(config.APP));
