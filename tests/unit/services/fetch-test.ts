@@ -4,7 +4,7 @@ import { setupTest } from 'ember-qunit';
 import type FetchService from 'ember-boilerplate/services/fetch';
 import type { ServiceWorkerTestContext } from 'ember-boilerplate/tests/worker';
 import { setupMock } from 'ember-boilerplate/tests/worker';
-import { setupWorker } from './workers/fetch';
+import { fetchWorker } from './workers/fetch';
 import { Response } from 'fetch';
 
 module('Unit | Service | fetch', function (hooks) {
@@ -12,7 +12,7 @@ module('Unit | Service | fetch', function (hooks) {
   setupMock(hooks);
 
   hooks.beforeEach<ServiceWorkerTestContext>(function () {
-    setupWorker(this.worker);
+    fetchWorker(this.worker);
   });
 
   // Replace this with your real tests.

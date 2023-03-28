@@ -3,7 +3,6 @@ import Application from 'ember-boilerplate/app';
 import config from 'ember-boilerplate/config/environment';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
-import { start } from 'ember-qunit';
 import './helpers/flash-message';
 import QUnit from 'qunit';
 import {
@@ -12,6 +11,8 @@ import {
   // @ts-expect-error
 } from 'ember-cli-code-coverage/test-support';
 import { setupWorker, stopWorker } from './worker';
+// @ts-expect-error
+import start from 'ember-exam/test-support/start';
 
 QUnit.begin(async () => {
   setupWorker();
