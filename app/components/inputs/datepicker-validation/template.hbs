@@ -1,0 +1,44 @@
+<TpkValidationDatepicker
+  @changeset={{@changeset}}
+  @validationField={{@validationField}}
+  @onChange={{@onChange}}
+  @classless={{@classless}}
+  @dateFormat={{@dateFormat}}
+  @enableTime={{@enableTime}}
+  @noCalendar={{@noCalendar}}
+  @maxDate={{@maxDate}}
+  @minDate={{@minDate}}
+  @disabled={{@disabled}}
+  @defaultDate={{null}}
+  @allowInput={{@allowInput}}
+  @mode={{@mode}}
+  class={{if @disabled "disabled"}}
+  ...attributes
+  as |TI|
+>
+  <TI.Label>
+    {{@label}}
+    {{#if @mandatory}}
+      <span class="text-primary">
+        *
+      </span>
+    {{/if}}
+  </TI.Label>
+  <div class="relative">
+    <TI.Input
+      @placeholder={{@placeholder}}
+      class={{@inputClass}}
+      aria-autocomplete="none"
+      autocomplete="off"
+      autofill="off"
+    />
+    {{#if (and (not-eq @noCalendar true) (not-eq @disabled true))}}
+      <img
+        src="/assets/icons/calendar-gray.svg"
+        alt={{t "datepicker.calendarIcon"}}
+        class="calendar-icon absolute w-5 top-0 bottom-0 right-6 my-auto pointer-events-none"
+      />
+    {{/if}}
+  </div>
+  <Inputs::ErrorValidation @errors={{TI.errors}} />
+</TpkValidationDatepicker>

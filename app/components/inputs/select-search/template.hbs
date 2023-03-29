@@ -1,0 +1,50 @@
+{{! template-lint-disable no-unnecessary-concat }}
+<TpkSelectSearch
+  @label={{@label}}
+  @options={{@options}}
+  @onChange={{@onChange}}
+  @selected={{@selected}}
+  @onInput={{perform this.search}}
+  class="{{if @disabled 'disabled'}} tpk-select-searchx"
+  data-has-error="{{this.hasError}}"
+  ...attributes
+  as |S|
+>
+
+  <div class="flex">
+    <S.Label for={{@id}} />
+    {{#if @mandatory}}
+      <span class="text-primary ml-1">
+        *
+      </span>
+    {{/if}}
+  </div>
+  <div class="relative tpk-select-search-container">
+    <S.Button />
+    <S.Input
+      class="tpk-select-button {{@inputSelectStyle}}"
+      disabled={{@disabled}}
+      placeholder={{@placeholder}}
+      aria-autocomplete="none"
+      autocomplete="off"
+      autofill="off"
+      id={{@id}}
+      @selectedText={{if S.hasSelection @selectedText}}
+    />
+    {{#if (not-eq this.search.isIdle true)}}
+      <div class="absolute w-4 right-2 top-1/2 -translate-y-1/2">
+        <Inputs::SelectSearch::Loading />
+      </div>
+    {{/if}}
+  </div>
+  {{#if @options}}
+    <S.Options as |Opts|>
+      <Opts as |opt|>
+        <div class={{if opt.isSelected "font-semibold"}}>
+          {{yield opt.option to="option"}}
+        </div>
+      </Opts>
+    </S.Options>
+  {{/if}}
+  <Inputs::ErrorValidation @errors={{this.errors}} />
+</TpkSelectSearch>

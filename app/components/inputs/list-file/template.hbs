@@ -1,0 +1,48 @@
+<ul class="flex flex-col mt-4 space-y-4">
+  {{#each this.documents as |document|}}
+    <li
+      class="flex items-center justify-between
+        {{if
+          (not-eq @disabled true)
+          'px-8 pt-4 pb-4 border-2 bg-lightestgrey rounded-md'
+          'text-text/70'
+        }}"
+      data-test-file
+    >
+      <div class="break-words w-3/4 {{if @disabled 'w-full'}}">
+        {{document.filename}}
+      </div>
+      <div class="flex flex-shrink-0 justify-end w-1/4">
+        {{#if (and @download document.path)}}
+          <button
+            type="button"
+            class="ml-4"
+            data-test-download-file
+            {{on "click" (fn this.downloadFile document)}}
+          >
+            <img
+              src="/assets/icons/download.svg"
+              class="w-6 h-6 disabled"
+              alt=""
+              role="none"
+            />
+          </button>
+        {{/if}}
+        {{#if (not-eq @disabled true)}}
+          <button
+            type="button"
+            class="group rounded-md ml-4"
+            data-test-delete-file
+            {{on "click" (fn @onRemove document @field)}}
+          >
+            <img
+              class="w-6 h-6 font-bold duration-300"
+              src="/assets/icons/trash.svg"
+              alt={{t "document.closeButtonLight"}}
+            />
+          </button>
+        {{/if}}
+      </div>
+    </li>
+  {{/each}}
+</ul>

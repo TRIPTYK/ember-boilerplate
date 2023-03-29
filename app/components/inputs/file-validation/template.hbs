@@ -1,0 +1,63 @@
+<TpkValidationFile
+  @label={{@label}}
+  @changeset={{@changeset}}
+  @accept={{@accept}}
+  @validationField={{@validationField}}
+  @onChange={{this.onChange}}
+  @multiple={{@multiple}}
+  class={{if @disabled "disabled"}}
+  ...attributes
+  as |TI|
+>
+  <div>
+    <TI.Label>
+      {{@label}}
+    </TI.Label>
+    {{#if (not-eq @disabled true)}}
+      <div
+        class="relative flex border-2 border-gray-300 border-dashed rounded-md"
+      >
+        <div class="w-full text-center position-relative space-y-1">
+          <div
+            class="flex items-center justify-center h-32 text-sm text-gray-600 position-relative"
+          >
+            <label
+              class="flex items-center justify-center w-full font-medium text-indigo-600 rounded-md hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+            >
+              <TI.Input
+                placeholder={{@placeholder}}
+                accept={{@accept}}
+                multiple={{@multiple}}
+                disabled={{@disabled}}
+                class="{{@inputClass}}
+                  absolute opacity-0 w-full left-0 top-0 h-full hover:cursor-pointer hover:underline"
+              />
+              <span class="">
+                <img
+                  class="w-12 h-12 mx-auto"
+                  src="/assets/icons/upload.svg"
+                  alt={{t "document.upload"}}
+                />
+                <span class="py-6 text-gray-500 hover:underline">
+                  {{t "document.uploadFileOfType" what=@acceptText}}
+                  <br />
+                  {{t "document.or"}}
+                  <br />
+                  {{t "document.dragAndDropOfType" what=@acceptText}}
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+  <Inputs::ErrorValidation @errors={{TI.errors}} />
+  <Inputs::ListFile
+    @documents={{changeset-get @changeset @validationField}}
+    @field={{@validationField}}
+    @onRemove={{@onRemove}}
+    @download={{@download}}
+    @disabled={{@disabled}}
+  />
+</TpkValidationFile>

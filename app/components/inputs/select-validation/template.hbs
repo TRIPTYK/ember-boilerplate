@@ -1,0 +1,56 @@
+<TpkValidationSelect
+  @label={{@label}}
+  @options={{@options}}
+  @multiple={{@multiple}}
+  @selected={{changeset-get @changeset @validationField}}
+  @onChange={{@onChange}}
+  @mandatory={{@mandatory}}
+  @changeset={{@changeset}}
+  @onSearch={{@onSearch}}
+  @validationField={{@validationField}}
+  @classless={{@classless}}
+  class={{if @disabled "disabled"}}
+  ...attributes
+  as |S|
+>
+  <div class="flex">
+    <S.Label />
+    {{#if @mandatory}}
+      <span class="pl-1 text-primary">
+        *
+      </span>
+    {{/if}}
+  </div>
+  {{!-- <S.Searchbar @isOpen={{true}} /> --}}
+  <S.Button class={{@inputSelectStyle}} as |selected|>
+    {{#if S.hasSelection}}
+      {{#if (has-block "selected")}}
+        {{#if @multiple}}
+          {{#each selected as |s|}}
+            {{yield s to="selected"}}
+          {{/each}}
+        {{else}}
+          {{yield selected to="selected"}}
+        {{/if}}
+      {{/if}}
+    {{else}}
+      {{#if (has-block "notSelected")}}
+        {{yield @defaultText to="notSelected"}}
+      {{else}}
+        {{@defaultText}}
+      {{/if}}
+    {{/if}}
+  </S.Button>
+  <S.Options as |Opts|>
+    <Opts as |opt|>
+      <div>
+        {{#if (has-block "option")}}
+          {{yield opt to="option"}}
+        {{else}}
+          {{opt.option}}
+        {{/if}}
+      </div>
+    </Opts>
+  </S.Options>
+  <Inputs::ErrorValidation @errors={{S.errors}} />
+</TpkValidationSelect>
