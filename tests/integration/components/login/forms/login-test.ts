@@ -3,10 +3,12 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { Changeset } from 'ember-changeset';
-import lookupValidator from 'ember-changeset-validations';
 import Validation from 'ember-boilerplate/validator/forms/login';
-import type { TypedBufferedChangeset } from 'ember-form-changeset-validations';
+import type { Changeset } from 'ember-form-changeset-validations';
+import {
+  createChangeset,
+  ExtendedChangeset,
+} from 'ember-form-changeset-validations';
 import click from '@ember/test-helpers/dom/click';
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
 
@@ -16,17 +18,17 @@ module('Integration | Component | FormsLogin', function (hooks) {
   test('Create (empty changeset)', async function (assert) {
     this.set(
       'changeset',
-      Changeset(
+      createChangeset(
+        ExtendedChangeset,
         {
           email: '',
           password: '',
-        } as Record<keyof typeof Validation, unknown>,
-        lookupValidator(Validation),
+        },
         Validation
       )
     );
 
-    this.set('saveFunction', (changeset: TypedBufferedChangeset) => {
+    this.set('saveFunction', (changeset: Changeset) => {
       assert.step('saveFunction');
       assert.strictEqual(changeset.get('email'), 'edited@gmail.com');
       assert.strictEqual(changeset.get('password'), 'edited');
@@ -48,17 +50,17 @@ module('Integration | Component | FormsLogin', function (hooks) {
   test('Edit (populated changeset)', async function (assert) {
     this.set(
       'changeset',
-      Changeset(
+      createChangeset(
+        ExtendedChangeset,
         {
           email: 'hello',
           password: 'hello',
-        } as Record<keyof typeof Validation, unknown>,
-        lookupValidator(Validation),
+        },
         Validation
       )
     );
 
-    this.set('saveFunction', (changeset: TypedBufferedChangeset) => {
+    this.set('saveFunction', (changeset: Changeset) => {
       assert.strictEqual(changeset.get('email'), 'edited@gmail.com');
       assert.strictEqual(changeset.get('password'), 'helloEdited');
       assert.step('saveFunction');

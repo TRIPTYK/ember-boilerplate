@@ -1,14 +1,10 @@
-import type { BaseFormArgs } from 'ember-form-changeset-validations';
-import BaseForm from 'ember-form-changeset-validations/components/form';
+import Component from '@glimmer/component';
+import type { LoginChangeset } from 'ember-boilerplate/changesets/login';
 
-export interface FormsLoginDTO {
-  email: string;
-  password: string;
+interface FormsLoginArgs {
+  changeset: LoginChangeset;
+  saveFunction: (changeset: LoginChangeset) => unknown;
 }
 
-interface FormsLoginArgs extends BaseFormArgs<FormsLoginDTO> {}
-
-export default class FormsLogin extends BaseForm<
-  FormsLoginArgs,
-  FormsLoginDTO
-> {}
+// eslint-disable-next-line ember/no-empty-glimmer-component-classes
+export default class FormsLogin extends Component<FormsLoginArgs> {}
