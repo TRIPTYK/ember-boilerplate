@@ -16,7 +16,7 @@ specifiers:
   '@triptyk/ember-input': ~0.1.8
   '@triptyk/ember-input-validation': ~0.1.8
   '@triptyk/ember-select': 0.1.11
-  '@triptyk/ember-utils': 1.0.1
+  '@triptyk/ember-utils': 1.0.2
   '@tsconfig/ember': ~2.0.0
   '@types/ember': ~4.0.3
   '@types/ember-data': ~4.4.8
@@ -72,6 +72,7 @@ specifiers:
   ember-cli-terser: ~4.0.2
   ember-cli-typescript: ~5.2.1
   ember-concurrency: ~2.3.7
+  ember-concurrency-ts: ^0.3.1
   ember-data: ~4.11.3
   ember-exam: ^8.0.0
   ember-fetch: ~8.1.2
@@ -131,7 +132,7 @@ devDependencies:
   '@triptyk/ember-input': 0.1.8_gotakbwczbal42lkmgp3wi62pm
   '@triptyk/ember-input-validation': 0.1.8_bus2m7hrdjxzr3ma6wtygkwzha
   '@triptyk/ember-select': 0.1.11_qtovpurzjlo3biun26ymnwui7i
-  '@triptyk/ember-utils': 1.0.1_ember-source@4.12.0-beta.3
+  '@triptyk/ember-utils': 1.0.2_ember-source@4.12.0-beta.3
   '@tsconfig/ember': 2.0.0
   '@types/ember': 4.0.3_@babel+core@7.21.3
   '@types/ember-data': 4.4.8_@babel+core@7.21.3
@@ -187,6 +188,7 @@ devDependencies:
   ember-cli-terser: 4.0.2
   ember-cli-typescript: 5.2.1
   ember-concurrency: 2.3.7_@babel+core@7.21.3
+  ember-concurrency-ts: 0.3.1_ember-concurrency@2.3.7
   ember-data: 4.11.3_h5vpvzd7h3b2vh6a5cy4z3hk3y
   ember-exam: 8.0.0_ghcqhklx7src7xrsskoet6fmpy
   ember-fetch: 8.1.2
@@ -2900,8 +2902,8 @@ packages:
       - webpack
     dev: true
 
-  /@triptyk/ember-utils/1.0.1_ember-source@4.12.0-beta.3:
-    resolution: {integrity: sha512-lBRFLNBIoYYCM4vfX3AWC3mZl2GVbNqd1K9jQEmOdZpvqBqRGsv2eS/m1NlfE+c929UX0+uEY12gCDlO9ejMsw==}
+  /@triptyk/ember-utils/1.0.2_ember-source@4.12.0-beta.3:
+    resolution: {integrity: sha512-ItPHLIj189jmf1bM9uIbc+a4RZBnXziJhTH0UbxsWkb9BmBQSqbjjcPD5Ig0ZB5wB+COtOySygdNq6usLPUZGw==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^3.28.0 || ^4.0.0
