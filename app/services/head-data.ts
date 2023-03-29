@@ -1,9 +1,14 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import config from 'ember-boilerplate/config/environment';
 
 export default class HeadDataService extends Service {
-  @tracked title = 'Ember boilerplate';
+  @tracked title = config.applicationName;
   @tracked description = 'The ember boilerplate';
+
+  get applicationName() {
+    return config.applicationName;
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.

@@ -6,6 +6,7 @@ module.exports = function (environment) {
 
   let ENV = {
     modulePrefix: 'ember-boilerplate',
+    applicationName: 'Ember boilerplate',
     podModulePrefix: '',
     environment,
     host,

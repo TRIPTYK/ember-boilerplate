@@ -11,9 +11,11 @@ import {
 } from 'ember-form-changeset-validations';
 import click from '@ember/test-helpers/dom/click';
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
+import { setupIntl } from 'ember-intl/test-support';
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks, ['fr-fr']);
 
   test('Create (empty changeset)', async function (assert) {
     this.set(

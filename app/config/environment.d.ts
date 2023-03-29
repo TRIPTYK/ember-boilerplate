@@ -7,6 +7,7 @@ export default config;
 declare const config: {
   environment: string;
   modulePrefix: string;
+  applicationName: string;
   host: string;
   namespace: string;
   podModulePrefix: string;

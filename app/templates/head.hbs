@@ -1,12 +1,14 @@
 {{! template-lint-disable no-forbidden-elements }}
 {{#if this.model.title}}
   <title>
+    {{! template-lint-disable no-bare-strings }}
     {{this.model.title}}
-    – Ember Boilerplate
+    –
+    {{this.applicationName}}
   </title>
 {{else}}
   <title>
-    Ember Boilerplate
+    {{this.applicationName}}
   </title>
 {{/if}}
 <meta property="description" content={{this.model.description}} />
