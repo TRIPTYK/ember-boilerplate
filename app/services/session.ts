@@ -1,9 +1,9 @@
 import BaseSessionService from 'ember-simple-auth/services/session';
 import { service } from '@ember/service';
-import type CurrentUser from './current-user';
+import type CurrentUserService from './current-user';
 
-export default class Session extends BaseSessionService {
-  @service declare currentUser: CurrentUser;
+export default class SessionService extends BaseSessionService {
+  @service declare currentUser: CurrentUserService;
 
   async handleAuthentication() {
     try {
@@ -24,6 +24,6 @@ export default class Session extends BaseSessionService {
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.
 declare module '@ember/service' {
   interface Registry {
-    session: Session;
+    session: SessionService;
   }
 }

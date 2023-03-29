@@ -12,6 +12,7 @@
       "ember-boilerplate/tests/*": ["tests/*"],
       "ember-boilerplate/*": ["app/*"],
       "ember-cli-flash/*": ["node_modules/ember-cli-flash"],
+      "ember-utils/*": ["node_modules/@triptyk/ember-utils"],
       "fetch": ["node_modules/ember-fetch"],
       "ember-changeset-validations": [
         "node_modules/ember-form-changeset-validations/types/ember-changeset-validations"

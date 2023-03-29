@@ -1,7 +1,7 @@
 import { action } from '@ember/object';
 import type RouterService from '@ember/routing/router-service';
 import Component from '@glimmer/component';
-import type CurrentUser from 'ember-boilerplate/services/current-user';
+import type CurrentUserService from 'ember-boilerplate/services/current-user';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { createChangeset } from 'ember-form-changeset-validations';
 import type SessionService from 'ember-simple-auth/services/session';
@@ -11,19 +11,17 @@ import { waitFor } from '@ember/test-waiters';
 import { service } from '@ember/service';
 import { LoginChangeset } from 'ember-boilerplate/changesets/login';
 
-interface PagesLoginArgs {
-  model?: unknown;
-}
+interface PagesLoginArgs {}
 
 export default class PagesLogin extends Component<PagesLoginArgs> {
   @service declare flashMessages: FlashMessageService;
-  @service declare currentUser: CurrentUser;
+  @service declare currentUser: CurrentUserService;
   @service declare router: RouterService;
   @service declare session: SessionService;
 
   @tracked changeset: LoginChangeset;
 
-  constructor(owner: unknown, args: PagesLoginArgs) {
+  public constructor(owner: unknown, args: PagesLoginArgs) {
     super(owner, args);
     this.changeset = createChangeset(
       LoginChangeset,

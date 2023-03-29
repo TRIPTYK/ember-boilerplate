@@ -2,12 +2,12 @@ import Service from '@ember/service';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import type Store from '@ember-data/store';
-import type FetchService from './fetch';
 import type UserModel from 'ember-boilerplate/models/user';
-import type Session from './session';
+import type SessionService from './session';
+import type FetchService from '@triptyk/ember-utils/services/fetch';
 
-export default class CurrentUser extends Service {
-  @service declare session: Session;
+export default class CurrentUserService extends Service {
+  @service declare session: SessionService;
   @service declare store: Store;
   @service declare fetch: FetchService;
 
@@ -26,6 +26,6 @@ export default class CurrentUser extends Service {
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.
 declare module '@ember/service' {
   interface Registry {
-    'current-user': CurrentUser;
+    'current-user': CurrentUserService;
   }
 }
