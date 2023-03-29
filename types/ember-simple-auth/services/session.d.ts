@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import type Store from '@ember-data/store';
 import type Transition from '@ember/routing/-private/transition';
+import { Promisable } from 'type-fest';
 
 declare module 'ember-simple-auth/services/session' {
   export default class SessionService extends Service {
@@ -12,7 +13,7 @@ declare module 'ember-simple-auth/services/session' {
       };
     };
     store: Store;
-    setup(): void;
+    setup(): Promisable<void>;
     authenticate(...args: unknown[]): Promise<void>;
     invalidate(): Promise<void>;
     requireAuthentication(

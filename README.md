@@ -1,7 +1,6 @@
 # ember-boilerplate
 
 [![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
-[![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ligthouse.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
 ## You can use this IF
 
