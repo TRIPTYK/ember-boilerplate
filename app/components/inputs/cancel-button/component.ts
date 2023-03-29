@@ -2,7 +2,7 @@ import { action } from '@ember/object';
 import type RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
-import type CurrentTransitionService from 'frontend/services/current-transition';
+import type CurrentTransitionService from '@triptyk/ember-utils/services/current-transition';
 import windowHistoryBack from '@triptyk/ember-utils/utils/window-history-back';
 
 interface CancelButtonComponentArgs {

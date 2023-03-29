@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
-import type { BufferedChangeset } from 'ember-changeset/types';
+import type { Changeset } from 'ember-form-changeset-validations/types/typed-changeset';
 import { restartableTask } from 'ember-concurrency';
 
 export interface SelectSearchComponentArgs {
   onSearch?: (searchValue: string) => void;
-  changeset?: BufferedChangeset;
+  changeset?: Changeset;
   validationField?: string;
 }
 

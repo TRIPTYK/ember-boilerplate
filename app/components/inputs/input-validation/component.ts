@@ -1,9 +1,9 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
-import type { TypedBufferedChangeset } from 'ember-form-changeset-validations';
+import type { Changeset } from 'ember-form-changeset-validations/types/typed-changeset';
 
 interface InputsInputValidationComponentArgs {
-  changeset: TypedBufferedChangeset;
+  changeset: Changeset;
   validationField: string;
   type: 'number' | 'text' | 'date';
   onChange: (value: string) => unknown;
