@@ -15,3 +15,8 @@ submit: 'Envoyer'
 delete: 'Supprimer'
 open: 'Ouvrir'
 close: 'Fermer'
+search: 'Rechercher'
+table:
+  on: 'sur'
+  results: 'résultats'
+  resultsByPage: 'Résultats par page'
