@@ -6,7 +6,7 @@ import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { createChangeset } from 'ember-form-changeset-validations';
 import type SessionService from 'ember-simple-auth/services/session';
 import { tracked } from '@glimmer/tracking';
-import LoginValidation from '../../../validator/forms/login';
+import LoginValidation from '../../../validations/login';
 import { waitFor } from '@ember/test-waiters';
 import { service } from '@ember/service';
 import { LoginChangeset } from 'ember-boilerplate/changesets/login';

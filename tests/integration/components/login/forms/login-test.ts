@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import Validation from 'ember-boilerplate/validator/forms/login';
+import Validation from 'ember-boilerplate/validations/login';
 import type { Changeset } from 'ember-form-changeset-validations';
 import {
   createChangeset,

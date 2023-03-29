@@ -1,0 +1,8 @@
+<button type="button" class="btn {{if @btnType @btnType}}" ...attributes>
+  {{#if @icon}}
+    <img src={{@icon}} alt={{t "global.buttonIcon"}} class={{@iconClass}} />
+  {{/if}}
+  <span>
+    {{yield}}
+  </span>
+</button>

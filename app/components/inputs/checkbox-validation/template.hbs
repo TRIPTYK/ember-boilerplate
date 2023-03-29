@@ -1,0 +1,21 @@
+<TpkValidationCheckbox
+  @label={{@label}}
+  @changeset={{@changeset}}
+  @validationField={{@validationField}}
+  @onChange={{@onChange}}
+  @type={{@type}}
+  class={{if @disabled "disabled"}}
+  ...attributes
+  as |TI|
+>
+  <TI.Label>
+    {{@label}}
+  </TI.Label>
+  <TI.Input
+    name={{@name}}
+    placeholder={{@placeholder}}
+    disabled={{@disabled}}
+    class={{@inputClass}}
+  />
+  <Inputs::ErrorValidation @errors={{TI.errors}} />
+</TpkValidationCheckbox>
