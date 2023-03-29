@@ -41,7 +41,7 @@
     "@triptyk/ember-input": "~0.1.8",
     "@triptyk/ember-input-validation": "~0.1.8",
     "@triptyk/ember-select": "0.1.11",
-    "@triptyk/ember-utils": "1.0.1",
+    "@triptyk/ember-utils": "1.0.2",
     "@tsconfig/ember": "~2.0.0",
     "@types/ember": "~4.0.3",
     "@types/ember-data": "~4.4.8",

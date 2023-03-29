@@ -16,7 +16,7 @@ specifiers:
   '@triptyk/ember-input': ~0.1.8
   '@triptyk/ember-input-validation': ~0.1.8
   '@triptyk/ember-select': 0.1.11
-  '@triptyk/ember-utils': 1.0.1
+  '@triptyk/ember-utils': 1.0.2
   '@tsconfig/ember': ~2.0.0
   '@types/ember': ~4.0.3
   '@types/ember-data': ~4.4.8
@@ -131,7 +131,7 @@ devDependencies:
   '@triptyk/ember-input': 0.1.8_gotakbwczbal42lkmgp3wi62pm
   '@triptyk/ember-input-validation': 0.1.8_bus2m7hrdjxzr3ma6wtygkwzha
   '@triptyk/ember-select': 0.1.11_qtovpurzjlo3biun26ymnwui7i
-  '@triptyk/ember-utils': 1.0.1_ember-source@4.12.0-beta.3
+  '@triptyk/ember-utils': 1.0.2_ember-source@4.12.0-beta.3
   '@tsconfig/ember': 2.0.0
   '@types/ember': 4.0.3_@babel+core@7.21.3
   '@types/ember-data': 4.4.8_@babel+core@7.21.3
@@ -348,7 +348,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/compat-data': 7.21.0
-      '@babel/core': 7.21.3_supports-color@8.1.1
+      '@babel/core': 7.21.3
       '@babel/helper-validator-option': 7.21.0
       browserslist: 4.21.5
       lru-cache: 5.1.1
@@ -2900,8 +2900,8 @@ packages:
       - webpack
     dev: true
 
-  /@triptyk/ember-utils/1.0.1_ember-source@4.12.0-beta.3:
-    resolution: {integrity: sha512-lBRFLNBIoYYCM4vfX3AWC3mZl2GVbNqd1K9jQEmOdZpvqBqRGsv2eS/m1NlfE+c929UX0+uEY12gCDlO9ejMsw==}
+  /@triptyk/ember-utils/1.0.2_ember-source@4.12.0-beta.3:
+    resolution: {integrity: sha512-ItPHLIj189jmf1bM9uIbc+a4RZBnXziJhTH0UbxsWkb9BmBQSqbjjcPD5Ig0ZB5wB+COtOySygdNq6usLPUZGw==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^3.28.0 || ^4.0.0
