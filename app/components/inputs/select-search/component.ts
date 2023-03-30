@@ -15,7 +15,7 @@ export default class SelectSearchComponent extends Component<SelectSearchCompone
     }
     return (
       (this.args.changeset.errors.filter(
-        (err) => err.key === this.args.validationField
+        (err) => err['key'] === this.args.validationField
       ) as unknown[]) ?? []
     );
   }

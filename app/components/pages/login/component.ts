@@ -3,6 +3,7 @@ import type RouterService from '@ember/routing/router-service';
 import Component from '@glimmer/component';
 import type CurrentUserService from 'ember-boilerplate/services/current-user';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
+import type { ProxyWrappedChangeset } from 'ember-form-changeset-validations';
 import { createChangeset } from 'ember-form-changeset-validations';
 import type SessionService from 'ember-simple-auth/services/session';
 import { tracked } from '@glimmer/tracking';
@@ -19,7 +20,7 @@ export default class PagesLogin extends Component<PagesLoginArgs> {
   @service declare router: RouterService;
   @service declare session: SessionService;
 
-  @tracked changeset: LoginChangeset;
+  @tracked changeset: ProxyWrappedChangeset<LoginChangeset>;
 
   public constructor(owner: unknown, args: PagesLoginArgs) {
     super(owner, args);
@@ -35,7 +36,7 @@ export default class PagesLogin extends Component<PagesLoginArgs> {
 
   @action
   @waitFor
-  async login(changeset: LoginChangeset) {
+  async login(changeset: ProxyWrappedChangeset<LoginChangeset>) {
     try {
       await this.session.authenticate('authenticator:jwt', {
         email: changeset.get('email'),

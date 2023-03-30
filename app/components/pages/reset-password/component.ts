@@ -6,6 +6,7 @@ import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { action } from '@ember/object';
 import type RouterService from '@ember/routing/router-service';
 import { ResetPasswordChangeset } from 'ember-boilerplate/changesets/reset-password';
+import type { ProxyWrappedChangeset } from 'ember-form-changeset-validations';
 import { createChangeset } from 'ember-form-changeset-validations';
 import passwordRecoveryValidation from 'ember-boilerplate/validations/reset-password';
 
@@ -17,7 +18,7 @@ export default class PagesResetPassword extends Component<PagesResetPasswordArgs
   @service declare fetch: FetchService;
   @service declare router: RouterService;
   @service declare flashMessages: FlashMessageService;
-  @tracked changeset: ResetPasswordChangeset;
+  @tracked changeset: ProxyWrappedChangeset<ResetPasswordChangeset>;
 
   constructor(owner: unknown, args: PagesResetPasswordArgs) {
     super(owner, args);
@@ -32,7 +33,9 @@ export default class PagesResetPassword extends Component<PagesResetPasswordArgs
   }
 
   @action
-  async recoverPassword(changeset: ResetPasswordChangeset) {
+  async recoverPassword(
+    changeset: ProxyWrappedChangeset<ResetPasswordChangeset>
+  ) {
     try {
       await this.fetch.request(`auth/set-password/${this.args.token}`, {
         body: JSON.stringify({
