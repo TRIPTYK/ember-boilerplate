@@ -13,6 +13,7 @@ module.exports = function (environment) {
     namespace,
     rootURL: '/',
     locationType: 'history',
+    'changeset-validations': { rawOutput: true },
     'ember-simple-auth-token': {
       tokenDataPropertyName: 'tokenData', // Key in session to store token data
       refreshAccessTokens: true, // Enables access token refreshing

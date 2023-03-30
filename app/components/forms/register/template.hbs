@@ -1,0 +1,40 @@
+<ChangesetForm
+  @changeset={{@changeset}}
+  @onSubmit={{@saveFunction}}
+  data-test-form="register"
+  class="px-4 py-8 mt-8 bg-white rounded-lg shadow space-y-6 sm:px-10 sm:mx-auto sm:w-full sm:max-w-xl grid grid-cols-12 gap-x-6 gap-y-4"
+>
+  <Inputs::InputValidation
+    class="input_block col-span-12"
+    @label={{t "components.forms.register.name"}}
+    @changeset={{@changeset}}
+    @validationField="name"
+    data-test-input="name"
+  />
+  <Inputs::InputValidation
+    class="input_block col-span-12"
+    @label={{t "components.forms.register.email"}}
+    @changeset={{@changeset}}
+    @validationField="email"
+    data-test-input="email"
+  />
+  <Inputs::InputValidation
+    class="input_block col-span-12"
+    @label={{t "components.forms.register.password"}}
+    @changeset={{@changeset}}
+    @validationField="password"
+    data-test-input="password"
+  />
+  <Inputs::InputValidation
+    class="input_block col-span-12"
+    @label={{t "components.forms.register.confirmPassword"}}
+    @changeset={{@changeset}}
+    @validationField="confirmPassword"
+    data-test-input="confirmPassword"
+  />
+  <button data-test-submit type="submit" class="btn col-span-12">
+    <span>
+      {{t "global.submit"}}
+    </span>
+  </button>
+</ChangesetForm>
