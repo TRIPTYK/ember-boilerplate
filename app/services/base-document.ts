@@ -1,11 +1,10 @@
 import type Model from '@ember-data/model';
 import type emberData__store from '@ember-data/store';
 import fetch from 'fetch';
-import { getOwner } from '@ember/application';
-import type ApplicationInstance from '@ember/application/instance';
 import Service, { service } from '@ember/service';
 import type ApplicationAdapter from 'ember-boilerplate/adapters/application';
 import type { BaseDocumentModel } from 'ember-boilerplate/models/document';
+import type { Owner } from '@ember/test-helpers/build-owner';
 
 export interface FileDTO {
   filename: string;
@@ -14,24 +13,30 @@ export interface FileDTO {
   file?: File;
 }
 
-export interface DocumentDTO {
-  id: string;
+export interface PersistedFile {
   filename: string;
-  originalName: string;
   path: string;
-  mimetype: string;
-  size: number;
-  client?: string;
+  id: string;
+}
+
+export interface UnpersistedFile {
+  filename: string;
+  path?: string;
+  id?: string;
+  file?: File;
 }
 
 export default abstract class BaseDocumentService<
   T extends Model
 > extends Service {
   @service declare store: emberData__store;
-  adapter = (getOwner(this) as ApplicationInstance).lookup(
-    'adapter:application'
-  ) as ApplicationAdapter;
   protected abstract entityName: string;
+  protected adapter: ApplicationAdapter;
+
+  public constructor(owner: Owner) {
+    super(owner);
+    this.adapter = owner.lookup('adapter:application') as ApplicationAdapter;
+  }
 
   get baseUrl() {
     return `${this.adapter.host}/${this.adapter.namespace}`;
@@ -41,10 +46,7 @@ export default abstract class BaseDocumentService<
     return `${this.baseUrl}/${this.entityName}`;
   }
 
-  async save(formData: FormData | undefined): Promise<T | undefined> {
-    if (!formData) {
-      return;
-    }
+  async save(formData: FormData): Promise<T> {
     const id = formData.get('id') as string;
     if (id) {
       return this.update(formData, id);
@@ -52,12 +54,7 @@ export default abstract class BaseDocumentService<
     return this.create(formData);
   }
 
-  public getFilePojo(
-    model: BaseDocumentModel | undefined
-  ): FileDTO | undefined {
-    if (!model) {
-      return undefined;
-    }
+  public getFilePojo(model: BaseDocumentModel): FileDTO {
     return {
       id: model.id,
       filename: model.originalName,
