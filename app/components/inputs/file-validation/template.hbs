@@ -27,11 +27,18 @@
     {{/if}}
   </div>
   <Inputs::ErrorValidation @errors={{TI.errors}} />
-  <Inputs::ListFile
+  <TpkFileList
     @documents={{changeset-get @changeset @validationField}}
-    @field={{@validationField}}
-    @onRemove={{@onRemove}}
-    @download={{@download}}
     @disabled={{@disabled}}
-  />
+    @onDelete={{@onDelete}}
+    @onDownload={{@onDownload}}
+    as |List|
+  >
+    <List.Element as |E|>
+      {{! template-lint-disable no-bare-strings }}
+      <E.Delete>Delete</E.Delete>
+      {{! template-lint-disable no-bare-strings }}
+      <E.Download>Download</E.Download>
+    </List.Element>
+  </TpkFileList>
 </TpkValidationFile>

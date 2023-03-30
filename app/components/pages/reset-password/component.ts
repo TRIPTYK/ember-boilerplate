@@ -41,7 +41,7 @@ export default class PagesResetPassword extends Component<PagesResetPasswordArgs
         method: 'POST',
       });
       this.flashMessages.success('Password has been reset.');
-      this.router.transitionTo('login');
+      await this.router.transitionTo('login');
     } catch (e) {
       this.flashMessages.danger('An error occured');
     }

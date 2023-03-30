@@ -42,7 +42,7 @@ export default class PagesLogin extends Component<PagesLoginArgs> {
         password: changeset.get('password'),
       });
       await this.currentUser.load();
-      this.router.transitionTo('index');
+      await this.router.transitionTo('index');
     } catch (e) {
       this.flashMessages.danger('Username or password incorrect');
     }

@@ -12,10 +12,10 @@ export default class CancelButtonComponent extends Component<CancelButtonCompone
   @service declare router: RouterService;
 
   @action
-  goBack(e: Event) {
+  async goBack(e: Event) {
     e.preventDefault();
     if (window.history.length === 2) {
-      this.router.transitionTo(this.args.fallbackRoute);
+      await this.router.transitionTo(this.args.fallbackRoute);
       return;
     }
     windowHistoryBack();

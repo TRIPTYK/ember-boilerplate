@@ -44,6 +44,7 @@
     "@triptyk/ember-modal": "~0.2.0",
     "@triptyk/ember-select": "0.1.11",
     "@triptyk/ember-utils": "1.0.4",
+    "@triptyk/ember-ui": "link:../ember-common-ui/packages/ember-ui",
     "@tsconfig/ember": "~2.0.0",
     "@types/ember": "~4.0.3",
     "@types/ember-data": "~4.4.8",

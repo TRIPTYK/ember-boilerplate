@@ -12,13 +12,13 @@ export default class ResetPasswordRoute extends Route {
   @service declare session: SessionService;
   @service declare router: RouterService;
 
-  beforeModel(tr: Transition) {
-    this.session.invalidate();
+  async beforeModel(tr: Transition) {
+    await this.session.invalidate();
     /**
      * No token query param, denied
      */
     if (!tr.to?.queryParams['token']) {
-      this.router.transitionTo('login');
+      await this.router.transitionTo('login');
     }
   }
 

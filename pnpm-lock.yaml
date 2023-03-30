@@ -18,6 +18,7 @@ specifiers:
   '@triptyk/ember-input-validation': ~0.1.8
   '@triptyk/ember-modal': ~0.2.0
   '@triptyk/ember-select': 0.1.11
+  '@triptyk/ember-ui': link:../ember-common-ui/packages/ember-ui
   '@triptyk/ember-utils': 1.0.4
   '@tsconfig/ember': ~2.0.0
   '@types/ember': ~4.0.3
@@ -137,6 +138,7 @@ devDependencies:
   '@triptyk/ember-input-validation': 0.1.8_bus2m7hrdjxzr3ma6wtygkwzha
   '@triptyk/ember-modal': 0.2.0_webpack@5.76.3
   '@triptyk/ember-select': 0.1.11_qtovpurzjlo3biun26ymnwui7i
+  '@triptyk/ember-ui': link:../ember-common-ui/packages/ember-ui
   '@triptyk/ember-utils': 1.0.4_ember-source@4.12.0-beta.3
   '@tsconfig/ember': 2.0.0
   '@types/ember': 4.0.3_@babel+core@7.21.3

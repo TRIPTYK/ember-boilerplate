@@ -25,7 +25,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     return headers;
   }
 
-  handleResponse(
+  async handleResponse(
     status: number,
     headers: Record<string, unknown>,
     payload: Record<string, unknown>,
@@ -33,7 +33,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   ) {
     if (status === 401 && this.session.isAuthenticated) {
       this.flashMessages.danger(`Unauthorized action`);
-      this.session.invalidate();
+      await this.session.invalidate();
     } else {
       if (status > 500) {
         // Internal

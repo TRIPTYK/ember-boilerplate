@@ -5,8 +5,8 @@ import type { Changeset } from 'ember-form-changeset-validations/types/typed-cha
 interface InputsInputValidationComponentArgs {
   changeset: Changeset;
   validationField: string;
-  type: 'number' | 'text' | 'date';
-  onChange: (value: string) => unknown;
+  type: string;
+  onChange?: (value: string) => unknown;
 }
 
 export default class InputsInputValidationComponent extends Component<InputsInputValidationComponentArgs> {
@@ -14,9 +14,6 @@ export default class InputsInputValidationComponent extends Component<InputsInpu
   onChange(e: string) {
     if (this.args.onChange) {
       return this.args.onChange(e);
-    }
-    if (this.args.type === 'number') {
-      return this.args.changeset.set(this.args.validationField, +e);
     }
     this.args.changeset.set(this.args.validationField, e);
   }
