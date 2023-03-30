@@ -4,14 +4,14 @@
   @changeset={{@changeset}}
   ...attributes
 >
-  <TpkValidationInput
+  <Inputs::InputValidation
     class="input_block"
     @label={{t "components.forms.reset-password.new_password"}}
     @changeset={{@changeset}}
     @validationField="password"
     data-test-input="password"
   />
-  <TpkValidationInput
+  <Inputs::InputValidation
     class="input_block"
     @label={{t "components.forms.reset-password.confirm_new_password"}}
     @changeset={{@changeset}}

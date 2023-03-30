@@ -5,10 +5,8 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Validation from 'ember-boilerplate/validations/login';
 import type { Changeset } from 'ember-form-changeset-validations';
-import {
-  createChangeset,
-  ExtendedChangeset,
-} from 'ember-form-changeset-validations';
+import { createChangeset } from 'ember-form-changeset-validations';
+import { ExtendedChangeset } from 'ember-form-changeset-validations';
 import click from '@ember/test-helpers/dom/click';
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
 import { setupIntl } from 'ember-intl/test-support';

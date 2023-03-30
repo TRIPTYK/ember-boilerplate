@@ -4,7 +4,7 @@
   @changeset={{@changeset}}
   data-test-form-login
 >
-  <TpkValidationInput
+  <Inputs::InputValidation
     @label={{t "components.forms.login.email"}}
     @changeset={{@changeset}}
     @validationField="email"
@@ -12,7 +12,7 @@
     class="input_block"
     data-test-input="email"
   />
-  <TpkValidationInput
+  <Inputs::InputValidation
     @label={{t "components.forms.login.password"}}
     @changeset={{@changeset}}
     @validationField="password"
