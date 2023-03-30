@@ -14,6 +14,7 @@ specifiers:
   '@glimmer/component': ~1.1.2
   '@glimmer/tracking': ~1.1.2
   '@triptyk/ember-actions-menu': ~0.1.0
+  '@triptyk/ember-blueprints': ~1.0.0
   '@triptyk/ember-input': ~0.1.8
   '@triptyk/ember-input-validation': ~0.1.8
   '@triptyk/ember-modal': ~0.2.0
@@ -133,6 +134,7 @@ devDependencies:
   '@glimmer/component': 1.1.2_@babel+core@7.21.3
   '@glimmer/tracking': 1.1.2
   '@triptyk/ember-actions-menu': 0.1.0_webpack@5.76.3
+  '@triptyk/ember-blueprints': 1.0.0_rmmq5bbjtgzhrmop7yw7qslygi
   '@triptyk/ember-input': 0.1.8_gotakbwczbal42lkmgp3wi62pm
   '@triptyk/ember-input-validation': 0.1.8_bus2m7hrdjxzr3ma6wtygkwzha
   '@triptyk/ember-modal': 0.2.0_webpack@5.76.3
@@ -2888,6 +2890,23 @@ packages:
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.2.0
       ember-cli-typescript: 5.2.1
+      ember-test-selectors: 6.0.0
+    transitivePeerDependencies:
+      - supports-color
+      - webpack
+    dev: true
+
+  /@triptyk/ember-blueprints/1.0.0_rmmq5bbjtgzhrmop7yw7qslygi:
+    resolution: {integrity: sha512-Yfced1o8WjxK81kz3qlAbcciUCgAgr3FjY7ItTpRa1XHV9xvQonCMVtRlDKZIiMFp79svhMhtvdUEkKtEML9PQ==}
+    engines: {node: 14.* || 16.* || >= 18}
+    peerDependencies:
+      ember-source: ^3.28.0 || ^4.0.0
+    dependencies:
+      ember-auto-import: 2.6.1_webpack@5.76.3
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.2.0
+      ember-cli-typescript: 5.2.1
+      ember-source: 4.12.0-beta.3_yvbegj3kxsokgk3cppr5gzxagu
       ember-test-selectors: 6.0.0
     transitivePeerDependencies:
       - supports-color

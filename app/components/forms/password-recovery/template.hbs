@@ -5,20 +5,22 @@
   ...attributes
 >
   <TpkValidationInput
-    class="input_block pb-9"
+    class="input_block"
     @label={{t "components.forms.reset-password.new_password"}}
     @changeset={{@changeset}}
     @validationField="password"
     data-test-input="password"
   />
   <TpkValidationInput
-    class="input_block pb-9"
+    class="input_block"
     @label={{t "components.forms.reset-password.confirm_new_password"}}
     @changeset={{@changeset}}
     @validationField="confirmPassword"
     data-test-input="confirmPassword"
   />
-  <button data-test-submit type="submit" class="w-full">
-    {{t "components.forms.reset-password.validate"}}
+  <button data-test-submit type="submit" class="btn">
+    <span>
+      {{t "components.forms.reset-password.validate"}}
+    </span>
   </button>
 </ChangesetForm>

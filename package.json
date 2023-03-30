@@ -39,6 +39,7 @@
     "@glimmer/component": "~1.1.2",
     "@glimmer/tracking": "~1.1.2",
     "@triptyk/ember-actions-menu": "~0.1.0",
+    "@triptyk/ember-blueprints": "~1.0.0",
     "@triptyk/ember-input": "~0.1.8",
     "@triptyk/ember-input-validation": "~0.1.8",
     "@triptyk/ember-modal": "~0.2.0",
