@@ -11,4 +11,5 @@ Router.map(function () {
   this.route('login');
   this.route('forgot-password');
   this.route('reset-password');
+  this.route('register');
 });

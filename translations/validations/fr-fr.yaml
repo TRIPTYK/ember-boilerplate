@@ -1,0 +1,16 @@
+name:
+  required: "Le nom est requis"
+email:
+  required: "L'email est requis"
+  format: "Le format de l'email n'est pas correct"
+password:
+  required: "Le mot de passe est requis"
+confirmPassword:
+  required: "La confirmation est requise"
+  notMatching: "Les mots de passe ne correspondent pas"
+iban:
+  required: "L'IBAN est requis"
+  noTinyLetter: 'Un IBAN ne peut pas contenir de lettres minuscules'
+  onlyAlphaNumeric: 'Un IBAN ne peut contenir que des charactères alpha numériques'
+  noSpace: "Un IBAN ne peut pas contenir d'espaces"
+  notValid: "Ce n'est pas un IBAN valide"
