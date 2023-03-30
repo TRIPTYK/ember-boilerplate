@@ -1,7 +1,7 @@
 import type { SetupWorker } from 'msw';
 import { rest } from 'msw';
 
-export function loginWorker(worker: SetupWorker) {
+export async function loginWorker(worker: SetupWorker) {
   worker.use(
     rest.post('http://localhost:8080/api/v1/auth/login', (_req, res, ctx) => {
       return res(
@@ -40,5 +40,5 @@ export function loginWorker(worker: SetupWorker) {
       );
     })
   );
-  worker.start();
+  await worker.start();
 }

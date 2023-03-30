@@ -4,6 +4,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: './tsconfig.json',
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
@@ -25,6 +26,7 @@ module.exports = {
     'no-undef': 'off',
     'unused-imports/no-unused-imports': 'error',
     'ember/no-controllers': 'error',
+    '@typescript-eslint/no-floating-promises': 'error',
     'ember/require-fetch-import': 'error',
     'ember/route-path-style': 'error',
     'ember/no-current-route-name': 'error',

@@ -3,7 +3,6 @@ import type emberData__store from '@ember-data/store';
 import fetch from 'fetch';
 import Service, { service } from '@ember/service';
 import type ApplicationAdapter from 'ember-boilerplate/adapters/application';
-import type { BaseDocumentModel } from 'ember-boilerplate/models/document';
 import type { Owner } from '@ember/test-helpers/build-owner';
 
 export type FileObject = PersistedFile | UnpersistedFile;
@@ -47,15 +46,6 @@ export default abstract class BaseDocumentService<
       return this.update(formData, id);
     }
     return this.create(formData);
-  }
-
-  public getFilePojo(model: BaseDocumentModel): FileObject {
-    return {
-      id: model.id,
-      filename: model.originalName,
-      path: model.path,
-      file: undefined,
-    };
   }
 
   protected createRequestObject(method: 'POST' | 'PATCH', formData: FormData) {
