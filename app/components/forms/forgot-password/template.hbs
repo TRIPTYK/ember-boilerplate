@@ -6,15 +6,17 @@
   @changeset={{@changeset}}
 >
   <Inputs::InputValidation
-    class="input_block pb-9"
+    class="input_block"
     @label={{t "components.forms.forgot-password.email"}}
     @changeset={{@changeset}}
     @validationField="email"
     data-test-input="email"
   />
   <div class="flex flex-col w-full">
-    <button data-test-submit type="submit">
-      {{t "components.forms.forgot-password.validate"}}
+    <button data-test-submit type="submit" class="btn">
+      <span>
+        {{t "components.forms.forgot-password.validate"}}
+      </span>
     </button>
     <LinkTo @route="login" class="self-center mt-4 text-center link">
       <span>{{t "components.forms.forgot-password.cancel"}}</span>
