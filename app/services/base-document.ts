@@ -6,12 +6,7 @@ import type ApplicationAdapter from 'ember-boilerplate/adapters/application';
 import type { BaseDocumentModel } from 'ember-boilerplate/models/document';
 import type { Owner } from '@ember/test-helpers/build-owner';
 
-export interface FileDTO {
-  filename: string;
-  path?: string;
-  id?: string;
-  file?: File;
-}
+export type FileObject = PersistedFile | UnpersistedFile;
 
 export interface PersistedFile {
   filename: string;
