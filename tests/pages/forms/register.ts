@@ -6,6 +6,7 @@ export const pagesFormsRegister = create({
   lastName: fillable('[data-test-input="lastName"] input'),
   phone: fillable('[data-test-input="phone"] input'),
   email: fillable('[data-test-input="email"] input'),
+  gift: fillable('[data-test-input="gift"] input'),
   password: fillable('[data-test-input="password"] input'),
   confirmPassword: fillable('[data-test-input="confirmPassword"] input'),
   errors: collection('[data-has-error="true"]'),

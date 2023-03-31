@@ -30,6 +30,7 @@ module('Integration | Component | forms/register', function (hooks) {
         lastName: 'triptyk',
         firstName: 'papa',
         phone: '+32 498542257',
+        gift: '1000',
         password: '',
         confirmPassword: '',
       },
@@ -65,19 +66,23 @@ module('Integration | Component | forms/register', function (hooks) {
   });
 
   test('Edit form and trigger saveFunction', async function (assert) {
-    assert.expect(8);
+    assert.expect(9);
     this.set('saveFunction', (changeset: RegisterChangeset) => {
       assert.strictEqual(changeset.get('lastName'), 'triptyk');
       assert.strictEqual(changeset.get('firstName'), 'papa');
       assert.strictEqual(changeset.get('email'), 'test@triptyk.eu');
       assert.strictEqual(changeset.get('phone'), '+32 498542257');
+      assert.strictEqual(+changeset.get('gift'), 234.23);
       assert.strictEqual(changeset.get('password'), 'hello');
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
       assert.step('saveFunction');
     });
     await renderForm();
 
-    await pagesFormsRegister.password('hello').confirmPassword('hello');
+    await pagesFormsRegister
+      .gift('234,23 €')
+      .password('hello')
+      .confirmPassword('hello');
 
     await pagesFormsRegister.submit();
     assert.verifySteps(['saveFunction']);

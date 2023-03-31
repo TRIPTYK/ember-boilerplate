@@ -31,6 +31,7 @@
     @changeset={{@changeset}}
     @validationField="phone"
     @mask="+30 000000000"
+    @maskOptions={{hash lazy=false}}
     data-test-input="phone"
   />
   <Inputs::InputValidation
@@ -46,6 +47,16 @@
     @changeset={{@changeset}}
     @validationField="confirmPassword"
     data-test-input="confirmPassword"
+  />
+  <Inputs::InputValidation
+    class="input_block col-span-6"
+    @label={{t "components.forms.register.gift"}}
+    @changeset={{@changeset}}
+    @validationField="gift"
+    @mask="Number €"
+    @maskOptions={{this.maskForEuro}}
+    @unmaskValue={{true}}
+    data-test-input="gift"
   />
   <button data-test-submit type="submit" class="btn col-span-12">
     <span>

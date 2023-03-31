@@ -25,6 +25,7 @@ module('Acceptance | register', function (hooks) {
       .phone('+32 498542256')
       .lastName('triptyk')
       .firstName('papa')
+      .gift('1.000,45 €')
       .password('hello')
       .confirmPassword('hello')
       .submit();
@@ -32,7 +33,7 @@ module('Acceptance | register', function (hooks) {
     assert.ok(indexPage.hasSuccess);
   });
   test<ServiceWorkerTestContext>('show error message and error in changeset', async function (assert) {
-    assert.expect(0);
+    assert.expect(1);
     await registerWorkerWithErrors(this.worker);
     await indexPage.visit();
     await indexPage.forms
@@ -40,8 +41,11 @@ module('Acceptance | register', function (hooks) {
       .phone('+32 498542256')
       .lastName('triptyk')
       .firstName('papa')
+      .gift('1.000,45 €')
       .password('hell')
       .confirmPassword('hell')
       .submit();
+
+    assert.ok(indexPage.hasError);
   });
 });

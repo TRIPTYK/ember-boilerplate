@@ -31,6 +31,7 @@ export default class PagesRegister extends Component<PagesRegisterArgs> {
         email: '',
         firstName: '',
         lastName: '',
+        gift: '',
         password: '',
         confirmPassword: '',
       },
@@ -62,16 +63,7 @@ export default class PagesRegister extends Component<PagesRegisterArgs> {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       const error = await e;
-      console.log(error);
-      console.log(error.errors);
-      const errorsTranslated = this.errorTranslation.translateErrors(
-        error.errors
-      );
-      console.log(errorsTranslated);
-      this.errorTranslation.addErrorTranslatedInChangeset(
-        changeset,
-        errorsTranslated
-      );
+      this.errorTranslation.handleErrors(changeset, error.errors);
     }
   }
 }

@@ -6,6 +6,7 @@ export interface RegisterDTO {
   lastName: string;
   phone: string;
   email: string;
+  gift: number;
   password: string;
   confirmPassword?: string;
 }
