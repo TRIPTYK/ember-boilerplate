@@ -9,6 +9,7 @@ import { createChangeset } from 'ember-form-changeset-validations/changeset/crea
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import formsRegisterValidation from 'ember-boilerplate/validations/register';
 import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register';
+import type { ProxyWrappedChangeset } from 'ember-form-changeset-validations';
 import type IntlService from 'ember-intl/services/intl';
 
 interface RegisterTestContext extends TestContext {
@@ -20,7 +21,7 @@ module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, ['fr-fr']);
 
-  let changeset: RegisterChangeset;
+  let changeset: ProxyWrappedChangeset<RegisterChangeset>;
 
   hooks.beforeEach<RegisterTestContext>(function () {
     changeset = createChangeset(
@@ -36,6 +37,7 @@ module('Integration | Component | forms/register', function (hooks) {
       },
       formsRegisterValidation
     );
+
     this.set('changeset', changeset);
   });
 
