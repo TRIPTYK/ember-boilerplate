@@ -12,12 +12,11 @@
               max=V.context.max
               is=V.context.is
             }}
+          {{else}}
+            {{V}}
           {{/if}}
         </span>
       {{/each}}
-    {{else}}
-      {{! TODO: Translate back error }}
-      {{error.validation}}
     {{/if}}
   {{/each}}
 </aside>

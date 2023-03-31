@@ -1,8 +1,12 @@
-name:
+lastName:
   required: "Le nom est requis"
+firstName:
+  required: "Le prénom est requis"
 email:
   required: "L'email est requis"
   format: "Le format de l'email n'est pas correct"
+phone:
+  required: "Le téléphone est requis"
 password:
   required: "Le mot de passe est requis"
 confirmPassword:

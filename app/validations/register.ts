@@ -6,10 +6,22 @@ import {
 } from 'ember-changeset-validations/validators';
 
 const formsRegisterValidation = {
-  name: [
+  firstName: [
     validatePresence({
       presence: true,
-      message: 'validations.name.required',
+      message: 'validations.firstName.required',
+    }),
+  ],
+  lastName: [
+    validatePresence({
+      presence: true,
+      message: 'validations.lastName.required',
+    }),
+  ],
+  phone: [
+    validatePresence({
+      presence: true,
+      message: 'validations.phone.required',
     }),
   ],
   email: [

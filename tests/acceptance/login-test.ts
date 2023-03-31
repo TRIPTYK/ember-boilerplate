@@ -11,7 +11,7 @@ module('Acceptance | login', function (hooks) {
   setupMock(hooks);
 
   test<ServiceWorkerTestContext>('visiting /login', async function (assert) {
-    loginWorker(this.worker);
+    await loginWorker(this.worker);
     await loginPage.visit().email('dev@triptyk.eu').password('123').submit();
     assert.strictEqual(currentURL(), '/');
   });

@@ -6,10 +6,17 @@
 >
   <Inputs::InputValidation
     class="input_block col-span-12"
-    @label={{t "components.forms.register.name"}}
+    @label={{t "components.forms.register.lastName"}}
     @changeset={{@changeset}}
-    @validationField="name"
-    data-test-input="name"
+    @validationField="lastName"
+    data-test-input="lastName"
+  />
+  <Inputs::InputValidation
+    class="input_block col-span-12"
+    @label={{t "components.forms.register.firstName"}}
+    @changeset={{@changeset}}
+    @validationField="firstName"
+    data-test-input="firstName"
   />
   <Inputs::InputValidation
     class="input_block col-span-12"
@@ -17,6 +24,14 @@
     @changeset={{@changeset}}
     @validationField="email"
     data-test-input="email"
+  />
+  <Inputs::InputValidation
+    class="input_block col-span-12"
+    @label={{t "components.forms.register.phone"}}
+    @changeset={{@changeset}}
+    @validationField="phone"
+    @mask="+30 000000000"
+    data-test-input="phone"
   />
   <Inputs::InputValidation
     class="input_block col-span-12"

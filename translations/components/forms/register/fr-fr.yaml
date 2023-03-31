@@ -1,4 +1,6 @@
-name: 'Nom'
+firstName: 'Prénom'
+lastName: 'Nom'
+phone: 'Téléphone'
 email: 'Email'
 password: 'Mot de passe'
 confirmPassword: 'Confirmer mot de passe'
