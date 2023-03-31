@@ -2,7 +2,9 @@ import { ExtendedChangeset } from 'ember-form-changeset-validations/changeset/ex
 
 export interface RegisterDTO {
   id?: string;
-  name: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
   email: string;
   password: string;
   confirmPassword?: string;
