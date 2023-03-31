@@ -10,6 +10,7 @@ import { waitFor } from '@ember/test-waiters';
 import type { ProxyWrappedChangeset } from 'ember-form-changeset-validations';
 import { createChangeset, data } from 'ember-form-changeset-validations';
 import type IntlService from 'ember-intl/services/intl';
+import type ErrorTranslationService from 'ember-boilerplate/services/error-translation';
 
 interface PagesRegisterArgs {
   changeset: RegisterChangeset;
@@ -19,6 +20,7 @@ export default class PagesRegister extends Component<PagesRegisterArgs> {
   @service declare flashMessages: FlashMessageService;
   @service declare intl: IntlService;
   @service declare store: StoreService;
+  @service declare errorTranslation: ErrorTranslationService;
   @tracked declare changeset: RegisterChangeset;
 
   constructor(owner: unknown, args: PagesRegisterArgs) {
@@ -57,8 +59,19 @@ export default class PagesRegister extends Component<PagesRegisterArgs> {
       this.flashMessages.success(
         this.intl.t('components.pages.register.sucessMessage')
       );
-    } catch (e) {
-      console.log(e);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (e: any) {
+      const error = await e;
+      console.log(error);
+      console.log(error.errors);
+      const errorsTranslated = this.errorTranslation.translateErrors(
+        error.errors
+      );
+      console.log(errorsTranslated);
+      this.errorTranslation.addErrorTranslatedInChangeset(
+        changeset,
+        errorsTranslated
+      );
     }
   }
 }
