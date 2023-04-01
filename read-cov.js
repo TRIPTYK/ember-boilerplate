@@ -28,4 +28,3 @@ if (covResults.map(([, value]) => value.pct).some((e) => e < threshold)) {
   }
 }
 
-console.log('Coverage is sufficient ! ');
