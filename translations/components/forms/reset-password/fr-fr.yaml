@@ -1,4 +1,4 @@
-new_password : "Mot de passe"
+new_password: "Mot de passe"
 confirm_new_password: "Confirmer le mot de passe"
 validate: "Valider"
 cancel: "Annuler"

@@ -1,3 +1,4 @@
+/* eslint-disable n/no-process-exit */
 /* eslint-disable no-process-exit */
 /* eslint-disable no-console */
 const [, , backendCommand, frontendCommand] = process.argv;

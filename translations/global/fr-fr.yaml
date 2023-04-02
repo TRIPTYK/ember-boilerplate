@@ -1,22 +1,22 @@
-euro: '€'
-kg: 'kg'
-x: 'x'
-next: 'Suivant'
-previous: 'Précédent'
-yes: 'Oui'
-no: 'Non'
-missing: 'Aucune entrée'
-save: 'Sauvegarder'
-cancel: 'Annuler'
-back: 'Retour'
-create: 'Créer'
-edit: 'Éditer'
-submit: 'Envoyer'
-delete: 'Supprimer'
-open: 'Ouvrir'
-close: 'Fermer'
-search: 'Rechercher'
+euro: "€"
+kg: "kg"
+x: "x"
+next: "Suivant"
+previous: "Précédent"
+yes: "Oui"
+no: "Non"
+missing: "Aucune entrée"
+save: "Sauvegarder"
+cancel: "Annuler"
+back: "Retour"
+create: "Créer"
+edit: "Éditer"
+submit: "Envoyer"
+delete: "Supprimer"
+open: "Ouvrir"
+close: "Fermer"
+search: "Rechercher"
 table:
-  on: 'sur'
-  results: 'résultats'
-  resultsByPage: 'Résultats par page'
+  on: "sur"
+  results: "résultats"
+  resultsByPage: "Résultats par page"
