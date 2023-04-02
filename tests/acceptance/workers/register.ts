@@ -41,10 +41,6 @@ export async function registerWorkerWithErrors(worker: SetupWorker) {
                   message: 'email_required',
                 },
                 {
-                  field: 'email',
-                  message: 'email_format',
-                },
-                {
                   field: 'password',
                   message: 'password_too_short',
                 },

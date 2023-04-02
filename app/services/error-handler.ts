@@ -2,17 +2,18 @@ import Service from '@ember/service';
 import { service } from '@ember/service';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import type { Changeset } from 'ember-form-changeset-validations';
+import { assert } from '@ember/debug';
 import type IntlService from 'ember-intl/services/intl';
 
 export interface TranslatedErrors {
   [key: string]: string[];
 }
 
-export default class ErrorTranslationService extends Service {
+export default class ErrorHandlerService extends Service {
   @service declare intl: IntlService;
   @service declare flashMessages: FlashMessageService;
 
-  public handleErrors(changeset: Changeset, errors: Error[] | string) {
+  public handle(changeset: Changeset, errors: Error[] | string) {
     if (Array.isArray(errors)) {
       this.generateGlobalErrorMessage(errors);
       const errorsReturned = this.translateErrors(errors);
@@ -39,6 +40,7 @@ export default class ErrorTranslationService extends Service {
           translatedErrors[field]?.push(this.intl.t(messagePath));
         } else {
           translatedErrors[field]?.push(message);
+          assert(`Missing translation for backend error : ${message}`);
         }
       }
     }

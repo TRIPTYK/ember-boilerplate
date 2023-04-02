@@ -11,6 +11,18 @@ module('Acceptance | register', function (hooks) {
   setupApplicationTest(hooks);
   setupMock(hooks);
 
+  async function completeFormAndSubmit() {
+    await indexPage.forms
+      .email('test@triptyk.eu')
+      .phone('+32 498542256')
+      .lastName('triptyk')
+      .firstName('papa')
+      .gift('1.000,45 €')
+      .password('hell')
+      .confirmPassword('hell')
+      .submit();
+  }
+
   test('visit register', async function (assert) {
     await indexPage.visit();
 
@@ -29,22 +41,13 @@ module('Acceptance | register', function (hooks) {
       .password('hello')
       .confirmPassword('hello')
       .submit();
-
     assert.ok(indexPage.hasSuccess);
   });
   test<ServiceWorkerTestContext>('show error message and error in changeset', async function (assert) {
     assert.expect(1);
     await registerWorkerWithErrors(this.worker);
     await indexPage.visit();
-    await indexPage.forms
-      .email('test@triptyk.eu')
-      .phone('+32 498542256')
-      .lastName('triptyk')
-      .firstName('papa')
-      .gift('1.000,45 €')
-      .password('hell')
-      .confirmPassword('hell')
-      .submit();
+    await completeFormAndSubmit();
 
     assert.ok(indexPage.hasError);
   });
