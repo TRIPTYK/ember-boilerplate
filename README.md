@@ -9,6 +9,8 @@
 - ✅ You want an Embroider boilerplate
 - ✅ You use JWT based authentification
 - ✅ You want a lot of code checks
+- ✅ You use PNPM
+- ✅ You don't bother using TRIPTYK packages
 
 ## Preconfigured 4.x Ember project with
 
@@ -19,11 +21,14 @@
 - Validations (ember-changeset-validations) (with typescript types)
 - Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
-- Login Form (ember-form-changeset-validations)
 - Tests (ember-test-selectors, ember-test-coverage)
 - Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
 - Base ember adapter, serializer and controller
 - Ember concurrency
+- Test seeding & parallelization (ember-exam)
+- dev & test mocking (msw)
+- Translations (ember-intl)
+- Pre-made registration flow (login/register/forgot-password)
 
 ### Vscode side
 
@@ -31,7 +36,6 @@
 
 ### CI
 
-- Ligthouse CI
 - Tests
   - Linting
   - Ember tests
@@ -40,9 +44,17 @@
 
 ## Approach
 
+### Controllers
+
 - We have the rule 'ember/no-controllers' activated, so usage of controllers other than for query params is prohibited. Instead, you must create a component in 'pages'. Each component should accept a @model.
 
 Note: Exception for the ApplicationController, needed for an addon.
+
+### Translations
+
+- Each component must have his translation file
+- A global translation file can be created
+- YAML files in snake_case
 
 ## Installation
 
@@ -62,12 +74,6 @@ Or
 - Visit your app at [http://localhost:4200](http://localhost:4200).
 - Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details.
-
-Generate forms using `ember g form <form>`, see [Ember Form Changeset Validations](https://github.com/TRIPTYK/ember-form-changeset-validations)
-
 ### Running Tests
 
 - `ember test`
@@ -75,8 +81,8 @@ Generate forms using `ember g form <form>`, see [Ember Form Changeset Validation
 
 ### Linting
 
-- `yarn lint`
-- `yarn lint:fix`
+- `pnpm lint`
+- `pnpm lint:fix`
 
 ### Building
 

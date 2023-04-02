@@ -57,9 +57,11 @@ module.exports = {
         './config/**/*.js',
         './lib/*/index.js',
         './server/**/*.js',
+        './postcss.config.js',
         'node-tests/**/*.js',
       ],
       parserOptions: {
+        project: null,
         sourceType: 'script',
       },
       env: {
@@ -68,11 +70,50 @@ module.exports = {
         jest: true,
       },
       extends: ['plugin:n/recommended'],
+      rules: {
+        '@typescript-eslint/no-floating-promises': 'off',
+      },
     },
     {
       // test files
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
+    },
+    {
+      // translations files
+      extends: ['plugin:yml/base'],
+      parser: 'yaml-eslint-parser',
+      parserOptions: {
+        project: null,
+      },
+      files: ['translations/**/*.{yml,yaml}'],
+      rules: {
+        '@typescript-eslint/no-floating-promises': 'off',
+        'yml/key-name-casing': [
+          'error',
+          {
+            snake_case: true,
+            camelCase: false,
+            PascalCase: false,
+          },
+        ],
+      },
+    },
+    {
+      // browser
+      extends: ['plugin:yml/base'],
+      parserOptions: {
+        project: null,
+        sourceType: 'script',
+      },
+      env: {
+        browser: true,
+        node: false,
+      },
+      files: ['public/**/*.js'],
+      rules: {
+        '@typescript-eslint/no-floating-promises': 'off',
+      },
     },
   ],
 };

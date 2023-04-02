@@ -44,17 +44,17 @@ module('Integration | Component | forms/register', function (hooks) {
   function renderForm() {
     return render(
       hbs`
-          <Forms::Register
+        <Forms::Register
             @changeset={{this.changeset}}
             @saveFunction={{this.saveFunction}}
           >
-            <Inputs::CancelButton data-test-cancel>
-              {{t "global.cancel"}}
-            </Inputs::CancelButton>
-            <TpkButton type="submit" data-test-submit>
-              {{t "global.create"}}
-            </TpkButton>
-          </Forms::Register>
+          <Inputs::CancelButton data-test-cancel>
+            {{t "global.cancel"}}
+          </Inputs::CancelButton>
+          <TpkButton type="submit" data-test-submit>
+            {{t "global.create"}}
+          </TpkButton>
+        </Forms::Register>
       `
     );
   }

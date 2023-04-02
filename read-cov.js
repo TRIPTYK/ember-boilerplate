@@ -27,4 +27,3 @@ if (covResults.map(([, value]) => value.pct).some((e) => e < threshold)) {
     );
   }
 }
-

@@ -14,7 +14,7 @@ confirmPassword:
   notMatching: "Les mots de passe ne correspondent pas"
 iban:
   required: "L'IBAN est requis"
-  noTinyLetter: 'Un IBAN ne peut pas contenir de lettres minuscules'
-  onlyAlphaNumeric: 'Un IBAN ne peut contenir que des charactères alpha numériques'
+  noTinyLetter: "Un IBAN ne peut pas contenir de lettres minuscules"
+  onlyAlphaNumeric: "Un IBAN ne peut contenir que des charactères alpha numériques"
   noSpace: "Un IBAN ne peut pas contenir d'espaces"
   notValid: "Ce n'est pas un IBAN valide"

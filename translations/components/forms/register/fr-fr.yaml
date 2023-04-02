@@ -1,7 +1,7 @@
-firstName: 'Prénom'
-lastName: 'Nom'
-phone: 'Téléphone'
-email: 'Email'
-gift: 'Don'
-password: 'Mot de passe'
-confirmPassword: 'Confirmer mot de passe'
+firstName: "Prénom"
+lastName: "Nom"
+phone: "Téléphone"
+email: "Email"
+gift: "Don"
+password: "Mot de passe"
+confirmPassword: "Confirmer mot de passe"
