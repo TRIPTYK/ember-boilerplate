@@ -1,0 +1,16 @@
+{{! template-lint-disable no-forbidden-elements }}
+{{#if this.model.title}}
+  <title>
+    {{! template-lint-disable no-bare-strings }}
+    {{this.model.title}}
+    –
+    {{this.applicationName}}
+  </title>
+{{else}}
+  <title>
+    {{this.applicationName}}
+  </title>
+{{/if}}
+<meta property="description" content={{this.model.description}} />
+<meta property="og:title" content={{this.model.title}} />
+<meta property="og:description" content={{this.model.description}} />

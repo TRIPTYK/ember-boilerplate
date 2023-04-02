@@ -1,0 +1,26 @@
+<TpkInput
+  @label={{@label}}
+  @value={{this.searchValue}}
+  @onChange={{this.updateSearchValue}}
+  @type="search"
+  class="search_bar w-full"
+  ...attributes
+  as |TI|
+>
+  <form {{on "submit" this.onSearch}}>
+    <TI.Label>
+      {{@label}}
+    </TI.Label>
+    <TI.Input
+      disabled={{@disabled}}
+      placeholder={{@placeholder}}
+      class={{@inputClass}}
+      aria-autocomplete="none"
+      autocomplete="off"
+      autofill="off"
+    />
+    <button type="submit" data-test-search-submit>
+      <span>{{t "global.search"}}</span>
+    </button>
+  </form>
+</TpkInput>

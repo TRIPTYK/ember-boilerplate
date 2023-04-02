@@ -1,0 +1,44 @@
+<TpkValidationFile
+  @label={{@label}}
+  @changeset={{@changeset}}
+  @accept={{@accept}}
+  @validationField={{@validationField}}
+  @onChange={{this.onChange}}
+  @multiple={{@multiple}}
+  class={{if @disabled "disabled"}}
+  ...attributes
+  as |TI|
+>
+  <div>
+    <TI.Label>
+      {{@label}}
+    </TI.Label>
+    {{#if (not-eq @disabled true)}}
+      <Inputs::File::InputLayout>
+        <TI.Input
+          placeholder={{@placeholder}}
+          accept={{@accept}}
+          multiple={{@multiple}}
+          disabled={{@disabled}}
+          class="{{@inputClass}}
+            absolute opacity-0 w-full left-0 top-0 h-full hover:cursor-pointer hover:underline"
+        />
+      </Inputs::File::InputLayout>
+    {{/if}}
+  </div>
+  <Inputs::ErrorValidation @errors={{TI.errors}} />
+  <TpkFileList
+    @documents={{changeset-get @changeset @validationField}}
+    @disabled={{@disabled}}
+    @onDelete={{@onDelete}}
+    @onDownload={{@onDownload}}
+    as |List|
+  >
+    <List.Element as |E|>
+      {{! template-lint-disable no-bare-strings }}
+      <E.Delete>Delete</E.Delete>
+      {{! template-lint-disable no-bare-strings }}
+      <E.Download>Download</E.Download>
+    </List.Element>
+  </TpkFileList>
+</TpkValidationFile>

@@ -2,23 +2,66 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
-    // Add options here
+module.exports = function (defaults) {
+  process.on('uncaughtException', (err) => {
+    // eslint-disable-next-line no-console
+    console.error(err.stack);
   });
 
-  // Use `app.import` to add additional libraries to the generated
-  // output files.
-  //
-  // If you need to use different assets in different
-  // environments, specify an object as the first parameter. That
-  // object's keys should be the environment name and the values
-  // should be the asset to use in that environment.
-  //
-  // If the library that you are including contains AMD or ES6
-  // modules that you would like to import into your application
-  // please specify an object with the list of modules as keys
-  // along with the exports of each module as its value.
+  let app = new EmberApp(defaults, {
+    'ember-simple-auth': {
+      useSessionSetupMethod: true,
+    },
+    babel: {
+      sourceMaps: 'inline',
+      plugins: [
+        ...require('ember-cli-code-coverage').buildBabelPlugin({
+          embroider: true,
+        }),
+      ],
+    },
+    '@embroider/macros': {
+      setConfig: {
+        '@ember-data/store': {
+          polyfillUUID: true,
+        },
+      },
+    },
+    sourcemaps: {
+      enabled: true,
+      extensions: ['js'],
+    },
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        includePaths: ['app'],
+        plugins: [
+          {
+            module: require('postcss-import'),
+            options: {
+              path: ['node_modules'],
+            },
+          },
+          require('tailwindcss')('./app/tailwind/tailwind.config.js'),
+          require('cssnano')(),
+        ],
+        cacheInclude: [/.*\.(css|hbs|html)$/, /tailwind\.config\.js/],
+      },
+    },
+  });
 
-  return app.toTree();
+  const { Webpack } = require('@embroider/webpack');
+
+  return require('@embroider/compat').compatBuild(app, Webpack, {
+    packagerOptions: {
+      webpackConfig: {
+        devtool: 'source-map',
+      },
+    },
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticHelpers: true,
+    staticComponents: true,
+    splitAtRoutes: [/^(?!(application)$).*$/], // can also be a RegExp
+  });
 };

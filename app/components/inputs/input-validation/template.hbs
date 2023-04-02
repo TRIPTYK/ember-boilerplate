@@ -1,0 +1,32 @@
+<TpkValidationInput
+  @label={{@label}}
+  @onChange={{this.onChange}}
+  @changeset={{@changeset}}
+  @validationField={{@validationField}}
+  @type={{@type}}
+  @mask={{@mask}}
+  @maskOptions={{@maskOptions}}
+  @unmaskValue={{@unmaskValue}}
+  class={{if @disabled "disabled"}}
+  ...attributes
+  as |TI|
+>
+  <TI.Label class={{@labelClass}}>
+    {{@label}}
+    {{#if @mandatory}}
+      <span class="text-primary">
+        *
+      </span>
+    {{/if}}
+  </TI.Label>
+  <TI.Input
+    step={{@step}}
+    disabled={{@disabled}}
+    placeholder={{@placeholder}}
+    class={{@inputClass}}
+    aria-autocomplete="none"
+    autocomplete="off"
+    autofill="off"
+  />
+  <Inputs::ErrorValidation @errors={{TI.errors}} />
+</TpkValidationInput>

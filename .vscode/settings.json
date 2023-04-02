@@ -1,0 +1,30 @@
+{
+  "eslint.validate": ["typescript", "javascript", "yaml"],
+  "editor.formatOnSave": true,
+  "css.validate": false,
+  "[javascript]": {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.formatOnSave": false
+  },
+  "[handlebars]": {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "eslint.format.enable": true,
+  "tailwindCSS.emmetCompletions": true,
+  "editor.minimap.enabled": false,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "handlebars": "html"
+  }
+}

@@ -2,52 +2,118 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: './tsconfig.json',
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      legacyDecorators: true
-    }
+      legacyDecorators: true,
+    },
   },
-  plugins: [
-    'ember'
-  ],
+  plugins: ['ember', 'unicorn', '@typescript-eslint', 'unused-imports'],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'plugin:prettier/recommended',
   ],
   env: {
-    browser: true
+    browser: true,
   },
-  rules: {},
+  rules: {
+    'no-else-return': 'error',
+    'no-console': 'warn',
+    'no-undef': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'ember/no-controllers': 'error',
+    '@typescript-eslint/no-floating-promises': 'error',
+    'ember/require-fetch-import': 'error',
+    'ember/route-path-style': 'error',
+    'ember/no-current-route-name': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/consistent-type-imports': 'error',
+    'unicorn/filename-case': [
+      'error',
+      {
+        case: 'kebabCase',
+      },
+    ],
+  },
   overrides: [
     // node files
     {
       files: [
-        '.eslintrc.js',
-        '.template-lintrc.js',
-        'ember-cli-build.js',
-        'testem.js',
-        'blueprints/*/index.js',
-        'config/**/*.js',
-        'lib/*/index.js',
-        'server/**/*.js'
+        './.formconfig.js',
+        './lighthouserc.js',
+        './.eslintrc.js',
+        './with-backend.js',
+        './read-cov.js',
+        './app/tailwind/tailwind.config.js',
+        './.prettierrc.js',
+        './.template-lintrc.js',
+        './ember-cli-build.js',
+        './testem.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './lib/*/index.js',
+        './server/**/*.js',
+        './postcss.config.js',
+        'node-tests/**/*.js',
       ],
       parserOptions: {
-        sourceType: 'script'
+        project: null,
+        sourceType: 'script',
       },
       env: {
         browser: false,
-        node: true
+        node: true,
+        jest: true,
       },
-      plugins: ['node'],
-      extends: ['plugin:node/recommended'],
+      extends: ['plugin:n/recommended'],
       rules: {
-        // this can be removed once the following is fixed
-        // https://github.com/mysticatea/eslint-plugin-node/issues/77
-        'node/no-unpublished-require': 'off'
-      }
-    }
-  ]
+        '@typescript-eslint/no-floating-promises': 'off',
+      },
+    },
+    {
+      // test files
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
+    },
+    {
+      // translations files
+      extends: ['plugin:yml/base'],
+      parser: 'yaml-eslint-parser',
+      parserOptions: {
+        project: null,
+      },
+      files: ['translations/**/*.{yml,yaml}'],
+      rules: {
+        '@typescript-eslint/no-floating-promises': 'off',
+        'yml/key-name-casing': [
+          'error',
+          {
+            snake_case: true,
+            camelCase: false,
+            PascalCase: false,
+          },
+        ],
+      },
+    },
+    {
+      // browser
+      extends: ['plugin:yml/base'],
+      parserOptions: {
+        project: null,
+        sourceType: 'script',
+      },
+      env: {
+        browser: true,
+        node: false,
+      },
+      files: ['public/**/*.js'],
+      rules: {
+        '@typescript-eslint/no-floating-promises': 'off',
+      },
+    },
+  ],
 };

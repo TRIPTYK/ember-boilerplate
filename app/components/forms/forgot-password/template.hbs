@@ -1,0 +1,25 @@
+<ChangesetForm
+  class="px-4 py-8 mt-8 bg-white shadow space-y-6 sm:rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-md"
+  data-test-form="forgot-password"
+  ...attributes
+  @onSubmit={{@saveFunction}}
+  @changeset={{@changeset}}
+>
+  <Inputs::InputValidation
+    class="input_block"
+    @label={{t "components.forms.forgot-password.email"}}
+    @changeset={{@changeset}}
+    @validationField="email"
+    data-test-input="email"
+  />
+  <div class="flex flex-col w-full">
+    <button data-test-submit type="submit" class="btn">
+      <span>
+        {{t "components.forms.forgot-password.validate"}}
+      </span>
+    </button>
+    <LinkTo @route="login" class="self-center mt-4 text-center link">
+      <span>{{t "components.forms.forgot-password.cancel"}}</span>
+    </LinkTo>
+  </div>
+</ChangesetForm>

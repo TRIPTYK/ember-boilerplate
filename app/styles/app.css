@@ -1,0 +1,30 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'components.css';
+@import 'tailwindcss/utilities';
+@import 'utilities.css';
+@import 'flash-messages.css';
+@import 'loading.css';
+@import 'input.css';
+@import 'table.css';
+@import 'button.css';
+
+/*** GENERAL  ****/
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-primary rounded;
+}
+h1 {
+  @apply text-3xl font-medium;
+}
+h2 {
+  @apply text-primary text-4xl font-bold;
+}
+h3 {
+  @apply text-text text-base;
+}
+h4 {
+  @apply text-text text-lg mb-4 font-bold pb-4 border-b border-text/30;
+}
