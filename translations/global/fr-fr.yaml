@@ -19,4 +19,4 @@ search: "Rechercher"
 table:
   on: "sur"
   results: "résultats"
-  resultsByPage: "Résultats par page"
+  results_by_page: "Résultats par page"

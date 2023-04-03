@@ -3,8 +3,7 @@ import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import { service } from '@ember/service';
 import type StoreService from '@ember-data/store';
 import type { ChangesetService } from './changeset-service';
-import type { ProxyWrappedChangeset } from 'ember-form-changeset-validations';
-import { data } from 'ember-form-changeset-validations';
+import { data, execute } from 'ember-form-changeset-validations';
 import type UserModel from 'ember-boilerplate/models/user';
 
 export default class RegisterChangesetService
@@ -13,11 +12,8 @@ export default class RegisterChangesetService
 {
   @service declare store: StoreService;
 
-  async save(
-    changeset: ProxyWrappedChangeset<RegisterChangeset>
-  ): Promise<UserModel> {
-    await changeset.save();
-
+  async save(changeset: RegisterChangeset): Promise<UserModel> {
+    await execute(changeset);
     const changesetData = data(changeset);
 
     const user = this.store.createRecord('user', {
@@ -35,9 +31,8 @@ export default class RegisterChangesetService
   }
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your services.
 declare module '@ember/service' {
   interface Registry {
-    register: RegisterChangesetService;
+    'changesets/register': RegisterChangesetService;
   }
 }

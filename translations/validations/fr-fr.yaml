@@ -1,6 +1,6 @@
-lastName:
+last_name:
   required: "Le nom est requis"
-firstName:
+first_name:
   required: "Le prénom est requis"
 email:
   required: "L'email est requis"
@@ -9,12 +9,12 @@ phone:
   required: "Le téléphone est requis"
 password:
   required: "Le mot de passe est requis"
-confirmPassword:
+confirm_password:
   required: "La confirmation est requise"
-  notMatching: "Les mots de passe ne correspondent pas"
+  not_matching: "Les mots de passe ne correspondent pas"
 iban:
   required: "L'IBAN est requis"
-  noTinyLetter: "Un IBAN ne peut pas contenir de lettres minuscules"
-  onlyAlphaNumeric: "Un IBAN ne peut contenir que des charactères alpha numériques"
-  noSpace: "Un IBAN ne peut pas contenir d'espaces"
-  notValid: "Ce n'est pas un IBAN valide"
+  no_tiny_letter: "Un IBAN ne peut pas contenir de lettres minuscules"
+  only_alpha_numeric: "Un IBAN ne peut contenir que des charactères alpha numériques"
+  no_space: "Un IBAN ne peut pas contenir d'espaces"
+  not_valid: "Ce n'est pas un IBAN valide"

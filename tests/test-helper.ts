@@ -14,8 +14,8 @@ import { setupWorker, stopWorker } from './worker';
 // @ts-expect-error
 import start from 'ember-exam/test-support/start';
 
-QUnit.begin(async () => {
-  setupWorker();
+QUnit.begin(() => {
+  return setupWorker();
 });
 
 QUnit.done(async function () {

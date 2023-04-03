@@ -18,14 +18,4 @@ export default class Register extends Component<RegisterArgs> {
     },
     overwrite: true,
   };
-  // maskForEuro = {
-  //   lazy: false,
-
-  //   scale: 2,
-  //   thousandsSeparator: '.',
-  //   radix: ',',
-  //   prepare: function (value: string, masked: string) {
-  //     return masked ? value.replace(/ €/g, '') : value + ' €';
-  //   },
-  // };
 }

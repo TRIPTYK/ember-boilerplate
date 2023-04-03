@@ -1,6 +1,6 @@
 # ember-boilerplate
 
-[![CI](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
+[![Tests](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
 ## You can use this IF
 
@@ -28,19 +28,27 @@
 - Test seeding & parallelization (ember-exam)
 - dev & test mocking (msw)
 - Translations (ember-intl)
+- Authorizations (ember-can)
 - Pre-made registration flow (login/register/forgot-password)
 
-### Vscode side
+### VSCODE IDE
 
 - VSCODE Ready, all rules are setup for a great developing experience.
 
+### Additional Tooling
+
+- Coverage: read by `read-cov.js` file. A minimum of 50% code coverage is required.
+- With-backend: `with-backend.js` Starts the ember app with a backend synchronously.
+- Code duplication: with jscpd.
+- Husky: checks linting + code duplication + integration & unit tests before commiting to VSC.
+
+### Docker
+
+- A docker image can be found in `images`.
+
 ### CI
 
-- Tests
-  - Linting
-  - Ember tests
-  - Code coverage check
-  - JSCPD code duplication checking
+A github workflow CI is provided.
 
 ## Approach
 
@@ -52,9 +60,36 @@ Note: Exception for the ApplicationController, needed for an addon.
 
 ### Translations
 
+Translations are located: `translations/`
+
 - Each component must have his translation file
 - A global translation file can be created
-- YAML files in snake_case
+- YAML files keys in snake_case
+
+### Changesets & Validations
+
+Changesets are located: `app/changesets/`
+Changesets services are located: `app/services/changesets`
+Validations are located: `app/validations/`
+
+- Each changeset has it's own file and it's own class.
+- All changesets comes from `ember-form-changeset-validations`. It provides full type-checking of changesets.
+- A changeset can have a service associated that persists the data of a changeset to an endpoint.
+
+### Authorizations
+
+Authorizations are located: `app/abilities/`.
+
+### Components
+
+Components are located: `app/components/`.
+
+- Pod structure.
+
+### API Mocking
+
+Development mocks are in `public/mocks`.
+Testing mocks are split in the `tests` folders.
 
 ## Installation
 
@@ -64,10 +99,6 @@ Note: Exception for the ApplicationController, needed for an addon.
 - `git init`
 - `pnpm install`
 
-Or
-
-- "Use this template" button on Github
-
 ## Running / Development
 
 - `ember serve`
@@ -76,13 +107,20 @@ Or
 
 ### Running Tests
 
-- `ember test`
-- `ember test --server`
+- `pnpm test`
 
 ### Linting
 
 - `pnpm lint`
 - `pnpm lint:fix`
+
+### Duplication
+
+- `pnpm test:duplication`
+
+### Verify-coverage
+
+- `pnpm verify-coverage`
 
 ### Building
 

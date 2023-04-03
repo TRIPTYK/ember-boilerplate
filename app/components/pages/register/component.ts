@@ -43,11 +43,10 @@ export default class PagesRegister extends Component<PagesRegisterArgs> {
     try {
       await this.register.save(changeset);
       this.flashMessages.success(
-        this.intl.t('components.pages.register.sucessMessage')
+        this.intl.t('components.pages.register.success_message')
       );
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e: any) {
-      const error = await e; // Don't know why we should add an await (maybe MSW ??)
+    } catch (e: unknown) {
+      const error = (await e) as AdapterError;
       this.errorHandler.handle(changeset, error.errors);
     }
   }

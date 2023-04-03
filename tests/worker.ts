@@ -19,13 +19,15 @@ export function stopWorker() {
 }
 
 /**
- * The passthrough is for ember code coverage.
+ * Setups mocking using msw worker.
+ * The worker can be accessed using this.get('worker')
  */
 export function setupMock(hooks: NestedHooks) {
   hooks.beforeEach(async function () {
     worker.resetHandlers();
     worker.use(
       rest.post('/write-coverage', (req) => {
+        // The passthrough is for ember code coverage.
         return req.passthrough();
       })
     );

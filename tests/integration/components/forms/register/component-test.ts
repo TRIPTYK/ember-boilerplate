@@ -1,3 +1,4 @@
+/* eslint-disable qunit/require-expect */
 import { module, test } from 'qunit';
 import { getOwner } from '@ember/application';
 import { setupRenderingTest } from 'ember-boilerplate/tests/helpers';
@@ -67,8 +68,8 @@ module('Integration | Component | forms/register', function (hooks) {
     assert.true(pagesFormsRegister.errors.length > 0);
   });
 
+  // note : saveFunction when form is valid is already tested by the component ChangesetForm. No need to test this behavior in the future.
   test('Edit form and trigger saveFunction', async function (assert) {
-    assert.expect(9);
     this.set('saveFunction', (changeset: RegisterChangeset) => {
       assert.strictEqual(changeset.get('lastName'), 'triptyk');
       assert.strictEqual(changeset.get('firstName'), 'papa');
