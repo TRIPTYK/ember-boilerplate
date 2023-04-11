@@ -3,12 +3,15 @@ import { service } from '@ember/service';
 import type SessionService from 'ember-boilerplate/services/session';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import config from '../config/environment';
+import { mergedConfig } from 'ember-boilerplate/utils/get-config';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
   @service declare session: SessionService;
   @service declare flashMessages: FlashMessageService;
 
-  host = config.host;
+  get host() {
+    return mergedConfig.host;
+  }
   namespace = config.namespace;
 
   get headers(): Record<string, string> {

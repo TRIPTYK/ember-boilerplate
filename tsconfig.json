@@ -6,6 +6,7 @@
     // work with TypeScript.
     "skipLibCheck": true,
     "inlineSourceMap": true,
+    "resolveJsonModule": true,
     "inlineSources": true,
     "baseUrl": ".",
     "paths": {
