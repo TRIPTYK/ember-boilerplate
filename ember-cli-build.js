@@ -58,10 +58,17 @@ module.exports = function (defaults) {
         devtool: 'source-map',
       },
     },
+    skipBabel: [
+      {
+        package: 'qunit',
+      },
+    ],
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticHelpers: true,
     staticComponents: true,
-    splitAtRoutes: [/^(?!(application)$).*$/], // can also be a RegExp
+    splitAtRoutes: ['staging', 'production'].includes(app.env)
+      ? [/^(?!(application)$).*$/]
+      : [], // can also be a RegExp
   });
 };
