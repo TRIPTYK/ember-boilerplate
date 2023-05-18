@@ -4,6 +4,8 @@ import {
   validatePresence,
 } from 'ember-changeset-validations/validators';
 
+// jscpd:ignore-start
+
 const passwordRecoveryValidation = {
   password: [
     validatePresence({
@@ -22,5 +24,7 @@ const passwordRecoveryValidation = {
     }),
   ],
 } as Record<keyof ResetPasswordDTO, unknown>;
+
+// jscpd:ignore-end
 
 export default passwordRecoveryValidation;

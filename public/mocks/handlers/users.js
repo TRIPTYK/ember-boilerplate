@@ -1,7 +1,5 @@
 import { rest } from 'msw';
 
-const type = 'users';
-
 export const usersHandlers = [
   rest.post('http://localhost:8080/api/v1/auth/login', (_req, res, ctx) => {
     return res(
@@ -40,7 +38,6 @@ export const usersHandlers = [
     );
   }),
   rest.post('http://localhost:8080/api/v1/users', (req, res, ctx) => {
-    console.log(req);
     return res(
       ctx.status(200),
       ctx.json({
