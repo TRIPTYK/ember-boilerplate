@@ -43,11 +43,11 @@ const formsRegisterValidation = {
   confirmPassword: [
     validatePresence({
       presence: true,
-      message: 'validations.confirmPassword.required',
+      message: 'validations.confirm_password.required',
     }),
     validateConfirmation({
       on: 'password',
-      message: 'validations.confirmPassword.notMatching',
+      message: 'validations.confirm_password.not_matching',
     }),
   ],
 } as Record<keyof RegisterDTO, unknown>;

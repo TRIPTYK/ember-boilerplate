@@ -1,3 +1,4 @@
+import type { ResetPasswordDTO } from 'ember-boilerplate/changesets/reset-password';
 import {
   validateConfirmation,
   validatePresence,
@@ -7,19 +8,19 @@ const passwordRecoveryValidation = {
   password: [
     validatePresence({
       presence: true,
-      message: "'password' is required.",
+      message: 'validations.password.required',
     }),
   ],
   confirmPassword: [
     validatePresence({
       presence: true,
-      message: "'confirmPassword' is required.",
+      message: 'validations.confirm_password.required',
     }),
     validateConfirmation({
       on: 'password',
-      message: "'confirmPassword' and 'password' must be the same.",
+      message: 'validations.confirm_password.not_matching',
     }),
   ],
-};
+} as Record<keyof ResetPasswordDTO, unknown>;
 
 export default passwordRecoveryValidation;
