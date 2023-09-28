@@ -1,12 +1,7 @@
-import { validatePresence } from 'ember-changeset-validations/validators';
+import * as Yup from 'yup';
 
-const forgotPasswordValidation = {
-  email: [
-    validatePresence({
-      presence: true,
-      message: 'login.emailMissing',
-    }),
-  ],
-};
+const forgotPasswordSchema = Yup.object().shape({
+  email: Yup.string().required('validations.email.required'),
+});
 
-export default forgotPasswordValidation;
+export default forgotPasswordSchema;

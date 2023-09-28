@@ -43,7 +43,6 @@ module.exports = function (defaults) {
             },
           },
           require('tailwindcss')('./app/tailwind/tailwind.config.js'),
-          require('cssnano')(),
         ],
         cacheInclude: [/.*\.(css|hbs|html)$/, /tailwind\.config\.js/],
       },

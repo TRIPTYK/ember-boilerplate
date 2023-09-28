@@ -6,11 +6,8 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import type { TestContext } from '@ember/test-helpers';
 import { setupIntl } from 'ember-intl/test-support';
-import { createChangeset } from 'ember-form-changeset-validations/changeset/create-changeset';
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
-import formsRegisterValidation from 'ember-boilerplate/validations/register';
 import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register';
-import type { ProxyWrappedChangeset } from 'ember-form-changeset-validations';
 import type IntlService from 'ember-intl/services/intl';
 
 interface RegisterTestContext extends TestContext {
@@ -22,22 +19,18 @@ module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, ['fr-fr']);
 
-  let changeset: ProxyWrappedChangeset<RegisterChangeset>;
+  let changeset: RegisterChangeset;
 
   hooks.beforeEach<RegisterTestContext>(function () {
-    changeset = createChangeset(
-      RegisterChangeset,
-      {
-        email: 'test@triptyk.eu',
-        lastName: 'triptyk',
-        firstName: 'papa',
-        phone: '+32 498542257',
-        gift: '1000',
-        password: '',
-        confirmPassword: '',
-      },
-      formsRegisterValidation
-    );
+    changeset = new RegisterChangeset({
+      email: 'test@triptyk.eu',
+      lastName: 'triptyk',
+      firstName: 'papa',
+      phone: '+32 498542257',
+      gift: 1000,
+      password: '',
+      confirmPassword: '',
+    });
 
     this.set('changeset', changeset);
   });
@@ -56,7 +49,7 @@ module('Integration | Component | forms/register', function (hooks) {
             {{t "global.create"}}
           </TpkButton>
         </Forms::Register>
-      `
+      `,
     );
   }
 
@@ -68,7 +61,7 @@ module('Integration | Component | forms/register', function (hooks) {
     assert.true(pagesFormsRegister.errors.length > 0);
   });
 
-  // note : saveFunction when form is valid is already tested by the component ChangesetForm. No need to test this behavior in the future.
+  // note : saveFunction when form is valid is already tested by the component YupForm. No need to test this behavior in the future.
   test('Edit form and trigger saveFunction', async function (assert) {
     this.set('saveFunction', (changeset: RegisterChangeset) => {
       assert.strictEqual(changeset.get('lastName'), 'triptyk');
@@ -103,8 +96,8 @@ module('Integration | Component | forms/register', function (hooks) {
 
     assert.true(
       pagesFormsRegister.errors[0]?.text?.includes(
-        intl.t('validations.confirmPassword.notMatching')
-      )
+        intl.t('validations.confirmPassword.notMatching'),
+      ),
     );
   });
 });

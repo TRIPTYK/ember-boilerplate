@@ -1,7 +1,0 @@
-<ul ...attributes>
-  {{#each this.documents as |document|}}
-    {{yield
-      (component "inputs/list-file/file" disabled=@disabled document=document)
-    }}
-  {{/each}}
-</ul>

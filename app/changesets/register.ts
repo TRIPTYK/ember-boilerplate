@@ -1,4 +1,4 @@
-import { ExtendedChangeset } from 'ember-form-changeset-validations/changeset/extended-changeset';
+import { ImmerChangeset } from 'ember-immer-changeset';
 
 export interface RegisterDTO {
   id?: string;
@@ -11,4 +11,4 @@ export interface RegisterDTO {
   confirmPassword?: string;
 }
 
-export class RegisterChangeset extends ExtendedChangeset<RegisterDTO> {}
+export class RegisterChangeset extends ImmerChangeset<RegisterDTO> {}

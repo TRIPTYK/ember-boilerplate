@@ -3,10 +3,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import Validation from 'ember-boilerplate/validations/login';
-import type { Changeset } from 'ember-form-changeset-validations';
-import { createChangeset } from 'ember-form-changeset-validations';
-import { ExtendedChangeset } from 'ember-form-changeset-validations';
+import { ImmerChangeset, type Changeset } from 'ember-immer-changeset';
 import click from '@ember/test-helpers/dom/click';
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
 import { setupIntl } from 'ember-intl/test-support';
@@ -16,17 +13,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
   setupIntl(hooks, ['fr-fr']);
 
   test('Create (empty changeset)', async function (assert) {
-    this.set(
-      'changeset',
-      createChangeset(
-        ExtendedChangeset,
-        {
-          email: '',
-          password: '',
-        },
-        Validation
-      )
-    );
+    this.set('changeset', new ImmerChangeset({}));
 
     this.set('saveFunction', (changeset: Changeset) => {
       assert.step('saveFunction');
@@ -35,7 +22,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     });
 
     await render(
-      hbs`<Forms::Login @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`
+      hbs`<Forms::Login @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('');
@@ -50,14 +37,10 @@ module('Integration | Component | FormsLogin', function (hooks) {
   test('Edit (populated changeset)', async function (assert) {
     this.set(
       'changeset',
-      createChangeset(
-        ExtendedChangeset,
-        {
-          email: 'hello',
-          password: 'hello',
-        },
-        Validation
-      )
+      new ImmerChangeset({
+        email: 'hello',
+        password: 'hello',
+      }),
     );
 
     this.set('saveFunction', (changeset: Changeset) => {
@@ -67,7 +50,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     });
 
     await render(
-      hbs`<Forms::Login @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`
+      hbs`<Forms::Login @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('hello');

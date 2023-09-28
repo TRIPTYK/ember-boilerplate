@@ -73,7 +73,7 @@ Changesets services are located: `app/services/changesets`
 Validations are located: `app/validations/`
 
 - Each changeset has it's own file and it's own class.
-- All changesets comes from `ember-form-changeset-validations`. It provides full type-checking of changesets.
+- All changesets comes from `ember-immer-changeset`. It provides full type-checking of changesets.
 - A changeset can have a service associated that persists the data of a changeset to an endpoint.
 
 ### Authorizations

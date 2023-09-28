@@ -23,7 +23,7 @@ if (covResults.map(([, value]) => value.pct).some((e) => e < threshold)) {
     console.warn(`Code coverage is not over ${threshold} (low)`);
   } else {
     throw new Error(
-      `Code coverage must be over ${threshold} to pass in ${path}`
+      `Code coverage must be over ${threshold} to pass in ${path}`,
     );
   }
 }

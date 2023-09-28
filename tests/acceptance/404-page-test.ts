@@ -6,7 +6,6 @@ module('Acceptance | 404 page', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /404-page', async function (assert) {
-    assert.expect(1);
     await notFoundPage.visit();
     assert.true(notFoundPage.isPresent);
   });

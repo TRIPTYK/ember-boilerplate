@@ -16,10 +16,10 @@
       "ember-utils/*": ["node_modules/@triptyk/ember-utils"],
       "fetch": ["node_modules/ember-fetch"],
       "ember-changeset-validations": [
-        "node_modules/ember-form-changeset-validations/types/ember-changeset-validations"
+        "node_modules/ember-immer-changeset/types/ember-changeset-validations"
       ],
       "ember-changeset-validations/*": [
-        "node_modules/ember-form-changeset-validations/types/ember-changeset-validations/*"
+        "node_modules/ember-immer-changeset/types/ember-changeset-validations/*"
       ],
       "*": ["types/*"]
     }

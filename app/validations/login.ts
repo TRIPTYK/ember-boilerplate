@@ -1,8 +1,8 @@
-import { validatePresence } from 'ember-changeset-validations/validators';
+import * as Yup from 'yup';
 
-const loginValidation = {
-  email: [validatePresence(true)],
-  password: [validatePresence(true)],
-};
+const loginSchema = Yup.object().shape({
+  email: Yup.string().required('validations.email.required'),
+  password: Yup.string().required('validations.password.required'),
+});
 
-export default loginValidation;
+export default loginSchema;

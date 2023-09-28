@@ -11,13 +11,13 @@ module('Unit | Adapter | application', function (hooks) {
     setConfig(config);
 
     let adapter = this.owner.lookup(
-      'adapter:application'
+      'adapter:application',
     ) as ApplicationAdapter;
     const url = adapter.urlForQueryRecord(
       {
         id: 1,
       },
-      'user'
+      'user',
     );
     // queryRecord is working
     assert.true(url.endsWith('/1'));

@@ -1,7 +1,7 @@
 import Service from '@ember/service';
 import { service } from '@ember/service';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
-import type { Changeset } from 'ember-form-changeset-validations';
+import type { Changeset } from 'ember-immer-changeset';
 import { assert } from '@ember/debug';
 import type IntlService from 'ember-intl/services/intl';
 
@@ -20,7 +20,7 @@ export default class ErrorHandlerService extends Service {
       this.addErrorTranslatedInChangeset(changeset, errorsReturned);
     } else {
       this.flashMessages.danger(
-        `${this.intl.t('validations.backend.global_error')}`
+        `${this.intl.t('validations.backend.global_error')}`,
       );
     }
   }
@@ -50,11 +50,16 @@ export default class ErrorHandlerService extends Service {
 
   public addErrorTranslatedInChangeset(
     changeset: Changeset,
-    errors: TranslatedErrors
+    errors: TranslatedErrors,
   ) {
     for (const field in errors) {
       for (const error of errors[field]!) {
-        changeset.pushErrors(field, error);
+        changeset.addError({
+          key: field,
+          message: error,
+          originalValue: changeset.get(field),
+          value: changeset.get(field),
+        });
       }
     }
   }
@@ -65,12 +70,12 @@ export default class ErrorHandlerService extends Service {
       if (this.intl.exists(messagePath)) {
         this.flashMessages.danger(
           `${this.intl.t('validations.backend.error')} - ${this.intl.t(
-            messagePath
-          )}`
+            messagePath,
+          )}`,
         );
       } else {
         this.flashMessages.danger(
-          `${this.intl.t('validations.backend.error')} - ${error.code}`
+          `${this.intl.t('validations.backend.error')} - ${error.code}`,
         );
       }
     }

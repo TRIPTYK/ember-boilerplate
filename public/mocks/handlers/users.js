@@ -8,7 +8,7 @@ export const usersHandlers = [
         accessToken:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaWF0IjoxNTE2MjAzOTAyMn0.wuD_2Nd34saGzi764Zj8FGZVQOYgePwpcWjEoZ41qI4',
         refreshToken: '123',
-      })
+      }),
     );
   }),
   rest.get('http://localhost:8080/api/v1/users/profile', (_req, res, ctx) => {
@@ -26,7 +26,7 @@ export const usersHandlers = [
             role: '',
           },
         },
-      })
+      }),
     );
   }),
   rest.get('http://localhost:8080/api/v1/users', (_req, res, ctx) => {
@@ -34,7 +34,7 @@ export const usersHandlers = [
       ctx.status(200),
       ctx.json({
         data: [],
-      })
+      }),
     );
   }),
   rest.post('http://localhost:8080/api/v1/users', (req, res, ctx) => {
@@ -46,7 +46,7 @@ export const usersHandlers = [
           id: req.id,
           attributes: req.body.data.attributes,
         },
-      })
+      }),
     );
   }),
 ];

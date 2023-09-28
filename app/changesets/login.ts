@@ -1,8 +1,8 @@
-import { ExtendedChangeset } from 'ember-form-changeset-validations';
+import { ImmerChangeset } from 'ember-immer-changeset';
 
 export interface LoginDTO {
   email: string;
   password: string;
 }
 
-export class LoginChangeset extends ExtendedChangeset<LoginDTO> {}
+export class LoginChangeset extends ImmerChangeset<LoginDTO> {}

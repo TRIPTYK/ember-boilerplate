@@ -1,7 +1,7 @@
-import { ExtendedChangeset } from 'ember-form-changeset-validations';
+import { ImmerChangeset } from 'ember-immer-changeset';
 
 export interface ForgotPasswordDTO {
   email: string;
 }
 
-export class ForgotPasswordChangeset extends ExtendedChangeset<ForgotPasswordDTO> {}
+export class ForgotPasswordChangeset extends ImmerChangeset<ForgotPasswordDTO> {}

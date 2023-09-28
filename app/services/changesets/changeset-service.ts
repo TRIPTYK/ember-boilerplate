@@ -1,4 +1,4 @@
-import type { Changeset } from 'ember-form-changeset-validations';
+import type { Changeset } from 'ember-immer-changeset';
 import type { Promisable } from 'type-fest';
 
 export interface ChangesetService<T extends Changeset> {
