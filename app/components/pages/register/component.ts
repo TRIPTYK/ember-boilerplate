@@ -7,6 +7,7 @@ import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import type IntlService from 'ember-intl/services/intl';
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';
 import type ErrorHandlerService from 'ember-boilerplate/services/error-handler';
+import formsRegisterSchema from 'ember-boilerplate/validations/register';
 
 interface PagesRegisterArgs {
   changeset: RegisterChangeset;
@@ -18,6 +19,8 @@ export default class PagesRegister extends Component<PagesRegisterArgs> {
   @service('changesets/register') declare register: RegisterChangesetService;
   @service declare errorHandler: ErrorHandlerService;
   @tracked declare changeset: RegisterChangeset;
+
+  validationSchema = formsRegisterSchema;
 
   constructor(owner: unknown, args: PagesRegisterArgs) {
     super(owner, args);

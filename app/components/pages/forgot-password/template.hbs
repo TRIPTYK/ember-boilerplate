@@ -1,5 +1,6 @@
 <LoginLayout @title="Mot de passe oublié">
   <Forms::ForgotPassword
+    @validationSchema={{this.validationSchema}}
     @changeset={{this.changeset}}
     @saveFunction={{this.sendRecoveryRequest}}
   />

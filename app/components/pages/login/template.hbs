@@ -1,3 +1,7 @@
 <LoginLayout @title={{t "components.pages.login.title"}}>
-  <Forms::Login @changeset={{this.changeset}} @saveFunction={{this.login}} />
+  <Forms::Login
+    @validationSchema={{this.validationSchema}}
+    @changeset={{this.changeset}}
+    @saveFunction={{this.login}}
+  />
 </LoginLayout>

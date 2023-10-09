@@ -9,6 +9,7 @@ import { setupIntl } from 'ember-intl/test-support';
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register';
 import type IntlService from 'ember-intl/services/intl';
+import loginSchema from 'ember-boilerplate/validations/login';
 
 interface RegisterTestContext extends TestContext {
   changeset: RegisterChangeset;
@@ -41,6 +42,7 @@ module('Integration | Component | forms/register', function (hooks) {
         <Forms::Register
             @changeset={{this.changeset}}
             @saveFunction={{this.saveFunction}}
+            @validationSchema={{this.validationSchema}}
           >
           <Inputs::CancelButton data-test-cancel>
             {{t "global.cancel"}}
@@ -53,9 +55,10 @@ module('Integration | Component | forms/register', function (hooks) {
     );
   }
 
-  test('Submit without complete missing field returns errors', async function (assert) {
+  test('Submit with missing field returns errors', async function (assert) {
     // Testing makes Amaury happy so do your tests
     this.set('saveFunction', () => {});
+    this.set('validationSchema', loginSchema);
     await renderForm();
     await pagesFormsRegister.submit();
     assert.true(pagesFormsRegister.errors.length > 0);
@@ -73,6 +76,7 @@ module('Integration | Component | forms/register', function (hooks) {
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
       assert.step('saveFunction');
     });
+    this.set('validationSchema', loginSchema);
     await renderForm();
 
     await pagesFormsRegister
@@ -84,10 +88,11 @@ module('Integration | Component | forms/register', function (hooks) {
     assert.verifySteps(['saveFunction']);
   });
 
-  test('confirmPassword not match password and return an error', async function (assert) {
+  test('confirmPassword which does not match password returns an error', async function (assert) {
     assert.expect(1);
     const intl = getOwner(this)?.lookup('service:intl') as IntlService;
     this.set('saveFunction', () => {});
+    this.set('validationSchema', loginSchema);
     await renderForm();
 
     await pagesFormsRegister.password('hello').confirmPassword('hellos');

@@ -2,11 +2,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
 import { ImmerChangeset, type Changeset } from 'ember-immer-changeset';
 import click from '@ember/test-helpers/dom/click';
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
 import { setupIntl } from 'ember-intl/test-support';
+import { hbs } from 'ember-cli-htmlbars';
+import loginSchema from 'ember-boilerplate/validations/login';
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
@@ -14,7 +15,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
 
   test('Create (empty changeset)', async function (assert) {
     this.set('changeset', new ImmerChangeset({}));
-
+    this.set('validationSchema', loginSchema);
     this.set('saveFunction', (changeset: Changeset) => {
       assert.step('saveFunction');
       assert.strictEqual(changeset.get('email'), 'edited@gmail.com');
@@ -22,7 +23,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     });
 
     await render(
-      hbs`<Forms::Login @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
+      hbs`<Forms::Login @validationSchema={{this.validationSchema}} @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('');
@@ -42,6 +43,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
         password: 'hello',
       }),
     );
+    this.set('validationSchema', loginSchema);
 
     this.set('saveFunction', (changeset: Changeset) => {
       assert.strictEqual(changeset.get('email'), 'edited@gmail.com');
@@ -50,7 +52,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     });
 
     await render(
-      hbs`<Forms::Login @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
+      hbs`<Forms::Login  @validationSchema={{this.validationSchema}} @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('hello');

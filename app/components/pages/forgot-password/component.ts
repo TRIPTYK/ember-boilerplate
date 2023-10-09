@@ -7,6 +7,7 @@ import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import type IntlService from 'ember-intl/services/intl';
 import type Router from '@ember/routing/router';
 import { ForgotPasswordChangeset } from 'ember-boilerplate/changesets/forgot-password';
+import forgotPasswordSchema from 'ember-boilerplate/validations/forgot-password';
 
 interface PagesForgotPasswordArgs {}
 
@@ -16,6 +17,8 @@ export default class PagesForgotPassword extends Component<PagesForgotPasswordAr
   @service declare flashMessages: FlashMessageService;
   @service declare intl: IntlService;
   @tracked changeset: ForgotPasswordChangeset;
+
+  validationSchema = forgotPasswordSchema;
 
   constructor(owner: unknown, args: PagesForgotPasswordArgs) {
     super(owner, args);

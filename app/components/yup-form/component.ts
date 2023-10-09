@@ -72,6 +72,7 @@ export default class ChangesetFormComponent extends Component<
         this.args.validationSchema,
         dto,
       );
+
       for (const error of errors) {
         this.args.changeset.addError(error);
       }

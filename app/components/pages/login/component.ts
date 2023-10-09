@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { waitFor } from '@ember/test-waiters';
 import { service } from '@ember/service';
 import { LoginChangeset } from 'ember-boilerplate/changesets/login';
+import loginSchema from 'ember-boilerplate/validations/login';
 
 interface PagesLoginArgs {}
 
@@ -16,6 +17,8 @@ export default class PagesLogin extends Component<PagesLoginArgs> {
   @service declare currentUser: CurrentUserService;
   @service declare router: RouterService;
   @service declare session: SessionService;
+
+  validationSchema = loginSchema;
 
   @tracked changeset: LoginChangeset;
 
