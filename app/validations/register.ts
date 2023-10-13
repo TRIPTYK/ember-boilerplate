@@ -1,16 +1,16 @@
-import * as Yup from 'yup';
+import { object, ref, string } from 'yup';
 
-const formsRegisterSchema = Yup.object().shape({
-  firstName: Yup.string().required('validations.firstName.required'),
-  lastName: Yup.string().required('validations.lastName.required'),
-  phone: Yup.string().required('validations.phone.required'),
-  email: Yup.string()
+const validationsRegister = object().shape({
+  firstName: string().required('validations.firstName.required'),
+  lastName: string().required('validations.lastName.required'),
+  phone: string().required('validations.phone.required'),
+  email: string()
     .email('validations.email.format')
     .required('validations.email.required'),
-  password: Yup.string().required('validations.password.required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'validations.confirm_password.not_matching')
+  password: string().required('validations.password.required'),
+  confirmPassword: string()
+    .oneOf([ref('password')], 'validations.confirm_password.not_matching')
     .required('validations.confirm_password.required'),
 });
 
-export default formsRegisterSchema;
+export default validationsRegister;

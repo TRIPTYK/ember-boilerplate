@@ -66,8 +66,5 @@ module.exports = function (defaults) {
     staticAddonTrees: true,
     staticHelpers: true,
     staticComponents: true,
-    splitAtRoutes: ['staging', 'production'].includes(app.env)
-      ? [/^(?!(application)$).*$/]
-      : [], // can also be a RegExp
   });
 };

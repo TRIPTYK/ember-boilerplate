@@ -1,22 +1,11 @@
 <aside ...attributes>
   {{#each @errors as |error|}}
-    {{#if (is-array error.validation)}}
-      {{#each error.validation as |V|}}
-        <span>
-          {{#if V.context.message}}
-            {{t
-              V.context.message
-              gte=V.context.gte
-              gt=V.context.gt
-              min=V.context.min
-              max=V.context.max
-              is=V.context.is
-            }}
-          {{else}}
-            {{V}}
-          {{/if}}
-        </span>
-      {{/each}}
-    {{/if}}
+    <span>
+      {{#if error.message}}
+        {{t error.message error.params}}
+      {{else}}
+        {{error}}
+      {{/if}}
+    </span>
   {{/each}}
 </aside>
