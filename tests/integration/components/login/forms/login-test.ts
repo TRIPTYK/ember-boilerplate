@@ -23,7 +23,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     });
 
     await render(
-      hbs`<Forms::Login @validationSchema={{this.validationSchema}} @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
+      hbs`{{! @glint-nocheck }}<Forms::Login @validationSchema={{this.validationSchema}} @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('');
@@ -52,7 +52,7 @@ module('Integration | Component | FormsLogin', function (hooks) {
     });
 
     await render(
-      hbs`<Forms::Login  @validationSchema={{this.validationSchema}} @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
+      hbs`{{! @glint-nocheck }}<Forms::Login  @validationSchema={{this.validationSchema}} @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('hello');

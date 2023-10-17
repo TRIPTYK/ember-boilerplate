@@ -39,6 +39,7 @@ module('Integration | Component | forms/register', function (hooks) {
   function renderForm() {
     return render(
       hbs`
+        {{! @glint-nocheck: not typesafe yet }}
         <Forms::Register
             @changeset={{this.changeset}}
             @saveFunction={{this.saveFunction}}

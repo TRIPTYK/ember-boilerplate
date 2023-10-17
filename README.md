@@ -37,7 +37,6 @@
 
 ### Additional Tooling
 
-- Coverage: read by `read-cov.js` file. A minimum of 50% code coverage is required.
 - With-backend: `with-backend.js` Starts the ember app with a backend synchronously.
 - Code duplication: with jscpd.
 - Husky: checks linting + code duplication + integration & unit tests before commiting to VSC.

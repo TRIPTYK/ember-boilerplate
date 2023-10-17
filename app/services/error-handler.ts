@@ -25,7 +25,7 @@ export default class ErrorHandlerService extends Service {
     }
   }
 
-  public translateErrors(errors: Error[]): TranslatedErrors {
+  public translateErrors(errors: any[]): TranslatedErrors {
     const translatedErrors: TranslatedErrors = {};
 
     for (const error of errors) {
@@ -64,7 +64,7 @@ export default class ErrorHandlerService extends Service {
     }
   }
 
-  public generateGlobalErrorMessage(errors: Error[]) {
+  public generateGlobalErrorMessage(errors: any[]) {
     for (const error of errors) {
       const messagePath = `validations.backend.${error.code}`;
       if (this.intl.exists(messagePath)) {

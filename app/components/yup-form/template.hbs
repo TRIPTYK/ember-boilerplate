@@ -1,7 +1,0 @@
-<form
-  {{on "submit" (perform this.submit)}}
-  {{scroll-on-error @changeset.errors}}
-  ...attributes
->
-  {{yield this.validateAndSubmit}}
-</form>
