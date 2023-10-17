@@ -1,8 +1,10 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import type ApplicationAdapter from '../../../app/adapters/application';
-import { setConfig } from 'ember-boilerplate/utils/get-config';
+
 import config from 'ember-boilerplate/config/environment';
+import { setConfig } from 'ember-boilerplate/utils/get-config';
+
+import type ApplicationAdapter from '../../../app/adapters/application';
 
 module('Unit | Adapter | application', function (hooks) {
   setupTest(hooks);
@@ -19,6 +21,7 @@ module('Unit | Adapter | application', function (hooks) {
       },
       'user',
     );
+
     // queryRecord is working
     assert.true(url.endsWith('/1'));
   });

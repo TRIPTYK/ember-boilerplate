@@ -1,11 +1,10 @@
 {
   "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
-    "skipLibCheck": true,
-    // The combination of `baseUrl` with `paths` allows Ember's classic package
-    // layout, which is not resolvable with the Node resolution algorithm, to
-    // work with TypeScript.
     "baseUrl": ".",
+    "skipLibCheck": true,
+    "allowJs": true,
+    // Apps don't need to publish declarations
     "paths": {
       "ember-boilerplate/tests/*": [
         "tests/*"

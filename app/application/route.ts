@@ -1,11 +1,13 @@
+import { registerDestructor } from '@ember/destroyable';
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+
+import config from 'ember-boilerplate/config/environment';
+import { loadConfig } from 'ember-boilerplate/utils/get-config';
+
 import type CurrentUserService from 'ember-boilerplate/services/current-user';
 import type IntlService from 'ember-intl/services/intl';
 import type SessionService from 'ember-simple-auth/services/session';
-import { registerDestructor } from '@ember/destroyable';
-import config from 'ember-boilerplate/config/environment';
-import { loadConfig } from 'ember-boilerplate/utils/get-config';
 
 export default class Application extends Route {
   @service declare session: SessionService;
@@ -28,8 +30,9 @@ export default class Application extends Route {
 }
 
 async function setupMSW(context: object) {
-  // @ts-expect-error
+  // @ts-expect-error rewritten
   let { worker } = await import('/mocks/index.js');
+
   await worker.start();
   registerDestructor(context, () => worker.stop());
 }

@@ -1,5 +1,7 @@
-import BaseSessionService from 'ember-simple-auth/services/session';
 import { service } from '@ember/service';
+
+import BaseSessionService from 'ember-simple-auth/services/session';
+
 import type CurrentUserService from './current-user';
 
 export default class SessionService extends BaseSessionService {
@@ -16,6 +18,7 @@ export default class SessionService extends BaseSessionService {
       if ((err as Error).message === 'Aborted') {
         return;
       }
+
       await this.invalidate();
     }
   }

@@ -1,9 +1,11 @@
+import Service, { service } from '@ember/service';
+
+import fetch from 'fetch';
+
+import type { Owner } from '@ember/test-helpers/build-owner';
 import type Model from '@ember-data/model';
 import type emberData__store from '@ember-data/store';
-import fetch from 'fetch';
-import Service, { service } from '@ember/service';
 import type ApplicationAdapter from 'ember-boilerplate/adapters/application';
-import type { Owner } from '@ember/test-helpers/build-owner';
 
 export type FileObject = PersistedFile | UnpersistedFile;
 
@@ -42,9 +44,11 @@ export default abstract class BaseDocumentService<
 
   async save(formData: FormData): Promise<T> {
     const id = formData.get('id') as string;
+
     if (id) {
       return this.update(formData, id);
     }
+
     return this.create(formData);
   }
 
@@ -65,6 +69,7 @@ export default abstract class BaseDocumentService<
       this.createRequestObject('POST', formData)
     );
     const data = await response.json();
+
     return this.store.pushPayload(data) as T;
   }
 
@@ -74,6 +79,7 @@ export default abstract class BaseDocumentService<
       this.createRequestObject('PATCH', formData)
     );
     const data = await response.json();
+
     return this.store.pushPayload(data) as T;
   }
 }

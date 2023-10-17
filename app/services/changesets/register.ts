@@ -1,8 +1,9 @@
 import Service from '@ember/service';
-import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import { service } from '@ember/service';
-import type StoreService from '@ember-data/store';
+
 import type { ChangesetService } from './changeset-service';
+import type StoreService from '@ember-data/store';
+import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import type UserModel from 'ember-boilerplate/models/user';
 
 export default class RegisterChangesetService
@@ -13,6 +14,7 @@ export default class RegisterChangesetService
 
   async save(changeset: RegisterChangeset): Promise<UserModel> {
     changeset.execute();
+
     const changesetData = changeset.data;
 
     const user = this.store.createRecord('user', {

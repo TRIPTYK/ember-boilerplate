@@ -1,28 +1,31 @@
-import type Owner from '@ember/owner';
 import Component from '@glimmer/component';
-import type { Promisable } from 'type-fest';
 import { assert } from '@ember/debug';
-import { task } from 'ember-concurrency';
-import { Schema } from 'yup';
-import { ImmerChangeset, isChangeset } from 'ember-immer-changeset';
+import { on } from '@ember/modifier';
+
+import scrollOnError from 'ember-boilerplate/modifiers/scroll-on-error';
 import {
   validateAndMapErrors,
   validateOneAndMapErrors,
 } from 'ember-boilerplate/utils/validate-and-map';
+import { task } from 'ember-concurrency';
 // @ts-expect-error
 import perform from 'ember-concurrency/helpers/perform';
-import { on } from '@ember/modifier';
-import scrollOnError from 'ember-boilerplate/modifiers/scroll-on-error';
+import { ImmerChangeset, isChangeset } from 'ember-immer-changeset';
+import { Schema } from 'yup';
+
+import type Owner from '@ember/owner';
+import type { Promisable } from 'type-fest';
 
 function isFieldError(field: string, errorKey: string): boolean {
   const regex = new RegExp(`^${field.replaceAll('.', '\\.')}($|\\.|\\[)`);
+
   return regex.test(errorKey);
 }
 
-export interface ChangesetFormComponentSignature<T extends ImmerChangeset> {
+export interface ChangesetFormComponentSignature {
     Args: {
-        changeset: T;
-        onSubmit: (changeset: T) => Promisable<unknown>;
+        changeset: ImmerChangeset;
+        onSubmit: <T extends ImmerChangeset<any>>(changeset: T) => Promisable<unknown>;
         validationSchema: Schema;
         removeErrorsOnSubmit?: boolean;
         executeOnValid?: boolean;
@@ -35,11 +38,11 @@ export interface ChangesetFormComponentSignature<T extends ImmerChangeset> {
 
 
 export default class ChangesetFormComponent extends Component<
-  ChangesetFormComponentSignature<ImmerChangeset>
+  ChangesetFormComponentSignature
 > {
   public constructor(
     owner: Owner,
-    args: ChangesetFormComponentSignature<ImmerChangeset>['Args'],
+    args: ChangesetFormComponentSignature['Args'],
   ) {
     super(owner, args);
     assert(

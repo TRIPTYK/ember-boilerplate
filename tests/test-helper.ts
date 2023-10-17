@@ -1,18 +1,22 @@
 import 'qunit-dom';
+import './helpers/flash-message';
+
+import { setApplication } from '@ember/test-helpers';
+import QUnit from 'qunit';
+import { setup } from 'qunit-dom';
+
 import Application from 'ember-boilerplate/app';
 import config from 'ember-boilerplate/config/environment';
-import { setApplication } from '@ember/test-helpers';
-import { setup } from 'qunit-dom';
-import './helpers/flash-message';
-import QUnit from 'qunit';
+
 import {
   forceModulesToBeLoaded,
   sendCoverage,
-  // @ts-expect-error
+  // @ts-expect-error no types
 } from 'ember-cli-code-coverage/test-support';
-import { setupWorker, stopWorker } from './worker';
-// @ts-expect-error
+// @ts-expect-error no types
 import start from 'ember-exam/test-support/start';
+
+import { setupWorker, stopWorker } from './worker';
 
 QUnit.begin(() => {
   return setupWorker();

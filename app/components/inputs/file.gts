@@ -1,6 +1,7 @@
-import { TOC } from "@ember/component/template-only";
 import TpkFile from "@triptyk/ember-input/components/tpk-file";
 import InputsFileInputLayout from "ember-boilerplate/components/inputs/file/input-layout";
+
+import type { TOC } from "@ember/component/template-only";
 
 export interface InputsFileSignature {
   Args: {

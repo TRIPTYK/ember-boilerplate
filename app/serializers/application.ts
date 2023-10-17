@@ -1,4 +1,5 @@
 import JSONAPISerializer from '@ember-data/serializer/json-api';
+
 import type { Snapshot } from '@ember-data/store';
 
 export default class Application extends JSONAPISerializer {

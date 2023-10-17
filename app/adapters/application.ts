@@ -1,9 +1,12 @@
-import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { service } from '@ember/service';
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
+
+import { mergedConfig } from 'ember-boilerplate/utils/get-config';
+
+import config from '../config/environment';
+
 import type SessionService from 'ember-boilerplate/services/session';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
-import config from '../config/environment';
-import { mergedConfig } from 'ember-boilerplate/utils/get-config';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
   @service declare session: SessionService;
@@ -20,11 +23,13 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
       'Content-Type': 'application/vnd.api+json',
       Authorization: '',
     };
+
     if (this.session.isAuthenticated) {
       headers[
         'Authorization'
       ] = `Bearer ${this.session.data.authenticated.accessToken}`;
     }
+
     return headers;
   }
 
@@ -45,6 +50,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
         // Bad request
       }
     }
+
     return super.handleResponse(status, headers, payload, requestData);
   }
 
@@ -53,7 +59,9 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     modelName: string | number
   ): string {
     const id = query['id'] as string | number;
+
     delete query['id'];
+
     return this.buildURL(modelName, id, null, 'findRecord', query);
   }
 }

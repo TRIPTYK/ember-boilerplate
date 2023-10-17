@@ -1,5 +1,6 @@
-import { TOC } from "@ember/component/template-only";
 import t from "ember-intl/helpers/t";
+
+import type { TOC } from "@ember/component/template-only";
 
 export interface InputsFileSignature {
   Args: {

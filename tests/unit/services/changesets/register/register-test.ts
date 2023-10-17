@@ -1,12 +1,15 @@
 /* eslint-disable qunit/require-expect */
 import { module, test } from 'qunit';
-import { setupTest } from 'ember-boilerplate/tests/helpers';
-import type { ServiceWorkerTestContext } from 'ember-boilerplate/tests/worker';
-import { setupMock } from 'ember-boilerplate/tests/worker';
+
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
-import { failHandle, successHandle } from './mocks';
+import { setupTest } from 'ember-boilerplate/tests/helpers';
+import { setupMock } from 'ember-boilerplate/tests/worker';
+
 import { changesetInitialData } from './changesets';
+import { failHandle, successHandle } from './mocks';
+
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';
+import type { ServiceWorkerTestContext } from 'ember-boilerplate/tests/worker';
 
 module('Unit | Service | changesets/register', function (hooks) {
   setupTest(hooks);
@@ -15,7 +18,7 @@ module('Unit | Service | changesets/register', function (hooks) {
   let service: RegisterChangesetService;
 
   hooks.beforeEach(function () {
-    service = this.owner.lookup('service:changesets/register');
+    service = this.owner.lookup('service:changesets/register') as RegisterChangesetService;
   });
 
   async function setupSuccessHandlers(this: ServiceWorkerTestContext) {

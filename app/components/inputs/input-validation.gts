@@ -1,6 +1,9 @@
-import TpkValidationInput, { TpkValidationInputComponentSignature } from '@triptyk/ember-input-validation/components/tpk-validation-input';
 import Component from '@glimmer/component';
+
+import TpkValidationInput from '@triptyk/ember-input-validation/components/tpk-validation-input';
 import InputsErrorValidation from 'ember-boilerplate/components/inputs/error-validation';
+
+import type { TpkValidationInputComponentSignature } from '@triptyk/ember-input-validation/components/tpk-validation-input';
 
 interface InputsValidationComponentSignature {
   Element: HTMLDivElement;
@@ -17,7 +20,7 @@ interface InputsValidationComponentSignature {
   }
 }
 
-export class InputsValidationComponent extends Component<InputsValidationComponentSignature> {
+export default class InputsValidationComponent extends Component<InputsValidationComponentSignature> {
   <template>
   <TpkValidationInput
     @label={{@label}}

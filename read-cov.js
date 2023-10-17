@@ -5,6 +5,7 @@ const { join } = require('path');
 let [, , path, threshold, dryRun] = process.argv;
 
 const covPath = './coverage/coverage-summary.json';
+
 threshold = threshold ?? 50;
 
 process.chdir(path);
@@ -19,6 +20,7 @@ const covResults = Object.entries(out.total);
 
 if (covResults.map(([, value]) => value.pct).some((e) => e < threshold)) {
   console.log(covResults);
+
   if (dryRun) {
     console.warn(`Code coverage is not over ${threshold} (low)`);
   } else {

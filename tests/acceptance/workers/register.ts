@@ -1,5 +1,6 @@
-import type { SetupWorker } from 'msw';
 import { rest } from 'msw';
+
+import type { SetupWorker } from 'msw';
 
 export async function registerWorker(worker: SetupWorker) {
   worker.use(
@@ -24,6 +25,7 @@ export async function registerWorker(worker: SetupWorker) {
   );
   await worker.start();
 }
+
 export async function registerWorkerWithErrors(worker: SetupWorker) {
   worker.use(
     rest.post('http://localhost:8080/api/v1/users', (_req, res, ctx) => {

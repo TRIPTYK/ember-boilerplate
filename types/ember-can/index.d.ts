@@ -3,6 +3,6 @@ declare module 'ember-can' {
     model: T;
   }
   export class AbilitiesService {
-    can(action: string, model?: unknown);
+    can(action: string, model?: unknown): boolean;
   }
 }

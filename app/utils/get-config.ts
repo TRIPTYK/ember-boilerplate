@@ -5,6 +5,7 @@ export let mergedConfig: typeof config;
 
 export async function loadConfig() {
   const injectedConfig = await (await fetch('/config.json')).json();
+
   mergedConfig = { ...config, ...injectedConfig };
 }
 

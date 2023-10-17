@@ -1,5 +1,6 @@
-import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import Service from '@ember/service';
+
 import config from 'ember-boilerplate/config/environment';
 
 export default class HeadDataService extends Service {

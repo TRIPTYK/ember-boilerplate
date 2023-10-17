@@ -1,13 +1,15 @@
 /* eslint-disable qunit/require-expect */
+import { render } from '@ember/test-helpers';
+import click from '@ember/test-helpers/dom/click';
+import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import { ImmerChangeset, type Changeset } from 'ember-immer-changeset';
-import click from '@ember/test-helpers/dom/click';
+
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
-import { setupIntl } from 'ember-intl/test-support';
-import { hbs } from 'ember-cli-htmlbars';
 import loginSchema from 'ember-boilerplate/validations/login';
+import { type Changeset,ImmerChangeset } from 'ember-immer-changeset';
+
+import { setupIntl } from 'ember-intl/test-support';
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);

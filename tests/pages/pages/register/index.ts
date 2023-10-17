@@ -1,4 +1,5 @@
 import { create, hasClass, visitable } from 'ember-cli-page-object';
+
 import { pagesFormsRegister } from '../../forms/register';
 
 export default create({

@@ -21,14 +21,17 @@ launchBackend.on('close', () => {
 launchBackend.stdout.on('data', (data) => {
   if (data.toString().includes('Listening on port')) {
     console.log(`backend launched, doing ${frontendCommand}`);
+
     const exec = child_process.spawn(frontendCommand, {
       stdio: ['inherit', 'inherit', 'inherit'],
       env: process.env,
       shell: true,
       detached: true,
     });
+
     exec.on('close', () => {
       process.kill(-launchBackend.pid);
+
       if (exec.exitCode !== null) {
         process.exit(exec.exitCode);
       }

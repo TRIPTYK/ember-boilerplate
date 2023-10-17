@@ -1,11 +1,14 @@
 /* eslint-disable max-statements */
-import { module, test } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
+import { module, test } from 'qunit';
+
 import { setupApplicationTest } from 'ember-boilerplate/tests/helpers';
-import type { ServiceWorkerTestContext } from '../../worker';
-import { setupMock } from '../../worker';
 import indexPage from 'ember-boilerplate/tests/pages/pages/register/index';
+
+import { setupMock } from '../../worker';
 import { registerWorker, registerWorkerWithErrors } from '../workers/register';
+
+import type { ServiceWorkerTestContext } from '../../worker';
 
 module('Acceptance | register', function (hooks) {
   setupApplicationTest(hooks);

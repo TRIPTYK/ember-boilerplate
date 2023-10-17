@@ -92,13 +92,11 @@
 }
 
 .yeti-table-pagination-buttons button img {
-  filter: invert(13%) sepia(6%) saturate(5813%) hue-rotate(157deg)
-    brightness(100%) contrast(90%);
+  filter: invert(13%) sepia(6%) saturate(5813%) hue-rotate(157deg) brightness(100%) contrast(90%);
 }
 
 .yeti-table-pagination-buttons button:hover img {
-  filter: invert(61%) sepia(99%) saturate(3877%) hue-rotate(167deg)
-    brightness(89%) contrast(96%);
+  filter: invert(61%) sepia(99%) saturate(3877%) hue-rotate(167deg) brightness(89%) contrast(96%);
 }
 
 .yeti-table-pagination-buttons button:disabled {
@@ -106,8 +104,7 @@
 }
 
 .yeti-table-pagination-buttons button:disabled img {
-  filter: invert(70%) sepia(0%) saturate(2309%) hue-rotate(26deg)
-    brightness(92%) contrast(97%);
+  filter: invert(70%) sepia(0%) saturate(2309%) hue-rotate(26deg) brightness(92%) contrast(97%);
   opacity: 0.5;
 }
 

@@ -1,11 +1,13 @@
 
+import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
-import type RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
-import Component from '@glimmer/component';
+
 import windowHistoryBack from '@triptyk/ember-utils/utils/window-history-back';
 import t from 'ember-intl/helpers/t';
+
+import type RouterService from '@ember/routing/router-service';
 
 export interface CancelButtonComponentSignature {
   Args: {
@@ -23,10 +25,13 @@ export default class CancelButtonComponent extends Component<CancelButtonCompone
   @action
   async goBack(e: Event) {
     e.preventDefault();
+
     if (window.history.length === 2) {
       await this.router.transitionTo(this.args.fallbackRoute);
+
       return;
     }
+
     windowHistoryBack();
   }
 

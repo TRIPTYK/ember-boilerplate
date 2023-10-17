@@ -1,6 +1,7 @@
-import type { Schema } from 'yup';
 import { ValidationError } from 'yup';
+
 import type { ValidationError as ChangesetValidationError } from 'ember-immer-changeset';
+import type { Schema } from 'yup';
 
 export async function validateAndMapErrors<T extends Schema>(
   schema: T,
@@ -8,6 +9,7 @@ export async function validateAndMapErrors<T extends Schema>(
 ): Promise<ChangesetValidationError[]> {
   try {
     await schema.validate(dto, { abortEarly: false });
+
     return [];
   } catch (e) {
     return applyErrors(e);
@@ -23,6 +25,7 @@ export async function validateOneAndMapErrors<T extends Schema>(
     await schema.validateAt(dottedPathToJsonPath(path), dto, {
       abortEarly: false,
     });
+
     return [];
   } catch (e) {
     return applyErrors(e);
@@ -33,6 +36,7 @@ function applyErrors(e: unknown) {
   if (e instanceof ValidationError) {
     const errs = e.inner.reduce((mergedErrors, e) => {
       let path = jsonPathToDottedPath(e.path ?? '');
+
       mergedErrors.push({
         message: e.message,
         params: e.params,
@@ -40,10 +44,13 @@ function applyErrors(e: unknown) {
         value: e.value,
         originalValue: '',
       });
+
       return mergedErrors;
     }, [] as ChangesetValidationError[]);
+
     return errs;
   }
+
   return [];
 }
 

@@ -1,5 +1,5 @@
-import type Route from '@ember/routing/route';
 import type ArrayPrototypeExtensions from '@ember/array/types/prototype-extensions';
+import type Route from '@ember/routing/route';
 
 declare global {
   interface Array<T> extends ArrayPrototypeExtensions<T> {}

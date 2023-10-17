@@ -7,9 +7,12 @@ export default class User extends JSONAPIAdapter {
   ) {
     if (query['profile']) {
       delete query['profile'];
+
       const url = `${this.host}/${this.namespace}/users/profile`;
+
       return url;
     }
+
     return super.urlForQueryRecord(query, modelName);
   }
 }

@@ -1,4 +1,5 @@
 import { later } from '@ember/runloop';
+
 import type { ValidationError } from 'ember-immer-changeset';
 
 export function scrollToFirstError(
@@ -16,6 +17,7 @@ export function scrollToFirstError(
     ) as HTMLElement;
 
     errorElement.style.transition = '0.3s ease-out';
+
     const targetTop =
       errorElement.getBoundingClientRect().top + window.scrollY - 85;
 

@@ -1,17 +1,15 @@
 'use strict';
 
 module.exports = {
-  extends: ['recommended', 'stylistic'],
+  extends: 'recommended',
   rules: {
-    'no-bare-strings': true,
-    quotes: false,
-    'self-closing-void-elements': 'off',
-    'template-length': [
+    // Polaris allows <style> tags
+    //   https://github.com/ember-template-lint/ember-template-lint/blob/master/lib/rules/no-forbidden-elements.js
+    'no-forbidden-elements': [
       'error',
-      {
-        min: 0,
-        max: 70,
-      },
+      { forbidden: ['meta', 'html', 'script'] },
     ],
+    // Stylistic
+    'no-inline-styles': false,
   },
 };

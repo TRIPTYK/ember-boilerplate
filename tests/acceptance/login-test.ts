@@ -1,10 +1,13 @@
-import { module, test } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
+import { module, test } from 'qunit';
+
 import { setupApplicationTest } from 'ember-boilerplate/tests/helpers';
+
 import { loginPage } from '../pages/login';
-import type { ServiceWorkerTestContext } from '../worker';
 import { setupMock } from '../worker';
 import { loginWorker } from './workers/login';
+
+import type { ServiceWorkerTestContext } from '../worker';
 
 module('Acceptance | login', function (hooks) {
   setupApplicationTest(hooks);

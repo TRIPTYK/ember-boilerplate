@@ -1,5 +1,5 @@
 {
-  "eslint.validate": ["typescript", "javascript", "yaml"],
+  "eslint.validate": ["typescript", "javascript", "yaml", "glimmer-ts"],
   "editor.formatOnSave": true,
   "css.validate": false,
   "[javascript]": {
@@ -9,6 +9,14 @@
   "[typescript]": {
     "editor.bracketPairColorization.enabled": true,
     "editor.formatOnSave": false
+  },
+  "[glimmer-js]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[glimmer-ts]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[handlebars]": {
     "editor.bracketPairColorization.enabled": true,

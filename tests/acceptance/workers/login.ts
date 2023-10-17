@@ -1,5 +1,6 @@
-import type { SetupWorker } from 'msw';
 import { rest } from 'msw';
+
+import type { SetupWorker } from 'msw';
 
 export async function loginWorker(worker: SetupWorker) {
   worker.use(

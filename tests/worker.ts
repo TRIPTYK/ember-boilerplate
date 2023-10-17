@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 import { rest, setupWorker as MSWSetupWorker } from 'msw';
-import type { SetupWorker } from 'msw';
+
 import type { TestContext } from '@ember/test-helpers';
+import type { SetupWorker } from 'msw';
 
 export let worker: SetupWorker;
 

@@ -1,21 +1,26 @@
 import Component from '@glimmer/component';
-import { tracked } from 'tracked-built-ins';
-import { service } from '@ember/service';
-import type FetchService from '@triptyk/ember-utils/services/fetch';
-import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { action } from '@ember/object';
-import type RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
+
 import { ResetPasswordChangeset } from 'ember-boilerplate/changesets/reset-password';
-import LoginLayout from 'ember-boilerplate/components/login-layout';
 import FormsPasswordRecovery from 'ember-boilerplate/components/forms/password-recovery';
+import LoginLayout from 'ember-boilerplate/components/login-layout';
 import passwordRecoveryValidation from 'ember-boilerplate/validations/reset-password';
 import t from 'ember-intl/helpers/t';
+import RouteTemplate from 'ember-route-template';
+import { tracked } from 'tracked-built-ins';
 
-interface PagesResetPasswordArgs {
-  token: string;
+import type RouterService from '@ember/routing/router-service';
+import type FetchService from '@triptyk/ember-utils/services/fetch';
+import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
+
+interface ResetPasswordRouteComponentSignature {
+  Args: {
+    token: string;
+  }
 }
 
-export default class PagesResetPassword extends Component<PagesResetPasswordArgs> {
+class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentSignature> {
   @service declare fetch: FetchService;
   @service declare router: RouterService;
   @service declare flashMessages: FlashMessageService;
@@ -23,7 +28,7 @@ export default class PagesResetPassword extends Component<PagesResetPasswordArgs
 
   validationSchema = passwordRecoveryValidation;
 
-  constructor(owner: unknown, args: PagesResetPasswordArgs) {
+  constructor(owner: unknown, args: ResetPasswordRouteComponentSignature['Args']) {
     super(owner, args);
     this.changeset = new ResetPasswordChangeset({
       password: '',
@@ -57,3 +62,5 @@ export default class PagesResetPassword extends Component<PagesResetPasswordArgs
     </LoginLayout>
   </template>
 }
+
+export default RouteTemplate(ResetPasswordRouteComponent);

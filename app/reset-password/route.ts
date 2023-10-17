@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
 import type RouterService from '@ember/routing/router-service';
 import type Transition from '@ember/routing/transition';
-import { service } from '@ember/service';
 import type SessionService from 'ember-boilerplate/services/session';
 
 export interface ResetPasswordRouteParams {
@@ -14,6 +15,7 @@ export default class ResetPasswordRoute extends Route {
 
   async beforeModel(tr: Transition) {
     await this.session.invalidate();
+
     /**
      * No token query param, denied
      */
