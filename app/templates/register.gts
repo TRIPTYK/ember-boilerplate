@@ -6,14 +6,13 @@ import { service } from '@ember/service';
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import FormsRegister from 'ember-boilerplate/components/forms/register';
 import LoginLayout from 'ember-boilerplate/components/login-layout';
+import t from 'ember-boilerplate/helpers/t';
 import formsRegisterSchema from 'ember-boilerplate/validations/register';
-import t from 'ember-intl/helpers/t';
 import RouteTemplate from 'ember-route-template';
 
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';
 import type ErrorHandlerService from 'ember-boilerplate/services/error-handler';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
-import type IntlService from 'ember-intl/services/intl';
 
 export interface RegisterRouteComponentSignature {
   Args: {};
@@ -21,7 +20,6 @@ export interface RegisterRouteComponentSignature {
 
 class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> {
   @service declare flashMessages: FlashMessageService;
-  @service declare intl: IntlService;
   @service('changesets/register') declare register: RegisterChangesetService;
   @service declare errorHandler: ErrorHandlerService;
   @tracked declare changeset: RegisterChangeset;
@@ -45,7 +43,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
   async saveRegister(changeset: RegisterChangeset) {
     try {
       await this.register.save(changeset);
-      this.flashMessages.success(this.intl.t('components.pages.register.success_message'));
+      this.flashMessages.success('components.pages.register.success_message');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       const error = await e;

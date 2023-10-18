@@ -12,7 +12,6 @@ import { tracked } from 'tracked-built-ins';
 import type Router from '@ember/routing/router';
 import type FetchService from '@triptyk/ember-utils/services/fetch';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
-import type IntlService from 'ember-intl/services/intl';
 
 interface PagesForgotPasswordArgs {}
 
@@ -20,7 +19,6 @@ class PagesForgotPassword extends Component<PagesForgotPasswordArgs> {
   @service declare fetch: FetchService;
   @service declare router: Router;
   @service declare flashMessages: FlashMessageService;
-  @service declare intl: IntlService;
   @tracked changeset: ForgotPasswordChangeset;
 
   validationSchema = forgotPasswordSchema;
@@ -41,20 +39,20 @@ class PagesForgotPassword extends Component<PagesForgotPasswordArgs> {
         }),
         method: 'POST',
       });
-      this.flashMessages.success(this.intl.t('global.successForgotPassword'));
+      this.flashMessages.success('global.successForgotPassword');
     } catch (e) {
-      this.flashMessages.danger(this.intl.t('global.incorrectEmail'));
+      this.flashMessages.danger('global.incorrectEmail');
     }
   }
 
   <template>
     <LoginLayout @title="Mot de passe oublié">
-    <FormsForgotPassword
-      @validationSchema={{this.validationSchema}}
-      @changeset={{this.changeset}}
-      @saveFunction={{this.sendRecoveryRequest}}
-    />
-  </LoginLayout>
+      <FormsForgotPassword
+        @validationSchema={{this.validationSchema}}
+        @changeset={{this.changeset}}
+        @saveFunction={{this.sendRecoveryRequest}}
+      />
+    </LoginLayout>
   </template>
 }
 

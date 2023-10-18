@@ -1,8 +1,6 @@
 import Component from '@glimmer/component';
-import { service } from '@ember/service';
 
 import type { ValidationError } from 'ember-immer-changeset';
-import type { IntlService } from 'ember-intl';
 
 export interface InputsErrorValidationSignature {
   Args: {
@@ -12,10 +10,8 @@ export interface InputsErrorValidationSignature {
 }
 
 export default class InputsErrorValidation extends Component<InputsErrorValidationSignature> {
-  @service declare intl: IntlService;
-
   formatMessage = (error: unknown) => {
-    return this.intl.t((error as ValidationError).message ?? '');
+    return (error as ValidationError).message ?? '';
   };
 
   <template>

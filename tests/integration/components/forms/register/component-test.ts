@@ -1,5 +1,3 @@
-/* eslint-disable qunit/require-expect */
-import { getOwner } from '@ember/application';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
@@ -9,10 +7,7 @@ import { setupRenderingTest } from 'ember-boilerplate/tests/helpers';
 import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register';
 import validationsRegister from 'ember-boilerplate/validations/register';
 
-import { setupIntl } from 'ember-intl/test-support';
-
 import type { TestContext } from '@ember/test-helpers';
-import type IntlService from 'ember-intl/services/intl';
 
 interface RegisterTestContext extends TestContext {
   changeset: RegisterChangeset;
@@ -21,7 +16,6 @@ interface RegisterTestContext extends TestContext {
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
 
   let changeset: RegisterChangeset;
 
@@ -93,10 +87,6 @@ module('Integration | Component | forms/register', function (hooks) {
   });
 
   test('confirmPassword which does not match password returns an error', async function (assert) {
-    assert.expect(1);
-
-    const intl = getOwner(this)?.lookup('service:intl') as IntlService;
-
     this.set('saveFunction', () => {});
     this.set('validationSchema', validationsRegister);
     await renderForm();
@@ -107,7 +97,7 @@ module('Integration | Component | forms/register', function (hooks) {
 
     assert.true(
       pagesFormsRegister.errors[0]?.text?.includes(
-        intl.t('validations.confirm_password.not_matching'),
+        'validations.confirm_password.not_matching',
       ),
     );
   });

@@ -9,11 +9,8 @@ import { loginPage } from 'ember-boilerplate/tests/pages/login';
 import loginSchema from 'ember-boilerplate/validations/login';
 import { type Changeset,ImmerChangeset } from 'ember-immer-changeset';
 
-import { setupIntl } from 'ember-intl/test-support';
-
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
 
   test('Create (empty changeset)', async function (assert) {
     this.set('changeset', new ImmerChangeset({}));

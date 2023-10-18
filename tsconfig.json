@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "skipLibCheck": true,
+    "declaration": false,
     "allowJs": true,
     // Apps don't need to publish declarations
     "paths": {

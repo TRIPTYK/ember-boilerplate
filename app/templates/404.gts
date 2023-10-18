@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 
-import t from 'ember-intl/helpers/t';
+import t from 'ember-boilerplate/helpers/t';
 import RouteTemplate from 'ember-route-template';
 
 export interface NotFoundRouteComponentSignature {}

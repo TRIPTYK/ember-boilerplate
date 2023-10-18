@@ -7,8 +7,8 @@ import { waitFor } from '@ember/test-waiters';
 import { LoginChangeset } from 'ember-boilerplate/changesets/login';
 import FormsLogin from 'ember-boilerplate/components/forms/login';
 import LoginLayout from 'ember-boilerplate/components/login-layout';
+import t from 'ember-boilerplate/helpers/t';
 import loginSchema from 'ember-boilerplate/validations/login';
-import t from 'ember-intl/helpers/t';
 import RouteTemplate from 'ember-route-template';
 
 import type RouterService from '@ember/routing/router-service';
@@ -53,15 +53,13 @@ class PagesLogin extends Component<PagesLoginArgs> {
 
   <template>
     <LoginLayout @title={{t "components.pages.login.title"}}>
-    <FormsLogin
-      @validationSchema={{this.validationSchema}}
-      @changeset={{this.changeset}}
-      @saveFunction={{this.login}}
-    />
-  </LoginLayout>
+      <FormsLogin
+        @validationSchema={{this.validationSchema}}
+        @changeset={{this.changeset}}
+        @saveFunction={{this.login}}
+      />
+    </LoginLayout>
   </template>
 }
 
-
 export default RouteTemplate(PagesLogin);
-

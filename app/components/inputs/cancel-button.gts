@@ -1,21 +1,20 @@
-
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import windowHistoryBack from '@triptyk/ember-utils/utils/window-history-back';
-import t from 'ember-intl/helpers/t';
+import t from 'ember-boilerplate/helpers/t';
 
 import type RouterService from '@ember/routing/router-service';
 
 export interface CancelButtonComponentSignature {
   Args: {
     fallbackRoute: string;
-  },
+  };
   Blocks: {
     default: [];
-  },
+  };
   Element: HTMLButtonElement;
 }
 
@@ -45,4 +44,3 @@ export default class CancelButtonComponent extends Component<CancelButtonCompone
     </button>
   </template>
 }
-

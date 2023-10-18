@@ -1,6 +1,6 @@
-import t from "ember-intl/helpers/t";
+import t from 'ember-boilerplate/helpers/t';
 
-import type { TOC } from "@ember/component/template-only";
+import type { TOC } from '@ember/component/template-only';
 
 export interface InputsFileSignature {
   Args: {
@@ -13,12 +13,10 @@ export interface InputsFileSignature {
   Element: HTMLDivElement;
 }
 
-const InputsFileInputLayout : TOC<InputsFileSignature> = <template>
+const InputsFileInputLayout: TOC<InputsFileSignature> = <template>
   <div class="relative flex border-2 border-gray-300 border-dashed rounded-md" ...attributes>
     <div class="w-full text-center position-relative space-y-1">
-      <div
-        class="flex items-center justify-center h-32 text-sm text-gray-600 position-relative"
-      >
+      <div class="flex items-center justify-center h-32 text-sm text-gray-600 position-relative">
         <label
           class="flex items-center justify-center w-full font-medium text-indigo-600 rounded-md hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
         >
@@ -39,8 +37,8 @@ const InputsFileInputLayout : TOC<InputsFileSignature> = <template>
           </span>
         </label>
       </div>
+    </div>
   </div>
-</div>
-</template>
+</template>;
 
 export default InputsFileInputLayout;

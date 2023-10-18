@@ -1,7 +1,7 @@
 import { LinkTo } from '@ember/routing';
 
 import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
-import t from 'ember-intl/helpers/t';
+import t from 'ember-boilerplate/helpers/t';
 
 import YupForm from './yup-form';
 
@@ -20,28 +20,28 @@ export interface FormsForgotPasswordSignature {
 
 const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
   <YupForm
-    class='px-4 py-8 mt-8 bg-white shadow space-y-6 sm:rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-md'
-    data-test-form='forgot-password'
+    class="px-4 py-8 mt-8 bg-white shadow space-y-6 sm:rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-md"
+    data-test-form="forgot-password"
     @onSubmit={{@saveFunction}}
     @changeset={{@changeset}}
     @validationSchema={{@validationSchema}}
     ...attributes
   >
     <InputsValidationComponent
-      class='input_block'
-      @label={{t 'components.forms.forgot-password.email'}}
+      class="input_block"
+      @label={{t "components.forms.forgot-password.email"}}
       @changeset={{@changeset}}
-      @validationField='email'
-      data-test-input='email'
+      @validationField="email"
+      data-test-input="email"
     />
-    <div class='flex flex-col w-full'>
-      <button data-test-submit type='submit' class='btn'>
+    <div class="flex flex-col w-full">
+      <button data-test-submit type="submit" class="btn">
         <span>
-          {{t 'components.forms.forgot-password.validate'}}
+          {{t "components.forms.forgot-password.validate"}}
         </span>
       </button>
-      <LinkTo @route='login' class='self-center mt-4 text-center link'>
-        <span>{{t 'components.forms.forgot-password.cancel'}}</span>
+      <LinkTo @route="login" class="self-center mt-4 text-center link">
+        <span>{{t "components.forms.forgot-password.cancel"}}</span>
       </LinkTo>
     </div>
   </YupForm>
