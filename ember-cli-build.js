@@ -37,9 +37,9 @@ module.exports = function (defaults) {
               path: ['node_modules'],
             },
           },
-          require('tailwindcss')('./app/tailwind/tailwind.config.js'),
+          require('tailwindcss')('tailwind.config.js'),
         ],
-        cacheInclude: [/.*\.(css|hbs|html)$/, /tailwind\.config\.js/],
+        cacheInclude: [/.*\.(css|hbs|html|gts|gjs|ts)$/, /tailwind\.config\.js/],
       },
     },
   });

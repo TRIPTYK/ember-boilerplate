@@ -80,9 +80,6 @@ devDependencies:
   '@tsconfig/ember':
     specifier: ~3.0.1
     version: 3.0.1
-  '@types/ember':
-    specifier: ^4.0.8
-    version: 4.0.8(@babel/core@7.23.2)
   '@types/ember-data':
     specifier: ~4.4.13
     version: 4.4.13(@babel/core@7.23.2)

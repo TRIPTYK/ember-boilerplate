@@ -1,11 +1,11 @@
-/* eslint-disable no-undef */
 const colors = require('tailwindcss/colors');
+
+const extensions = ['js', 'ts', 'hbs', 'html','gjs', 'gts'];
 
 module.exports = {
   content: [
-    './app/**/*.{hbs,js,ts,html}',
-    './tests/**/*.{hbs,js,ts,html}',
-    './node_modules/@triptyk/tpk-ember-input/addon/**/*.{hbs,ts}',
+    `./app/**/*.{${extensions.join(',')}}`,
+    `./tests/**/*.{${extensions.join(',')}}`
   ],
   corePlugins: {},
   plugins: [],
