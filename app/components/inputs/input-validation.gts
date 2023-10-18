@@ -1,8 +1,7 @@
-import Component from '@glimmer/component';
-
 import TpkValidationInput from '@triptyk/ember-input-validation/components/tpk-validation-input';
 import InputsErrorValidation from 'ember-boilerplate/components/inputs/error-validation';
 
+import type { TOC } from '@ember/component/template-only';
 import type { TpkValidationInputComponentSignature } from '@triptyk/ember-input-validation/components/tpk-validation-input';
 
 interface InputsValidationComponentSignature {
@@ -14,14 +13,13 @@ interface InputsValidationComponentSignature {
     inputClass?: string;
     step?: string;
     placeholder?: string;
-  },
-  Blocks : {
-    default: []
-  }
+  };
+  Blocks: {
+    default: [];
+  };
 }
 
-export default class InputsValidationComponent extends Component<InputsValidationComponentSignature> {
-  <template>
+const InputsValidationComponent: TOC<InputsValidationComponentSignature> = <template>
   <TpkValidationInput
     @label={{@label}}
     @onChange={{@onChange}}
@@ -54,5 +52,6 @@ export default class InputsValidationComponent extends Component<InputsValidatio
     />
     <InputsErrorValidation @errors={{TI.errors}} />
   </TpkValidationInput>
-  </template>
-}
+</template>;
+
+export default InputsValidationComponent;

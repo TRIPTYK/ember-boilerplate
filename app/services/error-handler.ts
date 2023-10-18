@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { assert } from '@ember/debug';
 import Service from '@ember/service';
 import { service } from '@ember/service';
@@ -57,6 +58,7 @@ export default class ErrorHandlerService extends Service {
     errors: TranslatedErrors,
   ) {
     for (const field in errors) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       for (const error of errors[field]!) {
         changeset.addError({
           key: field,

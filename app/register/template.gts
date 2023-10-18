@@ -45,9 +45,8 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
   async saveRegister(changeset: RegisterChangeset) {
     try {
       await this.register.save(changeset);
-      this.flashMessages.success(
-        this.intl.t('components.pages.register.success_message'),
-      );
+      this.flashMessages.success(this.intl.t('components.pages.register.success_message'));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       const error = await e;
 
@@ -56,7 +55,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
   }
 
   <template>
-    <LoginLayout @title={{t 'components.pages.register.title'}}>
+    <LoginLayout @title={{t "components.pages.register.title"}}>
       <FormsRegister
         @changeset={{this.changeset}}
         @validationSchema={{this.validationSchema}}
