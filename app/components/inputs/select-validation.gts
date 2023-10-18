@@ -29,6 +29,15 @@ export interface InputsSelectValidationSignature {
   };
 }
 
+function isArray(value: unknown): value is unknown[] {
+  return Array.isArray(value);
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function toString(value: unknown): string {
+  return String(value);
+}
+
 const InputsSelectValidationComponent: TOC<InputsSelectValidationSignature> = <template>
   <TpkValidationSelect
     @label={{@label}}
@@ -51,14 +60,16 @@ const InputsSelectValidationComponent: TOC<InputsSelectValidationSignature> = <t
         </span>
       {{/if}}
     </div>
-    {{!-- <S.Searchbar @isOpen={{true}} /> --}}
     <S.Button class={{@inputSelectStyle}} as |selected|>
       {{#if S.hasSelection}}
         {{#if (has-block "selected")}}
           {{#if @multiple}}
-            {{#each selected as |s|}}
-              {{yield s to="selected"}}
-            {{/each}}
+            {{! safe-guard }}
+            {{#if (isArray selected)}}
+              {{#each selected as |s|}}
+                {{yield s to="selected"}}
+              {{/each}}
+            {{/if}}
           {{else}}
             {{yield selected to="selected"}}
           {{/if}}
@@ -77,7 +88,7 @@ const InputsSelectValidationComponent: TOC<InputsSelectValidationSignature> = <t
           {{#if (has-block "option")}}
             {{yield opt to="option"}}
           {{else}}
-            {{opt.option}}
+            {{toString opt.option}}
           {{/if}}
         </div>
       </Opts>

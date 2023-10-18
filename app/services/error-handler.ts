@@ -12,7 +12,6 @@ export default class ErrorHandlerService extends Service {
   @service declare flashMessages: FlashMessageService;
 
   public handle(changeset: Changeset, errors: Error[] | string) {
-    console.log('handle', changeset, errors);
-
+    this.flashMessages.danger(errors.toString());
   }
 }

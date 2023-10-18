@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const fs = require('fs');
 const { join } = require('path');
 
@@ -19,6 +18,7 @@ const out = JSON.parse(fs.readFileSync(join(process.cwd(), covPath)));
 const covResults = Object.entries(out.total);
 
 if (covResults.map(([, value]) => value.pct).some((e) => e < threshold)) {
+  // eslint-disable-next-line no-console
   console.log(covResults);
 
   if (dryRun) {

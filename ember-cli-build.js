@@ -22,6 +22,9 @@ module.exports = function (defaults) {
         },
       },
     },
+    'ember-fetch': {
+      nativePromise: true
+    },
     sourcemaps: {
       enabled: true,
       extensions: ['js'],
@@ -37,9 +40,9 @@ module.exports = function (defaults) {
               path: ['node_modules'],
             },
           },
-          require('tailwindcss')('./app/tailwind/tailwind.config.js'),
+          require('tailwindcss')('tailwind.config.js'),
         ],
-        cacheInclude: [/.*\.(css|hbs|html)$/, /tailwind\.config\.js/],
+        cacheInclude: [/.*\.(css|hbs|html|gts|gjs|ts)$/, /tailwind\.config\.js/],
       },
     },
   });
@@ -57,9 +60,13 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
-    staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
+    staticAddonTestSupportTrees: true,
     staticHelpers: true,
+    staticModifiers: true,
     staticComponents: true,
+    splitControllers: true,
+    splitRouteClasses: true,
+    staticEmberSource: true,
   });
 };

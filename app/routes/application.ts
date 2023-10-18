@@ -3,7 +3,7 @@ import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 
 import config from 'ember-boilerplate/config/environment';
-import { loadConfig } from 'ember-boilerplate/utils/get-config';
+import { usersHandlers } from 'ember-boilerplate/handlers/users';
 
 import type CurrentUserService from 'ember-boilerplate/services/current-user';
 import type SessionService from 'ember-simple-auth/services/session';
@@ -13,7 +13,6 @@ export default class Application extends Route {
   @service declare currentUser: CurrentUserService;
 
   async beforeModel() {
-    await loadConfig();
     await this.setupMSWForDevelopment();
     await this.session.setup();
     await this.currentUser.load();
@@ -28,8 +27,11 @@ export default class Application extends Route {
 
 async function setupMSW(context: object) {
   // @ts-expect-error rewritten
-  let { worker } = await import('/mocks/index.js');
+  let { default: setupServer } = await import('/setup-worker.js');
 
-  await worker.start();
-  registerDestructor(context, () => worker.stop());
+  const server = setupServer(usersHandlers);
+
+  await server.start();
+
+  registerDestructor(context, () => server.stop());
 }

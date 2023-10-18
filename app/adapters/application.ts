@@ -1,8 +1,6 @@
 import { service } from '@ember/service';
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 
-import { mergedConfig } from 'ember-boilerplate/utils/get-config';
-
 import config from '../config/environment';
 
 import type SessionService from 'ember-boilerplate/services/session';
@@ -13,7 +11,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   @service declare flashMessages: FlashMessageService;
 
   get host() {
-    return mergedConfig.host;
+    return config.host;
   }
   namespace = config.namespace;
 

@@ -1,6 +1,3 @@
-/* eslint-disable n/no-process-exit */
-/* eslint-disable no-process-exit */
-/* eslint-disable no-console */
 const [, , backendCommand, frontendCommand] = process.argv;
 const child_process = require('child_process');
 
@@ -14,12 +11,14 @@ const launchBackend = child_process.spawn(backendCommand, {
 launchBackend.stdout.pipe(process.stdout);
 launchBackend.on('close', () => {
   if (launchBackend.exitCode !== null) {
+    // eslint-disable-next-line n/no-process-exit
     process.exit(launchBackend.exitCode);
   }
 });
 
 launchBackend.stdout.on('data', (data) => {
   if (data.toString().includes('Listening on port')) {
+    // eslint-disable-next-line no-console
     console.log(`backend launched, doing ${frontendCommand}`);
 
     const exec = child_process.spawn(frontendCommand, {
@@ -33,6 +32,7 @@ launchBackend.stdout.on('data', (data) => {
       process.kill(-launchBackend.pid);
 
       if (exec.exitCode !== null) {
+        // eslint-disable-next-line n/no-process-exit
         process.exit(exec.exitCode);
       }
     });
