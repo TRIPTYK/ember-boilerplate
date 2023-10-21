@@ -35,7 +35,7 @@ function isArray(value: unknown): value is unknown[] {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function toString(value: unknown): string {
-  return String(value);
+  return String(value ?? '');
 }
 
 const InputsSelectValidationComponent: TOC<InputsSelectValidationSignature> = <template>
