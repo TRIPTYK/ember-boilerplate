@@ -5,8 +5,8 @@ import { service } from '@ember/service';
 import { ResetPasswordChangeset } from 'ember-boilerplate/changesets/reset-password';
 import FormsPasswordRecovery from 'ember-boilerplate/components/forms/password-recovery';
 import LoginLayout from 'ember-boilerplate/components/login-layout';
-import t from 'ember-boilerplate/helpers/t';
 import passwordRecoveryValidation from 'ember-boilerplate/validations/reset-password';
+import t from 'ember-intl/helpers/t';
 import RouteTemplate from 'ember-route-template';
 import { tracked } from 'tracked-built-ins';
 

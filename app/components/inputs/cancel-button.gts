@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import windowHistoryBack from '@triptyk/ember-utils/utils/window-history-back';
-import t from 'ember-boilerplate/helpers/t';
+import t from 'ember-intl/helpers/t';
 
 import type RouterService from '@ember/routing/router-service';
 

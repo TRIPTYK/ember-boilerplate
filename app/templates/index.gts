@@ -5,7 +5,7 @@ export default RouteTemplate(
     <div class="bg-white">
       <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div class="text-center">
-          <img src="/assets/images/triptyk.png" class="w-16 inline-block" />
+          <img src="/assets/images/triptyk.png" alt="TRIPTYK" class="w-16 inline-block" />
           <h2 class="text-base font-semibold tracking-wide uppercase text-primary">
             The Ember Boilerplate
           </h2>

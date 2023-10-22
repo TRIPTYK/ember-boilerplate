@@ -230,6 +230,9 @@ devDependencies:
   ember-immer-changeset:
     specifier: ~1.0.0
     version: 1.0.0(@babel/core@7.23.2)(ember-source@5.3.0)
+  ember-intl:
+    specifier: ^6.1.1
+    version: 6.1.1(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0)
   ember-load-initializers:
     specifier: ~2.1.2
     version: 2.1.2(@babel/core@7.23.2)
