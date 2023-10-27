@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 
 import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
-import t from 'ember-boilerplate/helpers/t';
+import t from 'ember-intl/helpers/t';
 
 import YupForm from './yup-form';
 

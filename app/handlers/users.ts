@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 
-export const usersHandlers = [
+export const usersHandlers= [
   rest.post('http://localhost:8080/api/v1/auth/login', (_req, res, ctx) => {
     return res(
       ctx.status(200),
@@ -44,7 +44,7 @@ export const usersHandlers = [
         data: {
           type: 'users',
           id: req.id,
-          attributes: req.body.data.attributes,
+          attributes: {}
         },
       }),
     );

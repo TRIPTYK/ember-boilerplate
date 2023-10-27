@@ -6,8 +6,8 @@ import { service } from '@ember/service';
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import FormsRegister from 'ember-boilerplate/components/forms/register';
 import LoginLayout from 'ember-boilerplate/components/login-layout';
-import t from 'ember-boilerplate/helpers/t';
 import formsRegisterSchema from 'ember-boilerplate/validations/register';
+import t from 'ember-intl/helpers/t';
 import RouteTemplate from 'ember-route-template';
 
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';

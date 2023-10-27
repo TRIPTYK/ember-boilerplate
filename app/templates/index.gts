@@ -5,6 +5,7 @@ export default RouteTemplate(
     <div class="bg-white">
       <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div class="text-center">
+          <img src="/assets/images/triptyk.png" alt="TRIPTYK" class="w-16 inline-block" />
           <h2 class="text-base font-semibold tracking-wide uppercase text-primary">
             The Ember Boilerplate
           </h2>
@@ -14,8 +15,9 @@ export default RouteTemplate(
             Better, Faster, Stronger than ever.
           </p>
           <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-            TailwindCSS // Ember-simple-auth JWT // Embroider // Ember changeset
-            validations
+            The Ember Boilerplate is a modern, opinionated, and powerful
+            starting point for Ember apps.
+            Ready for Ember Polaris !
           </p>
         </div>
       </div>

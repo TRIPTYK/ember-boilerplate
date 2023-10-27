@@ -1,4 +1,4 @@
-import t from 'ember-boilerplate/helpers/t';
+import t from 'ember-intl/helpers/t';
 
 import type { TOC } from '@ember/component/template-only';
 

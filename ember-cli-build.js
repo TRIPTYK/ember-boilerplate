@@ -22,6 +22,9 @@ module.exports = function (defaults) {
         },
       },
     },
+    'ember-fetch': {
+      nativePromise: true
+    },
     sourcemaps: {
       enabled: true,
       extensions: ['js'],
@@ -57,9 +60,13 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
-    staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
+    staticAddonTestSupportTrees: true,
     staticHelpers: true,
+    staticModifiers: true,
     staticComponents: true,
+    splitControllers: true,
+    splitRouteClasses: true,
+    staticEmberSource: true,
   });
 };

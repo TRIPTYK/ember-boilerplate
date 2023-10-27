@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "skipLibCheck": true,
+    "declarationMap": false,
+    "allowImportingTsExtensions": true,
     "declaration": false,
     "allowJs": true,
     // Apps don't need to publish declarations
@@ -11,7 +13,6 @@
         "tests/*"
       ],
       "ember-cli-flash/*": ["node_modules/ember-cli-flash"],
-      "fetch": ["node_modules/ember-fetch"],
       "ember-boilerplate/*": [
         "app/*"
       ],
