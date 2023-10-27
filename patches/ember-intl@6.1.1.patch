@@ -1,0 +1,20 @@
+diff --git a/addon/-private/formatters/format-message.ts b/addon/-private/formatters/format-message.ts
+index fde7130485d15c91f885d8a0b14385bee0425ceb..244485f71337c6b0e1ed0014b23329d584acb3d2 100644
+--- a/addon/-private/formatters/format-message.ts
++++ b/addon/-private/formatters/format-message.ts
+@@ -12,7 +12,6 @@ import type { PrimitiveType } from 'intl-messageformat';
+ import Formatter from './-base';
+ const {
+   Handlebars: {
+-    // @ts-expect-error Upstream types are incomplete.
+     Utils: { escapeExpression },
+   },
+ } = Ember;
+@@ -38,6 +37,7 @@ function escapeOptions<T extends Record<string, unknown>>(object?: T) {
+       // @ts-expect-error: see comment above
+       escapedOpts[key] = val.toHTML();
+     } else if (typeof val === 'string') {
++      // @ts-expect-error: see comment above
+       escapedOpts[key] = escapeExpression(val);
+     } else {
+       // @ts-expect-error: see comment above

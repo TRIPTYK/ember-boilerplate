@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  ember-intl@6.1.1:
+    hash: vijuwzflpzbdnfwzoyz6keduzm
+    path: patches/ember-intl@6.1.1.patch
+
 devDependencies:
   '@babel/core':
     specifier: ^7.22.20
@@ -232,7 +237,7 @@ devDependencies:
     version: 1.0.0(@babel/core@7.23.2)(ember-source@5.3.0)
   ember-intl:
     specifier: ^6.1.1
-    version: 6.1.1(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0)
+    version: 6.1.1(patch_hash=vijuwzflpzbdnfwzoyz6keduzm)(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0)
   ember-load-initializers:
     specifier: ~2.1.2
     version: 2.1.2(@babel/core@7.23.2)
@@ -3394,7 +3399,7 @@ packages:
       '@glimmer/component': 1.1.2(@babel/core@7.23.2)
       '@triptyk/ember-input': 2.0.0-alpha.11(@babel/core@7.23.2)(@glint/template@1.2.1)(ember-flatpickr@4.0.0)(ember-source@5.3.0)
       ember-click-outside: 6.1.0(ember-source@5.3.0)
-      ember-intl: 6.1.1(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0)
+      ember-intl: 6.1.1(patch_hash=vijuwzflpzbdnfwzoyz6keduzm)(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0)
       ember-modifier: 4.1.0(ember-source@5.3.0)
       ember-source: 5.3.0(@babel/core@7.23.2)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
       ember-test-selectors: 6.0.0
@@ -8697,7 +8702,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-intl@6.1.1(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0):
+  /ember-intl@6.1.1(patch_hash=vijuwzflpzbdnfwzoyz6keduzm)(@babel/core@7.23.2)(@glint/template@1.2.1)(typescript@5.2.2)(webpack@5.89.0):
     resolution: {integrity: sha512-fNlfYKaDoR88StXWOThMWuN94FDnGAVJ6aepwn0tKdoyPtKwZTpLilNzenWYMV/Kfli6Aq2ZI2ptCcbyaZiLxQ==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
@@ -8738,6 +8743,7 @@ packages:
       - supports-color
       - webpack
     dev: true
+    patched: true
 
   /ember-load-initializers@2.1.2(@babel/core@7.23.2):
     resolution: {integrity: sha512-CYR+U/wRxLbrfYN3dh+0Tb6mFaxJKfdyz+wNql6cqTrA0BBi9k6J3AaKXj273TqvEpyyXegQFFkZEiuZdYtgJw==}

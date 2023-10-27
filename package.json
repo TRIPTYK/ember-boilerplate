@@ -158,5 +158,10 @@
   },
   "msw": {
     "workerDirectory": "public"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "ember-intl@6.1.1": "patches/ember-intl@6.1.1.patch"
+    }
   }
 }
