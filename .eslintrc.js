@@ -50,4 +50,8 @@ function addTSProject(override) {
 module.exports = {
   ...config,
   overrides: [...config.overrides].map(addTSProject),
+  parserOptions: {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  }
 };
