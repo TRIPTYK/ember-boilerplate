@@ -7,6 +7,8 @@ import { setupRenderingTest } from 'ember-boilerplate/tests/helpers';
 import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register';
 import validationsRegister from 'ember-boilerplate/validations/register';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 import type { TestContext } from '@ember/test-helpers';
 
 interface RegisterTestContext extends TestContext {
@@ -16,6 +18,7 @@ interface RegisterTestContext extends TestContext {
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks, ['fr-fr']);
 
   let changeset: RegisterChangeset;
 

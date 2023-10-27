@@ -5,6 +5,8 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-boilerplate/tests/helpers';
 import indexPage from 'ember-boilerplate/tests/pages/pages/register/index';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 import { setupMock } from '../../worker';
 import { registerWorker, registerWorkerWithErrors } from '../workers/register';
 
@@ -13,6 +15,7 @@ import type { ServiceWorkerTestContext } from '../../worker';
 module('Acceptance | register', function (hooks) {
   setupApplicationTest(hooks);
   setupMock(hooks);
+  setupIntl(hooks, ['fr-fr']);
 
   async function completeFormAndSubmit() {
     await indexPage.forms
