@@ -19,7 +19,7 @@
 - Validations (ember-immer-changeset + yup)
 - Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
-- Tests (ember-test-selectors, ember-test-coverage, ember-cli-page-object, playwright)
+- Tests (ember-test-selectors, ember-cli-page-object, playwright)
 - Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
 - Base ember adapter, serializer and controller
 - Ember concurrency
@@ -115,9 +115,6 @@ Testing mocks are split in the `tests` folders.
 
 - `pnpm test:duplication`
 
-### Verify-coverage
-
-- `pnpm verify-coverage`
 
 ### Building
 

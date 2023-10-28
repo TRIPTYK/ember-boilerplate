@@ -24,6 +24,8 @@
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
     "test:duplication": "jscpd --exitCode 1 --pattern \"app/**/*.{ts,js}\"",
     "test:ember": "ember exam --split=2 --partition=1 --parallel=3 --load-balance",
+    "test:e2e": "playwright test",
+    "codegen": "node wait-before.cjs \"pnpm start\" \"playwright codegen http://localhost:4200\" \"Serving\"",
     "postinstall": "husky install"
   },
   "devDependencies": {

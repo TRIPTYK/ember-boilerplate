@@ -1,7 +1,7 @@
-const [, , backendCommand, frontendCommand] = process.argv;
+const [, , beforeCommand, afterCommand, triggerText] = process.argv;
 const child_process = require('child_process');
 
-const launchBackend = child_process.spawn(backendCommand, {
+const launchBackend = child_process.spawn(beforeCommand, {
   stdio: ['inherit', 'pipe', 'inherit'],
   env: process.env,
   shell: true,
@@ -16,16 +16,25 @@ launchBackend.on('close', () => {
   }
 });
 
-launchBackend.stdout.on('data', (data) => {
-  if (data.toString().includes('Listening on port')) {
-    // eslint-disable-next-line no-console
-    console.log(`backend launched, doing ${frontendCommand}`);
+process.on('SIGINT', () => {
+  process.kill(-launchBackend.pid);
+});
 
-    const exec = child_process.spawn(frontendCommand, {
+
+launchBackend.stdout.on('data', (data) => {
+  if (data.toString().includes(triggerText)) {
+    // eslint-disable-next-line no-console
+    console.log(`${beforeCommand} done, executing ${afterCommand}`);
+
+    const exec = child_process.spawn(afterCommand, {
       stdio: ['inherit', 'inherit', 'inherit'],
       env: process.env,
       shell: true,
       detached: true,
+    });
+
+    process.on('SIGINT', () => {
+      process.kill(-exec.pid);
     });
 
     exec.on('close', () => {
