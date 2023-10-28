@@ -5,23 +5,21 @@
 ## You can use this IF
 
 - ✅ You use tailwindcss
-- ✅ You use Typescript
-- ✅ You want an Embroider boilerplate
+- ✅ You use typescript
 - ✅ You use JWT based authentification
-- ✅ You want a lot of code checks
-- ✅ You use PNPM
+- ✅ You use pnpm
 - ✅ You don't bother using TRIPTYK packages
 
-## Preconfigured 4.x Ember project with
+## Preconfigured 5.x Ember project with
 
 ### Ember Side
 
 - Embroider
 - Typescript integration (ember-cli-typescript)
-- Validations (ember-changeset-validations) (with typescript types)
+- Validations (ember-immer-changeset + yup)
 - Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
-- Tests (ember-test-selectors, ember-test-coverage)
+- Tests (ember-test-selectors, ember-test-coverage, ember-cli-page-object, playwright)
 - Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
 - Base ember adapter, serializer and controller
 - Ember concurrency
