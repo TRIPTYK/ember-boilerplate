@@ -25,6 +25,7 @@
 - Ember concurrency
 - Test seeding & parallelization (ember-exam)
 - dev & test mocking (msw)
+- e2e testing (playwright)
 - Translations (ember-intl)
 - Authorizations (ember-can)
 - Pre-made registration flow (login/register/forgot-password)
