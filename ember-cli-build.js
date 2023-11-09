@@ -13,7 +13,8 @@ module.exports = function (defaults) {
       useSessionSetupMethod: true,
     },
     babel: {
-      sourceMaps: 'inline'
+      sourceMaps: 'inline',
+      plugins: [...require('ember-cli-code-coverage').buildBabelPlugin({ embroider: true })],
     },
     '@embroider/macros': {
       setConfig: {
