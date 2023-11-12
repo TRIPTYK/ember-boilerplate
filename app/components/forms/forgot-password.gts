@@ -15,6 +15,9 @@ export interface FormsForgotPasswordSignature {
     changeset: ForgotPasswordChangeset;
     validationSchema: Schema;
   };
+  Blocks: {
+    default: [];
+  };
   Element: HTMLFormElement;
 }
 

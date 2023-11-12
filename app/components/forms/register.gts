@@ -15,6 +15,10 @@ export interface FormsRegisterSignature {
     saveFunction: (changeset: RegisterChangeset) => void;
     validationSchema: Schema;
   };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLFormElement;
 }
 
 export default class FormsRegister extends Component<FormsRegisterSignature> {
@@ -40,6 +44,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       @validationSchema={{@validationSchema}}
       data-test-form="register"
       class="px-4 py-8 mt-8 bg-white rounded-lg shadow space-y-6 sm:px-10 sm:mx-auto sm:w-full sm:max-w-xl grid grid-cols-12 gap-x-6 gap-y-4"
+      ...attributes
     >
       <InputsValidationComponent
         class="input_block col-span-12"

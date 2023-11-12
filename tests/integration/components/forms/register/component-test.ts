@@ -14,6 +14,7 @@ import type { TestContext } from '@ember/test-helpers';
 interface RegisterTestContext extends TestContext {
   changeset: RegisterChangeset;
   saveFunction: (changeset: RegisterChangeset) => void;
+  validationSchema: typeof validationsRegister;
 }
 
 module('Integration | Component | forms/register', function (hooks) {
@@ -37,21 +38,13 @@ module('Integration | Component | forms/register', function (hooks) {
   });
 
   function renderForm() {
-    return render(
+    return render<RegisterTestContext>(
       hbs`
-        {{! @glint-nocheck: not typesafe yet }}
         <Forms::Register
             @changeset={{this.changeset}}
             @saveFunction={{this.saveFunction}}
             @validationSchema={{this.validationSchema}}
-          >
-          <Inputs::CancelButton data-test-cancel>
-            {{t "global.cancel"}}
-          </Inputs::CancelButton>
-          <TpkButton type="submit" data-test-submit>
-            {{t "global.create"}}
-          </TpkButton>
-        </Forms::Register>
+        />
       `,
     );
   }

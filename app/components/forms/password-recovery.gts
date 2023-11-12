@@ -13,6 +13,9 @@ export interface FormsPasswordRecoveryComponentSignature {
     changeset: ResetPasswordChangeset;
     validationSchema: Schema;
   };
+  Blocks: {
+    default: [];
+  };
   Element: HTMLFormElement;
 }
 

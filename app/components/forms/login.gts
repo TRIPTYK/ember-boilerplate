@@ -15,6 +15,10 @@ export interface FormsLoginSignature {
     saveFunction: (changeset: LoginChangeset) => unknown;
     validationSchema: Schema;
   };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLFormElement;
 }
 
 const FormsLogin: TOC<FormsLoginSignature> = <template>
