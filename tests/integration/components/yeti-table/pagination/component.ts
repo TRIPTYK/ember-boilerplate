@@ -2,12 +2,45 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+export interface YetiTablePaginationSignature {
+  Args: {
+    theme: {
+      pagination: {
+        controls: string;
+        previous: string;
+        next: string;
+        info: string;
+        pageSize: string;
+      };
+    },
+    customClass?: string;
+    disabled: boolean;
+    paginationData: {
+      isFirstPage: boolean;
+      isLastPage: boolean;
+      totalRows: number;
+      nextPage: number;
+      pageSize: number;
+      pageEnd: number;
+      pageStart: number;
+    },
+    paginationActions: {
+      previousPage: () => void;
+      changePageSize: (value: string) => void;
+      nextPage: () => void;
+    }
+  },
+  Blocks: {
+    default: []
+  },
+  Element: HTMLDivElement;
+}
+
 /**
  * GLIMMERIZED PAGINATION COMPONENT
  * DO NOT MODIFY
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-class Pagination extends Component<any> {
+class Pagination extends Component<YetiTablePaginationSignature> {
   /**
    * Array of page sizes to populate the page size `<select>`.
    * Particularly useful with an array helper, e.g `@pageSize={{array 10 12 23 50 100}}`

@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{! template-lint-disable no-inline-styles }}
 {{! template-lint-disable template-length }}
 <div
@@ -11,8 +10,7 @@
       {{! template-lint-disable no-bare-strings }}
       <button
         type="button"
-        class="{{@theme.pagination.previous}}
-          yeti-table-pagination-controls-previous"
+        class="{{@theme.pagination.previous}} yeti-table-pagination-controls-previous"
         disabled={{this.shouldDisablePrevious}}
         title={{t "global.previous"}}
         {{on "click" @paginationActions.previousPage}}
@@ -37,10 +35,7 @@
     </div>
   {{/if}}
   <div>
-    <div
-      class="{{@theme.pagination.info}}
-        yeti-table-pagination-controls-page-info"
-    >
+    <div class="{{@theme.pagination.info}} yeti-table-pagination-controls-page-info">
       {{@paginationData.pageStart}}
       -
       {{@paginationData.pageEnd}}
@@ -48,18 +43,12 @@
       {{@paginationData.totalRows}}
       {{t "global.table.results"}}
     </div>
-    <div
-      class="{{@theme.pagination.pageSize}}
-        yeti-table-pagination-controls-page-size"
-    >
+    <div class="{{@theme.pagination.pageSize}} yeti-table-pagination-controls-page-size">
       {{t "global.table.resultsByPage"}}:
       {{! template-lint-disable require-input-label }}
       <select disabled={{@disabled}} {{on "change" this.changePageSize}}>
         {{#each this.pageSizes as |pageSize|}}
-          <option
-            value={{pageSize}}
-            selected={{eq @paginationData.pageSize pageSize}}
-          >
+          <option value={{pageSize}} selected={{eq @paginationData.pageSize pageSize}}>
             {{pageSize}}
           </option>
         {{/each}}

@@ -1,5 +1,5 @@
 /* eslint-disable qunit/require-expect */
-import { render } from '@ember/test-helpers';
+import { render, type TestContext } from '@ember/test-helpers';
 import click from '@ember/test-helpers/dom/click';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
@@ -10,6 +10,14 @@ import loginSchema from 'ember-boilerplate/validations/login';
 import { type Changeset,ImmerChangeset } from 'ember-immer-changeset';
 
 import { setupIntl } from 'ember-intl/test-support';
+
+import type { LoginChangeset } from 'ember-boilerplate/changesets/login';
+
+interface LoginTestContext extends TestContext {
+  changeset: LoginChangeset;
+  saveFunction: (changeset: Changeset) => void;
+  validationSchema: typeof loginSchema;
+}
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
@@ -24,8 +32,8 @@ module('Integration | Component | FormsLogin', function (hooks) {
       assert.strictEqual(changeset.get('password'), 'edited');
     });
 
-    await render(
-      hbs`{{! @glint-nocheck }}<Forms::Login @validationSchema={{this.validationSchema}} @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
+    await render<LoginTestContext>(
+      hbs`<Forms::Login @validationSchema={{this.validationSchema}} @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('');
@@ -53,8 +61,8 @@ module('Integration | Component | FormsLogin', function (hooks) {
       assert.step('saveFunction');
     });
 
-    await render(
-      hbs`{{! @glint-nocheck }}<Forms::Login  @validationSchema={{this.validationSchema}} @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
+    await render<LoginTestContext>(
+      hbs`<Forms::Login  @validationSchema={{this.validationSchema}} @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
     );
 
     assert.dom('[data-test-input="email"] input').hasValue('hello');

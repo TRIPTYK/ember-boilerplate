@@ -1,7 +1,7 @@
-import TpkFile from "@triptyk/ember-input/components/tpk-file";
-import InputsFileInputLayout from "ember-boilerplate/components/inputs/file/input-layout";
+import TpkFile from '@triptyk/ember-input/components/tpk-file';
+import InputsFileInputLayout from 'ember-boilerplate/components/inputs/file/input-layout';
 
-import type { TOC } from "@ember/component/template-only";
+import type { TOC } from '@ember/component/template-only';
 
 export interface InputsFileSignature {
   Args: {
@@ -16,36 +16,36 @@ export interface InputsFileSignature {
   Element: HTMLDivElement;
   Blocks: {
     default: [];
-  }
+  };
 }
 
 const InputsFile: TOC<InputsFileSignature> = <template>
   <TpkFile
-  @label={{@label}}
-  @accept={{@accept}}
-  @onChange={{@onChange}}
-  @multiple={{@multiple}}
-  class={{if @disabled "disabled"}}
-  ...attributes
-  as |TI|
->
-  <div>
-    <TI.Label>
-      {{@label}}
-    </TI.Label>
-    {{#unless @disabled}}
-      {{!-- @glint-expect-error --}}
-      <InputsFileInputLayout>
-        <TI.Input
-          placeholder={{@placeholder}}
-          disabled={{@disabled}}
-          class="{{@inputClass}}
-            absolute opacity-0 w-full left-0 top-0 h-full hover:cursor-pointer hover:underline"
-        />
-      </InputsFileInputLayout>
-    {{/unless}}
-  </div>
-</TpkFile>
-</template>
+    @label={{@label}}
+    @accept={{@accept}}
+    @onChange={{@onChange}}
+    @multiple={{@multiple}}
+    class={{if @disabled "disabled"}}
+    ...attributes
+    as |TI|
+  >
+    <div>
+      <TI.Label>
+        {{@label}}
+      </TI.Label>
+      {{#unless @disabled}}
+        {{! @glint-expect-error }}
+        <InputsFileInputLayout>
+          <TI.Input
+            placeholder={{@placeholder}}
+            disabled={{@disabled}}
+            class="{{@inputClass}}
+              absolute opacity-0 w-full left-0 top-0 h-full hover:cursor-pointer hover:underline"
+          />
+        </InputsFileInputLayout>
+      {{/unless}}
+    </div>
+  </TpkFile>
+</template>;
 
 export default InputsFile;
