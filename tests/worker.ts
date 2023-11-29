@@ -1,13 +1,14 @@
 /* eslint-disable no-undef */
-import { rest, setupWorker as MSWSetupWorker } from 'msw';
+import { http, passthrough } from 'msw';
+import { setupWorker as MSWSetupWorker } from 'msw/browser';
 
 import type { TestContext } from '@ember/test-helpers';
-import type { SetupWorker } from 'msw';
+import type { SetupWorker as Worker } from 'msw/browser';
 
-export let worker: SetupWorker;
+export let worker: Worker;
 
 export interface ServiceWorkerTestContext extends TestContext {
-  worker: SetupWorker;
+  worker: Worker;
 }
 
 export function setupWorker() {
@@ -15,7 +16,10 @@ export function setupWorker() {
 }
 
 export function stopWorker() {
-  worker.printHandlers();
+  worker.listHandlers().forEach((handler) => {
+    // eslint-disable-next-line no-console
+    console.log(handler.info.header)
+  })
   worker.stop();
 }
 
@@ -27,9 +31,9 @@ export function setupMock(hooks: NestedHooks) {
   hooks.beforeEach(async function () {
     worker.resetHandlers();
     worker.use(
-      rest.post('/write-coverage', (req) => {
+      http.post('/write-coverage', () => {
         // The passthrough is for ember code coverage.
-        return req.passthrough();
+        return passthrough();
       })
     );
     this.set('worker', worker);

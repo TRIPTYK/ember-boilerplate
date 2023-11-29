@@ -1,12 +1,9 @@
-// no assertions in mocks !
-import { rest } from 'msw';
+import { http,HttpResponse } from 'msw';
 
-export const successHandle = rest.post(
+export const successHandle = http.post(
   'http://localhost:8080/api/v1/users',
-  async (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
+  () => {
+    return HttpResponse.json({
         data: {
           attributes: {
             password: null,
@@ -15,18 +12,18 @@ export const successHandle = rest.post(
           id: '1',
         },
       })
-    );
   }
 );
 
-export const failHandle = rest.post(
+export const failHandle = http.post(
   'http://localhost:8080/api/v1/users',
-  async (req, res, ctx) => {
-    return res(
-      ctx.status(400),
-      ctx.json({
+  () => {
+    return HttpResponse.json({
         errors: [],
-      })
-    );
+    },
+      {
+        status: 400
+      }
+  );
   }
 );

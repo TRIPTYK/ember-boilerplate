@@ -12,6 +12,9 @@ module.exports = function (defaults) {
     'ember-simple-auth': {
       useSessionSetupMethod: true,
     },
+    'ember-cli-babel': {
+      enableTypeScriptTransform: true
+    },
     babel: {
       sourceMaps: 'inline',
       plugins: [...require('ember-cli-code-coverage').buildBabelPlugin({ embroider: true })],

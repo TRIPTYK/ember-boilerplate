@@ -11,7 +11,10 @@ export default class DocumentModel extends Model {
   @attr('date') declare updatedAt: Date;
   @attr('date') declare createdAt: Date;
 
-  @belongsTo('user') declare user: UserModel;
+  @belongsTo('user', {
+    async: false,
+    inverse: 'documents',
+  }) declare user: UserModel;
 }
 
 declare module 'ember-data/types/registries/model' {
