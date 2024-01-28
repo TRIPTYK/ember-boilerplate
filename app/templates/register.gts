@@ -44,7 +44,6 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
     try {
       await this.register.save(changeset);
       this.flashMessages.success('components.pages.register.success_message');
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       const error = await e;
 

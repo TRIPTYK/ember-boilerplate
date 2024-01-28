@@ -1,6 +1,7 @@
 import '@glint/environment-ember-loose';
 import '@glint/environment-template-components';
 
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
 import type RenderModifiersRegistry from '@ember/render-modifiers/template-registry';
 import type EmberInputRegistry from '@triptyk/ember-input/template-registry';
 import type EmberInputValidationRegistry from '@triptyk/ember-input-validation/template-registry';

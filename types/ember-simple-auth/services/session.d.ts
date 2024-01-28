@@ -19,10 +19,8 @@ declare module 'ember-simple-auth/services/session' {
     invalidate(): Promise<void>;
     requireAuthentication(
       transition: Transition,
-      // eslint-disable-next-line @typescript-eslint/ban-types
       routeOrCallback: string | Function
     ): boolean;
-    // eslint-disable-next-line @typescript-eslint/ban-types
     prohibitAuthentication(routeOrCallback: string | Function): boolean;
     handleAuthentication(routeAfterAuthentication: string): void;
     handleInvalidation(routeAfterInvalidation: string): void;

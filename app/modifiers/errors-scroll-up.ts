@@ -1,8 +1,9 @@
 import { later } from '@ember/runloop';
-
+import { runTask } from 'ember-lifeline';
 import type { ValidationError } from 'ember-immer-changeset';
 
 export function scrollToFirstError(
+  target: object,
   element: Element | Document,
   errors: ValidationError[],
 ): void {
@@ -21,7 +22,7 @@ export function scrollToFirstError(
     const targetTop =
       errorElement.getBoundingClientRect().top + window.scrollY - 85;
 
-    later(() => {
+    runTask(target, () => {
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }, 20);
   }

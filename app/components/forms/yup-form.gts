@@ -25,7 +25,6 @@ function isFieldError(field: string, errorKey: string): boolean {
 export interface ChangesetFormComponentSignature {
   Args: {
     changeset: ImmerChangeset;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSubmit: <T extends ImmerChangeset<any>>(changeset: T) => Promisable<unknown>;
     validationSchema: Schema;
     removeErrorsOnSubmit?: boolean;
