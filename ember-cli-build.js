@@ -17,7 +17,7 @@ module.exports = function (defaults) {
     },
     babel: {
       sourceMaps: 'inline',
-      plugins: [...require('ember-cli-code-coverage').buildBabelPlugin({ embroider: true })],
+      plugins: [require.resolve("ember-concurrency/async-arrow-task-transform"), ...require('ember-cli-code-coverage').buildBabelPlugin({ embroider: true })],
     },
     '@embroider/macros': {
       setConfig: {

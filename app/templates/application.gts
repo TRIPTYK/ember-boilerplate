@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 
-// @ts-expect-error no types
 import FlashMessage from 'ember-cli-flash/components/flash-message';
 // @ts-expect-error no types
 import HeadLayout from 'ember-cli-head/components/head-layout';

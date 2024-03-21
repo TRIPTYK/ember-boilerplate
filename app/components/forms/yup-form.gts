@@ -8,7 +8,6 @@ import {
   validateOneAndMapErrors,
 } from 'ember-boilerplate/utils/validate-and-map';
 import { task } from 'ember-concurrency';
-// @ts-expect-error - ember-concurrency does not have types for perform
 import perform from 'ember-concurrency/helpers/perform';
 import { ImmerChangeset, isChangeset } from 'ember-immer-changeset';
 import { Schema } from 'yup';
