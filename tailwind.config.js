@@ -12,15 +12,6 @@ module.exports = {
   daisyui: {
     themes: [
       'nord',
-      // {
-      //   base: {
-      //     "primary": "#CFAF6E",
-      //     "secondary": "#2B4999",
-      //     "accent": "#37cdbe",
-      //     "neutral": "#647377",
-      //     "base-100": "#ffffff",
-      //   },
-      // },
     ],
     base: true,
     styled: true,
