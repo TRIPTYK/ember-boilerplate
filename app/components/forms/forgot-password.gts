@@ -31,10 +31,12 @@ const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
     ...attributes
   >
     <InputsValidationComponent
-      class="input_block"
       @label={{t "components.forms.forgot-password.email"}}
       @changeset={{@changeset}}
       @validationField="email"
+      @labelClass="label"
+      @inputClass="input"
+      class="form-control"
       data-test-input="email"
     />
     <div class="flex flex-col w-full">

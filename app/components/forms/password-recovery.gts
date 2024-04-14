@@ -28,17 +28,21 @@ const FormsPasswordRecovery: TOC<FormsPasswordRecoveryComponentSignature> = <tem
     ...attributes
   >
     <InputsValidationComponent
-      class="input_block"
       @label={{t "components.forms.reset-password.new_password"}}
       @changeset={{@changeset}}
       @validationField="password"
+      @labelClass="label"
+      @inputClass="input"
+      class="form-control"
       data-test-input="password"
     />
     <InputsValidationComponent
-      class="input_block"
       @label={{t "components.forms.reset-password.confirm_new_password"}}
       @changeset={{@changeset}}
       @validationField="confirmPassword"
+      @labelClass="label"
+      @inputClass="input"
+      class="form-control"
       data-test-input="confirmPassword"
     />
     <button data-test-submit type="submit" class="btn">

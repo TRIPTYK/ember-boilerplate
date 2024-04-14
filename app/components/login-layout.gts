@@ -1,13 +1,13 @@
-import type { TOC } from "@ember/component/template-only";
+import type { TOC } from '@ember/component/template-only';
 
 export interface LoginLayoutSignature {
   Args: {
-    title: string
-  },
+    title: string;
+  };
   Blocks: {
-    default: []
-  },
-  Element: HTMLDivElement
+    default: [];
+  };
+  Element: HTMLDivElement;
 }
 
 const LoginLayout: TOC<LoginLayoutSignature> = <template>
@@ -18,10 +18,10 @@ const LoginLayout: TOC<LoginLayoutSignature> = <template>
     <h1 class="text-center text-white">
       {{@title}}
     </h1>
-    <div class="mx-auto w-full max-w-md">
+    <div class="mx-auto w-full max-w-md lg:max-w-3xl">
       {{yield}}
     </div>
   </div>
-</template>
+</template>;
 
 export default LoginLayout;

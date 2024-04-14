@@ -1,8 +1,8 @@
 import { object, ref, string } from 'yup';
 
 const validationsRegister = object().shape({
-  firstName: string().required('validations.firstName.required'),
-  lastName: string().required('validations.lastName.required'),
+  firstName: string().required('validations.first_name.required'),
+  lastName: string().required('validations.last_name.required'),
   phone: string().required('validations.phone.required'),
   email: string()
     .email('validations.email.format')

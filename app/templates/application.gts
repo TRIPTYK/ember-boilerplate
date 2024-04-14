@@ -12,13 +12,15 @@ class ApplicationRouteComponent extends Component {
   @service declare flashMessages: FlashMessageService;
 
   <template>
-    <HeadLayout />
-    <div class="fixed z-10 top-4 right-4">
-      {{#each this.flashMessages.arrangedQueue as |flash|}}
-        <FlashMessage @flash={{flash}} />
-      {{/each}}
+    <div class="content">
+      <HeadLayout />
+      <div class="fixed z-10 top-4 right-4">
+        {{#each this.flashMessages.arrangedQueue as |flash|}}
+          <FlashMessage @flash={{flash}} />
+        {{/each}}
+      </div>
+      {{outlet}}
     </div>
-    {{outlet}}
   </template>
 }
 

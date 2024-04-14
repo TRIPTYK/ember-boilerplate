@@ -43,61 +43,77 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       @onSubmit={{@saveFunction}}
       @validationSchema={{@validationSchema}}
       data-test-form="register"
-      class="px-4 py-8 mt-8 bg-white rounded-lg shadow space-y-6 sm:px-10 sm:mx-auto sm:w-full sm:max-w-xl grid grid-cols-12 gap-x-6 gap-y-4"
+      class="px-4 py-8 mt-8 bg-white rounded-lg shadow sm:px-10 sm:mx-auto w-full sm:max-w-xl lg:max-w-4xl grid grid-cols-12 gap-x-6 gap-y-4"
       ...attributes
     >
       <InputsValidationComponent
-        class="input_block col-span-12"
+        class="form-control col-span-12 lg:col-span-6"
         @label={{t "components.forms.register.last_name"}}
         @changeset={{@changeset}}
         @validationField="lastName"
+        @labelClass="label"
+        @inputClass="input"
         data-test-input="lastName"
       />
       <InputsValidationComponent
-        class="input_block col-span-12"
+        class="form-control col-span-12 lg:col-span-6"
         @label={{t "components.forms.register.first_name"}}
         @changeset={{@changeset}}
         @validationField="firstName"
+        @labelClass="label"
+        @inputClass="input"
         data-test-input="firstName"
       />
       <InputsValidationComponent
-        class="input_block col-span-12"
+        class="form-control col-span-12 lg:col-span-6"
         @label={{t "components.forms.register.email"}}
         @changeset={{@changeset}}
         @validationField="email"
+        @labelClass="label"
+        @inputClass="input"
         data-test-input="email"
       />
       <InputsValidationComponent
-        class="input_block col-span-12"
+        class="form-control col-span-12 lg:col-span-6"
         @label={{t "components.forms.register.phone"}}
         @changeset={{@changeset}}
         @validationField="phone"
         @mask="+30 000000000"
         @maskOptions={{hash lazy=false}}
+        @labelClass="label"
+        @inputClass="input"
         data-test-input="phone"
       />
       <InputsValidationComponent
-        class="input_block col-span-12"
+        class="form-control col-span-12 lg:col-span-6"
         @label={{t "components.forms.register.password"}}
         @changeset={{@changeset}}
         @validationField="password"
+        @labelClass="label"
+        @inputClass="input"
+        @type="password"
         data-test-input="password"
       />
       <InputsValidationComponent
-        class="input_block col-span-12"
+        class="form-control col-span-12 lg:col-span-6"
         @label={{t "components.forms.register.confirm_password"}}
         @changeset={{@changeset}}
         @validationField="confirmPassword"
+        @labelClass="label"
+        @inputClass="input"
+        @type="password"
         data-test-input="confirmPassword"
       />
       <InputsValidationComponent
-        class="input_block col-span-6"
+        class="form-control col-span-6 lg:col-span-6"
         @label={{t "components.forms.register.gift"}}
         @changeset={{@changeset}}
         @validationField="gift"
         @mask="Number €"
         @maskOptions={{this.maskForEuro}}
         @unmaskValue={{true}}
+        @labelClass="label"
+        @inputClass="input"
         data-test-input="gift"
       />
       <button data-test-submit type="submit" class="btn col-span-12">

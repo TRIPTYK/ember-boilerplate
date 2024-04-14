@@ -82,6 +82,7 @@
     "autoprefixer": "~10.4.19",
     "broccoli-asset-rev": "~3.0.0",
     "concurrently": "^8.2.2",
+    "daisyui": "^4.10.1",
     "date-fns": "~3.6.0",
     "els-intl-addon": "^1.0.6",
     "ember-auto-import": "~2.7.2",

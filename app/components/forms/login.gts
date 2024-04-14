@@ -33,7 +33,9 @@ const FormsLogin: TOC<FormsLoginSignature> = <template>
       @label={{t "components.forms.login.email"}}
       @changeset={{@changeset}}
       @validationField="email"
-      class="input_block"
+      @labelClass="label"
+      @inputClass="input"
+      class="form-control"
       data-test-input="email"
     />
     <InputsValidationComponent
@@ -41,7 +43,9 @@ const FormsLogin: TOC<FormsLoginSignature> = <template>
       @changeset={{@changeset}}
       @validationField="password"
       @type="password"
-      class="input_block"
+      @labelClass="label"
+      @inputClass="input"
+      class="form-control"
       data-test-input="password"
     />
     <div class="flex items-center justify-between">

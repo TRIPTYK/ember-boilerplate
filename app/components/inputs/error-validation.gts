@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 
 import type { ValidationError } from 'ember-immer-changeset';
+import t from 'ember-intl/helpers/t';
 
 export interface InputsErrorValidationSignature {
   Args: {
@@ -17,8 +18,8 @@ export default class InputsErrorValidation extends Component<InputsErrorValidati
   <template>
     <aside ...attributes>
       {{#each @errors as |error|}}
-        <span>
-          {{this.formatMessage error}}
+        <span class="text-red-500">
+          {{t (this.formatMessage error)}}
         </span>
       {{/each}}
     </aside>

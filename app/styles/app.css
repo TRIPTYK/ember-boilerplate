@@ -3,9 +3,11 @@
 @import url("tailwindcss/utilities");
 @import url("flash-messages.css");
 @import url("loading.css");
-@import url("input.css");
+
+/* @import url("input.css"); */
 @import url("table.css");
-@import url("button.css");
+
+/* @import url("button.css"); */
 
 /*** GENERAL  ****/
 button:focus-visible,
@@ -13,6 +15,10 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
   @apply outline-none ring-2 ring-primary rounded;
+}
+
+.content {
+  @apply min-h-screen flex flex-col;
 }
 
 h1 {
