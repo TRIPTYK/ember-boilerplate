@@ -1,6 +1,7 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 
 import type UserModel from './user';
+import { ResourceType } from '@warp-drive/core-types/symbols';
 
 export default class DocumentModel extends Model {
   @attr() declare filename: string;
@@ -15,10 +16,6 @@ export default class DocumentModel extends Model {
     async: false,
     inverse: 'documents',
   }) declare user: UserModel;
-}
 
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    document: DocumentModel;
-  }
+  [ResourceType] = 'document' as const;
 }
