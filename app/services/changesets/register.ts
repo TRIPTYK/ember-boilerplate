@@ -2,33 +2,36 @@ import Service from '@ember/service';
 import { service } from '@ember/service';
 
 import type { ChangesetService } from './changeset-service';
-import type StoreService from '@ember-data/store';
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
-import type UserModel from 'ember-boilerplate/models/user';
-import { createRecord } from '@ember-data/json-api/request';
+import type RequestManager from '../request-manager';
+import { post } from 'ember-boilerplate/builders/post';
+import { Result, err, map, ok } from 'true-myth/result';
+import User from 'ember-boilerplate/schemas/user';
 
 export default class RegisterChangesetService
   extends Service
   implements ChangesetService<RegisterChangeset>
 {
-  @service declare store: StoreService;
+  @service declare requestManager: RequestManager;
 
-  async save(changeset: RegisterChangeset): Promise<UserModel> {
+  async save(changeset: RegisterChangeset): Promise<Result<User ,Error>> {
     changeset.execute();
 
     const changesetData = changeset.data;
 
-    const user = this.store.createRecord<UserModel>('user', {
-      lastName: changesetData.lastName,
-      firstName: changesetData.firstName,
-      phone: changesetData.phone,
-      email: changesetData.email,
-      password: changesetData.password,
-      role: 'user',
-    });
+    let response = await this.requestManager.request(
+      post('user', changesetData)
+    );
 
-    await this.store.request(createRecord(user))
+    if (!response.response?.ok) {
+      changeset.unexecute();
+      return err(new Error(response.content as string));
+    }
 
-    return user;
+    changeset.save();
+
+    const user = await User.from((response.content as any).data);
+
+    return user.mapErr((e) => new Error(e.errors.join(', ')));
   }
 }

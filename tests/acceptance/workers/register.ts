@@ -7,15 +7,11 @@ export async function registerWorker(worker: SetupWorker) {
     http.post('http://localhost:8080/api/v1/users', () => {
       return HttpResponse.json(({
           data: {
-            type: 'users',
-            id: '1',
-            attributes: {
-              email: 'test@triptyk.eu',
-              firstName: 'papa',
-              lastName: 'triptyk',
-              phone: '+32 498542256',
-              role: 'user',
-            },
+            email: 'test@triptyk.eu',
+            firstName: 'papa',
+            lastName: 'triptyk',
+            phone: '+32 498542256',
+            role: 'user',
           },
         })
       );

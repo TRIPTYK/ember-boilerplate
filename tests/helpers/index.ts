@@ -1,3 +1,5 @@
+import { setBuildURLConfig } from '@ember-data/request-utils';
+import config from 'ember-boilerplate/config/environment';
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,
@@ -36,6 +38,10 @@ function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
 function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupTest(hooks, options);
 
+  setBuildURLConfig({
+    host: config.host,
+    namespace: config.namespace,
+  });
   // Additional setup for unit tests can be done here.
 }
 

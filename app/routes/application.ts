@@ -1,3 +1,4 @@
+import { setBuildURLConfig } from '@ember-data/request-utils';
 import { registerDestructor } from '@ember/destroyable';
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
@@ -8,6 +9,11 @@ import { usersHandlers } from 'ember-boilerplate/handlers/users';
 import type CurrentUserService from 'ember-boilerplate/services/current-user';
 import type { IntlService } from 'ember-intl';
 import type SessionService from 'ember-simple-auth/services/session';
+
+setBuildURLConfig({
+  host: config.host,
+  namespace: config.namespace,
+});
 
 export default class Application extends Route {
   @service declare session: SessionService;

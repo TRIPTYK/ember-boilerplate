@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  make-plural:
+    specifier: ^7.4.0
+    version: 7.4.0
+
 devDependencies:
   '@babel/core':
     specifier: ^7.24.4
@@ -131,6 +136,9 @@ devDependencies:
   '@triptyk/ember-input-validation':
     specifier: 2.0.2
     version: 2.0.2(@glint/template@1.4.0)(@triptyk/ember-input@2.0.2)(ember-immer-changeset@1.0.2)(ember-source@5.8.0)
+  '@triptyk/ember-simple-auth-token':
+    specifier: 6.0.0-beta.1
+    version: 6.0.0-beta.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-source@5.8.0)
   '@triptyk/ember-ui':
     specifier: 2.0.2
     version: 2.0.2(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(@triptyk/ember-input@2.0.2)(ember-concurrency@4.0.2)(ember-source@5.8.0)(typescript@5.4.5)(webpack@5.91.0)
@@ -371,6 +379,9 @@ devDependencies:
   tracked-built-ins:
     specifier: ~3.3.0
     version: 3.3.0
+  true-myth:
+    specifier: ^7.3.0
+    version: 7.3.0
   type-fest:
     specifier: ^4.18.2
     version: 4.18.3
@@ -3421,6 +3432,22 @@ packages:
       tracked-built-ins: 3.3.0
     transitivePeerDependencies:
       - '@babel/core'
+      - '@glint/template'
+      - supports-color
+    dev: true
+
+  /@triptyk/ember-simple-auth-token@6.0.0-beta.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-source@5.8.0):
+    resolution: {integrity: sha512-5/5nqyWota9wlk9873nKB9y+RAjGJhpHyd4ivsos1dJfbzA6N2L/s83IDcVYOFNoplhldbClw5O4Yr7jCZY9cg==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      ember-source: '>= 4.0.0'
+    dependencies:
+      '@babel/core': 7.24.6(supports-color@8.1.1)
+      '@embroider/addon-shim': 1.8.9
+      ember-simple-auth: 6.0.0(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)
+      ember-source: 5.8.0(@babel/core@7.24.6)(@glimmer/component@1.1.2)(@glint/template@1.4.0)(rsvp@4.8.5)(webpack@5.91.0)
+    transitivePeerDependencies:
+      - '@ember/test-helpers'
       - '@glint/template'
       - supports-color
     dev: true
@@ -11230,6 +11257,10 @@ packages:
       semver: 7.6.2
     dev: true
 
+  /make-plural@7.4.0:
+    resolution: {integrity: sha512-4/gC9KVNTV6pvYg2gFeQYTW3mWaoJt7WZE5vrp1KnQDgW92JtYZnzmZT81oj/dUTqAIu0ufI2x3dkgu3bB1tYg==}
+    dev: false
+
   /makeerror@1.0.12:
     resolution: {integrity: sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg==}
     dependencies:
@@ -14586,6 +14617,11 @@ packages:
       walk-sync: 0.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /true-myth@7.3.0:
+    resolution: {integrity: sha512-kbtDomawnft9aoAe3RMIntB/mqtlSuo9yVhNy3wCwcLoTeth1dyp+NMmBF1FbDMMvdaqFQ2ksP8Y6s1/gUhyQg==}
+    engines: {node: 18.* || >= 20.*}
     dev: true
 
   /ts-api-utils@1.3.0(typescript@5.4.5):

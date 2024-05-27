@@ -41,14 +41,15 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
 
   @action
   async saveRegister(changeset: RegisterChangeset) {
-    try {
-      await this.register.save(changeset);
-      this.flashMessages.success('components.pages.register.success_message');
-    } catch (e: any) {
-      const error = await e;
+    const user = await this.register.save(changeset);
 
-      this.errorHandler.handle(changeset, error.errors);
+    if (user.isErr) {
+      console.log(user.error.message);
+
+      return this.errorHandler.handle(user.error.message);
     }
+
+    return this.flashMessages.success('components.pages.register.success_message');
   }
 
   <template>

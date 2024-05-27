@@ -10,6 +10,7 @@ import { failHandle, successHandle } from './mocks';
 
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';
 import type { ServiceWorkerTestContext } from 'ember-boilerplate/tests/worker';
+import unwrap from 'ember-boilerplate/utils/unwrap';
 
 module('Unit | Service | changesets/register', function (hooks) {
   setupTest(hooks);
@@ -38,13 +39,14 @@ module('Unit | Service | changesets/register', function (hooks) {
   test<ServiceWorkerTestContext>('It returns user model with adequate attributes', async function (assert) {
     await setupSuccessHandlers.call(this);
 
-    const user = await saveChangeset();
+    const user = unwrap(await saveChangeset());
 
-    assert.strictEqual(user.firstName, changesetInitialData.firstName);
-    assert.strictEqual(user.lastName, changesetInitialData.lastName);
+    assert.strictEqual(user.email, 'test@triptyk.eu');
+    assert.strictEqual(user.firstName, 'papa');
+    assert.strictEqual(user.lastName, 'triptyk');
+    assert.strictEqual(user.phone, '+32 498542256');
     assert.strictEqual(user.role, 'user');
-    assert.strictEqual(user.phone, changesetInitialData.phone);
-    assert.strictEqual(user.password, null);
+    assert.strictEqual(user.id, '1');
   });
 
   test<ServiceWorkerTestContext>('It throws on backend error response', async function (assert) {
