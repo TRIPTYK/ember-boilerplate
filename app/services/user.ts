@@ -1,47 +1,36 @@
 import type RequestManager from "@ember-data/request";
 import Service from "@ember/service";
 import { service } from "@ember/service";
-import { post } from "ember-boilerplate/builders/post";
-import { query } from "ember-boilerplate/builders/query";
-import User from "ember-boilerplate/schemas/user";
-import Result, { err } from "true-myth/result";
+import { findRecord, createRecord } from '@ember-data/rest/request';
+import Result, { err, ok } from "true-myth/result";
+import type Store from "@ember-data/store";
+import type UserModel from "ember-boilerplate/models/user";
 
 export default class UserService extends Service {
   @service declare requestManager: RequestManager;
+  @service declare store: Store;
 
   public getProfile() {
     return this.getById('profile');
   }
 
-  public async getById(id: string): Promise<Result<User,Error>> {
-    const requestResponse = await this.requestManager.request(query('type', id));
+  public async getById(id: string): Promise<Result<UserModel,Error>> {
+    const requestResponse = await this.store.request(findRecord<UserModel>('user', id));
 
     if (!requestResponse.response?.ok) {
-      return err(new Error(requestResponse.content as string));
+      return err(new Error(''));
     }
 
-    if (!(requestResponse.content as any).data) {
-      throw new Error('Document must have a data key.');
-    }
-
-    const user = await User.from((requestResponse.content as any).data);
-
-    return user;
+    return ok(requestResponse.content.data);
   }
 
-  public async createUser(userPayload: User): Promise<Result<User,Error>> {
-    const requestResponse = await this.requestManager.request(post('user', userPayload));
+  public async createUser(userModel: UserModel): Promise<Result<UserModel,Error>> {
+    const requestResponse = await this.store.request(createRecord(userModel));
 
     if (!requestResponse.response?.ok) {
-      return err(new Error(requestResponse.content as string));
+      return err(new Error(''));
     }
 
-    if (!(requestResponse.content as any).data) {
-      throw new Error('Document must have a data key.');
-    }
-
-    const user = await User.from((requestResponse.content as any).data);
-
-    return user;
+    return ok(requestResponse.content as UserModel);
   }
 }

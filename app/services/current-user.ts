@@ -4,15 +4,15 @@ import { service } from '@ember/service';
 
 import type SessionService from './session';
 import type RequestManager from '@ember-data/request';
-import User from 'ember-boilerplate/schemas/user';
 import type UserService from './user';
+import type UserModel from 'ember-boilerplate/models/user';
 
 export default class CurrentUserService extends Service {
   @service declare session: SessionService;
   @service declare requestManager: RequestManager;
   @service('user') declare userService: UserService;
 
-  @tracked public user: User | null = null;
+  @tracked public user: UserModel | null = null;
 
   async load() {
     if (this.session.isAuthenticated) {

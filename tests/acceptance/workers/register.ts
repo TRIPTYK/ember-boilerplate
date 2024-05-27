@@ -6,7 +6,8 @@ export async function registerWorker(worker: SetupWorker) {
   worker.use(
     http.post('http://localhost:8080/api/v1/users', () => {
       return HttpResponse.json(({
-          data: {
+          users: {
+            id: '1',
             email: 'test@triptyk.eu',
             firstName: 'papa',
             lastName: 'triptyk',
