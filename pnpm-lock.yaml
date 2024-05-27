@@ -152,7 +152,7 @@ devDependencies:
     specifier: ~3.0.6
     version: 3.0.8
   '@types/node':
-    specifier: ^20.12.11
+    specifier: ^20.12.12
     version: 20.12.12
   '@types/qunit':
     specifier: ~2.19.10
