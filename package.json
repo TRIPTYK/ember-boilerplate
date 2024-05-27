@@ -25,8 +25,7 @@
     "test:types": "glint",
     "test:ember": "ember exam --split=2 --partition=1 --parallel=3 --load-balance",
     "test:e2e": "playwright test",
-    "codegen": "node wait-before.cjs \"pnpm start\" \"playwright codegen http://localhost:4200\" \"Serving\"",
-    "postinstall": "husky install"
+    "codegen": "node wait-before.cjs \"pnpm start\" \"playwright codegen http://localhost:4200\" \"Serving\""
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
@@ -138,7 +137,7 @@
     "eslint-plugin-unicorn": "~52.0.0",
     "eslint-plugin-unused-imports": "~3.2.0",
     "eslint-plugin-yml": "^1.14.0",
-    "husky": "~9.0.11",
+    "lefthook": "~1.6.13",
     "loader.js": "~4.7.0",
     "msw": "^2.2.14",
     "postcss": "~8.4.38",
