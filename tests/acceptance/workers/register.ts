@@ -6,17 +6,17 @@ export async function registerWorker(worker: SetupWorker) {
   worker.use(
     http.post('http://localhost:8080/api/v1/users', () => {
       return HttpResponse.json(({
-          data: {
-            type: 'users',
-            id: '1',
-            attributes: {
-              email: 'test@triptyk.eu',
-              firstName: 'papa',
-              lastName: 'triptyk',
-              phone: '+32 498542256',
-              role: 'user',
-            },
+        data : {
+          id: '1',
+          type: 'user',
+          attributes: {
+            email: 'test@triptyk.eu',
+            firstName: 'papa',
+            lastName: 'triptyk',
+            phone: '+32 498542256',
+            role: 'user',
           },
+        },
         })
       );
     })
@@ -30,26 +30,15 @@ export async function registerWorkerWithErrors(worker: SetupWorker) {
       return HttpResponse.json({
           errors: [
             {
-              status: 400,
-              code: 'invalid_request',
-              message: 'The request is invalid',
-              details: [
-                {
-                  field: 'email',
-                  message: 'email_required',
-                },
-                {
-                  field: 'password',
-                  message: 'password_too_short',
-                },
-                {
-                  field: 'password',
-                  message: 'password_required',
-                },
-              ],
-            },
+              status: '400',
+              title: 'Bad Request',
+              detail: 'Username is too short',
+              source: {
+                pointer: '/data/attributes/password',
+              },
+            }
           ],
-        });
+        }, { status: 400 });
       }));
   await worker.start();
 }

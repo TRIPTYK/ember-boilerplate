@@ -1,39 +1,45 @@
 import Service from '@ember/service';
 import { service } from '@ember/service';
-
-import type { ChangesetService } from './changeset-service';
-import type StoreService from '@ember-data/store';
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
+import { Result, type Err } from 'true-myth/result';
+import type Store from '@ember-data/store';
 import type UserModel from 'ember-boilerplate/models/user';
+import type SafeStore from '../safe-store';
+import { createRecord } from '@ember-data/json-api/request';
+import type { Document } from '@ember-data/store/-private/document';
 
 export default class RegisterChangesetService
   extends Service
-  implements ChangesetService<RegisterChangeset>
 {
-  @service declare store: StoreService;
+  @service declare safeStore: SafeStore;
+  @service declare store: Store;
 
-  async save(changeset: RegisterChangeset): Promise<UserModel> {
+  async save(changeset: RegisterChangeset): Promise<Result<UserModel ,Error>> {
     changeset.execute();
 
     const changesetData = changeset.data;
 
-    const user = this.store.createRecord('user', {
-      lastName: changesetData.lastName,
-      firstName: changesetData.firstName,
-      phone: changesetData.phone,
-      email: changesetData.email,
-      password: changesetData.password,
-      role: 'user',
+    let user = this.store.createRecord<UserModel>('user', {
+      ...changesetData,
     });
 
-    await user.save();
+    let response = await this.safeStore.request<Document<UserModel>>(createRecord(user) as never);
 
-    return user;
-  }
-}
+    if (response.isErr) {
+      changeset.unexecute();
+      for (const iterator of response.error.errors) {
+        changeset.addError({
+          key: iterator.source.pointer,
+          message: iterator.detail,
+          value: changeset.get(iterator.source.pointer.split('/')[1]),
+          originalValue: changeset.get(iterator.source.pointer.split('/')[1]),
+        })
+      }
+      return response as Err<never, AggregateError>;
+    }
 
-declare module '@ember/service' {
-  interface Registry {
-    'changesets/register': RegisterChangesetService;
+    await changeset.save();
+
+    return response.map((user) => user.content.data!);
   }
 }

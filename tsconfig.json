@@ -7,30 +7,31 @@
     "allowImportingTsExtensions": true,
     "declaration": false,
     "allowJs": true,
+    "types": [
+      "ember-source/types",
+      "ember-data/unstable-preview-types",
+      "@ember-data/store/unstable-preview-types",
+      "@ember-data/adapter/unstable-preview-types",
+      "@ember-data/graph/unstable-preview-types",
+      "@ember-data/json-api/unstable-preview-types",
+      "@ember-data/legacy-compat/unstable-preview-types",
+      "@ember-data/request/unstable-preview-types",
+      "@ember-data/request-utils/unstable-preview-types",
+      "@ember-data/model/unstable-preview-types",
+      "@ember-data/serializer//unstable-preview-types",
+      "@ember-data/tracking/unstable-preview-types",
+      "@warp-drive/core-types/unstable-preview-types"
+    ],
     // Apps don't need to publish declarations
     "paths": {
-      "ember-boilerplate/tests/*": [
-        "tests/*"
-      ],
+      "ember-boilerplate/tests/*": ["tests/*"],
       "ember-cli-flash/*": ["node_modules/ember-cli-flash"],
-      "ember-boilerplate/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "ember-boilerplate/*": ["app/*"],
+      "*": ["types/*"]
     }
   },
   "glint": {
-    "environment": [
-      "ember-loose",
-      "ember-template-imports"
-    ]
+    "environment": ["ember-loose", "ember-template-imports"]
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*",
-    "public/setup-worker.js"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*", "public/setup-worker.js"]
 }
