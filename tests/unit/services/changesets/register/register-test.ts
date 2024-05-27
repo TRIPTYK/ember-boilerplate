@@ -10,7 +10,7 @@ import { failHandle, successHandle } from './mocks';
 
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';
 import type { ServiceWorkerTestContext } from 'ember-boilerplate/tests/worker';
-import unwrap from 'ember-boilerplate/utils/unwrap';
+import {unwrap} from 'ember-boilerplate/utils/result-utils';
 
 module('Unit | Service | changesets/register', function (hooks) {
   setupTest(hooks);
@@ -41,6 +41,9 @@ module('Unit | Service | changesets/register', function (hooks) {
 
     const user = unwrap(await saveChangeset());
 
+    console.log(user);
+
+
     assert.strictEqual(user.email, 'test@triptyk.eu');
     assert.strictEqual(user.firstName, 'papa');
     assert.strictEqual(user.lastName, 'triptyk');
@@ -52,6 +55,6 @@ module('Unit | Service | changesets/register', function (hooks) {
   test<ServiceWorkerTestContext>('It throws on backend error response', async function (assert) {
     await setupFailedHandlers.call(this);
 
-    await assert.rejects(saveChangeset());
+    assert.true(await saveChangeset().then((result) => result.isErr));
   });
 });

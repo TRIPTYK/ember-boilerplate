@@ -6,14 +6,17 @@ export async function registerWorker(worker: SetupWorker) {
   worker.use(
     http.post('http://localhost:8080/api/v1/users', () => {
       return HttpResponse.json(({
-          users: {
-            id: '1',
+        data : {
+          id: '1',
+          type: 'user',
+          attributes: {
             email: 'test@triptyk.eu',
             firstName: 'papa',
             lastName: 'triptyk',
             phone: '+32 498542256',
             role: 'user',
           },
+        },
         })
       );
     })
@@ -46,7 +49,7 @@ export async function registerWorkerWithErrors(worker: SetupWorker) {
               ],
             },
           ],
-        });
+        }, { status: 400 });
       }));
   await worker.start();
 }

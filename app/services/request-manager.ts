@@ -1,20 +1,24 @@
-import RequestManager, { type Future,type RequestInfo } from "@ember-data/request";
+import RequestManager, { type Handler,type NextFn,type RequestContext,type RequestInfo } from "@ember-data/request";
 import { setOwner } from "@ember/owner";
 import { getOwner } from "@ember/owner";
 import AuthHandler from "./auth-handler";
 import Fetch from "@ember-data/request/fetch";
-import { CacheHandler } from "@ember-data/store/-private";
+
+const TestHandler: Handler = {
+  async request<T>(context: RequestContext, next: NextFn<T>) {
+    console.log('TestHandler.request', context.request);
+    const result = await next(Object.assign({}, context.request));
+    console.log('TestHandler.response after fetch', result.response);
+    return result;
+  },
+};
+
 
 export default class extends RequestManager {
   constructor(args: {}) {
     super(args);
     const authHandler = new AuthHandler();
     setOwner(authHandler, getOwner(this)!);
-    this.useCache(CacheHandler)
-    this.use([authHandler, Fetch]);
-  }
-
-  request<T = unknown>(request: RequestInfo): Future<T> {
-    return super.request(request);
+    this.use([authHandler,TestHandler, Fetch]);
   }
 }
