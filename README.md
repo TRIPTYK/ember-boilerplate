@@ -112,11 +112,6 @@ Testing mocks are split in the `tests` folders.
 - `pnpm lint`
 - `pnpm lint:fix`
 
-### Duplication
-
-- `pnpm test:duplication`
-
-
 ### Building
 
 - `ember build` (development)

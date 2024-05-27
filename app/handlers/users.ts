@@ -13,15 +13,12 @@ export const usersHandlers= [
   http.get('http://localhost:8080/api/v1/users/profile', () => {
     return HttpResponse.json({
         data: {
-          type: 'users',
           id: '1',
-          attributes: {
-            email: '',
-            firstName: '',
-            lastName: '',
-            phone: '',
-            role: '',
-          },
+          email: '',
+          firstName: '',
+          lastName: '',
+          phone: '',
+          role: '',
         },
       });
   }),
@@ -33,8 +30,7 @@ export const usersHandlers= [
   http.post('http://localhost:8080/api/v1/users', () => {
     return HttpResponse.json({
       data: {
-        type: 'users',
-        attributes: {}
+
       }
     });
   })

@@ -2,12 +2,10 @@ import { buildBaseURL } from '@ember-data/request-utils';
 import type { RequestInfo } from '@warp-drive/core-types/request';
 import { pluralize } from './utils';
 
-export function query(type: string, id: string): RequestInfo {
+export function queryAll(type: string): RequestInfo {
   const url = buildBaseURL({
-    op: 'query',
-    identifier: {
-      type: type,
-    },
+    op: 'findMany',
+    identifiers: [],
     resourcePath: pluralize(type),
   });
 
@@ -16,9 +14,9 @@ export function query(type: string, id: string): RequestInfo {
   headers.append('Content-Type', 'application/json');
 
   return {
-    url: url + `/${id}`,
+    url,
     headers,
     method: 'GET',
-    op: 'query',
+    op: '',
   } satisfies RequestInfo;
 }

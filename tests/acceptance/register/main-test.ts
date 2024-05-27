@@ -50,6 +50,7 @@ module('Acceptance | register', function (hooks) {
 
     assert.ok(indexPage.hasSuccess);
   });
+
   test<ServiceWorkerTestContext>('show error message and error in changeset', async function (assert) {
     await registerWorkerWithErrors(this.worker);
     await indexPage.visit();
