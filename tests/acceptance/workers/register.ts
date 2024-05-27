@@ -30,24 +30,13 @@ export async function registerWorkerWithErrors(worker: SetupWorker) {
       return HttpResponse.json({
           errors: [
             {
-              status: 400,
-              code: 'invalid_request',
-              message: 'The request is invalid',
-              details: [
-                {
-                  field: 'email',
-                  message: 'email_required',
-                },
-                {
-                  field: 'password',
-                  message: 'password_too_short',
-                },
-                {
-                  field: 'password',
-                  message: 'password_required',
-                },
-              ],
-            },
+              status: '400',
+              title: 'Bad Request',
+              detail: 'Username is too short',
+              source: {
+                pointer: '/data/attributes/password',
+              },
+            }
           ],
         }, { status: 400 });
       }));

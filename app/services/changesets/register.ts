@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import { service } from '@ember/service';
-import type { ChangesetService } from './changeset-service';
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import { Result, type Err } from 'true-myth/result';
 import type Store from '@ember-data/store';
@@ -11,7 +10,6 @@ import type { Document } from '@ember-data/store/-private/document';
 
 export default class RegisterChangesetService
   extends Service
-  implements ChangesetService<RegisterChangeset>
 {
   @service declare safeStore: SafeStore;
   @service declare store: Store;
@@ -30,12 +28,17 @@ export default class RegisterChangesetService
     if (response.isErr) {
       changeset.unexecute();
       for (const iterator of response.error.errors) {
-        console.log('err', iterator);
+        changeset.addError({
+          key: iterator.source.pointer,
+          message: iterator.detail,
+          value: changeset.get(iterator.source.pointer.split('/')[1]),
+          originalValue: changeset.get(iterator.source.pointer.split('/')[1]),
+        })
       }
       return response as Err<never, AggregateError>;
     }
 
-    changeset.save();
+    await changeset.save();
 
     return response.map((user) => user.content.data!);
   }

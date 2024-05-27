@@ -7,13 +7,14 @@ import type RequestManager from '@ember-data/request';
 import type UserModel from 'ember-boilerplate/models/user';
 import type SafeStore from './safe-store';
 import { findRecord } from '@ember-data/json-api/request';
+import { Maybe } from 'true-myth';
 
 export default class CurrentUserService extends Service {
   @service declare session: SessionService;
   @service declare requestManager: RequestManager;
   @service declare safeStore: SafeStore;
 
-  @tracked public user: UserModel | null = null;
+  @tracked public user: Maybe<UserModel> = Maybe.nothing();
 
   async load() {
     if (this.session.isAuthenticated) {
@@ -23,7 +24,7 @@ export default class CurrentUserService extends Service {
         return null;
       }
 
-      this.user = userResponse.value.content.data;
+      this.user = Maybe.just(userResponse.value.content.data);
     }
 
     return this.user;
