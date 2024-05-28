@@ -48,6 +48,10 @@ module.exports = {
       parser: 'ember-eslint-parser',
       plugins: ['ember'],
       extends: ['eslint:recommended', 'plugin:ember/recommended', 'plugin:ember/recommended-gts'],
+      rules: {
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+      }
     },
     // node files
     {

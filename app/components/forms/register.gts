@@ -21,7 +21,7 @@ export interface FormsRegisterSignature {
   Element: HTMLFormElement;
 }
 
-export default class FormsRegister extends Component<FormsRegisterSignature> {
+export default class RegisterForm extends Component<FormsRegisterSignature> {
   maskForEuro = {
     mask: 'num €',
     lazy: false,

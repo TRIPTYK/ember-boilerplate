@@ -53,7 +53,7 @@ class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentS
   }
 
   <template>
-    <LoginLayout @title={{t "components.pages.reset-password.title"}}>
+    <LoginLayout @title={{t "components.templates.reset-password.title"}}>
       <FormsPasswordRecovery
         @validationSchema={{this.validationSchema}}
         @changeset={{this.changeset}}
