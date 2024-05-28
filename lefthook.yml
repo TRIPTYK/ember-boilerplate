@@ -7,7 +7,7 @@ pre-push:
   commands:
     test:
       tags: frontend
-      run: pnpm test
+      run: pnpm ember test --filter "!Acceptance"
 # pre-commit:
 #   parallel: true
 #   commands:

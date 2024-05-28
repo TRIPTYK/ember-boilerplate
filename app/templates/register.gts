@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
-import FormsRegister from 'ember-boilerplate/components/forms/register';
+import RegisterForm from 'ember-boilerplate/components/forms/register';
 import LoginLayout from 'ember-boilerplate/components/login-layout';
 import formsRegisterSchema from 'ember-boilerplate/validations/register';
 import t from 'ember-intl/helpers/t';
@@ -54,7 +54,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
 
   <template>
     <LoginLayout @title={{t "components.pages.register.title"}}>
-      <FormsRegister
+      <RegisterForm
         @changeset={{this.changeset}}
         @validationSchema={{this.validationSchema}}
         @saveFunction={{this.saveRegister}}
