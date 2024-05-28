@@ -5,9 +5,12 @@
 #
 pre-push:
   commands:
-    test:
+    lint:
       tags: frontend
-      run: pnpm ember test --filter "!Acceptance"
+      run: pnpm lint
+    glint:
+      tags: frontend
+      run: pnpm glint
 # pre-commit:
 #   parallel: true
 #   commands:
