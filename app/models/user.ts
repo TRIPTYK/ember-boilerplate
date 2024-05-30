@@ -1,5 +1,4 @@
-import Model, { attr, hasMany } from '@ember-data/model';
-import type DocumentModel from './document';
+import Model, { attr } from '@ember-data/model';
 import { ResourceType } from '@warp-drive/core-types/symbols';
 
 export default class UserModel extends Model {
@@ -9,10 +8,6 @@ export default class UserModel extends Model {
   @attr('string') declare phone: string;
   @attr('string') declare role: string;
   @attr('string') declare password: string;
-  @hasMany<DocumentModel>('document', {
-    async: false,
-    inverse: 'user',
-  }) declare documents: DocumentModel[];
 
   [ResourceType] = 'user' as const;
 }
