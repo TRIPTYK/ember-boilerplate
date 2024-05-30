@@ -1,6 +1,11 @@
 import { registerDestructor } from '@ember/destroyable';
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import TpkValidationCheckboxComponent from '@triptyk/ember-input-validation/components/tpk-validation-checkbox';
+import TpkValidationDatepickerComponent from '@triptyk/ember-input-validation/components/tpk-validation-datepicker';
+import TpkValidationFileComponent from '@triptyk/ember-input-validation/components/tpk-validation-file';
+import type TpkFormService from '@triptyk/ember-input-validation/services/tpk-form';
+import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
 import config from 'ember-boilerplate/config/environment';
 
 import { usersHandlers } from 'ember-boilerplate/handlers/users';
@@ -14,8 +19,12 @@ export default class Application extends Route {
   @service declare session: SessionService;
   @service declare currentUser: CurrentUserService;
   @service declare intl: IntlService;
+  @service declare tpkForm: TpkFormService;
 
   async beforeModel() {
+
+    this.tpkForm.TpkInput = InputsValidationComponent as never;
+
     await this.setupMSWForDevelopment();
     this.intl.setLocale(['fr-fr']);
     await this.session.setup();

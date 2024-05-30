@@ -1,4 +1,6 @@
 import { setBuildURLConfig } from '@ember-data/request-utils';
+import type TpkFormService from '@triptyk/ember-input-validation/services/tpk-form';
+import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
 import config from 'ember-boilerplate/config/environment';
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
@@ -32,6 +34,9 @@ function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
 function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupRenderingTest(hooks, options);
 
+  hooks.beforeEach(function () {
+    (this.owner.lookup('service:tpk-form') as TpkFormService).TpkInput = InputsValidationComponent as never;
+  });
   // Additional setup for rendering tests can be done here.
 }
 

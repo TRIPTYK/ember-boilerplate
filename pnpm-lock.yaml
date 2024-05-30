@@ -134,17 +134,17 @@ devDependencies:
     specifier: ^1.44.0
     version: 1.44.1
   '@triptyk/ember-input':
-    specifier: 2.0.3
-    version: 2.0.3(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0)
+    specifier: 2.1.0-beta.1
+    version: 2.1.0-beta.1(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0)
   '@triptyk/ember-input-validation':
-    specifier: 2.0.3
-    version: 2.0.3(@glint/template@1.4.0)(@triptyk/ember-input@2.0.3)(ember-immer-changeset@1.0.2)(ember-source@5.8.0)
+    specifier: 2.1.0-beta.1
+    version: 2.1.0-beta.1(@glint/template@1.4.0)(@triptyk/ember-input@2.1.0-beta.1)(ember-immer-changeset@1.0.2)(ember-source@5.8.0)
   '@triptyk/ember-simple-auth-token':
     specifier: 6.0.0-beta.1
     version: 6.0.0-beta.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-source@5.8.0)
   '@triptyk/ember-ui':
-    specifier: 2.0.3
-    version: 2.0.3(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(@triptyk/ember-input@2.0.3)(ember-concurrency@4.0.2)(ember-source@5.8.0)(typescript@5.4.5)(webpack@5.91.0)
+    specifier: 2.1.0-beta.1
+    version: 2.1.0-beta.1(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(@triptyk/ember-input@2.1.0-beta.1)(ember-concurrency@4.0.2)(ember-source@5.8.0)(typescript@5.4.5)(webpack@5.91.0)
   '@triptyk/ember-utils':
     specifier: ^1.2.6
     version: 1.2.6(@glint/template@1.4.0)(ember-source@5.8.0)(type-fest@4.18.3)
@@ -3380,10 +3380,10 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /@triptyk/ember-input-validation@2.0.3(@glint/template@1.4.0)(@triptyk/ember-input@2.0.3)(ember-immer-changeset@1.0.2)(ember-source@5.8.0):
-    resolution: {integrity: sha512-4guVBrNDiHDQ5zUMY0QDsiB7Ys5an/qII9ZOIoVDVDQ8FyucSBP+KZ9ZUmwjY5+hlQ5x5Qos+ERCWLfLz7RKPg==}
+  /@triptyk/ember-input-validation@2.1.0-beta.1(@glint/template@1.4.0)(@triptyk/ember-input@2.1.0-beta.1)(ember-immer-changeset@1.0.2)(ember-source@5.8.0):
+    resolution: {integrity: sha512-CaCy1lEc7ICw/a7MV/eeLUOXYmVyXSNL9hIexp5xjXfL8Plbhz4/c3Bh4zqegW9rXGeX6j83FwzfVdRi1qdtkQ==}
     peerDependencies:
-      '@triptyk/ember-input': 2.0.3
+      '@triptyk/ember-input': 2.1.0-beta.1
       ember-immer-changeset: ^1.0.0
       ember-source: '>=4.8.0'
     dependencies:
@@ -3391,7 +3391,7 @@ packages:
       '@embroider/addon-shim': 1.8.9
       '@glimmer/component': 1.1.2(@babel/core@7.24.6)
       '@glimmer/tracking': 1.1.2
-      '@triptyk/ember-input': 2.0.3(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0)
+      '@triptyk/ember-input': 2.1.0-beta.1(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0)
       ember-concurrency: 4.0.2(@babel/core@7.24.6)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-source@5.8.0)
       ember-immer-changeset: 1.0.2(@babel/core@7.24.6)(ember-source@5.8.0)
       ember-modifier: 4.1.0(ember-source@5.8.0)
@@ -3403,8 +3403,8 @@ packages:
       - supports-color
     dev: true
 
-  /@triptyk/ember-input@2.0.3(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0):
-    resolution: {integrity: sha512-6WYDMK/FRQ0h2A22aEqc+uEUCDjoQHXO/Co2gG+EORDmV695yU8bR6YNZsD4goSmy/JyyfsSav7W0U02fpHpwA==}
+  /@triptyk/ember-input@2.1.0-beta.1(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0):
+    resolution: {integrity: sha512-EiwQ2g2SZqWUNn/axY9DC5kqa0X6YVh97uSCAhI58gkdiEpdL87T0mh52cl2H3jd/6u8zeP/coe06MzL814dcg==}
     peerDependencies:
       ember-flatpickr: '>=6.0.0'
       ember-source: '>=4.8.0'
@@ -3420,7 +3420,7 @@ packages:
       ember-source: 5.8.0(@babel/core@7.24.6)(@glimmer/component@1.1.2)(@glint/template@1.4.0)(rsvp@4.8.5)(webpack@5.91.0)
       ember-test-selectors: 6.0.0
       focus-trap: 7.5.4
-      imask: 7.5.0
+      imask: 7.6.1
       tracked-built-ins: 3.3.0
     transitivePeerDependencies:
       - '@babel/core'
@@ -3444,10 +3444,10 @@ packages:
       - supports-color
     dev: true
 
-  /@triptyk/ember-ui@2.0.3(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(@triptyk/ember-input@2.0.3)(ember-concurrency@4.0.2)(ember-source@5.8.0)(typescript@5.4.5)(webpack@5.91.0):
-    resolution: {integrity: sha512-2lmEgSXSuUSYLnYwYt61m79Bcb7KDuC4b26dTljZNpDlcB+PsCgTlEnW69oBlP03B7AzGz/qSiMUHtTnWwaS5w==}
+  /@triptyk/ember-ui@2.1.0-beta.1(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(@triptyk/ember-input@2.1.0-beta.1)(ember-concurrency@4.0.2)(ember-source@5.8.0)(typescript@5.4.5)(webpack@5.91.0):
+    resolution: {integrity: sha512-50vnF1mOXkB8BzAxiplyHZ3xD+0a90Msj+vsmBQ5QtEPaY83a4tNK/1vop5QJ+oyMZgA//OgWvQnTGvcaO57Tg==}
     peerDependencies:
-      '@triptyk/ember-input': 2.0.3
+      '@triptyk/ember-input': 2.1.0-beta.1
       ember-source: '>=4.8.0'
     dependencies:
       '@babel/core': 7.24.6(supports-color@8.1.1)
@@ -3456,7 +3456,7 @@ packages:
       '@ember/test-waiters': 3.1.0
       '@embroider/addon-shim': 1.8.9
       '@glimmer/component': 1.1.2(@babel/core@7.24.6)
-      '@triptyk/ember-input': 2.0.3(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0)
+      '@triptyk/ember-input': 2.1.0-beta.1(@babel/core@7.24.6)(@glint/template@1.4.0)(ember-flatpickr@8.0.0)(ember-source@5.8.0)
       ember-click-outside: 6.1.0(ember-source@5.8.0)
       ember-intl: 6.5.5(@glint/template@1.4.0)(typescript@5.4.5)(webpack@5.91.0)
       ember-modifier: 4.1.0(ember-source@5.8.0)
@@ -10024,8 +10024,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /imask@7.5.0:
-    resolution: {integrity: sha512-eoTEnw67KAamB1zsiYtU35s0Fj1XYZ8mN2q3ZDGO4ot4FtPmBpw9S6kOTj0kaOILdsEA6ZhNtH2TAMXe/NChmQ==}
+  /imask@7.6.1:
+    resolution: {integrity: sha512-sJlIFM7eathUEMChTh9Mrfw/IgiWgJqBKq2VNbyXvBZ7ev/IlO6/KQTKlV/Fm+viQMLrFLG/zCuudrLIwgK2dg==}
     engines: {npm: '>=4.0.0'}
     dependencies:
       '@babel/runtime-corejs3': 7.24.6

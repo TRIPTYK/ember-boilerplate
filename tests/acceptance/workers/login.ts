@@ -13,8 +13,9 @@ export async function loginWorker(worker: SetupWorker) {
     }),
     http.get('http://localhost:8080/api/v1/users/profile', () => {
       return HttpResponse.json({
-          users: {
+        data: {
             id: '1',
+            type: 'user',
             attributes: {
               email: '',
               firstName: '',
@@ -22,7 +23,7 @@ export async function loginWorker(worker: SetupWorker) {
               phone: '',
               role: '',
             },
-          },
+          }
         });
     }),
     http.get('http://localhost:8080/api/v1/users', () => {

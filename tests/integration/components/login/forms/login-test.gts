@@ -1,8 +1,7 @@
 /* eslint-disable qunit/require-expect */
-import { render } from '@ember/test-helpers';
+import { pauseTest, render } from '@ember/test-helpers';
 import click from '@ember/test-helpers/dom/click';
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
 import loginSchema from 'ember-boilerplate/validations/login';
@@ -12,6 +11,7 @@ import { setupIntl } from 'ember-intl/test-support';
 
 import { LoginChangeset } from 'ember-boilerplate/changesets/login';
 import LoginForm from 'ember-boilerplate/components/forms/login';
+import { setupRenderingTest } from 'ember-boilerplate/tests/helpers';
 
 interface LoginTestContext {
   changeset: LoginChangeset;

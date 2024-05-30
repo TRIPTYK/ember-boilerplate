@@ -14,11 +14,14 @@ export const usersHandlers= [
     return HttpResponse.json({
         data: {
           id: '1',
-          email: '',
-          firstName: '',
-          lastName: '',
-          phone: '',
-          role: '',
+          type: 'user',
+          attributes: {
+            email: '',
+            firstName: '',
+            lastName: '',
+            phone: '',
+            role: '',
+          }
         },
       });
   }),
