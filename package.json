@@ -23,7 +23,7 @@
     "start": "vite",
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*(!e2e)\" --names \"lint,test:\"",
     "test:types": "glint",
-    "test:ember": "vite build --mode test && ember test --path dist"
+    "test:ember": "vite build --mode test && ember exam --path dist"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
