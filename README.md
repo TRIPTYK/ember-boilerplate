@@ -4,10 +4,13 @@
 
 <p>
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://vitejs.dev/logo.svg" alt="Vite logo">
+    <img width="160" src="https://vitejs.dev/logo.svg" alt="Vite logo">
   </a>
-  <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
+  <a href="https://emberjs.com" target="_blank" rel="noopener noreferrer">
     <img width="180" src="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg" alt="Vite logo">
+  </a>
+  <a href="https://triptyk.eu" target="_blank" rel="noopener noreferrer">
+    <img width="160" src="https://triptyk.eu/assets/images/tpk-square-logo.svg" alt="Vite logo">
   </a>
 </p>
 
@@ -36,7 +39,6 @@
 ## Additional Tooling
 
 - With-backend: `with-backend.js` Starts the ember app with a backend synchronously.
-- Code duplication: with jscpd.
 - Husky: checks linting + code duplication + integration & unit tests before commiting to VSC.
 
 ## Docker
