@@ -51,9 +51,7 @@ module.exports = function (defaults) {
     },
   });
 
-  const { Webpack } = require('@embroider/webpack');
-
-  return require('@embroider/compat').compatBuild(app, Webpack, {
+  return require('@embroider/compat').compatBuild(app, null, {
     packagerOptions: {
       webpackConfig: {
         devtool: 'source-map',
@@ -64,6 +62,11 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
+    amdCompatibility: {
+      es: [
+        ["fetch", ["default", "setupFastboot"]]
+      ],
+    },
     staticAddonTrees: true,
     staticAddonTestSupportTrees: true,
     staticHelpers: true,

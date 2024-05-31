@@ -1,4 +1,5 @@
-# ember-boilerplate
+# Ember-boilerplate
+
 
 [![Tests](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
@@ -14,18 +15,18 @@
 
 ### Ember Side
 
+- Vite
 - Embroider
 - Typescript integration (ember-cli-typescript)
 - Validations (ember-immer-changeset + yup)
 - Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
-- Tests (ember-test-selectors, ember-cli-page-object, playwright)
+- Tests (ember-test-selectors, ember-cli-page-object)
 - Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
 - Ember data next gen (RequestManager based)
 - Ember concurrency
 - Test seeding & parallelization (ember-exam)
 - dev & test mocking (msw)
-- e2e testing (playwright)
 - Translations (ember-intl)
 - Authorizations (ember-can)
 - Pre-made registration flow (login/register/forgot-password)

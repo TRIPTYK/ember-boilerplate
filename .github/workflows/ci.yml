@@ -33,7 +33,5 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
       - name: Run Tests
         run: pnpm  test

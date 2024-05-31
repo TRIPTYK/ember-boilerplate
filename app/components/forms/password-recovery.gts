@@ -3,6 +3,7 @@ import type { ResetPasswordChangeset } from 'ember-boilerplate/changesets/reset-
 import type { Schema } from 'yup';
 import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
 import t from 'ember-intl/helpers/t';
+import InputsValidationComponent from '../inputs/input-validation';
 
 export interface FormsPasswordRecoveryComponentSignature {
   Args: {
@@ -23,15 +24,16 @@ const FormsPasswordRecovery: TOC<FormsPasswordRecoveryComponentSignature> = <tem
     @changeset={{@changeset}}
     @validationSchema={{@validationSchema}}
     ...attributes
-    as |F|
   >
-    <F.TpkInput
+    <InputsValidationComponent
       class="input_block"
+      @changeset={{@changeset}}
       @label={{t "components.forms.reset-password.new_password"}}
       @validationField="password"
       data-test-input="password"
     />
-    <F.TpkInput
+    <InputsValidationComponent
+      @changeset={{@changeset}}
       class="input_block"
       @label={{t "components.forms.reset-password.confirm_new_password"}}
       @validationField="confirmPassword"

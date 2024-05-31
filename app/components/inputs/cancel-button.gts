@@ -2,8 +2,6 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
-
-import windowHistoryBack from '@triptyk/ember-utils/utils/window-history-back';
 import t from 'ember-intl/helpers/t';
 
 import type RouterService from '@ember/routing/router-service';
@@ -31,7 +29,7 @@ export default class CancelButtonComponent extends Component<CancelButtonCompone
       return;
     }
 
-    windowHistoryBack();
+    window.history.back();
   }
 
   <template>

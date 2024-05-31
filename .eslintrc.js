@@ -61,7 +61,6 @@ module.exports = {
         './.stylelintrc.{js,cjs}',
         './.template-lintrc.{js,cjs}',
         './ember-cli-build.js',
-        './playwright.config.ts',
         './testem.js',
         './tailwind.config.js',
         './blueprints/*/index.js',

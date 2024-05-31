@@ -5,6 +5,7 @@ import t from 'ember-intl/helpers/t';
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import type { Schema } from 'yup';
 import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
+import InputsValidationComponent from '../inputs/input-validation';
 
 export interface FormsRegisterSignature {
   Args: {
@@ -42,27 +43,30 @@ export default class RegisterForm extends Component<FormsRegisterSignature> {
       data-test-form="register"
       class="px-4 py-8 mt-8 bg-white rounded-lg shadow space-y-6 sm:px-10 sm:mx-auto sm:w-full sm:max-w-xl grid grid-cols-12 gap-x-6 gap-y-4"
       ...attributes
-      as |I|
     >
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-12"
         @label={{t "components.forms.register.last_name"}}
         @validationField="lastName"
         data-test-input="lastName"
       />
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-12"
         @label={{t "components.forms.register.first_name"}}
         @validationField="firstName"
         data-test-input="firstName"
       />
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-12"
         @label={{t "components.forms.register.email"}}
         @validationField="email"
         data-test-input="email"
       />
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-12"
         @label={{t "components.forms.register.phone"}}
         @validationField="phone"
@@ -70,19 +74,22 @@ export default class RegisterForm extends Component<FormsRegisterSignature> {
         @maskOptions={{hash lazy=false}}
         data-test-input="phone"
       />
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-12"
         @label={{t "components.forms.register.password"}}
         @validationField="password"
         data-test-input="password"
       />
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-12"
         @label={{t "components.forms.register.confirm_password"}}
         @validationField="confirmPassword"
         data-test-input="confirmPassword"
       />
-      <I.TpkInput
+      <InputsValidationComponent
+        @changeset={{@changeset}}
         class="input_block col-span-6"
         @label={{t "components.forms.register.gift"}}
         @validationField="gift"

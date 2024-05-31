@@ -33,7 +33,9 @@ export const usersHandlers= [
   http.post('http://localhost:8080/api/v1/users', () => {
     return HttpResponse.json({
       data: {
-
+        attributes: {},
+        type: 'user',
+        id: Math.floor(Math.random() * 1000).toString(),
       }
     });
   })

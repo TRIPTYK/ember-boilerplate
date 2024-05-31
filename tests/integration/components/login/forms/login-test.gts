@@ -1,5 +1,5 @@
 /* eslint-disable qunit/require-expect */
-import { pauseTest, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import click from '@ember/test-helpers/dom/click';
 import { module, test } from 'qunit';
 

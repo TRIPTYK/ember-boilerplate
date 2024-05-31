@@ -4,6 +4,7 @@ import type { LoginChangeset } from 'ember-boilerplate/changesets/login';
 import type { Schema } from 'yup';
 import t from 'ember-intl/helpers/t';
 import { LinkTo } from '@ember/routing';
+import InputsValidationComponent from '../inputs/input-validation';
 
 export interface FormsLoginSignature {
   Args: {
@@ -24,15 +25,16 @@ const FormsLogin: TOC<FormsLoginSignature> = <template>
     @changeset={{@changeset}}
     @validationSchema={{@validationSchema}}
     data-test-form-login
-    as |F|
   >
-    <F.TpkInput
+    <InputsValidationComponent
+      @changeset={{@changeset}}
       @label={{t "components.forms.login.email"}}
       @validationField="email"
       class="input_block"
       data-test-input="email"
     />
-    <F.TpkInput
+    <InputsValidationComponent
+      @changeset={{@changeset}}
       @label={{t "components.forms.login.password"}}
       @validationField="password"
       @type="password"

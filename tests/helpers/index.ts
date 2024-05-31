@@ -7,6 +7,8 @@ import {
   setupRenderingTest as upstreamSetupRenderingTest,
   setupTest as upstreamSetupTest,
 } from 'ember-qunit';
+// @ts-expect-error
+import initializer from 'ember-simple-auth/initializers/ember-simple-auth';
 
 import type { SetupTestOptions } from 'ember-qunit';
 
@@ -33,10 +35,6 @@ function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
 
 function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupRenderingTest(hooks, options);
-
-  hooks.beforeEach(function () {
-    (this.owner.lookup('service:tpk-form') as TpkFormService).TpkInput = InputsValidationComponent as never;
-  });
   // Additional setup for rendering tests can be done here.
 }
 

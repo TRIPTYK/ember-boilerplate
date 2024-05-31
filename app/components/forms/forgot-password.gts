@@ -28,9 +28,9 @@ const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
     @changeset={{@changeset}}
     @validationSchema={{@validationSchema}}
     ...attributes
-    as |F|
   >
-    <F.TpkInput
+    <InputsValidationComponent
+      @changeset={{@changeset}}
       class="input_block"
       @label={{t "components.forms.forgot-password.email"}}
       @validationField="email"
