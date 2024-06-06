@@ -15,7 +15,7 @@ import type { ServiceWorkerTestContext } from '../../worker';
 module('Acceptance | register', function (hooks) {
   setupApplicationTest(hooks);
   setupMock(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
   async function completeFormAndSubmit() {
     await indexPage.forms

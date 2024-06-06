@@ -21,7 +21,7 @@ interface LoginTestContext {
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
   function renderForm(context: LoginTestContext) {
     return render<LoginTestContext>(

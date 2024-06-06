@@ -10,7 +10,7 @@ import type { Schema } from 'yup';
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
   function createChangeset(): RegisterChangeset {
     return new RegisterChangeset({
