@@ -51,7 +51,9 @@ module.exports = function (defaults) {
     },
   });
 
-  return require('@embroider/compat').compatBuild(app, null, {
+  const { Webpack } = require('@embroider/webpack');
+
+  return require('@embroider/compat').compatBuild(app, Webpack, {
     packagerOptions: {
       webpackConfig: {
         devtool: 'source-map',

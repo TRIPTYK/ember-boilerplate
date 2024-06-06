@@ -8,16 +8,20 @@
 
     {{content-for "head"}}
 
-    <link integrity="" rel="stylesheet" href="/@embroider/core/vendor.css">
-    <link integrity="" rel="stylesheet" href="/assets/ember-boilerplate.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+    <link
+      integrity=""
+      rel="stylesheet"
+      href="{{rootURL}}assets/ember-boilerplate.css"
+    />
 
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
 
-    <script src="/@embroider/core/vendor.js"></script>
-    <script src="/@embroider/core/entrypoint" type="module"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/ember-boilerplate.js"></script>
 
     {{content-for "body-footer"}}
   </body>

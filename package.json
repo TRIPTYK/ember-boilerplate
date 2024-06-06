@@ -11,7 +11,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "ember build --env=production",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
@@ -20,10 +20,10 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "start": "vite",
+    "start": "ember serve",
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*(!e2e)\" --names \"lint,test:\"",
     "test:types": "glint",
-    "test:ember": "vite build --mode test && ember exam --path dist"
+    "test:ember": "ember test"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
@@ -55,11 +55,11 @@
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.3.0",
     "@ember/test-waiters": "~3.1.0",
-    "@embroider/compat": "3.5.2-unstable.217e7a8",
-    "@embroider/core": "3.4.11-unstable.217e7a8",
+    "@embroider/compat": "~3.5.1",
+    "@embroider/core": "~3.4.10",
     "@embroider/router": "2.1.8",
-    "@embroider/test-setup": "4.0.1-unstable.217e7a8",
-    "@embroider/vite": "0.2.1-unstable.217e7a8",
+    "@embroider/test-setup": "~4.0.0",
+    "@embroider/webpack": "^4.0.1",
     "@glimmer/component": "~1.1.2",
     "@glimmer/tracking": "~1.1.2",
     "@glint/core": "^1.4.0",
@@ -150,7 +150,6 @@
     "true-myth": "^7.3.0",
     "type-fest": "^4.18.2",
     "typescript": "~5.4.5",
-    "vite": "^5.2.12",
     "webpack": "^5.91.0",
     "yup": "^1.4.0"
   },

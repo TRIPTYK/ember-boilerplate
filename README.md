@@ -3,20 +3,16 @@
 [![Tests](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
 <p>
-  <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-    <img width="160" src="https://vitejs.dev/logo.svg" alt="Vite logo">
-  </a>
   <a href="https://emberjs.com" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg" alt="Vite logo">
+    <img width="180" src="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg" alt="Ember logo">
   </a>
   <a href="https://triptyk.eu" target="_blank" rel="noopener noreferrer">
-    <img width="160" src="https://triptyk.eu/assets/images/tpk-square-logo.svg" alt="Vite logo">
+    <img width="160" src="https://triptyk.eu/assets/images/tpk-square-logo.svg" alt="TRIPTYK logo">
   </a>
 </p>
 
 ## Preconfigured 5.x Ember project with
 
-- Vite
 - Embroider
 - Typescript integration (ember-cli-typescript)
 - Validations (ember-immer-changeset + yup)
