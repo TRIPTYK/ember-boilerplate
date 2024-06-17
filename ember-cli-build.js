@@ -58,7 +58,7 @@ module.exports = async function (defaults) {
   const { Webpack } = require('@embroider/webpack');
 
   setConfig(app, __dirname, {
-    compatWith: process.env.EMBER_DATA_FULL_COMPAT ? '99.0' : null,
+    compatWith: '99.0',
   });
 
   return require('@embroider/compat').compatBuild(app, Webpack, {
