@@ -11,8 +11,8 @@ import RouteTemplate from 'ember-route-template';
 import { tracked } from 'tracked-built-ins';
 
 import type RouterService from '@ember/routing/router-service';
-import type FetchService from '@triptyk/ember-utils/services/fetch';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
+import type RequestManager from '@ember-data/request';
 
 interface ResetPasswordRouteComponentSignature {
   Args: {
@@ -21,7 +21,7 @@ interface ResetPasswordRouteComponentSignature {
 }
 
 class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentSignature> {
-  @service declare fetch: FetchService;
+  @service declare requestManager: RequestManager;
   @service declare router: RouterService;
   @service declare flashMessages: FlashMessageService;
   @tracked changeset: ResetPasswordChangeset;
@@ -39,7 +39,8 @@ class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentS
   @action
   async recoverPassword(changeset: ResetPasswordChangeset) {
     try {
-      await this.fetch.request(`auth/set-password/${this.args.token}`, {
+      await this.requestManager.request({
+        url: `auth/set-password/${this.args.token}`,
         body: JSON.stringify({
           password: changeset.get('password'),
         }),
@@ -53,7 +54,7 @@ class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentS
   }
 
   <template>
-    <LoginLayout @title={{t "components.pages.reset-password.title"}}>
+    <LoginLayout @title={{t "components.templates.reset-password.title"}}>
       <FormsPasswordRecovery
         @validationSchema={{this.validationSchema}}
         @changeset={{this.changeset}}

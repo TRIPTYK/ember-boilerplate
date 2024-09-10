@@ -2,8 +2,7 @@ import { LinkTo } from '@ember/routing';
 
 import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
 import t from 'ember-intl/helpers/t';
-
-import YupForm from './yup-form';
+import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
 
 import type { TOC } from '@ember/component/template-only';
 import type { ForgotPasswordChangeset } from 'ember-boilerplate/changesets/forgot-password';
@@ -22,7 +21,7 @@ export interface FormsForgotPasswordSignature {
 }
 
 const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
-  <YupForm
+  <TpkForm
     class="px-4 py-8 mt-8 bg-white shadow space-y-6 sm:rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-md"
     data-test-form="forgot-password"
     @onSubmit={{@saveFunction}}
@@ -31,8 +30,8 @@ const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
     ...attributes
   >
     <InputsValidationComponent
-      @label={{t "components.forms.forgot-password.email"}}
       @changeset={{@changeset}}
+      @label={{t "components.forms.forgot-password.email"}}
       @validationField="email"
       @labelClass="label"
       @inputClass="input"
@@ -49,7 +48,7 @@ const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
         <span>{{t "components.forms.forgot-password.cancel"}}</span>
       </LinkTo>
     </div>
-  </YupForm>
+  </TpkForm>
 </template>;
 
 export default FormsForgotPassword;

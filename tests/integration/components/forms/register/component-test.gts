@@ -1,30 +1,19 @@
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
-
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import { setupRenderingTest } from 'ember-boilerplate/tests/helpers';
 import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register';
 import validationsRegister from 'ember-boilerplate/validations/register';
-
 import { setupIntl } from 'ember-intl/test-support';
-
-import type { TestContext } from '@ember/test-helpers';
-
-interface RegisterTestContext extends TestContext {
-  changeset: RegisterChangeset;
-  saveFunction: (changeset: RegisterChangeset) => void;
-  validationSchema: typeof validationsRegister;
-}
+import RegisterForm from 'ember-boilerplate/components/forms/register';
+import type { Schema } from 'yup';
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
-  let changeset: RegisterChangeset;
-
-  hooks.beforeEach<RegisterTestContext>(function () {
-    changeset = new RegisterChangeset({
+  function createChangeset(): RegisterChangeset {
+    return new RegisterChangeset({
       email: 'test@triptyk.eu',
       lastName: 'triptyk',
       firstName: 'papa',
@@ -33,34 +22,33 @@ module('Integration | Component | forms/register', function (hooks) {
       password: '',
       confirmPassword: '',
     });
+  }
 
-    this.set('changeset', changeset);
-  });
-
-  function renderForm() {
-    return render<RegisterTestContext>(
-      hbs`
-        <Forms::Register
-            @changeset={{this.changeset}}
-            @saveFunction={{this.saveFunction}}
-            @validationSchema={{this.validationSchema}}
+  function renderForm(
+    changeset: RegisterChangeset,
+    saveFunction: (changeset: RegisterChangeset) => void,
+    validationSchema: Schema
+  ) {
+    return render(
+      <template>
+        <RegisterForm
+          @changeset={{changeset}}
+          @saveFunction={{saveFunction}}
+          @validationSchema={{validationSchema}}
         />
-      `,
+      </template>
     );
   }
 
   test('Submit with missing field returns errors', async function (assert) {
-    // Testing makes Amaury happy so do your tests
-    this.set('saveFunction', () => {});
-    this.set('validationSchema', validationsRegister);
-    await renderForm();
+    await renderForm(createChangeset(), () => {}, validationsRegister);
     await pagesFormsRegister.submit();
     assert.true(pagesFormsRegister.errors.length > 0);
   });
 
   // note : saveFunction when form is valid is already tested by the component YupForm. No need to test this behavior in the future.
   test('Edit form and trigger saveFunction', async function (assert) {
-    this.set('saveFunction', (changeset: RegisterChangeset) => {
+    let saveFunction = (changeset: RegisterChangeset) => {
       assert.strictEqual(changeset.get('lastName'), 'triptyk');
       assert.strictEqual(changeset.get('firstName'), 'papa');
       assert.strictEqual(changeset.get('email'), 'test@triptyk.eu');
@@ -69,32 +57,24 @@ module('Integration | Component | forms/register', function (hooks) {
       assert.strictEqual(changeset.get('password'), 'hello');
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
       assert.step('saveFunction');
-    });
-    this.set('validationSchema', validationsRegister);
-    await renderForm();
+    };
+    await renderForm(createChangeset(), saveFunction, validationsRegister);
 
-    await pagesFormsRegister
-      .gift('234,23 €')
-      .password('hello')
-      .confirmPassword('hello');
+    await pagesFormsRegister.gift('234,23 €').password('hello').confirmPassword('hello');
 
     await pagesFormsRegister.submit();
     assert.verifySteps(['saveFunction']);
   });
 
   test('confirmPassword which does not match password returns an error', async function (assert) {
-    this.set('saveFunction', () => {});
-    this.set('validationSchema', validationsRegister);
-    await renderForm();
+    await renderForm(createChangeset(), () => {}, validationsRegister);
 
     await pagesFormsRegister.password('hello').confirmPassword('hellos');
 
     await pagesFormsRegister.submit();
 
     assert.true(
-      pagesFormsRegister.errors[0]?.text?.includes(
-        'validations.confirm_password.not_matching',
-      ),
+      pagesFormsRegister.errors[0]?.text?.includes('validations.confirm_password.not_matching')
     );
   });
 });

@@ -10,14 +10,14 @@ import RouteTemplate from 'ember-route-template';
 import { tracked } from 'tracked-built-ins';
 
 import type Router from '@ember/routing/router';
-import type FetchService from '@triptyk/ember-utils/services/fetch';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
+import RequestManager from '@ember-data/request';
 
 interface PagesForgotPasswordArgs {}
 
 class PagesForgotPassword extends Component<PagesForgotPasswordArgs> {
-  @service declare fetch: FetchService;
   @service declare router: Router;
+  @service declare requestManager: RequestManager;
   @service declare flashMessages: FlashMessageService;
   @tracked changeset: ForgotPasswordChangeset;
 
@@ -33,7 +33,8 @@ class PagesForgotPassword extends Component<PagesForgotPasswordArgs> {
   @action
   async sendRecoveryRequest(changeset: ForgotPasswordChangeset) {
     try {
-      await this.fetch.request('auth/forgot-password', {
+      await this.requestManager.request({
+        url: '/auth/forgot-password',
         body: JSON.stringify({
           email: changeset.get('email'),
         }),

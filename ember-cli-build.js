@@ -1,8 +1,12 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const { join } = require('path');
 
-module.exports = function (defaults) {
+module.exports = async function (defaults) {
+  const { setConfig } = await import('@warp-drive/build-config');
+  const { macros } = await import('@warp-drive/build-config/babel-macros');
+
   process.on('uncaughtException', (err) => {
     // eslint-disable-next-line no-console
     console.error(err.stack);
@@ -53,6 +57,10 @@ module.exports = function (defaults) {
 
   const { Webpack } = require('@embroider/webpack');
 
+  setConfig(app, __dirname, {
+    compatWith: '99.0',
+  });
+
   return require('@embroider/compat').compatBuild(app, Webpack, {
     packagerOptions: {
       webpackConfig: {
@@ -64,6 +72,11 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
+    amdCompatibility: {
+      es: [
+        ["fetch", ["default", "setupFastboot"]]
+      ],
+    },
     staticAddonTrees: true,
     staticAddonTestSupportTrees: true,
     staticHelpers: true,

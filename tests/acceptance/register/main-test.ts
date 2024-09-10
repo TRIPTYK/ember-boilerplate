@@ -15,7 +15,7 @@ import type { ServiceWorkerTestContext } from '../../worker';
 module('Acceptance | register', function (hooks) {
   setupApplicationTest(hooks);
   setupMock(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
   async function completeFormAndSubmit() {
     await indexPage.forms
@@ -47,8 +47,10 @@ module('Acceptance | register', function (hooks) {
       .password('hello')
       .confirmPassword('hello')
       .submit();
+
     assert.ok(indexPage.hasSuccess);
   });
+
   test<ServiceWorkerTestContext>('show error message and error in changeset', async function (assert) {
     await registerWorkerWithErrors(this.worker);
     await indexPage.visit();

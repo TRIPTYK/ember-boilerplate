@@ -7,6 +7,4 @@ const passwordRecoveryValidation = Yup.object().shape({
     .oneOf([Yup.ref('password')], 'validations.confirm_password.not_matching'),
 });
 
-// jscpd:ignore-end
-
 export default passwordRecoveryValidation;

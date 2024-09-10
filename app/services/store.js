@@ -1,44 +1,7 @@
-import JSONAPICache from '@ember-data/json-api';
-import { LegacyNetworkHandler } from '@ember-data/legacy-compat';
-import { FetchManager } from '@ember-data/legacy-compat/-private';
-import { buildSchema, instantiateRecord, modelFor, teardownRecord } from '@ember-data/model/hooks';
-import RequestManager from '@ember-data/request';
-import Fetch from '@ember-data/request/fetch';
-import BaseStore, { CacheHandler, recordIdentifierFor } from '@ember-data/store';
+// eslint-disable-next-line ember/use-ember-data-rfc-395-imports
+import Store from 'ember-data/store';
+import { service } from '@ember/service';
 
-export default class Store extends BaseStore {
-  constructor(args) {
-    super(args);
-    this.requestManager = new RequestManager();
-    this.requestManager.use([LegacyNetworkHandler, Fetch]);
-    this.requestManager.useCache(CacheHandler);
-    this.registerSchema(buildSchema(this));
-  }
-
-  createCache(storeWrapper) {
-    return new JSONAPICache(storeWrapper);
-  }
-
-  instantiateRecord(
-    identifier,
-    createRecordArgs
-  ) {
-    return instantiateRecord.call(this, identifier, createRecordArgs);
-  }
-
-  teardownRecord(record) {
-    teardownRecord.call(this, record);
-  }
-
-  modelFor(type) {
-    return modelFor.call(this, type) || super.modelFor(type);
-  }
-
-  serializeRecord(record, options) {
-    if (!this._fetchManager) {
-      this._fetchManager = new FetchManager(this);
-    }
-
-    return this._fetchManager.createSnapshot(recordIdentifierFor(record)).serialize(options);
-  }
+export default class AppStore extends Store {
+  @service requestManager;
 }

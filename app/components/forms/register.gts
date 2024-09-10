@@ -1,13 +1,11 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-
-import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
 import t from 'ember-intl/helpers/t';
-
-import YupForm from './yup-form';
 
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import type { Schema } from 'yup';
+import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
+import InputsValidationComponent from '../inputs/input-validation';
 
 export interface FormsRegisterSignature {
   Args: {
@@ -21,7 +19,7 @@ export interface FormsRegisterSignature {
   Element: HTMLFormElement;
 }
 
-export default class FormsRegister extends Component<FormsRegisterSignature> {
+export default class RegisterForm extends Component<FormsRegisterSignature> {
   maskForEuro = {
     mask: 'num €',
     lazy: false,
@@ -38,7 +36,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
   };
 
   <template>
-    <YupForm
+    <TpkForm
       @changeset={{@changeset}}
       @onSubmit={{@saveFunction}}
       @validationSchema={{@validationSchema}}
@@ -48,8 +46,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
     >
       <InputsValidationComponent
         class="form-control col-span-12 lg:col-span-6"
-        @label={{t "components.forms.register.last_name"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.last_name"}}
         @validationField="lastName"
         @labelClass="label"
         @inputClass="input"
@@ -57,8 +55,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       />
       <InputsValidationComponent
         class="form-control col-span-12 lg:col-span-6"
-        @label={{t "components.forms.register.first_name"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.first_name"}}
         @validationField="firstName"
         @labelClass="label"
         @inputClass="input"
@@ -66,8 +64,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       />
       <InputsValidationComponent
         class="form-control col-span-12 lg:col-span-6"
-        @label={{t "components.forms.register.email"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.email"}}
         @validationField="email"
         @labelClass="label"
         @inputClass="input"
@@ -75,8 +73,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       />
       <InputsValidationComponent
         class="form-control col-span-12 lg:col-span-6"
-        @label={{t "components.forms.register.phone"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.phone"}}
         @validationField="phone"
         @mask="+30 000000000"
         @maskOptions={{hash lazy=false}}
@@ -86,8 +84,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       />
       <InputsValidationComponent
         class="form-control col-span-12 lg:col-span-6"
-        @label={{t "components.forms.register.password"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.password"}}
         @validationField="password"
         @labelClass="label"
         @inputClass="input"
@@ -96,8 +94,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       />
       <InputsValidationComponent
         class="form-control col-span-12 lg:col-span-6"
-        @label={{t "components.forms.register.confirm_password"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.confirm_password"}}
         @validationField="confirmPassword"
         @labelClass="label"
         @inputClass="input"
@@ -106,8 +104,8 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       />
       <InputsValidationComponent
         class="form-control col-span-6 lg:col-span-6"
-        @label={{t "components.forms.register.gift"}}
         @changeset={{@changeset}}
+        @label={{t "components.forms.register.gift"}}
         @validationField="gift"
         @mask="Number €"
         @maskOptions={{this.maskForEuro}}
@@ -121,6 +119,6 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
           {{t "global.submit"}}
         </span>
       </button>
-    </YupForm>
+    </TpkForm>
   </template>
 }

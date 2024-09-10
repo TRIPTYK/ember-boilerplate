@@ -5,11 +5,15 @@ export const successHandle = http.post(
   () => {
     return HttpResponse.json({
         data: {
-          attributes: {
-            password: null,
-          },
-          type: 'users',
+          type: 'user',
           id: '1',
+          attributes: {
+            email: 'test@triptyk.eu',
+            firstName: 'papa',
+            lastName: 'triptyk',
+            phone: '+32 498542256',
+            role: 'user',
+          }
         },
       })
   }

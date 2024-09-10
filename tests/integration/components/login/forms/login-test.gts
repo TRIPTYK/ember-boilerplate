@@ -1,19 +1,19 @@
 /* eslint-disable qunit/require-expect */
-import { render, type TestContext } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import click from '@ember/test-helpers/dom/click';
-import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 
 import { loginPage } from 'ember-boilerplate/tests/pages/login';
 import loginSchema from 'ember-boilerplate/validations/login';
-import { type Changeset,ImmerChangeset } from 'ember-immer-changeset';
+import { type Changeset, ImmerChangeset } from 'ember-immer-changeset';
 
 import { setupIntl } from 'ember-intl/test-support';
 
-import type { LoginChangeset } from 'ember-boilerplate/changesets/login';
+import { LoginChangeset } from 'ember-boilerplate/changesets/login';
+import LoginForm from 'ember-boilerplate/components/forms/login';
+import { setupRenderingTest } from 'ember-boilerplate/tests/helpers';
 
-interface LoginTestContext extends TestContext {
+interface LoginTestContext {
   changeset: LoginChangeset;
   saveFunction: (changeset: Changeset) => void;
   validationSchema: typeof loginSchema;
@@ -21,20 +21,33 @@ interface LoginTestContext extends TestContext {
 
 module('Integration | Component | FormsLogin', function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
+
+  function renderForm(context: LoginTestContext) {
+    return render<LoginTestContext>(
+      <template>
+        <LoginForm
+          @validationSchema={{context.validationSchema}}
+          @changeset={{context.changeset}}
+          @saveFunction={{context.saveFunction}}
+        />
+      </template>
+    );
+  }
 
   test('Create (empty changeset)', async function (assert) {
-    this.set('changeset', new ImmerChangeset({}));
-    this.set('validationSchema', loginSchema);
-    this.set('saveFunction', (changeset: Changeset) => {
+    let validationSchema = loginSchema;
+    let saveFunction = (changeset: Changeset) => {
       assert.step('saveFunction');
       assert.strictEqual(changeset.get('email'), 'edited@gmail.com');
       assert.strictEqual(changeset.get('password'), 'edited');
-    });
+    };
 
-    await render<LoginTestContext>(
-      hbs`<Forms::Login @validationSchema={{this.validationSchema}} @changeset={{this.changeset}} @saveFunction={{this.saveFunction}} />`,
-    );
+    await renderForm({
+      changeset: new LoginChangeset({} as never),
+      validationSchema,
+      saveFunction,
+    });
 
     assert.dom('[data-test-input="email"] input').hasValue('');
     assert.dom('[data-test-input="password"] input').hasValue('');
@@ -46,24 +59,23 @@ module('Integration | Component | FormsLogin', function (hooks) {
   });
 
   test('Edit (populated changeset)', async function (assert) {
-    this.set(
-      'changeset',
-      new ImmerChangeset({
-        email: 'hello',
-        password: 'hello',
-      }),
-    );
-    this.set('validationSchema', loginSchema);
+    let changeset = new ImmerChangeset({
+      email: 'hello',
+      password: 'hello',
+    });
+    let validationSchema = loginSchema;
 
-    this.set('saveFunction', (changeset: Changeset) => {
+    let saveFunction = (changeset: Changeset) => {
       assert.strictEqual(changeset.get('email'), 'edited@gmail.com');
       assert.strictEqual(changeset.get('password'), 'helloEdited');
       assert.step('saveFunction');
-    });
+    };
 
-    await render<LoginTestContext>(
-      hbs`<Forms::Login  @validationSchema={{this.validationSchema}} @saveFunction={{this.saveFunction}} @changeset={{this.changeset}}/>`,
-    );
+    await renderForm({
+      changeset,
+      validationSchema,
+      saveFunction,
+    });
 
     assert.dom('[data-test-input="email"] input').hasValue('hello');
     assert.dom('[data-test-input="password"] input').hasValue('hello');

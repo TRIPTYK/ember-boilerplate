@@ -1,13 +1,10 @@
-import { LinkTo } from '@ember/routing';
-
-import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
-import t from 'ember-intl/helpers/t';
-
-import YupForm from './yup-form';
-
+import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
 import type { TOC } from '@ember/component/template-only';
 import type { LoginChangeset } from 'ember-boilerplate/changesets/login';
 import type { Schema } from 'yup';
+import t from 'ember-intl/helpers/t';
+import { LinkTo } from '@ember/routing';
+import InputsValidationComponent from '../inputs/input-validation';
 
 export interface FormsLoginSignature {
   Args: {
@@ -22,7 +19,7 @@ export interface FormsLoginSignature {
 }
 
 const FormsLogin: TOC<FormsLoginSignature> = <template>
-  <YupForm
+  <TpkForm
     class="space-y-6 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 mt-8 sm:mx-auto sm:w-full sm:max-w-md"
     @onSubmit={{@saveFunction}}
     @changeset={{@changeset}}
@@ -30,8 +27,8 @@ const FormsLogin: TOC<FormsLoginSignature> = <template>
     data-test-form-login
   >
     <InputsValidationComponent
-      @label={{t "components.forms.login.email"}}
       @changeset={{@changeset}}
+      @label={{t "components.forms.login.email"}}
       @validationField="email"
       @labelClass="label"
       @inputClass="input"
@@ -39,8 +36,8 @@ const FormsLogin: TOC<FormsLoginSignature> = <template>
       data-test-input="email"
     />
     <InputsValidationComponent
-      @label={{t "components.forms.login.password"}}
       @changeset={{@changeset}}
+      @label={{t "components.forms.login.password"}}
       @validationField="password"
       @type="password"
       @labelClass="label"
@@ -62,7 +59,7 @@ const FormsLogin: TOC<FormsLoginSignature> = <template>
         </span>
       </button>
     </div>
-  </YupForm>
+  </TpkForm>
 </template>;
 
 export default FormsLogin;

@@ -1,8 +1,14 @@
+import { setBuildURLConfig } from '@ember-data/request-utils';
+import type TpkFormService from '@triptyk/ember-input-validation/services/tpk-form';
+import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
+import config from 'ember-boilerplate/config/environment';
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,
   setupTest as upstreamSetupTest,
 } from 'ember-qunit';
+// @ts-expect-error
+import initializer from 'ember-simple-auth/initializers/ember-simple-auth';
 
 import type { SetupTestOptions } from 'ember-qunit';
 
@@ -29,13 +35,16 @@ function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
 
 function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupRenderingTest(hooks, options);
-
   // Additional setup for rendering tests can be done here.
 }
 
 function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupTest(hooks, options);
 
+  setBuildURLConfig({
+    host: config.host,
+    namespace: config.namespace,
+  });
   // Additional setup for unit tests can be done here.
 }
 

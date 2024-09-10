@@ -52,7 +52,7 @@ class PagesLogin extends Component<PagesLoginArgs> {
   }
 
   <template>
-    <LoginLayout @title={{t "components.pages.login.title"}}>
+    <LoginLayout @title={{t "components.templates.login.title"}}>
       <FormsLogin
         @validationSchema={{this.validationSchema}}
         @changeset={{this.changeset}}

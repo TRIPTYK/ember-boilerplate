@@ -1,50 +1,47 @@
-# ember-boilerplate
+# Ember-boilerplate
 
 [![Tests](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/TRIPTYK/ember-boilerplate/actions/workflows/ci.yml)
 
-## You can use this IF
-
-- ✅ You use tailwindcss
-- ✅ You use typescript
-- ✅ You use JWT based authentification
-- ✅ You use pnpm
-- ✅ You don't bother using TRIPTYK packages
+<p>
+  <a href="https://emberjs.com" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg" alt="Ember logo">
+  </a>
+  <a href="https://triptyk.eu" target="_blank" rel="noopener noreferrer">
+    <img width="160" src="https://triptyk.eu/assets/images/tpk-square-logo.svg" alt="TRIPTYK logo">
+  </a>
+</p>
 
 ## Preconfigured 5.x Ember project with
-
-### Ember Side
 
 - Embroider
 - Typescript integration (ember-cli-typescript)
 - Validations (ember-immer-changeset + yup)
 - Tailwindcss 3.x, with primary and secondary colors configured
 - Flash messages (ember-cli-flash)
-- Tests (ember-test-selectors, ember-cli-page-object, playwright)
+- Tests (ember-test-selectors, ember-cli-page-object)
 - Sessions,Login,Logout,... (ember-simple-auth,ember-simple-auth-token)
-- Base ember adapter, serializer and controller
+- Ember data next gen (RequestManager based)
 - Ember concurrency
 - Test seeding & parallelization (ember-exam)
 - dev & test mocking (msw)
-- e2e testing (playwright)
 - Translations (ember-intl)
 - Authorizations (ember-can)
 - Pre-made registration flow (login/register/forgot-password)
 
-### VSCODE IDE
+## VSCODE IDE
 
 - VSCODE Ready, all rules are setup for a great developing experience.
 
-### Additional Tooling
+## Additional Tooling
 
 - With-backend: `with-backend.js` Starts the ember app with a backend synchronously.
-- Code duplication: with jscpd.
 - Husky: checks linting + code duplication + integration & unit tests before commiting to VSC.
 
-### Docker
+## Docker
 
 - A docker image can be found in `images`.
 
-### CI
+## CI
 
 A github workflow CI is provided.
 
@@ -86,7 +83,7 @@ Components are located: `app/components/`.
 
 ### API Mocking
 
-Development mocks are in `public/mocks`.
+Development mocks are in `app/handlers`.
 Testing mocks are split in the `tests` folders.
 
 ## Installation
@@ -99,9 +96,8 @@ Testing mocks are split in the `tests` folders.
 
 ## Running / Development
 
-- `ember serve`
+- `pnpm start`
 - Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
 ### Running Tests
 
@@ -112,12 +108,7 @@ Testing mocks are split in the `tests` folders.
 - `pnpm lint`
 - `pnpm lint:fix`
 
-### Duplication
-
-- `pnpm test:duplication`
-
-
 ### Building
 
-- `ember build` (development)
-- `ember build --environment production` (production)
+- `pnpm build --mode=dev` (development)
+- `pnpm build` (production)

@@ -14,7 +14,7 @@ import type { ServiceWorkerTestContext } from '../worker';
 module('Acceptance | login', function (hooks) {
   setupApplicationTest(hooks);
   setupMock(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
   test<ServiceWorkerTestContext>('visiting /login', async function (assert) {
     await loginWorker(this.worker);

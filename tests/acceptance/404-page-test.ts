@@ -8,7 +8,7 @@ import { notFoundPage } from '../pages/404';
 
 module('Acceptance | 404 page', function (hooks) {
   setupApplicationTest(hooks);
-  setupIntl(hooks, ['fr-fr']);
+  setupIntl(hooks, 'fr-fr');
 
   test('visiting /404-page', async function (assert) {
     await notFoundPage.visit();

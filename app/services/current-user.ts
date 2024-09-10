@@ -3,31 +3,30 @@ import Service from '@ember/service';
 import { service } from '@ember/service';
 
 import type SessionService from './session';
-import type Store from '@ember-data/store';
-import type FetchService from '@triptyk/ember-utils/services/fetch';
+import type RequestManager from '@ember-data/request';
 import type UserModel from 'ember-boilerplate/models/user';
+import type SafeStore from './safe-store';
+import { findRecord } from '@ember-data/json-api/request';
+import { Maybe } from 'true-myth';
 
 export default class CurrentUserService extends Service {
   @service declare session: SessionService;
-  @service declare store: Store;
-  @service declare fetch: FetchService;
+  @service declare requestManager: RequestManager;
+  @service declare safeStore: SafeStore;
 
-  @tracked public user?: UserModel;
+  @tracked public user: Maybe<UserModel> = Maybe.nothing();
 
   async load() {
     if (this.session.isAuthenticated) {
-      let user = await this.store.queryRecord('user', { profile: true });
+      let userResponse = await this.safeStore.request(findRecord<UserModel>('user', 'profile'))
 
-      this.user = user;
+      if (userResponse.isErr) {
+        return null;
+      }
+
+      this.user = Maybe.just(userResponse.value.content.data);
     }
 
     return this.user;
-  }
-}
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your services.
-declare module '@ember/service' {
-  interface Registry {
-    'current-user': CurrentUserService;
   }
 }

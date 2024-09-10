@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
-import FormsRegister from 'ember-boilerplate/components/forms/register';
+import RegisterForm from 'ember-boilerplate/components/forms/register';
 import LoginLayout from 'ember-boilerplate/components/login-layout';
 import formsRegisterSchema from 'ember-boilerplate/validations/register';
 import t from 'ember-intl/helpers/t';
@@ -41,19 +41,20 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
 
   @action
   async saveRegister(changeset: RegisterChangeset) {
-    try {
-      await this.register.save(changeset);
-      this.flashMessages.success('components.pages.register.success_message');
-    } catch (e: any) {
-      const error = await e;
+    const user = await this.register.save(changeset);
 
-      this.errorHandler.handle(changeset, error.errors);
+    if (user.isErr) {
+      console.log(user.error.message);
+
+      return this.errorHandler.handle(user.error.message);
     }
+
+    return this.flashMessages.success('components.templates.register.success_message');
   }
 
   <template>
-    <LoginLayout @title={{t "components.pages.register.title"}}>
-      <FormsRegister
+    <LoginLayout @title={{t "components.templates.register.title"}}>
+      <RegisterForm
         @changeset={{this.changeset}}
         @validationSchema={{this.validationSchema}}
         @saveFunction={{this.saveRegister}}
