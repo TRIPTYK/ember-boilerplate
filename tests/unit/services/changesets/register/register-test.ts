@@ -1,4 +1,3 @@
-/* eslint-disable qunit/require-expect */
 import { module, test } from 'qunit';
 
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';

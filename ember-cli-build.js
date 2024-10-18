@@ -1,14 +1,11 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const { join } = require('path');
 
 module.exports = async function (defaults) {
   const { setConfig } = await import('@warp-drive/build-config');
-  const { macros } = await import('@warp-drive/build-config/babel-macros');
 
   process.on('uncaughtException', (err) => {
-    // eslint-disable-next-line no-console
     console.error(err.stack);
   });
 

@@ -1,4 +1,3 @@
-/* eslint-disable qunit/require-expect */
 import { render } from '@ember/test-helpers';
 import click from '@ember/test-helpers/dom/click';
 import { module, test } from 'qunit';

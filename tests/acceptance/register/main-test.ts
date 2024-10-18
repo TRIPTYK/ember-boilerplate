@@ -1,4 +1,3 @@
-/* eslint-disable max-statements */
 import { currentURL } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 

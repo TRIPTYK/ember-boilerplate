@@ -7,6 +7,6 @@ export default function missingMessage(key, locales) {
     throw new Error(message);
   }
 
-  // eslint-disable-next-line no-console
+   
   console.warn(message);
 }

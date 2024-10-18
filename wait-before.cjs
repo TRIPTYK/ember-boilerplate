@@ -11,7 +11,6 @@ const launchBackend = child_process.spawn(beforeCommand, {
 launchBackend.stdout.pipe(process.stdout);
 launchBackend.on('close', () => {
   if (launchBackend.exitCode !== null) {
-    // eslint-disable-next-line n/no-process-exit
     process.exit(launchBackend.exitCode);
   }
 });
@@ -23,7 +22,7 @@ process.on('SIGINT', () => {
 
 launchBackend.stdout.on('data', (data) => {
   if (data.toString().includes(triggerText)) {
-    // eslint-disable-next-line no-console
+
     console.log(`${beforeCommand} done, executing ${afterCommand}`);
 
     const exec = child_process.spawn(afterCommand, {
@@ -41,7 +40,6 @@ launchBackend.stdout.on('data', (data) => {
       process.kill(-launchBackend.pid);
 
       if (exec.exitCode !== null) {
-        // eslint-disable-next-line n/no-process-exit
         process.exit(exec.exitCode);
       }
     });

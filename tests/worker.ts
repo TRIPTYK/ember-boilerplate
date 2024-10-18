@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { http, passthrough } from 'msw';
 import { setupWorker as MSWSetupWorker } from 'msw/browser';
 
@@ -17,7 +16,7 @@ export function setupWorker() {
 
 export function stopWorker() {
   worker.listHandlers().forEach((handler) => {
-    // eslint-disable-next-line no-console
+     
     console.log(handler.info.header)
   })
   worker.stop();
