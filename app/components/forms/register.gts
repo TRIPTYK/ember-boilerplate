@@ -1,17 +1,14 @@
-import Component from '@glimmer/component';
-import { hash } from '@ember/helper';
 import t from 'ember-intl/helpers/t';
-
+import type { TOC } from '@ember/component/template-only';
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
-import type { Schema } from 'yup';
 import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
-import InputsValidationComponent from '../inputs/input-validation';
+import type validationsRegister from 'ember-boilerplate/validations/register';
 
 export interface FormsRegisterSignature {
   Args: {
     changeset: RegisterChangeset;
     saveFunction: (changeset: RegisterChangeset) => void;
-    validationSchema: Schema;
+    validationSchema: typeof validationsRegister;
   };
   Blocks: {
     default: [];
@@ -19,23 +16,7 @@ export interface FormsRegisterSignature {
   Element: HTMLFormElement;
 }
 
-export default class RegisterForm extends Component<FormsRegisterSignature> {
-  maskForEuro = {
-    mask: 'num €',
-    lazy: false,
-    blocks: {
-      num: {
-        mask: Number,
-        signed: true,
-        scale: 2,
-        radix: ',',
-        thousandsSeparator: '.',
-      },
-    },
-    overwrite: true,
-  };
-
-  <template>
+const FormsRegisterSignature: TOC<FormsRegisterSignature> = <template>
     <TpkForm
       @changeset={{@changeset}}
       @onSubmit={{@saveFunction}}
@@ -43,59 +24,48 @@ export default class RegisterForm extends Component<FormsRegisterSignature> {
       data-test-form="register"
       class="px-4 py-8 mt-8 bg-white rounded-lg shadow space-y-6 sm:px-10 sm:mx-auto sm:w-full sm:max-w-xl grid grid-cols-12 gap-x-6 gap-y-4"
       ...attributes
+      as |F|
     >
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkInputPrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.last_name"}}
         @validationField="lastName"
         data-test-input="lastName"
       />
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkInputPrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.first_name"}}
         @validationField="firstName"
         data-test-input="firstName"
       />
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkInputPrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.email"}}
         @validationField="email"
         data-test-input="email"
       />
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkMobilePrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.phone"}}
         @validationField="phone"
-        @mask="+30 000000000"
-        @maskOptions={{hash lazy=false}}
         data-test-input="phone"
       />
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkPasswordPrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.password"}}
         @validationField="password"
         data-test-input="password"
       />
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkPasswordPrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.confirm_password"}}
         @validationField="confirmPassword"
         data-test-input="confirmPassword"
       />
-      <InputsValidationComponent
-        @changeset={{@changeset}}
+      <F.TpkCurrencyPrefab
         class="input_block col-span-6"
         @label={{t "components.forms.register.gift"}}
         @validationField="gift"
-        @mask="Number €"
-        @maskOptions={{this.maskForEuro}}
-        @unmaskValue={{true}}
         data-test-input="gift"
       />
       <button data-test-submit type="submit" class="btn col-span-12">
@@ -104,5 +74,6 @@ export default class RegisterForm extends Component<FormsRegisterSignature> {
         </span>
       </button>
     </TpkForm>
-  </template>
-}
+  </template>;
+
+export default FormsRegisterSignature;

@@ -1,5 +1,5 @@
 import type Result from "true-myth/result";
-import { err, ok, type Err } from "true-myth/result";
+import { err, ok } from "true-myth/result";
 import type { Constructor, IterableElement } from "type-fest";
 
 export function unwrap<T>(value:  Result<T,any>): T {

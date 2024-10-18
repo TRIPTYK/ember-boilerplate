@@ -1,4 +1,4 @@
-import RequestManager, { type Handler,type NextFn,type RequestContext,type RequestInfo } from "@ember-data/request";
+import RequestManager from "@ember-data/request";
 import { setOwner } from "@ember/owner";
 import { getOwner } from "@ember/owner";
 import AuthHandler from "./auth-handler";

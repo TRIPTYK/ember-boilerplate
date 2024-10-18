@@ -14,9 +14,9 @@ const config = [
         project: './tsconfig.json',
       },
     },
-  },
-  {
-
+    rules: {
+      'no-undef': 'off'
+    }
   },
   {
     files: [

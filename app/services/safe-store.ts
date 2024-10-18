@@ -1,4 +1,4 @@
-import type { Future, StructuredDataDocument } from "@ember-data/request";
+import type { StructuredDataDocument } from "@ember-data/request";
 import type { StoreRequestInput } from "@ember-data/store";
 import type Store from "@ember-data/store";
 import {service} from "@ember/service";

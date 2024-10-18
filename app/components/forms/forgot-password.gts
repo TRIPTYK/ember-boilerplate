@@ -1,6 +1,4 @@
 import { LinkTo } from '@ember/routing';
-
-import InputsValidationComponent from 'ember-boilerplate/components/inputs/input-validation';
 import t from 'ember-intl/helpers/t';
 import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
 
@@ -28,9 +26,9 @@ const FormsForgotPassword: TOC<FormsForgotPasswordSignature> = <template>
     @changeset={{@changeset}}
     @validationSchema={{@validationSchema}}
     ...attributes
+    as |F|
   >
-    <InputsValidationComponent
-      @changeset={{@changeset}}
+    <F.TpkInputPrefab
       class="input_block"
       @label={{t "components.forms.forgot-password.email"}}
       @validationField="email"

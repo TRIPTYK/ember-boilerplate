@@ -17,10 +17,5 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberInputValidationRegistry,
       EmberTruthHelpersRegistry,
       EmberIntlRegistry {
-        // Used for tests only
-        FormsRegister: typeof RegisterForm;
-        'Forms::Register': typeof RegisterForm;
-        FormsLogin: typeof FormsLogin;
-        'Forms::Login': typeof FormsLogin;
-      }
+    }
 }

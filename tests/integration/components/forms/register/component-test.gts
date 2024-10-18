@@ -6,7 +6,6 @@ import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register
 import validationsRegister from 'ember-boilerplate/validations/register';
 import { setupIntl } from 'ember-intl/test-support';
 import RegisterForm from 'ember-boilerplate/components/forms/register';
-import type { Schema } from 'yup';
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
@@ -27,7 +26,7 @@ module('Integration | Component | forms/register', function (hooks) {
   function renderForm(
     changeset: RegisterChangeset,
     saveFunction: (changeset: RegisterChangeset) => void,
-    validationSchema: Schema
+    validationSchema: typeof validationsRegister
   ) {
     return render(
       <template>
@@ -53,7 +52,7 @@ module('Integration | Component | forms/register', function (hooks) {
       assert.strictEqual(changeset.get('firstName'), 'papa');
       assert.strictEqual(changeset.get('email'), 'test@triptyk.eu');
       assert.strictEqual(changeset.get('phone'), '+32 498542257');
-      assert.strictEqual(+changeset.get('gift'), 234.23);
+      assert.strictEqual(changeset.get('gift'), 234.23);
       assert.strictEqual(changeset.get('password'), 'hello');
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
       assert.step('saveFunction');
@@ -70,11 +69,13 @@ module('Integration | Component | forms/register', function (hooks) {
     await renderForm(createChangeset(), () => {}, validationsRegister);
 
     await pagesFormsRegister.password('hello').confirmPassword('hellos');
-
     await pagesFormsRegister.submit();
 
+    console.log(pagesFormsRegister.errors[0]?.text);
+
+
     assert.true(
-      pagesFormsRegister.errors[0]?.text?.includes('validations.confirm_password.not_matching')
+      pagesFormsRegister.errors[0]?.text?.includes('Confirmer mot de passe * Les mots de passe ne correspondent pas')
     );
   });
 });
