@@ -4,6 +4,8 @@ export interface RegisterDTO {
   id?: string;
   firstName: string;
   lastName: string;
+  category: string;
+  birthDate?: Date;
   phone: string;
   email: string;
   gift: number;

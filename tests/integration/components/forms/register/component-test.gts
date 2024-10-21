@@ -6,6 +6,7 @@ import { pagesFormsRegister } from 'ember-boilerplate/tests/pages/forms/register
 import validationsRegister from 'ember-boilerplate/validations/register';
 import { setupIntl } from 'ember-intl/test-support';
 import RegisterForm from 'ember-boilerplate/components/forms/register';
+import { array } from '@ember/helper';
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,6 +16,8 @@ module('Integration | Component | forms/register', function (hooks) {
     return new RegisterChangeset({
       email: 'test@triptyk.eu',
       lastName: 'triptyk',
+      category: '1',
+      birthDate: new Date(),
       firstName: 'papa',
       phone: '+32 498542257',
       gift: 1000,
@@ -31,6 +34,7 @@ module('Integration | Component | forms/register', function (hooks) {
     return render(
       <template>
         <RegisterForm
+          @categories={{array '1' '2' '3'}}
           @changeset={{changeset}}
           @saveFunction={{saveFunction}}
           @validationSchema={{validationSchema}}

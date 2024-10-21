@@ -13,6 +13,7 @@ import RouteTemplate from 'ember-route-template';
 import type RegisterChangesetService from 'ember-boilerplate/services/changesets/register';
 import type ErrorHandlerService from 'ember-boilerplate/services/error-handler';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
+import { array } from '@ember/helper';
 
 export interface RegisterRouteComponentSignature {
   Args: {};
@@ -34,6 +35,8 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
       lastName: '',
       phone: '',
       gift: 0,
+      birthDate: undefined,
+      category: '',
       password: '',
       confirmPassword: '',
     });
@@ -55,6 +58,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
   <template>
     <LoginLayout @title={{t "components.templates.register.title"}}>
       <RegisterForm
+        @categories={{array 'bonjour' 'au revoir' 'caca'}}
         @changeset={{this.changeset}}
         @validationSchema={{this.validationSchema}}
         @saveFunction={{this.saveRegister}}

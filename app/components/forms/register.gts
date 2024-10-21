@@ -1,12 +1,14 @@
 import t from 'ember-intl/helpers/t';
-import type { TOC } from '@ember/component/template-only';
 import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
 import type validationsRegister from 'ember-boilerplate/validations/register';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export interface FormsRegisterSignature {
   Args: {
     changeset: RegisterChangeset;
+    categories: string[];
     saveFunction: (changeset: RegisterChangeset) => void;
     validationSchema: typeof validationsRegister;
   };
@@ -16,7 +18,18 @@ export interface FormsRegisterSignature {
   Element: HTMLFormElement;
 }
 
-const FormsRegisterSignature: TOC<FormsRegisterSignature> = <template>
+export default class FormsRegister extends Component<FormsRegisterSignature> {
+  @action
+  setBirthdate(date: unknown) {
+    this.args.changeset.set('birthDate', date as Date);
+  }
+
+  @action
+  selectCategory(category: unknown) {
+    this.args.changeset.set('category', category as string);
+  }
+
+  <template>
     <TpkForm
       @changeset={{@changeset}}
       @onSubmit={{@saveFunction}}
@@ -56,6 +69,17 @@ const FormsRegisterSignature: TOC<FormsRegisterSignature> = <template>
         @validationField="password"
         data-test-input="password"
       />
+      <F.TpkDatepicker class="col-span-12" @validationField="birthDate" @label={{t "components.forms.register.birth_date"}} @onChange={{this.setBirthdate}} as |D|>
+        <D.Label />
+        <D.Input />
+      </F.TpkDatepicker>
+      <F.TpkSelectPrefab
+        @validationField="category"
+        @options={{@categories}}
+        @label={{t "components.forms.register.category"}}
+        @onChange={{this.selectCategory}}
+        class="col-span-12"
+      />
       <F.TpkPasswordPrefab
         class="input_block col-span-12"
         @label={{t "components.forms.register.confirm_password"}}
@@ -75,5 +99,4 @@ const FormsRegisterSignature: TOC<FormsRegisterSignature> = <template>
       </button>
     </TpkForm>
   </template>;
-
-export default FormsRegisterSignature;
+}

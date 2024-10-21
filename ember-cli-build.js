@@ -69,11 +69,6 @@ module.exports = async function (defaults) {
         package: 'qunit',
       },
     ],
-    amdCompatibility: {
-      es: [
-        ["fetch", ["default", "setupFastboot"]]
-      ],
-    },
     staticAddonTrees: true,
     staticAddonTestSupportTrees: true,
     staticHelpers: true,
@@ -81,6 +76,6 @@ module.exports = async function (defaults) {
     staticComponents: true,
     splitControllers: true,
     splitRouteClasses: true,
-    staticEmberSource: true,
+    staticEmberSource: true
   });
 };
