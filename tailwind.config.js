@@ -8,7 +8,10 @@ module.exports = {
     `./tests/**/*.{${extensions.join(',')}}`
   ],
   corePlugins: {},
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ['light'],
+  },
   theme: {
     extends: {
       screens: {

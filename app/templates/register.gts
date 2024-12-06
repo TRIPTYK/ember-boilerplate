@@ -35,8 +35,13 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
       lastName: '',
       phone: '',
       gift: 0,
-      birthDate: undefined,
+      birthDate: null,
       category: '',
+      cv: '',
+      isFree: false,
+      time: null,
+      status: null,
+      period: null,
       password: '',
       confirmPassword: '',
     });
@@ -58,7 +63,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
   <template>
     <LoginLayout @title={{t "components.templates.register.title"}}>
       <RegisterForm
-        @categories={{array 'bonjour' 'au revoir' 'caca'}}
+        @categories={{array "Plaisir" "Sérieux"}}
         @changeset={{this.changeset}}
         @validationSchema={{this.validationSchema}}
         @saveFunction={{this.saveRegister}}
