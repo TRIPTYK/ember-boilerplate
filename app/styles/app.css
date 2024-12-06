@@ -3,9 +3,6 @@
 @import url("tailwindcss/utilities");
 @import url("flash-messages.css");
 @import url("loading.css");
-/* @import url("input.css"); */
-/* @import url("table.css");
-@import url("button.css"); */
 @import url("@eonasdan/tempus-dominus/dist/css/tempus-dominus.css");
 @import url("ember-power-select/vendor/ember-power-select.css");
 @import url("@triptyk/ember-input-validation/dist/app.css");
