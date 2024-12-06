@@ -82,6 +82,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
           class="col-span-4"
           @validationField="birthDate"
           @label={{t "components.forms.register.birth_date"}}
+          data-test-input="birthDate"
         />
         <F.TpkMobilePrefab
           class="col-span-6"
@@ -92,6 +93,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
         <F.TpkRadioGroupPrefab
           @groupLabel={{t "components.forms.register.status.title"}}
           @validationField="status"
+          data-test-input="status"
           class="col-span-6 flex gap-x-4 !flex-row flex-wrap"
           as |Radio|
         >
@@ -99,16 +101,19 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
             @value="jobseeker"
             @label={{t "components.forms.register.status.jobseeker"}}
             class="[&_label]:gap-x-3"
+            data-test-radio="jobseeker"
           />
           <Radio
             @value="employee"
             @label={{t "components.forms.register.status.employee"}}
             class="[&_label]:gap-x-3"
+            data-test-radio="employee"
           />
           <Radio
             @value="student"
             @label={{t "components.forms.register.status.student"}}
             class="[&_label]:gap-x-3"
+            data-test-radio="student"
           />
         </F.TpkRadioGroupPrefab>
       </fieldset>
@@ -147,6 +152,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
           @label={{t "components.forms.register.category"}}
           @onChange={{this.selectCategory}}
           class="col-span-3"
+          data-test-input="category"
         />
         <F.TpkCurrencyPrefab
           class="col-span-3"

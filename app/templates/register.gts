@@ -37,7 +37,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
       gift: 0,
       birthDate: null,
       category: '',
-      cv: '',
+      cv: null,
       isFree: false,
       time: null,
       status: null,

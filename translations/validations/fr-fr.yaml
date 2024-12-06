@@ -15,8 +15,12 @@ birth_date:
   required: "La date de naissance est requise"
 category:
   required: "La catégorie est requise"
+period:
+  required: "La période est requise"
+time:
+  required: "L'heure est requise"
 gift:
-  required: "Le don est requis de plus de 0€"
+  required: "Le don est requis"
 cv:
   required: "Le CV est requis"
 confirm_password:

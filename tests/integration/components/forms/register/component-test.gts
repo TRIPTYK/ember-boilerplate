@@ -7,6 +7,9 @@ import validationsRegister from 'ember-boilerplate/validations/register';
 import { setupIntl } from 'ember-intl/test-support';
 import RegisterForm from 'ember-boilerplate/components/forms/register';
 import { array } from '@ember/helper';
+import { triggerEvent } from '@ember/test-helpers';
+import { setTempusDominusDate } from '@triptyk/ember-input/test-support/datepicker-helpers';
+import { selectChoose } from 'ember-power-select/test-support';
 
 module('Integration | Component | forms/register', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,13 +19,18 @@ module('Integration | Component | forms/register', function (hooks) {
     return new RegisterChangeset({
       email: 'test@triptyk.eu',
       lastName: 'triptyk',
-      category: '1',
-      birthDate: new Date(),
+      category: null,
+      birthDate: null,
       firstName: 'papa',
       phone: '+32 498542257',
       gift: 1000,
       password: '',
       confirmPassword: '',
+      isFree: true,
+      period: null,
+      time: null,
+      status: null,
+      cv: null,
     });
   }
 
@@ -34,7 +42,7 @@ module('Integration | Component | forms/register', function (hooks) {
     return render(
       <template>
         <RegisterForm
-          @categories={{array '1' '2' '3'}}
+          @categories={{array "1" "2" "3"}}
           @changeset={{changeset}}
           @saveFunction={{saveFunction}}
           @validationSchema={{validationSchema}}
@@ -51,6 +59,8 @@ module('Integration | Component | forms/register', function (hooks) {
 
   // note : saveFunction when form is valid is already tested by the component YupForm. No need to test this behavior in the future.
   test('Edit form and trigger saveFunction', async function (assert) {
+    const date1 = new Date(2022, 0, 1, 22, 30, 0);
+    const date2 = new Date(2023, 0, 1, 22, 30, 0);
     let saveFunction = (changeset: RegisterChangeset) => {
       assert.strictEqual(changeset.get('lastName'), 'triptyk');
       assert.strictEqual(changeset.get('firstName'), 'papa');
@@ -59,12 +69,34 @@ module('Integration | Component | forms/register', function (hooks) {
       assert.strictEqual(changeset.get('gift'), 234.23);
       assert.strictEqual(changeset.get('password'), 'hello');
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
+      assert.true(changeset.get('isFree'));
+      assert.deepEqual(changeset.get('period'), [date1, date2]);
+      // assert.strictEqual(changeset.get('time'), date1);
+      assert.strictEqual(changeset.get('status'), 'jobseeker');
+      assert.strictEqual(changeset.get('cv')?.name, 'file.txt');
+      assert.strictEqual(changeset.get('category'), '3');
+      // console.log(changeset.get('birthDate'), date1);
+      // assert.strictEqual(changeset.get('birthDate'), date1);
       assert.step('saveFunction');
     };
     await renderForm(createChangeset(), saveFunction, validationsRegister);
 
     await pagesFormsRegister.gift('234,23 €').password('hello').confirmPassword('hello');
+    setTempusDominusDate('[data-test-input="birthDate"] .tpk-datepicker-input', date1);
+    await pagesFormsRegister.isFree();
+    await pagesFormsRegister.isFree();
 
+    await pagesFormsRegister.status.jobseeker();
+    await selectChoose('[data-test-input="category"]', '.ember-power-select-option', 2);
+
+    setTempusDominusDate('[data-test-input="period"] .tpk-datepicker-range-input', date1, 0);
+    setTempusDominusDate('[data-test-input="period"] .tpk-datepicker-range-input', date2, 1);
+
+    setTempusDominusDate('[data-test-input="time"] .tpk-timepicker-input', date1);
+
+    await triggerEvent('[data-test-input="cv"] .tpk-file-input', 'change', {
+      files: [new File(['Ember Rules!'], 'file.txt')],
+    });
     await pagesFormsRegister.submit();
     assert.verifySteps(['saveFunction']);
   });
@@ -77,9 +109,10 @@ module('Integration | Component | forms/register', function (hooks) {
 
     console.log(pagesFormsRegister.errors[0]?.text);
 
-
     assert.true(
-      pagesFormsRegister.errors[0]?.text?.includes('Confirmer mot de passe * Les mots de passe ne correspondent pas')
+      pagesFormsRegister.errors[0]?.text?.includes(
+        'Confirmer mot de passe * Les mots de passe ne correspondent pas'
+      )
     );
   });
 });
