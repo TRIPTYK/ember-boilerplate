@@ -52,8 +52,6 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
     const user = await this.register.save(changeset);
 
     if (user.isErr) {
-      console.log(user.error.message);
-
       return this.errorHandler.handle(user.error.message);
     }
 

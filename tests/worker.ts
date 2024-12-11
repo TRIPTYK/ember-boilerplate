@@ -15,10 +15,6 @@ export function setupWorker() {
 }
 
 export function stopWorker() {
-  worker.listHandlers().forEach((handler) => {
-     
-    console.log(handler.info.header)
-  })
   worker.stop();
 }
 
