@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+
 import { service } from '@ember/service';
 
 import { ResetPasswordChangeset } from 'ember-boilerplate/changesets/reset-password';
@@ -13,14 +13,11 @@ import { tracked } from 'tracked-built-ins';
 import type RouterService from '@ember/routing/router-service';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import type RequestManager from '@ember-data/request';
+import type ResetPasswordRoute from 'ember-boilerplate/routes/reset-password';
+import type { RouteTemplateSignature } from 'ember-boilerplate/utils/route-template';
+import type ResetPasswordController from 'ember-boilerplate/controllers/reset-password';
 
-interface ResetPasswordRouteComponentSignature {
-  Args: {
-    token: string;
-  };
-}
-
-class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentSignature> {
+class ResetPasswordRouteComponent extends Component<RouteTemplateSignature<ResetPasswordRoute, ResetPasswordController>> {
   @service declare requestManager: RequestManager;
   @service declare router: RouterService;
   @service declare flashMessages: FlashMessageService;
@@ -28,7 +25,7 @@ class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentS
 
   validationSchema = passwordRecoveryValidation;
 
-  constructor(owner: unknown, args: ResetPasswordRouteComponentSignature['Args']) {
+  constructor(owner: unknown, args: RouteTemplateSignature<ResetPasswordRoute, ResetPasswordController>['Args']) {
     super(owner, args);
     this.changeset = new ResetPasswordChangeset({
       password: '',
@@ -36,11 +33,10 @@ class ResetPasswordRouteComponent extends Component<ResetPasswordRouteComponentS
     });
   }
 
-  @action
-  async recoverPassword(changeset: ResetPasswordChangeset) {
+  recoverPassword = async (changeset: ResetPasswordChangeset) => {
     try {
       await this.requestManager.request({
-        url: `auth/set-password/${this.args.token}`,
+        url: `auth/set-password/${this.args.model.token}`,
         body: JSON.stringify({
           password: changeset.get('password'),
         }),

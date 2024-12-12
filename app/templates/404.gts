@@ -1,15 +1,14 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
-
 import t from 'ember-intl/helpers/t';
 import RouteTemplate from 'ember-route-template';
+import type { RouteTemplateSignature } from 'ember-boilerplate/utils/route-template';
+import type NotFoundRoute from 'ember-boilerplate/routes/404';
 
 export interface NotFoundRouteComponentSignature {}
 
-class NotFoundRouteComponent extends Component<NotFoundRouteComponentSignature> {
-  @action
-  comeback() {
+class NotFoundRouteComponent extends Component<RouteTemplateSignature<NotFoundRoute>> {
+  comeback = () => {
     window.history.back();
   }
 
