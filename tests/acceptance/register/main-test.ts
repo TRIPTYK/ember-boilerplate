@@ -23,9 +23,15 @@ module('Acceptance | register', function (hooks) {
       .lastName('triptyk')
       .firstName('papa')
       .gift('1.000,45 €')
-      .password('hell')
-      .confirmPassword('hell')
-      .submit();
+      .password('hello')
+      .confirmPassword('hello')
+
+    await indexPage.forms.status.jobseeker();
+    await indexPage.forms.birthDate(new Date('1980-01-01'));
+    await indexPage.forms.categories.input();
+    await indexPage.forms.categories.options[0]?.click();
+    await indexPage.forms.uploadCV();
+    await indexPage.forms.submit();
   }
 
   test('visit register', async function (assert) {
@@ -37,15 +43,7 @@ module('Acceptance | register', function (hooks) {
   test<ServiceWorkerTestContext>('show sucess message when save form', async function (assert) {
     await registerWorker(this.worker);
     await indexPage.visit();
-    await indexPage.forms
-      .email('test@triptyk.eu')
-      .phone('+32 498542256')
-      .lastName('triptyk')
-      .firstName('papa')
-      .gift('1.000,45 €')
-      .password('hello')
-      .confirmPassword('hello')
-      .submit();
+    await completeFormAndSubmit();
 
     assert.ok(indexPage.hasSuccess);
   });
