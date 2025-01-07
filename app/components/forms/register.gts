@@ -3,7 +3,6 @@ import type { RegisterChangeset } from 'ember-boilerplate/changesets/register';
 import TpkForm from '@triptyk/ember-input-validation/components/tpk-form';
 import type validationsRegister from 'ember-boilerplate/validations/register';
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 
 export interface FormsRegisterSignature {
   Args: {
@@ -19,13 +18,11 @@ export interface FormsRegisterSignature {
 }
 
 export default class FormsRegister extends Component<FormsRegisterSignature> {
-  @action
-  setBirthdate(date: unknown) {
+  setBirthdate = (date: unknown) => {
     this.args.changeset.set('birthDate', date as Date);
   }
 
-  @action
-  selectCategory(category: unknown) {
+  selectCategory = (category: unknown) => {
     this.args.changeset.set('category', category as string);
   }
 
@@ -35,7 +32,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       @onSubmit={{@saveFunction}}
       @validationSchema={{@validationSchema}}
       data-test-form="register"
-      class="px-4 py-8 mt-8 bg-white rounded-lg shadow sm:px-10 sm:mx-auto sm:w-full sm:max-w-5xl grid grid-cols-12 gap-x-6"
+      class="px-4 py-8 mt-8 bg-white rounded-lg shadow-md shadow sm:px-10 sm:mx-auto sm:w-full sm:max-w-5xl grid grid-cols-12 gap-x-6"
       ...attributes
       as |F|
     >

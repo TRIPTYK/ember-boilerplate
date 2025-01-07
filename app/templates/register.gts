@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import { RegisterChangeset } from 'ember-boilerplate/changesets/register';
@@ -14,12 +13,10 @@ import type RegisterChangesetService from 'ember-boilerplate/services/changesets
 import type ErrorHandlerService from 'ember-boilerplate/services/error-handler';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { array } from '@ember/helper';
+import type { RouteTemplateSignature } from 'ember-boilerplate/utils/route-template';
+import type RegisterRoute from 'ember-boilerplate/routes/register';
 
-export interface RegisterRouteComponentSignature {
-  Args: {};
-}
-
-class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> {
+class RegisterRouteComponent extends Component<RouteTemplateSignature<RegisterRoute>> {
   @service declare flashMessages: FlashMessageService;
   @service('changesets/register') declare register: RegisterChangesetService;
   @service declare errorHandler: ErrorHandlerService;
@@ -27,7 +24,7 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
 
   validationSchema = formsRegisterSchema;
 
-  constructor(owner: unknown, args: RegisterRouteComponentSignature['Args']) {
+  constructor(owner: unknown, args: RouteTemplateSignature<RegisterRoute>['Args']) {
     super(owner, args);
     this.changeset = new RegisterChangeset({
       email: '',
@@ -47,17 +44,16 @@ class RegisterRouteComponent extends Component<RegisterRouteComponentSignature> 
     });
   }
 
-  @action
-  async saveRegister(changeset: RegisterChangeset) {
+  saveRegister = async (changeset: RegisterChangeset) => {
     const user = await this.register.save(changeset);
 
     if (user.isErr) {
-      console.log(user.error.message);
-
       return this.errorHandler.handle(user.error.message);
     }
 
-    return this.flashMessages.success('components.templates.register.success_message');
+    return this.flashMessages.success('components.templates.register.success_message', {
+      timeout: 5000000
+    });
   }
 
   <template>

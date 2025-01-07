@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+
 import { service } from '@ember/service';
 import { waitFor } from '@ember/test-waiters';
 
@@ -15,10 +15,10 @@ import type RouterService from '@ember/routing/router-service';
 import type CurrentUserService from 'ember-boilerplate/services/current-user';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import type SessionService from 'ember-simple-auth/services/session';
+import type { RouteTemplateSignature } from 'ember-boilerplate/utils/route-template';
+import type LoginRoute from 'ember-boilerplate/routes/login';
 
-interface PagesLoginArgs {}
-
-class PagesLogin extends Component<PagesLoginArgs> {
+class PagesLogin extends Component<RouteTemplateSignature<LoginRoute>> {
   @service declare flashMessages: FlashMessageService;
   @service declare currentUser: CurrentUserService;
   @service declare router: RouterService;
@@ -28,7 +28,7 @@ class PagesLogin extends Component<PagesLoginArgs> {
 
   @tracked changeset: LoginChangeset;
 
-  public constructor(owner: unknown, args: PagesLoginArgs) {
+  public constructor(owner: unknown, args: RouteTemplateSignature<LoginRoute>['Args']) {
     super(owner, args);
     this.changeset = new LoginChangeset({
       email: '',
@@ -36,9 +36,7 @@ class PagesLogin extends Component<PagesLoginArgs> {
     });
   }
 
-  @action
-  @waitFor
-  async login(changeset: LoginChangeset) {
+  login = waitFor(async (changeset: LoginChangeset) => {
     try {
       await this.session.authenticate('authenticator:jwt', {
         email: changeset.get('email'),
@@ -49,7 +47,7 @@ class PagesLogin extends Component<PagesLoginArgs> {
     } catch (e) {
       this.flashMessages.danger('Username or password incorrect');
     }
-  }
+  });
 
   <template>
     <LoginLayout @title={{t "components.templates.login.title"}}>

@@ -12,10 +12,10 @@ export interface LoginLayoutSignature {
 
 const LoginLayout: TOC<LoginLayoutSignature> = <template>
   <div
-    class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-primary-content h-screen"
+    class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 h-screen"
     ...attributes
   >
-    <h1 class="text-center text-white">
+    <h1 class="text-center">
       {{@title}}
     </h1>
     <div class="mx-auto w-full max-w-5xl">

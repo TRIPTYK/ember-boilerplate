@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+
 import { service } from '@ember/service';
 
 import { ForgotPasswordChangeset } from 'ember-boilerplate/changesets/forgot-password';
@@ -12,10 +12,10 @@ import { tracked } from 'tracked-built-ins';
 import type Router from '@ember/routing/router';
 import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import RequestManager from '@ember-data/request';
+import type ForgotPasswordRoute from 'ember-boilerplate/routes/forgot-password';
+import type { RouteTemplateSignature } from 'ember-boilerplate/utils/route-template';
 
-interface PagesForgotPasswordArgs {}
-
-class PagesForgotPassword extends Component<PagesForgotPasswordArgs> {
+class PagesForgotPassword extends Component<RouteTemplateSignature<ForgotPasswordRoute>> {
   @service declare router: Router;
   @service declare requestManager: RequestManager;
   @service declare flashMessages: FlashMessageService;
@@ -23,15 +23,14 @@ class PagesForgotPassword extends Component<PagesForgotPasswordArgs> {
 
   validationSchema = forgotPasswordSchema;
 
-  constructor(owner: unknown, args: PagesForgotPasswordArgs) {
+  constructor(owner: unknown, args: RouteTemplateSignature<ForgotPasswordRoute>['Args']) {
     super(owner, args);
     this.changeset = new ForgotPasswordChangeset({
       email: '',
     });
   }
 
-  @action
-  async sendRecoveryRequest(changeset: ForgotPasswordChangeset) {
+  sendRecoveryRequest = async (changeset: ForgotPasswordChangeset) => {
     try {
       await this.requestManager.request({
         url: '/auth/forgot-password',
