@@ -71,12 +71,11 @@ module('Integration | Component | forms/register', function (hooks) {
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
       assert.true(changeset.get('isFree'));
       assert.deepEqual(changeset.get('period'), [date1, date2]);
-      // assert.strictEqual(changeset.get('time'), date1);
+      assert.strictEqual(changeset.get('time'), date1);
       assert.strictEqual(changeset.get('status'), 'jobseeker');
       assert.strictEqual(changeset.get('cv')?.name, 'file.txt');
       assert.strictEqual(changeset.get('category'), '3');
-      // console.log(changeset.get('birthDate'), date1);
-      // assert.strictEqual(changeset.get('birthDate'), date1);
+      assert.strictEqual(changeset.get('birthDate'), date1);
       assert.step('saveFunction');
     };
     await renderForm(createChangeset(), saveFunction, validationsRegister);
