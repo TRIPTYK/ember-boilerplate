@@ -13,7 +13,6 @@ import type { ServiceWorkerTestContext } from '../../worker';
 import { setTempusDominusDate } from '@triptyk/ember-input/test-support/datepicker-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import { triggerEvent } from '@ember/test-helpers';
-import { pauseTest } from '@ember/test-helpers';
 
 module('Acceptance | register', function (hooks) {
   setupApplicationTest(hooks);
