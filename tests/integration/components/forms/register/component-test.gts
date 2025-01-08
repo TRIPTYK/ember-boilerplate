@@ -71,8 +71,6 @@ module('Integration | Component | forms/register', function (hooks) {
       assert.strictEqual(changeset.get('confirmPassword'), 'hello');
       assert.true(changeset.get('isFree'));
       assert.deepEqual(changeset.get('period'), [date1, date2]);
-      console.log(changeset.get('time'));
-      console.log(date1);
       assert.strictEqual(changeset.get('time')?.toISOString(), date1.toISOString());
       assert.strictEqual(changeset.get('status'), 'jobseeker');
       assert.strictEqual(changeset.get('cv')?.name, 'file.txt');
@@ -107,8 +105,6 @@ module('Integration | Component | forms/register', function (hooks) {
 
     await pagesFormsRegister.password('hello').confirmPassword('hellos');
     await pagesFormsRegister.submit();
-
-    console.log(pagesFormsRegister.errors[0]?.text);
 
     assert.true(
       pagesFormsRegister.errors[0]?.text?.includes(

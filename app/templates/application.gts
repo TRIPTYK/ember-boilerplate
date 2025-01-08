@@ -14,8 +14,6 @@ class ApplicationRouteComponent extends Component<RouteTemplateSignature<Applica
   @service declare flashMessages: FlashMessageService;
 
   flashTypes = (type: 'Success' | 'Warning' | 'Danger') => {
-    console.log(type);
-
     if (type === 'Warning') {
       return 'alert-warning';
     }
