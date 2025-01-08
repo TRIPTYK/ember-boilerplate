@@ -13,7 +13,7 @@ class NotFoundRouteComponent extends Component<RouteTemplateSignature<NotFoundRo
   };
 
   <template>
-    <div class="flex justify-center items-center h-screen w-full">
+    <div class="flex justify-center items-center h-screen w-full" data-test-page="404">
       <div class="pl-2">
         <h1 class="text-7xl font-semibold text-primary">
           {{t "global.oops"}}!
