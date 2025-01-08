@@ -20,11 +20,11 @@ export interface FormsRegisterSignature {
 export default class FormsRegister extends Component<FormsRegisterSignature> {
   setBirthdate = (date: unknown) => {
     this.args.changeset.set('birthDate', date as Date);
-  }
+  };
 
   selectCategory = (category: unknown) => {
     this.args.changeset.set('category', category as string);
-  }
+  };
 
   <template>
     <TpkForm
@@ -32,12 +32,12 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
       @onSubmit={{@saveFunction}}
       @validationSchema={{@validationSchema}}
       data-test-form="register"
-      class="px-4 py-8 mt-8 bg-white rounded-lg shadow-md shadow sm:px-10 sm:mx-auto sm:w-full sm:max-w-5xl grid grid-cols-12 gap-x-6"
+      class="px-4 py-8 mt-8 rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-5xl grid grid-cols-12 gap-x-6"
       ...attributes
       as |F|
     >
       <fieldset class="col-span-12 grid grid-cols-12 gap-x-6">
-        <h3 class="col-span-12 py-3 text-4xl border-b mb-2">
+        <h3 class="col-span-12 py-3 text-2xl border-b mb-2">
           {{t "components.forms.register.titles.account_informations"}}
         </h3>
         <F.TpkInputPrefab
@@ -60,7 +60,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
         />
       </fieldset>
       <fieldset class="col-span-12 grid grid-cols-12 gap-x-6">
-        <h3 class="col-span-12 py-3 text-4xl border-b mb-2">
+        <h3 class="col-span-12 py-3 text-2xl border-b mb-2">
           {{t "components.forms.register.titles.base_informations"}}
         </h3>
         <F.TpkInputPrefab
@@ -115,7 +115,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
         </F.TpkRadioGroupPrefab>
       </fieldset>
       <fieldset class="col-span-12 grid grid-cols-12 gap-x-6">
-        <h3 class="col-span-12 py-3 text-4xl border-b mb-2">
+        <h3 class="col-span-12 py-3 text-2xl border-b mb-2">
           {{t "components.forms.register.titles.free"}}
         </h3>
         <F.TpkCheckboxPrefab
@@ -140,7 +140,7 @@ export default class FormsRegister extends Component<FormsRegisterSignature> {
         {{/if}}
       </fieldset>
       <fieldset class="col-span-12 grid grid-cols-12 gap-x-6">
-        <h3 class="col-span-12 py-3 text-4xl border-b mb-2">
+        <h3 class="col-span-12 py-3 text-2xl border-b mb-2">
           {{t "components.forms.register.titles.extra"}}
         </h3>
         <F.TpkSelectPrefab

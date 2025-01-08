@@ -34,7 +34,6 @@ module('Acceptance | register', function (hooks) {
 
       setTempusDominusDate('[data-test-input="birthDate"] .tpk-datepicker-input', date1);
       await indexPage.forms.isFree();
-      await indexPage.forms.isFree();
 
       await indexPage.forms.status.jobseeker();
       await selectChoose('[data-test-input="category"]', '.ember-power-select-option', 1);

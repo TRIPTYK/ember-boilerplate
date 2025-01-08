@@ -15,9 +15,11 @@ import type FlashMessageService from 'ember-cli-flash/services/flash-messages';
 import { array } from '@ember/helper';
 import type { RouteTemplateSignature } from 'ember-boilerplate/utils/route-template';
 import type RegisterRoute from 'ember-boilerplate/routes/register';
+import type { IntlService } from 'ember-intl';
 
 class RegisterRouteComponent extends Component<RouteTemplateSignature<RegisterRoute>> {
   @service declare flashMessages: FlashMessageService;
+  @service declare intl: IntlService;
   @service('changesets/register') declare register: RegisterChangesetService;
   @service declare errorHandler: ErrorHandlerService;
   @tracked declare changeset: RegisterChangeset;
@@ -51,10 +53,13 @@ class RegisterRouteComponent extends Component<RouteTemplateSignature<RegisterRo
       return this.errorHandler.handle(user.error.message);
     }
 
-    return this.flashMessages.success('components.templates.register.success_message', {
-      timeout: 5000000
-    });
-  }
+    return this.flashMessages.success(
+      this.intl.t('components.templates.register.success_message'),
+      {
+        timeout: 5000000,
+      }
+    );
+  };
 
   <template>
     <LoginLayout @title={{t "components.templates.register.title"}}>

@@ -10,7 +10,7 @@ module.exports = {
   corePlugins: {},
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light'],
+    themes: ['autumn'],
   },
   theme: {
     extends: {

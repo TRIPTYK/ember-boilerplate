@@ -25,26 +25,28 @@ class ApplicationRouteComponent extends Component<RouteTemplateSignature<Applica
     }
 
     return 'alert-success';
-  }
+  };
 
   <template>
     <HeadLayout />
     <div class="fixed z-10 top-4 right-4">
       {{#each this.flashMessages.arrangedQueue as |flash|}}
-        <FlashMessage class="mb-2" @flash={{flash}} as |_ flash|>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="h-6 w-6 shrink-0 stroke-current">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            {{!-- @glint-expect-error --}}
-            <span>{{flash.message}}</span>
+        <FlashMessage class="mb-2 alert" @flash={{flash}} as |_ flash|>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="h-6 w-6 shrink-0 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          {{! @glint-expect-error }}
+          <span>{{flash.message}}</span>
         </FlashMessage>
       {{/each}}
     </div>

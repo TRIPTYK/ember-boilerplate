@@ -21,3 +21,7 @@ h3 {
 h4 {
   @apply text-lg mb-4 font-bold pb-4 border-b;
 }
+
+.alert-danger {
+  @apply alert-error;
+}
