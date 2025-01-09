@@ -9,7 +9,7 @@ import type { IntlService } from 'ember-intl';
 import type SessionService from 'ember-simple-auth/services/session';
 import { setupWorker } from 'msw/browser';
 
-export default class Application extends Route {
+export default class ApplicationRoute extends Route {
   @service declare session: SessionService;
   @service declare currentUser: CurrentUserService;
   @service declare intl: IntlService;

@@ -9,6 +9,20 @@ phone:
   required: "Le téléphone est requis"
 password:
   required: "Le mot de passe est requis"
+status:
+  required: "Le statut est requis"
+birth_date:
+  required: "La date de naissance est requise"
+category:
+  required: "La catégorie est requise"
+period:
+  required: "La période est requise"
+time:
+  required: "L'heure est requise"
+gift:
+  required: "Le don est requis"
+cv:
+  required: "Le CV est requis"
 confirm_password:
   required: "La confirmation est requise"
   not_matching: "Les mots de passe ne correspondent pas"

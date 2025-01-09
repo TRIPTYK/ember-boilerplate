@@ -1,21 +1,10 @@
 @import url("tailwindcss/base");
 @import url("tailwindcss/components");
 @import url("tailwindcss/utilities");
-@import url("flash-messages.css");
 @import url("loading.css");
-@import url("input.css");
-@import url("table.css");
-@import url("button.css");
 @import url("@eonasdan/tempus-dominus/dist/css/tempus-dominus.css");
 @import url("ember-power-select/vendor/ember-power-select.css");
-
-/*** GENERAL  ****/
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  @apply outline-none ring-2 ring-primary rounded;
-}
+@import url("@triptyk/ember-input-validation/dist/app.css");
 
 h1 {
   @apply text-3xl font-medium;
@@ -26,9 +15,13 @@ h2 {
 }
 
 h3 {
-  @apply text-text text-base;
+  @apply text-base;
 }
 
 h4 {
-  @apply text-text text-lg mb-4 font-bold pb-4 border-b border-text/30;
+  @apply text-lg mb-4 font-bold pb-4 border-b;
+}
+
+.alert-danger {
+  @apply alert-error;
 }

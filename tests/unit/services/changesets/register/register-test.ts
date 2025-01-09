@@ -40,8 +40,6 @@ module('Unit | Service | changesets/register', function (hooks) {
 
     const user = unwrap(await saveChangeset());
 
-    console.log(user);
-
 
     assert.strictEqual(user.email, 'test@triptyk.eu');
     assert.strictEqual(user.firstName, 'papa');
